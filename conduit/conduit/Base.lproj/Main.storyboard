@@ -304,7 +304,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Z91-TC-IGc" kind="modal" identifier="ToNewMessage" id="N6G-ku-Qmu"/>
+                                    <segue destination="Z91-TC-IGc" kind="modal" identifier="" id="N6G-ku-Qmu"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sqZ-CP-nQ7">
@@ -326,7 +326,7 @@
         <!--New Message-->
         <scene sceneID="Gtu-DX-KU1">
             <objects>
-                <viewController id="Z91-TC-IGc" sceneMemberID="viewController">
+                <viewController id="Z91-TC-IGc" customClass="NewMessageViewController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V78-hs-bWh"/>
                         <viewControllerLayoutGuide type="bottom" id="VLf-2I-RBD"/>
