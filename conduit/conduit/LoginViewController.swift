@@ -10,7 +10,15 @@ import Foundation
 import UIKit
 
 class LoginViewController : UIViewController {
-    @IBAction func cancel(sender: AnyObject) {
-        navigationController?.popViewControllerAnimated(true)
-    }
+  
+  @IBAction func cancel(sender: AnyObject) {
+      navigationController?.popViewControllerAnimated(true)
+  }
+  
+  @IBAction func loginPressed(sender: AnyObject) {
+    // Do login
+    NSUserDefaults.setBool([value:true, forKey:"loggedIn"])
+    navigationController?.popViewControllerAnimated(true)
+  }
+  
 }

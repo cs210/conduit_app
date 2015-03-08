@@ -13,6 +13,8 @@ class HomepageController:UIViewController {
   @IBOutlet weak var menuButton: UIBarButtonItem!
   
   override func viewDidLoad() {
+    
+    var loggedIn = NSUserDefaults.boolForKey("loggedIn")
 //    
 //    var rvc = self.revealViewController
 //    if (rvc != nil) {

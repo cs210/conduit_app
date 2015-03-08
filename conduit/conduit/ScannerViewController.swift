@@ -51,7 +51,7 @@ class ScannerViewController : UIViewController,
                     }
                     
                 })
-                performSegueWithIdentifier("ToNewMessage", sender: self)
+                performSegueWithIdentifier("toNewMessage", sender: self)
             }
         }
         
@@ -108,7 +108,7 @@ class ScannerViewController : UIViewController,
         // TODO: Error here: Warning: Attempt to present <UIViewController: 
         // 0x7feb197dcc30> on <conduit.ScannerViewController: 0x7feb197530b0> 
         // whose view is not in the window hierarchy!
-        performSegueWithIdentifier("ToNewMessage", sender: self)
+        performSegueWithIdentifier("toNewMessage", sender: self)
     }
 }
 
