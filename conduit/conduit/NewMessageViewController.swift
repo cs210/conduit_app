@@ -10,7 +10,16 @@ import Foundation
 import UIKit
 
 class NewMessageViewController : UIViewController {
+    var presetMessages = [
+        "Could you please unlock your charging port? Thank you!",
+        "When will you be back to your car?",
+        "Move your car now or else."
+    ]
     
+    @IBOutlet weak var presetTable: UITableView!
     
+    override func viewDidLoad() {
+
+    }
     
 }
