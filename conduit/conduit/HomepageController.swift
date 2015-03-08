@@ -14,8 +14,7 @@ class HomepageController:UIViewController {
   
   override func viewDidLoad() {
     
-    var loggedIn = NSUserDefaults.boolForKey("loggedIn")
-//    
+//
 //    var rvc = self.revealViewController
 //    if (rvc != nil) {
 //      self.menuButton = UIBarButtonItem(title: "Menu",

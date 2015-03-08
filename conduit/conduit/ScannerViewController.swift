@@ -26,6 +26,12 @@ class ScannerViewController : UIViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var loggedIn = NSUserDefaults.standardUserDefaults().boolForKey("loggedIn")
+        if !loggedIn {
+            performSegueWithIdentifier("toLogin", sender: self)
+        }
+      
     }
     
     @IBAction func didPressScan(sender: AnyObject) {

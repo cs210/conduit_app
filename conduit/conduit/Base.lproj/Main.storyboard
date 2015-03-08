@@ -69,6 +69,22 @@
             </objects>
             <point key="canvasLocation" x="626" y="408"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Hca-fe-TKc">
+            <objects>
+                <navigationController id="HgJ-U3-ESl" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FsT-Fg-NB4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="AMY-Fj-ScN" kind="relationship" relationship="rootViewController" id="9xu-fh-BCv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XcU-Eh-jef" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1524" y="-4"/>
+        </scene>
         <!--Homepage Controller-->
         <scene sceneID="b1K-jK-HJx">
             <objects>
@@ -115,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1n-1t-gxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1629" y="132"/>
+            <point key="canvasLocation" x="1953" y="-4"/>
         </scene>
         <!--Create Account-->
         <scene sceneID="8jZ-a0-Acm">
@@ -217,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oxg-0C-cqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2100" y="408"/>
+            <point key="canvasLocation" x="2390" y="-309"/>
         </scene>
         <!--Login-->
         <scene sceneID="rtB-yg-mNd">
@@ -275,7 +291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1SL-GJ-uVp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2100" y="-257"/>
+            <point key="canvasLocation" x="2390" y="310"/>
         </scene>
         <!--Scanner View Controller-->
         <scene sceneID="Ild-J1-Bob">
@@ -317,12 +333,12 @@
                     <navigationItem key="navigationItem" id="cec-bi-BU2"/>
                     <connections>
                         <outlet property="cameraView" destination="sqZ-CP-nQ7" id="Fsb-HJ-ua8"/>
-                        <segue destination="AMY-Fj-ScN" kind="modal" identifier="toLogin" id="GRx-Xc-XIw"/>
+                        <segue destination="HgJ-U3-ESl" kind="modal" identifier="toLogin" id="3Er-8E-rZo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3QY-dQ-3P0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1121" y="409"/>
+            <point key="canvasLocation" x="1057" y="408"/>
         </scene>
         <!--New Message-->
         <scene sceneID="Gtu-DX-KU1">
@@ -392,7 +408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fCp-iu-GQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1629" y="1117"/>
+            <point key="canvasLocation" x="1524" y="1041"/>
         </scene>
         <!--Menu Table View Controller-->
         <scene sceneID="tWh-7E-McM">

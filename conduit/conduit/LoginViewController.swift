@@ -17,8 +17,8 @@ class LoginViewController : UIViewController {
   
   @IBAction func loginPressed(sender: AnyObject) {
     // Do login
-    NSUserDefaults.setBool([value:true, forKey:"loggedIn"])
-    navigationController?.popViewControllerAnimated(true)
+    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "loggedIn")
+    self.dismissViewControllerAnimated(true, completion: {})
   }
   
 }
