@@ -7,3 +7,10 @@
 //
 
 import Foundation
+import UIKit
+
+class LoginViewController : UIViewController {
+    @IBAction func cancel(sender: AnyObject) {
+        navigationController?.popViewControllerAnimated(true)
+    }
+}
