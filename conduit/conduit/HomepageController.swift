@@ -10,5 +10,19 @@ import Foundation
 import UIKit
 
 class HomepageController:UIViewController {
-    
+  @IBOutlet weak var menuButton: UIBarButtonItem!
+  
+  override func viewDidLoad() {
+//    
+//    var rvc = self.revealViewController
+//    if (rvc != nil) {
+//      self.menuButton = UIBarButtonItem(title: "Menu",
+//        style: .Plain,
+//        target: rvc,
+//        action: "revealToggle:")
+//    }
+
+  }
 }
+
+

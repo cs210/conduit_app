@@ -100,8 +100,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="JeC-LZ-yzQ">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="onb-E7-OAR"/>
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="onb-E7-OAR">
+                            <connections>
+                                <action selector="menuButtonPressed:" destination="AMY-Fj-ScN" id="LAf-QH-Td9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="onb-E7-OAR" id="G3H-cp-XHb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1n-1t-gxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
