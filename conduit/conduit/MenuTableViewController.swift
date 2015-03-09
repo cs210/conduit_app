@@ -10,7 +10,29 @@ import UIKit
 
 class MenuTableViewController: UITableViewController {
 
+    var menuOptions = ["Scanner", "Conversations", "Settings"]
     
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("MenuItem",
+            forIndexPath : indexPath) as UITableViewCell
+        
+        cell.textLabel?.text = menuOptions[indexPath.row]
+        return cell
+    }
     
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return menuOptions.count
+    }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // TODO: This is where we go to a new view.
+        
+        if menuOptions[indexPath.row] == "Scanner" {
+            // TODO: go to scanner
+        } else if menuOptions[indexPath.row] == "Conversations" {
+            // TODO: go to conversations view
+        } else if menuOptions[indexPath.row] == "Settings" {
+            // TODO: go to settings view
+        }
+    }
 }
