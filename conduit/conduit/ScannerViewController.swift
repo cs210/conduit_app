@@ -24,6 +24,9 @@ class ScannerViewController : UIViewController,
     var previewLayer: AVCaptureVideoPreviewLayer?
     var usingCamera = true
     
+    
+    @IBOutlet weak var menuButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +34,9 @@ class ScannerViewController : UIViewController,
         if !loggedIn {
             performSegueWithIdentifier("toLogin", sender: self)
         }
+        
+        menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
+
       
     }
     
