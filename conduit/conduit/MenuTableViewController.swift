@@ -28,7 +28,7 @@ class MenuTableViewController: UITableViewController {
         // TODO: This is where we go to a new view.
         
         if menuOptions[indexPath.row] == "Scanner" {
-            // TODO: go to scanner
+            performSegueWithIdentifier("scanner_segue", sender: self)
         } else if menuOptions[indexPath.row] == "Conversations" {
             // TODO: go to conversations view
         } else if menuOptions[indexPath.row] == "Settings" {

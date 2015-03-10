@@ -45,6 +45,7 @@ class ScannerViewController : UIViewController,
         
         // TODO: CAMERA CODE IS UNTESTED
         if usingCamera {
+            println("using camera")
             if let videoConnection = stillImageOutput!.connectionWithMediaType(AVMediaTypeVideo) {
                 // Get a still image
                 stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: {(sampleBuffer, error) in
@@ -63,6 +64,7 @@ class ScannerViewController : UIViewController,
                     }
                     
                 })
+                dismissViewControllerAnimated(true, completion: {})
                 performSegueWithIdentifier("toNewMessage", sender: self)
             }
         }
@@ -70,10 +72,12 @@ class ScannerViewController : UIViewController,
         
         // Otherwise, let's just go to the photo library:
         else {
+            println("photo lib")
             let imagePicker = UIImagePickerController()
             imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
             imagePicker.delegate = self
             presentViewController(imagePicker, animated: true, completion: nil)
+            
         }
     }
     
@@ -117,9 +121,7 @@ class ScannerViewController : UIViewController,
         let photo = info[UIImagePickerControllerOriginalImage] as UIImage
         // TODO: Send photo to backend somewhere in here
         
-        // TODO: Error here: Warning: Attempt to present <UIViewController: 
-        // 0x7feb197dcc30> on <conduit.ScannerViewController: 0x7feb197530b0> 
-        // whose view is not in the window hierarchy!
+        dismissViewControllerAnimated(true, completion: {})
         performSegueWithIdentifier("toNewMessage", sender: self)
     }
 }
