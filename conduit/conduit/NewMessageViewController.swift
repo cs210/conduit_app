@@ -18,6 +18,10 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var presetTable: UITableView!
     
+    @IBAction func dismissKeyboard(sender: AnyObject) {
+        view.endEditing(true)
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presetMessages.count
     }
