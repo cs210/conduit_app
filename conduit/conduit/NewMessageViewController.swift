@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class NewMessageViewController : UIViewController {
+class NewMessageViewController : UIViewController, UITableViewDataSource {
     var presetMessages = [
         "Could you please unlock your charging port? Thank you!",
         "When will you be back to your car?",
@@ -18,8 +18,14 @@ class NewMessageViewController : UIViewController {
     
     @IBOutlet weak var presetTable: UITableView!
     
-    override func viewDidLoad() {
-
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presetMessages.count
     }
     
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style : UITableViewCellStyle.Value2, reuseIdentifier : "PresetListItem")
+        
+        cell.textLabel?.text = presetMessages[indexPath.row]
+        return cell
+    }
 }
