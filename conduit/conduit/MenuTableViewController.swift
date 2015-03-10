@@ -30,7 +30,7 @@ class MenuTableViewController: UITableViewController {
         if menuOptions[indexPath.row] == "Scanner" {
             performSegueWithIdentifier("scanner_segue", sender: self)
         } else if menuOptions[indexPath.row] == "Conversations" {
-            // TODO: go to conversations view
+            performSegueWithIdentifier("conversations_segue", sender: self)
         } else if menuOptions[indexPath.row] == "Settings" {
             // TODO: go to settings view
         }

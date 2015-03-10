@@ -293,7 +293,7 @@
             </objects>
             <point key="canvasLocation" x="2390" y="310"/>
         </scene>
-        <!--Scanner View Controller-->
+        <!--Scanner-->
         <scene sceneID="Ild-J1-Bob">
             <objects>
                 <viewController id="j9T-Rb-Wnj" customClass="ScannerViewController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
@@ -330,7 +330,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cec-bi-BU2">
+                    <navigationItem key="navigationItem" title="Scanner" id="cec-bi-BU2">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="3MI-aK-cSp">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Od9-AH-wTn">
                                 <rect key="frame" x="-23" y="-15" width="71" height="30"/>
@@ -421,6 +421,38 @@
             </objects>
             <point key="canvasLocation" x="1524" y="1041"/>
         </scene>
+        <!--Conversations-->
+        <scene sceneID="A1n-WG-xbJ">
+            <objects>
+                <viewController id="7PW-hh-D8n" customClass="ConversationsViewController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OFA-Or-rh4"/>
+                        <viewControllerLayoutGuide type="bottom" id="NeD-fh-LEp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jlj-JV-fmQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Conversations" id="2Ry-h2-krS">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="8kL-T3-wNA">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="k6j-aO-lcH">
+                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Menu">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="k6j-aO-lcH" id="QUR-ma-ohi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tIV-he-YFR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2605" y="1046"/>
+        </scene>
         <!--Menu Table View Controller-->
         <scene sceneID="tWh-7E-McM">
             <objects>
@@ -452,11 +484,30 @@
                     </tableView>
                     <connections>
                         <segue destination="g2N-zI-cJa" kind="custom" identifier="scanner_segue" customClass="SWRevealViewControllerSeguePushController" id="psz-Zh-Tf1"/>
+                        <segue destination="IzZ-QE-JGA" kind="custom" identifier="conversations_segue" customClass="SWRevealViewControllerSeguePushController" id="CMF-ri-zGS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ist-HN-p6f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="186" y="1527"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MWu-JP-T1f">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IzZ-QE-JGA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q1m-4y-2LH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7PW-hh-D8n" kind="relationship" relationship="rootViewController" id="ZnG-Tw-95d"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MOm-D0-Z77" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2072" y="1041"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

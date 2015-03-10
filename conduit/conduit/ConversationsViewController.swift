@@ -9,6 +9,17 @@
 import Foundation
 import UIKit
 
-class ConversationsViewController:UITableViewController {
+class ConversationsViewController : UIViewController {
+    
+    
+    @IBOutlet weak var menuButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
+        
+        
+    }
     
 }
