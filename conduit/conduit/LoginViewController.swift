@@ -15,6 +15,10 @@ class LoginViewController : UIViewController {
       navigationController?.popViewControllerAnimated(true)
   }
   
+  @IBAction func dismissKeyboard(sender: AnyObject) {
+    view.endEditing(true)
+  }
+  
   @IBAction func loginPressed(sender: AnyObject) {
     // Do login
     NSUserDefaults.standardUserDefaults().setBool(true, forKey: "loggedIn")
