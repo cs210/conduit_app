@@ -392,6 +392,9 @@
                                 <state key="normal" title="Send">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendMessage:" destination="Z91-TC-IGc" eventType="touchUpInside" id="wlu-6o-Cnj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="US0-Qh-Web">
                                 <rect key="frame" x="0.0" y="448" width="320" height="70"/>
@@ -401,7 +404,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Gvw-4W-V3v" kind="push" id="4as-zV-MEC"/>
+                                    <segue destination="Gvw-4W-V3v" kind="push" identifier="customMessageSegue" id="4as-zV-MEC"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="81" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BNe-n1-PuK">
@@ -444,6 +447,7 @@
                     <navigationItem key="navigationItem" title="New Message" id="gLT-44-Ggt"/>
                     <connections>
                         <outlet property="keyboardDismisser" destination="tqC-2l-KmV" id="lih-er-lhM"/>
+                        <outlet property="licenseTextField" destination="W8y-Ld-Wtd" id="QEW-oI-Jtm"/>
                         <outlet property="presetDeselecter" destination="AO3-Eh-52A" id="lZn-Yl-NbC"/>
                         <outlet property="presetTable" destination="BNe-n1-PuK" id="4N3-qu-pLN"/>
                     </connections>
@@ -465,7 +469,7 @@
         <!--Custom Message-->
         <scene sceneID="ehu-az-ja9">
             <objects>
-                <viewController id="Gvw-4W-V3v" customClass="CustomMessageController" sceneMemberID="viewController">
+                <viewController id="Gvw-4W-V3v" customClass="CustomMessageController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D5L-17-ncq"/>
                         <viewControllerLayoutGuide type="bottom" id="5dp-Cj-7FW"/>
@@ -484,13 +488,9 @@
                                 <rect key="frame" x="58" y="72" width="146" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="dismissKeyboard:" destination="Z91-TC-IGc" eventType="touchUpOutside" id="hIo-2H-rw1"/>
-                                    <action selector="enableKeyboardDismisser:" destination="Z91-TC-IGc" eventType="editingDidBegin" id="6p3-IC-XZ4"/>
-                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SPc-VX-lVr">
-                                <rect key="frame" x="0.0" y="110" width="320" height="132"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SPc-VX-lVr">
+                                <rect key="frame" x="16" y="110" width="288" height="132"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -499,13 +499,17 @@
                                 <state key="normal" title="Send">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendCustomMessage:" destination="Gvw-4W-V3v" eventType="touchUpInside" id="u2S-c6-7CB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Custom Message" id="5eO-Qq-OcZ"/>
                     <connections>
-                        <outlet property="textArea" destination="SPc-VX-lVr" id="B5X-FU-72D"/>
+                        <outlet property="licenseTextField" destination="5Ao-ba-78P" id="H2U-wF-crv"/>
+                        <outlet property="messageTextField" destination="SPc-VX-lVr" id="vBZ-Um-Rti"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zgb-fy-3tT" userLabel="First Responder" sceneMemberID="firstResponder"/>

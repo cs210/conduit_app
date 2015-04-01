@@ -11,7 +11,7 @@
 		B57334171AABDB8100363B5C /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57334161AABDB8100363B5C /* CreateAccountController.swift */; };
 		B57334191AABDC1500363B5C /* HomepageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57334181AABDC1500363B5C /* HomepageController.swift */; };
 		B582C45F1AABDE900083AD9A /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B582C45E1AABDE900083AD9A /* ScannerViewController.swift */; };
-		BD0989141ACB81A50026F0DE /* CustomMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0989131ACB81A50026F0DE /* CustomMessageController.swift */; };
+		BD4C1E1A1ACC6EDD00C10987 /* CustomMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C1E191ACC6EDD00C10987 /* CustomMessageController.swift */; };
 		BDE4EB5F1AAC2A8900588511 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */; };
 		BDE4EB651AAC44FB00588511 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */; };
 		C5C70DC21AA68EDE00BE0753 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C70DC11AA68EDE00BE0753 /* AppDelegate.swift */; };
@@ -40,7 +40,7 @@
 		B57334161AABDB8100363B5C /* CreateAccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
 		B57334181AABDC1500363B5C /* HomepageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomepageController.swift; sourceTree = "<group>"; };
 		B582C45E1AABDE900083AD9A /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
-		BD0989131ACB81A50026F0DE /* CustomMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMessageController.swift; sourceTree = "<group>"; };
+		BD4C1E191ACC6EDD00C10987 /* CustomMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMessageController.swift; sourceTree = "<group>"; };
 		BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
 		C5C70DBC1AA68EDE00BE0753 /* conduit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = conduit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,16 +99,16 @@
 		C5C70DBE1AA68EDE00BE0753 /* conduit */ = {
 			isa = PBXGroup;
 			children = (
-				B54FF8F11AB04B3100450107 /* ConversationsViewController.swift */,
 				C5EFBDD91AABCCC9000029C3 /* Frameworks */,
 				C5C70DC11AA68EDE00BE0753 /* AppDelegate.swift */,
 				C5C70DC31AA68EDE00BE0753 /* ViewController.swift */,
 				C5C70DC51AA68EDE00BE0753 /* Main.storyboard */,
+				BD4C1E191ACC6EDD00C10987 /* CustomMessageController.swift */,
 				B57334181AABDC1500363B5C /* HomepageController.swift */,
 				B57334161AABDB8100363B5C /* CreateAccountController.swift */,
 				BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */,
 				BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */,
-				BD0989131ACB81A50026F0DE /* CustomMessageController.swift */,
+				B54FF8F11AB04B3100450107 /* ConversationsViewController.swift */,
 				B582C45E1AABDE900083AD9A /* ScannerViewController.swift */,
 				C5EFBDDA1AABD4CD000029C3 /* MenuTableViewController.swift */,
 				C5EFBDDC1AABD4ED000029C3 /* MainViewController.swift */,
@@ -266,7 +266,7 @@
 				C5C70DC41AA68EDE00BE0753 /* ViewController.swift in Sources */,
 				C5EFBDE11AABD6C4000029C3 /* SWRevealViewController.m in Sources */,
 				B57334171AABDB8100363B5C /* CreateAccountController.swift in Sources */,
-				BD0989141ACB81A50026F0DE /* CustomMessageController.swift in Sources */,
+				BD4C1E1A1ACC6EDD00C10987 /* CustomMessageController.swift in Sources */,
 				B57334191AABDC1500363B5C /* HomepageController.swift in Sources */,
 				BDE4EB651AAC44FB00588511 /* NewMessageViewController.swift in Sources */,
 				B582C45F1AABDE900083AD9A /* ScannerViewController.swift in Sources */,
