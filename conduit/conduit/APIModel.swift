@@ -42,6 +42,7 @@ class APIModel {
       } else {
         var json = JSON(json!)
         NSLog("GET Result: \(json)")
+  //      json.dynamicType.printClassName()
         
         completion(result:json, error:nil)
       }

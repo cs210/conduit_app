@@ -25,25 +25,17 @@ class ConversationsViewController : UIViewController, UITableViewDelegate, UITab
                                             forControlEvents:UIControlEvents.TouchUpInside)
 
     User.get(completion: { (result:JSON?, error:NSError?) in
+      
       if (error == nil) {
         var user_index: NSMutableArray = []
-        
-        for (key: String, user: JSON) in result! {
-      //    NSLog(user)
-
+        for (index: String, user: JSON) in result!["users"] {
           user_index.addObject(
-            User(
-              id:           user["id"].intValue,
-              firstName:    user["first"].stringValue,
-              lastName:     user["last"].stringValue,
-              phoneNumber:  user["phone"].stringValue,
-              emailAddress: user["email"].stringValue,
-              deviceToken:  user["device_token"].stringValue,
-              pushEnabled:  user["push_enabled"].boolValue
-            )
+            User(json:user)
           )
         }
-        self.users = user_index
+        
+      } else {
+        // Display UIAlertView with failure?
       }
       
     })

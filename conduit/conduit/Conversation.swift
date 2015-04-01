@@ -10,14 +10,14 @@ import Foundation
 
 class Conversation: APIModel {
   var id: Int
-  var carID: Int
-  var senderID: Int
+  var receiverCarID: Int
+  var requesterUserID: Int
   var messageIDs: [Int]
   
-  init (id: Int, carID: Int, senderID: Int, messageIDs: [Int]) {
+  init (id: Int, receiverCarID: Int, requesterUserID: Int, messageIDs: [Int]) {
     self.id = id
-    self.carID = carID
-    self.senderID = senderID
+    self.receiverCarID = receiverCarID
+    self.requesterUserID = requesterUserID
     self.messageIDs = messageIDs
   }
 }

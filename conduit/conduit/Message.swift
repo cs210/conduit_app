@@ -10,14 +10,14 @@ import Foundation
 
 class Message: APIModel {
   var text: String
-  var time_stamp: NSDate
-  var carID: Int
-  var fromID: Int
+  var timestamp: NSDate
+  var conversationID: Int
+  var senderID: Int
   
-  init(text:String, time_stamp:NSDate, carID:Int, fromID:Int) {
+  init(text:String, timestamp:NSDate, conversationID:Int, senderID:Int) {
     self.text = text
-    self.time_stamp = time_stamp
-    self.carID = carID
-    self.fromID = fromID
+    self.timestamp = timestamp
+    self.conversationID = conversationID
+    self.senderID = senderID
   }
 }
