@@ -9,36 +9,28 @@
 import Foundation
 import SwiftyJSON
 
-class User:APIModel {
-  
+class User: APIModel {
 
   var id          : Int
-//  var firstName   : String
-//  var lastName    : String
-//  var phoneNumber : String
-//  var emailAddress: String
-//  var deviceToken : String
-//  var pushEnabled : Bool
+  var firstName   : String
+  var lastName    : String
+  var phoneNumber : String
+  var emailAddress: String
+  var deviceToken : String
+  var pushEnabled : Bool
   
   
-//  // MARK: - Computed Properties
-//
-//  // MARK: - Initialization Methods
-//
-  init(id:Int) {
-      
+  init(id:Int, firstName:String, lastName:String, phoneNumber:String, emailAddress:String,
+       deviceToken:String, pushEnabled:Bool) {
     self.id = id
-//    self.firstName = firstName
-//    self.lastName = lastName
-//    self.phoneNumber = phoneNumber
-//    self.emailAddress = emailAddress
-//    self.deviceToken = deviceToken
-//    self.pushEnabled = pushEnabled
+    self.firstName = firstName
+    self.lastName = lastName
+    self.phoneNumber = phoneNumber
+    self.emailAddress = emailAddress
+    self.deviceToken = deviceToken
+    self.pushEnabled = pushEnabled
   }
 
-  
-      
-  // MARK: - Private method implementations
 
 }
 

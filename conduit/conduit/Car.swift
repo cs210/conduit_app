@@ -8,12 +8,14 @@
 
 import Foundation
 
-class Car:APIModel {
+class Car: APIModel {
  
   var id : Int
+  var license_plate: String
   
-  init (id: Int) {
+  init (id: Int, license_plate: String) {
     self.id = id
+    self.license_plate = license_plate
   }
   
 }

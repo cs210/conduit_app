@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftyJSON
 
 class ConversationsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
   
@@ -15,33 +16,38 @@ class ConversationsViewController : UIViewController, UITableViewDelegate, UITab
   @IBOutlet var dateLabel: UILabel!
   @IBOutlet weak var menuButton: UIButton!
   
-  var users: NSMutableArray = []
+  var users: NSArray = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
       
     menuButton.addTarget(self.revealViewController(), action:"revealToggle:",
                                             forControlEvents:UIControlEvents.TouchUpInside)
-    
-    User.get("users") { (result:JSON, error:NSErrorPointer) -> () in
-      if (!error) {
+
+    User.get(completion: { (result:JSON?, error:NSError?) in
+      if (error == nil) {
+        var user_index: NSMutableArray = []
         
-        for (index: String, user: JSON) in result {
+        for (key: String, user: JSON) in result! {
+      //    NSLog(user)
+
           user_index.addObject(
             User(
               id:           user["id"].intValue,
-              firstName:    user["first_name"].stringValue,
-              lastName:     user["last_name"].stringValue,
-              phoneNumber:  user["phone_number"].stringValue,
-              emailAddress: user["email_address"].stringValue,
+              firstName:    user["first"].stringValue,
+              lastName:     user["last"].stringValue,
+              phoneNumber:  user["phone"].stringValue,
+              emailAddress: user["email"].stringValue,
               deviceToken:  user["device_token"].stringValue,
               pushEnabled:  user["push_enabled"].boolValue
             )
           )
         }
-        users = user_index
+        self.users = user_index
       }
-    }
+      
+    })
+    
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,8 +56,8 @@ class ConversationsViewController : UIViewController, UITableViewDelegate, UITab
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = UITableViewCell(style : UITableViewCellStyle.Default, reuseIdentifier : "conversationCell")
-    
-    cell.textLabel?.text = users[indexPath.row].firstName
+    var user = users[indexPath.row] as User
+    cell.textLabel?.text = user.firstName
     return cell
   }
   

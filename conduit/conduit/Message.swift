@@ -8,6 +8,16 @@
 
 import Foundation
 
-class Message {
+class Message: APIModel {
+  var text: String
+  var time_stamp: NSDate
+  var carID: Int
+  var fromID: Int
   
+  init(text:String, time_stamp:NSDate, carID:Int, fromID:Int) {
+    self.text = text
+    self.time_stamp = time_stamp
+    self.carID = carID
+    self.fromID = fromID
+  }
 }
