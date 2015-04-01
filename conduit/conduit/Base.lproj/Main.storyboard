@@ -435,6 +435,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Message" id="gLT-44-Ggt"/>
                     <connections>
+                        <outlet property="keyboardDismisser" destination="tqC-2l-KmV" id="Nzf-ox-FN3"/>
                         <outlet property="presetTable" destination="BNe-n1-PuK" id="4N3-qu-pLN"/>
                     </connections>
                 </viewController>

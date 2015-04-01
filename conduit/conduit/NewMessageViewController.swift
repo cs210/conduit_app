@@ -20,8 +20,11 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
 
   @IBOutlet weak var presetTable: UITableView!
   
+  @IBOutlet var keyboardDismisser: UITapGestureRecognizer!
+  
   @IBAction func dismissKeyboard(sender: AnyObject) {
     view.endEditing(true)
+    keyboardDismisser.dis
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
