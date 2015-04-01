@@ -11,7 +11,10 @@ import UIKit
 
 class NewMessageViewController : UIViewController, UITableViewDataSource {
   // Init selected message to "" because  you can't send an empty message
+  
   var selectedMessage = ""
+  var selectedMessageIndexPath : NSIndexPath?
+  
   var presetMessages = [
     "Could you please unlock your charging port? Thank you!",
     "When will you be back to your car?",
@@ -21,10 +24,30 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
   @IBOutlet weak var presetTable: UITableView!
   
   @IBOutlet var keyboardDismisser: UITapGestureRecognizer!
+
+  @IBOutlet var presetDeselecter: UITapGestureRecognizer!
+  
+  @IBAction func enableKeyboardDismisser(sender: AnyObject) {
+    keyboardDismisser.enabled = true
+  }
+  
+  override func viewDidLoad() {
+    keyboardDismisser.enabled = false
+    presetDeselecter.enabled = false
+  }
   
   @IBAction func dismissKeyboard(sender: AnyObject) {
     view.endEditing(true)
-    keyboardDismisser.dis
+    keyboardDismisser.enabled = false
+  }
+  
+  @IBAction func deselectSelectedMessage(sender: AnyObject) {
+    if (selectedMessageIndexPath != nil) {
+      presetTable.deselectRowAtIndexPath(selectedMessageIndexPath!, animated: false)
+      selectedMessageIndexPath = nil
+      selectedMessage = ""
+      presetDeselecter.enabled = false
+    }
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,8 +65,9 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let cell = tableView.cellForRowAtIndexPath(indexPath) as NewMessageTableViewCell
     selectedMessage = cell.label.text!
+    selectedMessageIndexPath = indexPath
+    presetDeselecter.enabled = true
   }
-  
 }
 
 class NewMessageTableViewCell : UITableViewCell {

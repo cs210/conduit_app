@@ -382,6 +382,10 @@
                                 <rect key="frame" x="58" y="72" width="146" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="dismissKeyboard:" destination="Z91-TC-IGc" eventType="touchUpOutside" id="Dph-vo-g8Y"/>
+                                    <action selector="enableKeyboardDismisser:" destination="Z91-TC-IGc" eventType="editingDidBegin" id="Ajf-yR-rxk"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7GT-3a-Fkc">
                                 <rect key="frame" x="0.0" y="518" width="320" height="50"/>
@@ -431,11 +435,13 @@
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="tqC-2l-KmV" appends="YES" id="SDD-U2-Nhy"/>
+                            <outletCollection property="gestureRecognizers" destination="AO3-Eh-52A" appends="YES" id="0WM-RJ-edN"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="New Message" id="gLT-44-Ggt"/>
                     <connections>
-                        <outlet property="keyboardDismisser" destination="tqC-2l-KmV" id="Nzf-ox-FN3"/>
+                        <outlet property="keyboardDismisser" destination="tqC-2l-KmV" id="lih-er-lhM"/>
+                        <outlet property="presetDeselecter" destination="AO3-Eh-52A" id="lZn-Yl-NbC"/>
                         <outlet property="presetTable" destination="BNe-n1-PuK" id="4N3-qu-pLN"/>
                     </connections>
                 </viewController>
@@ -443,6 +449,11 @@
                 <tapGestureRecognizer enabled="NO" id="tqC-2l-KmV">
                     <connections>
                         <action selector="dismissKeyboard:" destination="Z91-TC-IGc" id="a26-ot-6ql"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="AO3-Eh-52A">
+                    <connections>
+                        <action selector="deselectSelectedMessage:" destination="Z91-TC-IGc" id="Zz9-xN-oqb"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
