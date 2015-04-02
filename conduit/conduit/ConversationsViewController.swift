@@ -44,7 +44,8 @@ class ConversationsViewController : UIViewController, UITableViewDataSource {
             Message(senderId: 2, text: "Only about five more minutes!", timestamp: NSDate()),
             Message(senderId: 1, text: "Great, thank you!", timestamp: NSDate())
           ],
-        isUnread: false),
+        isUnread: false
+      ),
       Conversation(
         receiverCarId: 3,
         receiverCar: Car(userIds:[3], licensePlate:"DEF123"),
@@ -54,9 +55,29 @@ class ConversationsViewController : UIViewController, UITableViewDataSource {
           Message(senderId: 1, text: "Hi, for how long are you planning to use your charging station?", timestamp: NSDate()),
           Message(senderId: 3, text: "Only about five more minutes!", timestamp: NSDate())
         ],
-        isUnread: true),
-      Conversation(receiverCarId: 1, receiverCar: fakeCar, requesterUserId: 4, requesterUser: User(firstName: "Kanye", lastName: "West", userId: 4), messages: [], isUnread: false),
-      Conversation(receiverCarId: 5, receiverCar: Car(userIds:[5], licensePlate:"XYZ123"), requesterUserId: 1, requesterUser: fakePerson, messages: [], isUnread: false)
+        isUnread: true
+      ),
+      Conversation(
+        receiverCarId: 1,
+        receiverCar: fakeCar,
+        requesterUserId: 4,
+        requesterUser: User(firstName: "Kanye", lastName: "West", userId: 4),
+        messages: [
+          Message(senderId: 4, text: "When will you be back to your charging station?", timestamp: NSDate()),
+          Message(senderId: 1, text: "10 mins! Be there soon.", timestamp: NSDate())
+        ],
+        isUnread: false
+      ),
+      Conversation(
+        receiverCarId: 5,
+        receiverCar: Car(userIds:[5], licensePlate:"XYZ123"),
+        requesterUserId: 1,
+        requesterUser: fakePerson,
+        messages: [
+          Message(senderId: 1, text: "Could I please use your charging station?", timestamp: NSDate())
+        ],
+        isUnread: false
+      )
     ]
     
   }
