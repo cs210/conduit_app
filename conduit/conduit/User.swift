@@ -11,7 +11,6 @@ import SwiftyJSON
 
 class User: APIModel {
 
-  var id          : Int
   var firstName   : String
   var lastName    : String
   var phoneNumber : String
@@ -21,41 +20,54 @@ class User: APIModel {
   
   init(id:Int, firstName:String, lastName:String, phoneNumber:String, emailAddress:String,
        deviceToken:String, pushEnabled:Bool) {
-    self.id = id
     self.firstName = firstName
     self.lastName = lastName
     self.phoneNumber = phoneNumber
     self.emailAddress = emailAddress
     self.deviceToken = deviceToken
     self.pushEnabled = pushEnabled
+    super.init(id: id)
   }
   
-  // This should be the ONLY place where JSON => attribute mapping occurs
+  // init/present are the ONLY two functions where JSON => attribute mapping occurs
   convenience init(json:JSON) {
     self.init(
       id:           json["id"].intValue,
-      firstName:    json["first"].stringValue,
-      lastName:     json["last"].stringValue,
-      phoneNumber:  json["phone"].stringValue,
-      emailAddress: json["email"].stringValue,
+      firstName:    json["first_name"].stringValue,
+      lastName:     json["last_name"].stringValue,
+      phoneNumber:  json["phone_number"].stringValue,
+      emailAddress: json["email_address"].stringValue,
       deviceToken:  json["device_token"].stringValue,
       pushEnabled:  json["push_enabled"].boolValue
     )
   }
   
+  override func present() -> [String:AnyObject] {
+    return [
+      "id": self.id,
+      "first_name": self.firstName,
+      "last_name": self.lastName,
+      "phone_number": self.phoneNumber,
+      "email_address": self.emailAddress,
+      "device_token": self.deviceToken,
+      "push_enabled": self.pushEnabled
+    ]
+  }
+  
   func description() -> String {
-    var str1 = "id:\(self.id) " +
-           "firstName:\(self.firstName) " +
-           "lastName:\(self.lastName) " +
-           "phoneNumber:\(self.phoneNumber) "
-    
+    var str1 = "id:\(self.id)\n" +
+           "firstName:\(self.firstName)\n" +
+           "lastName:\(self.lastName)\n" +
+           "phoneNumber:\(self.phoneNumber)\n"
     var str2 =
-           "emailAddress:\(self.emailAddress) " +
-           "deviceToken:\(self.deviceToken) " +
-           "pushEnable:\(self.pushEnabled) "
+           "emailAddress:\(self.emailAddress)\n" +
+           "deviceToken:\(self.deviceToken)\n" +
+           "pushEnable:\(self.pushEnabled)\n"
     
     return str1 + str2
   }
+  
+
 
 }
 

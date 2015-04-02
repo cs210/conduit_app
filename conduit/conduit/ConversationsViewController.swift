@@ -24,8 +24,7 @@ class ConversationsViewController : UIViewController, UITableViewDelegate, UITab
     menuButton.addTarget(self.revealViewController(), action:"revealToggle:",
                                             forControlEvents:UIControlEvents.TouchUpInside)
 
-    User.get(completion: { (result:JSON?, error:NSError?) in
-      
+    User.index { (result, error) -> () in
       if (error == nil) {
         var user_index: NSMutableArray = []
         for (index: String, user: JSON) in result!["users"] {
@@ -33,12 +32,20 @@ class ConversationsViewController : UIViewController, UITableViewDelegate, UITab
             User(json:user)
           )
         }
+        self.users = user_index
+        
+        var user = self.users[0] as User
+        
+        user.update({ (result, error) -> () in
+          NSLog ("done updating")
+        })
         
       } else {
         // Display UIAlertView with failure?
       }
-      
-    })
+
+    }
+
     
   }
   

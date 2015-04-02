@@ -7,15 +7,28 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class Car: APIModel {
  
-  var id : Int
-  var license_plate: String
+  var licensePlate: String
   
-  init (id: Int, license_plate: String) {
-    self.id = id
-    self.license_plate = license_plate
+  init (id: Int, licensePlate: String) {
+    self.licensePlate = licensePlate
+    super.init(id: id)
+  }
+  
+  // The ONLY place where JSON => attribute mapping occurs
+  convenience init(json:JSON) {
+    self.init(
+      id:           json["id"].intValue,
+      licensePlate: json["license_plate"].stringValue
+    )
+  }
+  
+  func description() -> String {
+    return "id:\(self.id)\n" +
+            "licensePlate:\(self.licensePlate)\n"
   }
   
 }

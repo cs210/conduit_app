@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class Message: APIModel {
   var text: String
@@ -14,10 +15,11 @@ class Message: APIModel {
   var conversationID: Int
   var senderID: Int
   
-  init(text:String, timestamp:NSDate, conversationID:Int, senderID:Int) {
+  init(id:Int, text:String, timestamp:NSDate, conversationID:Int, senderID:Int) {
     self.text = text
     self.timestamp = timestamp
     self.conversationID = conversationID
     self.senderID = senderID
+    super.init(id: id)
   }
 }

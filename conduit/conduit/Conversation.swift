@@ -7,17 +7,36 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class Conversation: APIModel {
-  var id: Int
+  
   var receiverCarID: Int
   var requesterUserID: Int
-  var messageIDs: [Int]
+  var messages: [Message]
   
-  init (id: Int, receiverCarID: Int, requesterUserID: Int, messageIDs: [Int]) {
-    self.id = id
+  init (id: Int, receiverCarID: Int, requesterUserID: Int, messages: [Message]) {
     self.receiverCarID = receiverCarID
     self.requesterUserID = requesterUserID
-    self.messageIDs = messageIDs
+    self.messages = messages
+    super.init(id: id)
   }
+  
+  convenience init(json: JSON, messages: [Message]) {
+   // var messageIDs = Array(json["message_ids"].stringValue) as [Int]
+    self.init(
+      id:              json["id"].intValue,
+      receiverCarID:   json["receiver_car_id"].intValue,
+      requesterUserID: json["requester_user_id"].intValue,
+      messages:        messages
+    )
+  }
+  
+  func description() -> String {
+    return "id:\(self.id)\n" +
+            "receiverCarID:\(self.receiverCarID)\n" +
+            "requesterUserID:\(self.requesterUserID)\n" +
+            "messages:\(self.messages)\n"
+  }
+  
 }
