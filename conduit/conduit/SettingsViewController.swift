@@ -1,5 +1,5 @@
 //
-//  SettingsTableViewController.swift
+//  SettingsViewController.swift
 //  conduit
 //
 //  Created by Sherman Leung on 4/2/15.
@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-class SettingsTableViewController: UITableViewController {
+class SettingsViewController : UITableViewController {
   var menuOptions = ["Account Settings", "Privacy Settings", "Car Management"]
 
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("MenuItem",
+    let cell = tableView.dequeueReusableCellWithIdentifier("SettingsListItem",
       forIndexPath : indexPath) as UITableViewCell
     
     cell.textLabel?.text = menuOptions[indexPath.row]
@@ -29,10 +29,10 @@ class SettingsTableViewController: UITableViewController {
     
     if menuOptions[indexPath.row] == "Account Settings" {
       performSegueWithIdentifier("account_settings_segue", sender: self)
-    } else if menuOptions[indexPath.row] == "Conversations" {
-      performSegueWithIdentifier("conversations_segue", sender: self)
-    } else if menuOptions[indexPath.row] == "Settings" {
-      performSegueWithIdentifier("settings_segue", sender: self)
+    } else if menuOptions[indexPath.row] == "Privacy Settings" {
+      performSegueWithIdentifier("privacy_settings_segue", sender: self)
+    } else if menuOptions[indexPath.row] == "Car Management" {
+      performSegueWithIdentifier("car_management_segue", sender: self)
     }
   }
 }

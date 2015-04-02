@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B54FF8F21AB04B3100450107 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54FF8F11AB04B3100450107 /* ConversationsViewController.swift */; };
-		B54FF8F61ACD288200450107 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54FF8F51ACD288200450107 /* SettingsTableViewController.swift */; };
+		B54FF8F61ACD288200450107 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54FF8F51ACD288200450107 /* SettingsViewController.swift */; };
 		B57334171AABDB8100363B5C /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57334161AABDB8100363B5C /* CreateAccountController.swift */; };
 		B57334191AABDC1500363B5C /* HomepageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57334181AABDC1500363B5C /* HomepageController.swift */; };
 		B582C45F1AABDE900083AD9A /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B582C45E1AABDE900083AD9A /* ScannerViewController.swift */; };
@@ -38,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		B54FF8F11AB04B3100450107 /* ConversationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationsViewController.swift; sourceTree = "<group>"; };
-		B54FF8F51ACD288200450107 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		B54FF8F51ACD288200450107 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B57334161AABDB8100363B5C /* CreateAccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
 		B57334181AABDC1500363B5C /* HomepageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomepageController.swift; sourceTree = "<group>"; };
 		B582C45E1AABDE900083AD9A /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 				B54FF8F11AB04B3100450107 /* ConversationsViewController.swift */,
 				B582C45E1AABDE900083AD9A /* ScannerViewController.swift */,
 				C5EFBDDA1AABD4CD000029C3 /* MenuTableViewController.swift */,
-				B54FF8F51ACD288200450107 /* SettingsTableViewController.swift */,
+				B54FF8F51ACD288200450107 /* SettingsViewController.swift */,
 				C5EFBDDC1AABD4ED000029C3 /* MainViewController.swift */,
 				C5C70DC81AA68EDE00BE0753 /* Images.xcassets */,
 				C5C70DCA1AA68EDE00BE0753 /* LaunchScreen.xib */,
@@ -266,7 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5EFBDDB1AABD4CD000029C3 /* MenuTableViewController.swift in Sources */,
-				B54FF8F61ACD288200450107 /* SettingsTableViewController.swift in Sources */,
+				B54FF8F61ACD288200450107 /* SettingsViewController.swift in Sources */,
 				C5C70DC41AA68EDE00BE0753 /* ViewController.swift in Sources */,
 				C5EFBDE11AABD6C4000029C3 /* SWRevealViewController.m in Sources */,
 				B57334171AABDB8100363B5C /* CreateAccountController.swift in Sources */,
