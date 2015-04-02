@@ -12,6 +12,13 @@ import UIKit
 class SettingsViewController : UITableViewController {
   var menuOptions = ["Account Settings", "Privacy Settings", "Car Management"]
 
+  @IBOutlet weak var menuButton: UIButton!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
+
+  }
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("SettingsListItem",
       forIndexPath : indexPath) as UITableViewCell

@@ -81,7 +81,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
   // correctly to the custom message view.
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "customMessageSegue" {
+    if segue.identifier == "custom_message_segue" {
       var next = segue.destinationViewController as CustomMessageController
       next.licensePlate = licenseTextField.text
     }

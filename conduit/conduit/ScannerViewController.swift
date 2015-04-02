@@ -32,7 +32,7 @@ class ScannerViewController : UIViewController,
         
         var loggedIn = NSUserDefaults.standardUserDefaults().boolForKey("loggedIn")
         if !loggedIn {
-            performSegueWithIdentifier("toLogin", sender: self)
+            performSegueWithIdentifier("to_login", sender: self)
         }
         
         menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
@@ -65,7 +65,7 @@ class ScannerViewController : UIViewController,
                     
                 })
                 dismissViewControllerAnimated(true, completion: {})
-                performSegueWithIdentifier("toNewMessage", sender: self)
+                performSegueWithIdentifier("new_message_segue", sender: self)
             }
         }
         
@@ -122,7 +122,7 @@ class ScannerViewController : UIViewController,
         // TODO: Send photo to backend somewhere in here
         
         dismissViewControllerAnimated(true, completion: {})
-        performSegueWithIdentifier("toNewMessage", sender: self)
+        performSegueWithIdentifier("new_message_segue", sender: self)
     }
 }
 

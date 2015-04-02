@@ -18,6 +18,8 @@ class ConversationsViewController : UIViewController, UITableViewDataSource {
     FakeConversation(licensePlate: "QRS123", lastMessage: "Sorry, I won't be back for a while.", lastMessageDate: NSDate(), isUnread: false)
   ]
   
+  var tappedConversation : FakeConversation!
+  
   @IBOutlet weak var menuButton: UIButton!
   @IBOutlet weak var tableView: UITableView!
   
@@ -57,6 +59,26 @@ class ConversationsViewController : UIViewController, UITableViewDataSource {
  
     cell.dateLabel.text = formatter.stringFromDate(conv.lastMessageDate)
     return cell
+  }
+  
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    // Fake
+    tappedConversation = fakeConversations[indexPath.row]
+    
+    
+    // Real
+    tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    performSegueWithIdentifier("conversation_segue", sender: self)
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "conversation_segue" {
+      var next = segue.destinationViewController as MessagesViewController
+      
+      // TODO: this is faked! include actual conversation ID here.
+      next.conversationID = 0
+      next.fakeLicensePlate = tappedConversation.licensePlate
+    }
   }
   
   
