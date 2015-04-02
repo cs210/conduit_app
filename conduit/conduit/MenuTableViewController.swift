@@ -32,7 +32,7 @@ class MenuTableViewController: UITableViewController {
         } else if menuOptions[indexPath.row] == "Conversations" {
             performSegueWithIdentifier("conversations_segue", sender: self)
         } else if menuOptions[indexPath.row] == "Settings" {
-            // TODO: go to settings view
+            performSegueWithIdentifier("settings_segue", sender: self)
         }
     }
 }
