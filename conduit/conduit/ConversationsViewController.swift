@@ -10,15 +10,11 @@ import Foundation
 import UIKit
 
 class ConversationsViewController : UIViewController, UITableViewDataSource {
-  var fakeConversations = [
-    FakeConversation(licensePlate: "ABC123", lastMessage: "Can I please use your charging station?", lastMessageDate: NSDate(), isUnread: false),
-    FakeConversation(licensePlate: "DEF123", lastMessage: "Can I please use your charging station?", lastMessageDate: NSDate(), isUnread: true),
-    FakeConversation(licensePlate: "GHJ123", lastMessage: "Thank you so much!", lastMessageDate: NSDate(), isUnread: false),
-    FakeConversation(licensePlate: "MNP123", lastMessage: "I'll be back in ten minutes.", lastMessageDate: NSDate(), isUnread: false),
-    FakeConversation(licensePlate: "QRS123", lastMessage: "Sorry, I won't be back for a while.", lastMessageDate: NSDate(), isUnread: false)
-  ]
   
-  var tappedConversation : FakeConversation!
+  var conversations : [Conversation] = []
+  var tappedConversation : Conversation!
+  
+  var fakeUser : User!
   
   @IBOutlet weak var menuButton: UIButton!
   @IBOutlet weak var tableView: UITableView!
@@ -27,19 +23,52 @@ class ConversationsViewController : UIViewController, UITableViewDataSource {
     super.viewDidLoad()
     menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
     self.tableView.rowHeight = 70
-
+    
+    
+    // TODO: This is fake. Here, we will need to add a real API call to populate
+    // the list of conversations.
+    
+    var fakePerson = User(firstName:"Bob", lastName:"Smith", userId: 1)
+    
+    fakeUser = fakePerson
+    
+    var fakeCar = Car(userIds: [1], licensePlate:"CS210B)")
+    conversations = [
+      Conversation(
+        receiverCarId: 2,
+        receiverCar: Car(userIds:[2], licensePlate:"ABC123"),
+        requesterUserId: 1,
+        requesterUser: fakePerson,
+        messages: [
+            Message(senderId: 1, text: "Hi, for how long are you planning to use your charging station?", timestamp: NSDate()),
+            Message(senderId: 2, text: "Only about five more minutes!", timestamp: NSDate()),
+            Message(senderId: 1, text: "Great, thank you!", timestamp: NSDate())
+          ],
+        isUnread: false),
+      Conversation(
+        receiverCarId: 3,
+        receiverCar: Car(userIds:[3], licensePlate:"DEF123"),
+        requesterUserId: 1,
+        requesterUser: fakePerson,
+        messages: [
+          Message(senderId: 1, text: "Hi, for how long are you planning to use your charging station?", timestamp: NSDate()),
+          Message(senderId: 3, text: "Only about five more minutes!", timestamp: NSDate())
+        ],
+        isUnread: true),
+      Conversation(receiverCarId: 1, receiverCar: fakeCar, requesterUserId: 4, requesterUser: User(firstName: "Kanye", lastName: "West", userId: 4), messages: [], isUnread: false),
+      Conversation(receiverCarId: 5, receiverCar: Car(userIds:[5], licensePlate:"XYZ123"), requesterUserId: 1, requesterUser: fakePerson, messages: [], isUnread: false)
+    ]
+    
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return fakeConversations.count
+    return conversations.count
   }
-  
-  
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("ConversationsListItem", forIndexPath: indexPath) as ConversationsTableViewCell
     
-    var conv = fakeConversations[indexPath.row]
+    var conv = conversations[indexPath.row]
     
     // unread messages are bolded
     if conv.isUnread == true {
@@ -50,21 +79,27 @@ class ConversationsViewController : UIViewController, UITableViewDataSource {
       cell.latestMessageLabel.font = UIFont(name:"HelveticaNeue", size: 14.0)
     }
 
-    cell.licensePlateLabel.text = conv.licensePlate
-    cell.latestMessageLabel.text = conv.lastMessage
+    if conv.receiverCar == nil {
+      // TODO: API call to get receiver car
+    }
+    cell.licensePlateLabel.text = conv.receiverCar.licensePlate
+    
+    if conv.messages.count == 0 {
+      // Error case here?
+    }
+    cell.latestMessageLabel.text = conv.messages[conv.messages.count-1].text
     
     let formatter = NSDateFormatter()
     let usDateFormat = NSDateFormatter.dateFormatFromTemplate("MMddyy", options: 0, locale: NSLocale(localeIdentifier: "en-US"))
     formatter.dateFormat = usDateFormat
  
-    cell.dateLabel.text = formatter.stringFromDate(conv.lastMessageDate)
+    cell.dateLabel.text = formatter.stringFromDate(conv.messages[conv.messages.count-1].timestamp)
     return cell
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     // Fake
-    tappedConversation = fakeConversations[indexPath.row]
-    
+    tappedConversation = conversations[indexPath.row]
     
     // Real
     tableView.deselectRowAtIndexPath(indexPath, animated: false)
@@ -75,9 +110,8 @@ class ConversationsViewController : UIViewController, UITableViewDataSource {
     if segue.identifier == "conversation_segue" {
       var next = segue.destinationViewController as MessagesViewController
       
-      // TODO: this is faked! include actual conversation ID here.
-      next.conversationID = 0
-      next.fakeLicensePlate = tappedConversation.licensePlate
+      next.conversation = tappedConversation
+      next.fakeUser = fakeUser
     }
   }
   
@@ -90,57 +124,3 @@ class ConversationsTableViewCell : UITableViewCell {
   @IBOutlet weak var latestMessageLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
 }
-
-class FakeConversation {
-  var licensePlate : String!
-  var lastMessage : String!
-  var lastMessageDate : NSDate!
-  var isUnread : Bool!
-  
-  init(licensePlate : String, lastMessage : String, lastMessageDate : NSDate, isUnread : Bool) {
-    self.licensePlate = licensePlate
-    self.lastMessage = lastMessage
-    self.lastMessageDate = lastMessageDate
-    self.isUnread = isUnread
-  }
-}
-
-
-// Sherman's code to test json
-// TODO(sherman): Do we need this?
-
-//    @IBOutlet var timeLabel: UILabel!
-//    @IBOutlet var dateLabel: UILabel!
-//    @IBOutlet weak var menuButton: UIButton!
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
-//
-//        let urlAsString = "http://date.jsontest.com"
-//        let url = NSURL(string: urlAsString)!
-//        let urlSession = NSURLSession.sharedSession()
-//
-//        //2
-//        let jsonQuery = urlSession.dataTaskWithURL(url, completionHandler: { data, response, error -> Void in
-//            if (error != nil) {
-//                println(error.localizedDescription)
-//            }
-//            var err: NSError?
-//
-//            // 3
-//            var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as NSDictionary
-//            if (err != nil) {
-//                println("JSON Error \(err!.localizedDescription)")
-//            }
-//
-//            // 4
-//            let jsonDate: String! = jsonResult["date"] as NSString
-//            let jsonTime: String! = jsonResult["time"] as NSString
-//
-//            println(jsonDate)
-//        })
-//        // 5
-//        jsonQuery.resume()
-//    }

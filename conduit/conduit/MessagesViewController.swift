@@ -11,20 +11,29 @@ import UIKit
 
 class MessagesViewController : UIViewController, UITableViewDataSource {
   @IBOutlet weak var navBar: UINavigationItem!
-  var conversationID : Int!
-  var fakeLicensePlate : String!
-  var fakeMessages = [
-    FakeMessage(messageText: "Hi, for how long are you going to be using the charging station?", iAmSender: true),
-    FakeMessage(messageText: "Only about ten more minutes. Be there soon!", iAmSender: false),
-    FakeMessage(messageText: "Awesome, thank you so much!", iAmSender: true)
-  ]
+  var conversation : Conversation!
+  var fakeUser : User!
   @IBOutlet weak var tableView: UITableView!
   
   override func viewDidLoad() {
     // TODO: API call to get conversation information using conversation ID 
     // passed from previous view - for now, faking it.
     super.viewDidLoad()
-    navBar.title = fakeLicensePlate
+    
+    if fakeUser.userId == conversation.requesterUserId {
+      if conversation.receiverCar == nil {
+        // TODO: API call
+      }
+      
+      navBar.title = conversation.receiverCar.licensePlate
+    } else {
+      if conversation.requesterUser == nil {
+        // TODO: API call
+      }
+      
+      navBar.title = conversation.requesterUser.firstName
+    }
+    
     self.tableView.estimatedRowHeight = 44.0
     self.tableView.rowHeight = UITableViewAutomaticDimension
     self.tableView.reloadData()
@@ -32,12 +41,12 @@ class MessagesViewController : UIViewController, UITableViewDataSource {
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("MessageTableCell") as MessageCell
-    cell.messageText.text = fakeMessages[indexPath.row].messageText
+    cell.messageText.text = conversation.messages[indexPath.row].text
     return cell
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return fakeMessages.count
+    return conversation.messages.count
   }
 
 }
