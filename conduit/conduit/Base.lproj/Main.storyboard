@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D87p" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -650,6 +650,7 @@
         <!--Account Settings-->
         <scene sceneID="izb-MP-yZh">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X6f-Pb-pNg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="h9a-O5-dwO" customClass="AccountSettingsView" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O1i-21-F6m"/>
@@ -676,16 +677,22 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uLK-nc-zPD">
-                                <rect key="frame" x="255" y="237" width="51" height="31"/>
+                                <rect key="frame" x="255" y="269" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enable Push Notifications" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNW-tg-ZYI">
-                                <rect key="frame" x="16" y="242" width="197" height="21"/>
+                                <rect key="frame" x="16" y="274" width="197" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1R-XL-grQ">
+                                <rect key="frame" x="16" y="111" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csm-MD-cBh">
-                                <rect key="frame" x="97" y="315" width="126" height="30"/>
+                                <rect key="frame" x="16" y="222" width="126" height="30"/>
                                 <state key="normal" title="Change Password">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -693,29 +700,35 @@
                                     <segue destination="mNz-N1-k10" kind="push" id="Uew-Mx-f3c"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1R-XL-grQ">
-                                <rect key="frame" x="16" y="111" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kp0-2g-H84">
+                                <rect key="frame" x="143" y="494" width="34" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="2zy-37-a2I"/>
+                                    <constraint firstAttribute="height" constant="50" id="5WU-QX-OAf"/>
+                                </constraints>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveAccount:" destination="h9a-O5-dwO" eventType="touchUpInside" id="AZV-yw-CDX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="kp0-2g-H84" secondAttribute="centerX" id="2rX-Rx-8CL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kp0-2g-H84" secondAttribute="trailing" constant="127" id="sto-u8-waJ"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Account Settings" id="vlz-iK-uhM">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="bni-qf-RqE">
-                            <connections>
-                                <action selector="saveAccount:" destination="h9a-O5-dwO" id="qOJ-l6-22c"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Account Settings" id="vlz-iK-uhM"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="emailField" destination="Lxw-4T-KRo" id="qVD-Pq-Zw9"/>
                         <outlet property="notificationsSwitch" destination="uLK-nc-zPD" id="YW1-o9-PPS"/>
                         <outlet property="phoneField" destination="zue-70-Ngr" id="FBn-rQ-qWU"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="X6f-Pb-pNg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1331" y="1812"/>
         </scene>
