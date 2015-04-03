@@ -40,7 +40,12 @@ class MessagesViewController : UIViewController, UITableViewDataSource {
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("MessageTableCell") as MessageCell
+    var cell : MessageCell!
+    if conversation.messages[indexPath.row].senderId == fakeUser.userId {
+      cell = tableView.dequeueReusableCellWithIdentifier("SentMessageCell") as MessageCell
+    } else {
+      cell = tableView.dequeueReusableCellWithIdentifier("ReceivedMessageCell") as MessageCell
+    }
     cell.messageText.text = conversation.messages[indexPath.row].text
     return cell
   }
@@ -54,6 +59,7 @@ class MessagesViewController : UIViewController, UITableViewDataSource {
 class MessageCell : UITableViewCell {
   @IBOutlet weak var messageText: UILabel!
 }
+
 
 class FakeMessage {
   var messageText : String!

@@ -32,7 +32,7 @@ class ConversationsViewController : UIViewController, UITableViewDataSource {
     
     fakeUser = fakePerson
     
-    var fakeCar = Car(userIds: [1], licensePlate:"CS210B)")
+    var fakeCar = Car(userIds: [1], licensePlate:"CS210B")
     conversations = [
       Conversation(
         receiverCarId: 2,
