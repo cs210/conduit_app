@@ -15,6 +15,7 @@
 		B57334171AABDB8100363B5C /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57334161AABDB8100363B5C /* CreateAccountController.swift */; };
 		B57334191AABDC1500363B5C /* HomepageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57334181AABDC1500363B5C /* HomepageController.swift */; };
 		B582C45F1AABDE900083AD9A /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B582C45E1AABDE900083AD9A /* ScannerViewController.swift */; };
+		B58FD9B11ACE3191005B8648 /* AccountSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58FD9B01ACE3191005B8648 /* AccountSettingsView.swift */; };
 		BD4C1E1A1ACC6EDD00C10987 /* CustomMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C1E191ACC6EDD00C10987 /* CustomMessageController.swift */; };
 		BD9869541ACDF4800032327C /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9869531ACDF4800032327C /* Conversation.swift */; };
 		BD9869561ACDF5820032327C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9869551ACDF5820032327C /* Message.swift */; };
@@ -52,6 +53,7 @@
 		B57334161AABDB8100363B5C /* CreateAccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
 		B57334181AABDC1500363B5C /* HomepageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomepageController.swift; sourceTree = "<group>"; };
 		B582C45E1AABDE900083AD9A /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		B58FD9B01ACE3191005B8648 /* AccountSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingsView.swift; sourceTree = "<group>"; };
 		BD4C1E191ACC6EDD00C10987 /* CustomMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMessageController.swift; sourceTree = "<group>"; };
 		BD9869531ACDF4800032327C /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		BD9869551ACDF5820032327C /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				C5C70DC11AA68EDE00BE0753 /* AppDelegate.swift */,
 				C5C70DC31AA68EDE00BE0753 /* ViewController.swift */,
 				C5C70DC51AA68EDE00BE0753 /* Main.storyboard */,
+				B58FD9B01ACE3191005B8648 /* AccountSettingsView.swift */,
 				B54FF8FB1ACDEDBF00450107 /* CarView.swift */,
 				BD4C1E191ACC6EDD00C10987 /* CustomMessageController.swift */,
 				B57334181AABDC1500363B5C /* HomepageController.swift */,
@@ -293,6 +296,7 @@
 				B54FF8FC1ACDEDBF00450107 /* CarView.swift in Sources */,
 				C5EFBDE11AABD6C4000029C3 /* SWRevealViewController.m in Sources */,
 				B57334171AABDB8100363B5C /* CreateAccountController.swift in Sources */,
+				B58FD9B11ACE3191005B8648 /* AccountSettingsView.swift in Sources */,
 				BD9869561ACDF5820032327C /* Message.swift in Sources */,
 				BD9869581ACDFAF10032327C /* User.swift in Sources */,
 				B54FF8F81ACDE90A00450107 /* CarManagementView.swift in Sources */,
