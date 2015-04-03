@@ -617,7 +617,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Account Settings" id="vlz-iK-uhM"/>
+                    <navigationItem key="navigationItem" title="Account Settings" id="vlz-iK-uhM">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="bni-qf-RqE">
+                            <connections>
+                                <action selector="saveAccount:" destination="h9a-O5-dwO" id="qOJ-l6-22c"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="emailField" destination="Lxw-4T-KRo" id="qVD-Pq-Zw9"/>
                         <outlet property="notificationsSwitch" destination="uLK-nc-zPD" id="YW1-o9-PPS"/>
@@ -631,7 +637,7 @@
         <!--Change Password-->
         <scene sceneID="f7o-Z4-lL7">
             <objects>
-                <viewController id="mNz-N1-k10" sceneMemberID="viewController">
+                <viewController id="mNz-N1-k10" customClass="changePasswordView" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qeA-XD-va0"/>
                         <viewControllerLayoutGuide type="bottom" id="kNU-ag-glg"/>
@@ -683,8 +689,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Change Password" id="lya-rH-13B">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="x6T-kd-cQl"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="x6T-kd-cQl">
+                            <connections>
+                                <action selector="savePassword:" destination="mNz-N1-k10" id="mJa-z7-qc5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="confirmPasswordField" destination="bFu-FX-kid" id="VJg-N1-J13"/>
+                        <outlet property="newPasswordField" destination="Fe5-8I-AmP" id="kRL-1U-1QK"/>
+                        <outlet property="oldPasswordField" destination="YkE-Vt-DG0" id="Tt4-0f-g8h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Nk-Uo-k4Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

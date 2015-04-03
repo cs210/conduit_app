@@ -15,6 +15,12 @@ class AccountSettingsView : UIViewController {
   @IBOutlet var phoneField: UITextField!
   @IBOutlet var notificationsSwitch: UISwitch!
   
+  @IBAction func saveAccount(sender: AnyObject) {
+    var email = emailField.text!
+    var phone = phoneField.text!
+    var notificationEnabled = notificationsSwitch.on
+    println(email + " " + phone + " "+notificationEnabled.description)
+  }
   override func viewDidLoad() {
     super.viewDidLoad()
     var emailPlaceholder = NSAttributedString(string: "email@example.com", attributes:[NSForegroundColorAttributeName : UIColor.grayColor()])
@@ -26,5 +32,7 @@ class AccountSettingsView : UIViewController {
     var notificationPlaceholder = false
     notificationsSwitch.setOn(notificationPlaceholder, animated: true)
   }
+  
+  
   
 }
