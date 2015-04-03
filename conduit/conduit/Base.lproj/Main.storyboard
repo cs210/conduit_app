@@ -130,7 +130,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fs-FQ-ocs">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fs-FQ-ocs">
                                 <rect key="frame" x="107" y="124" width="107" height="30"/>
                                 <state key="normal" title="Create Account">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -139,7 +139,7 @@
                                     <segue destination="gP5-ji-s31" kind="push" id="2Cb-5N-R9Q"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0n-rQ-Q6T">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0n-rQ-Q6T">
                                 <rect key="frame" x="141" y="177" width="38" height="30"/>
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -150,17 +150,14 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="D0n-rQ-Q6T" secondAttribute="trailing" constant="120" id="40M-Ri-qSR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8fs-FQ-ocs" secondAttribute="trailing" constant="60" id="U0Y-yF-8wG"/>
+                            <constraint firstItem="D0n-rQ-Q6T" firstAttribute="leading" secondItem="gCA-sV-uNI" secondAttribute="leadingMargin" constant="120" id="ZsN-GC-tN6"/>
+                            <constraint firstItem="8fs-FQ-ocs" firstAttribute="leading" secondItem="gCA-sV-uNI" secondAttribute="leadingMargin" constant="60" id="lye-i7-BhZ"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="JeC-LZ-yzQ">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="onb-E7-OAR">
-                            <connections>
-                                <action selector="menuButtonPressed:" destination="AMY-Fj-ScN" id="LAf-QH-Td9"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="menuButton" destination="onb-E7-OAR" id="G3H-cp-XHb"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="JeC-LZ-yzQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1n-1t-gxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -255,16 +252,32 @@
                                 <state key="normal" title="Create Account!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="createAccount:" destination="gP5-ji-s31" eventType="touchUpInside" id="31V-ok-56c"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="OeY-Qf-ySp" appends="YES" id="wHo-tV-3xO"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Create Account" id="JBD-1d-LBK">
                         <barButtonItem key="backBarButtonItem" title="Home" id="zgY-7E-sqd"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="DFM-z7-ckD"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="DFM-z7-ckD">
+                            <connections>
+                                <action selector="cancel:" destination="gP5-ji-s31" id="1d7-A4-gce"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oxg-0C-cqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="OeY-Qf-ySp">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="gP5-ji-s31" id="Hyp-dS-XRk"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2410" y="-531"/>
         </scene>

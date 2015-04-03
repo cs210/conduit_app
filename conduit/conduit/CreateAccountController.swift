@@ -9,6 +9,16 @@
 import Foundation
 import UIKit
 
-class CreateAccountController:UIViewController {
-    
+class CreateAccountController : UIViewController {
+  @IBAction func cancel(sender: AnyObject) {
+    navigationController?.popViewControllerAnimated(true)
+  }
+  
+  @IBAction func dismissKeyboard(sender: AnyObject) {
+    view.endEditing(true)
+  }
+  
+  @IBAction func createAccount(sender: AnyObject) {
+    //TODO
+  }
 }
