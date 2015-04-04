@@ -46,6 +46,7 @@ class APIModel {
         get_completion(result:json, error:nil)
       }
     }
+               
   }
 
   class func post(path: String, parameters: [String: AnyObject]? = nil,
@@ -55,7 +56,7 @@ class APIModel {
     
     NSLog("Preparing for POST request to: \(url)")
     
-    Alamofire.request(.POST, url, parameters: parameters).responseJSON {
+    Alamofire.request(.POST, url, parameters: parameters, encoding:.JSON).responseJSON {
       (req, res, json, error) in
       if(error != nil) {
         NSLog("POST Error: \(error)")
@@ -72,18 +73,15 @@ class APIModel {
     self.get("\(self.model())", get_completion:({ (result: JSON?, error: NSError?) in
       completion(result: result, error: error)
     }))
-    
   }
   
   // MARK - Instance Methods.
   
   func update(completion: (result: JSON?, error: NSError?) -> ()){
-    
-    var path = "\(self.model())/\(self.id)/update"
+    var path = "\(self.model())/update/\(self.id)"
     APIModel.post(path, parameters: self.present()) { (result, error) -> () in
       NSLog ("/update POST complete")
     }
-
   }
   
   func delete(completion: (result: JSON?, error: NSError?) -> ()){

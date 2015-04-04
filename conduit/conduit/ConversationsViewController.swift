@@ -23,7 +23,7 @@ class ConversationsViewController : UIViewController, UITableViewDelegate, UITab
       
     menuButton.addTarget(self.revealViewController(), action:"revealToggle:",
                                             forControlEvents:UIControlEvents.TouchUpInside)
-
+    
     User.index { (result, error) -> () in
       if (error == nil) {
         var user_index: NSMutableArray = []
