@@ -13,7 +13,9 @@ class HomepageController:UIViewController {
   @IBOutlet weak var menuButton: UIBarButtonItem!
   
   override func viewDidLoad() {
-    
+    super.viewDidLoad()
+
+    //User.get()
 //
 //    var rvc = self.revealViewController
 //    if (rvc != nil) {
@@ -22,8 +24,8 @@ class HomepageController:UIViewController {
 //        target: rvc,
 //        action: "revealToggle:")
 //    }
-
   }
+
 }
 
 
