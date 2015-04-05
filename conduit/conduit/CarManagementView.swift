@@ -12,13 +12,12 @@ import Foundation
 class CarManagementView : UIViewController, UITableViewDataSource {
   // we will download from server in the future
   var cars:[Car] = [
-    Car(userIds: [1,2], licensePlate: "ABC123"),
-    Car(userIds:[2,3,4], licensePlate: "XYZ789"),
-    Car(userIds: [5], licensePlate: "CS210B")
+    Car(id:1, licensePlate: "ABC123"),
+    Car(id:2, licensePlate: "XYZ789"),
+    Car(id:3, licensePlate: "CS210B")
   ]
   
   var selectedCarIndex:NSIndexPath!
-  
   
   override func viewDidLoad() {
     super.viewDidLoad()

@@ -1,5 +1,5 @@
 //
-//  changePasswordView.swift
+//  ChangePasswordView.swift
 //  conduit
 //
 //  Created by Sherman Leung on 4/2/15.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class changePasswordView : UIViewController {
+class ChangePasswordView : UIViewController {
   
   @IBOutlet var oldPasswordField: UITextField!
   @IBOutlet var newPasswordField: UITextField!

@@ -12,14 +12,14 @@ import SwiftyJSON
 class Message: APIModel {
   var text: String
   var timestamp: NSDate
-  var conversationID: Int
-  var senderID: Int
+  var conversationId: Int
+  var senderId: Int
   
-  init(id:Int, text:String, timestamp:NSDate, conversationID:Int, senderID:Int) {
+  init(id:Int, text:String, timestamp:NSDate, conversationId:Int, senderId:Int) {
     self.text = text
     self.timestamp = timestamp
-    self.conversationID = conversationID
-    self.senderID = senderID
+    self.conversationId = conversationId
+    self.senderId = senderId
     super.init(id: id)
   }
 }

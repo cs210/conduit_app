@@ -1,3 +1,4 @@
+
 //
 //  ConversationsViewController.swift
 //  conduit
@@ -10,6 +11,7 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
+<<<<<<< HEAD
 class ConversationsViewController : UIViewController, UITableViewDataSource {
   
   var conversations : [Conversation] = []
@@ -29,7 +31,7 @@ class ConversationsViewController : UIViewController, UITableViewDataSource {
     // TODO: This is fake. Here, we will need to add a real API call to populate
     // the list of conversations.
     
-    var fakePerson = User(firstName:"Bob", lastName:"Smith", id: 1)
+    var fakePerson = User(firstName:"Bob", lastName:"Smith", userId: 1)
     
     fakeUser = fakePerson
     
@@ -37,6 +39,7 @@ class ConversationsViewController : UIViewController, UITableViewDataSource {
     conversations = [
       Conversation(
         receiverCarId: 2,
+        receiverCar: Car(userIds:[2], licensePlate:"ABC123"),
         requesterUserId: 1,
         requesterUser: fakePerson,
         messages: [
@@ -48,6 +51,7 @@ class ConversationsViewController : UIViewController, UITableViewDataSource {
       ),
       Conversation(
         receiverCarId: 3,
+        receiverCar: Car(userIds:[3], licensePlate:"DEF123"),
         requesterUserId: 1,
         requesterUser: fakePerson,
         messages: [
@@ -58,6 +62,7 @@ class ConversationsViewController : UIViewController, UITableViewDataSource {
       ),
       Conversation(
         receiverCarId: 1,
+        receiverCar: fakeCar,
         requesterUserId: 4,
         requesterUser: User(firstName: "Kanye", lastName: "West", userId: 4),
         messages: [
@@ -134,6 +139,8 @@ class ConversationsViewController : UIViewController, UITableViewDataSource {
     }
   }
   
+  
+  
 }
 
 class ConversationsTableViewCell : UITableViewCell {
@@ -141,3 +148,57 @@ class ConversationsTableViewCell : UITableViewCell {
   @IBOutlet weak var latestMessageLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
 }
+=======
+class ConversationsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
+  
+  @IBOutlet var timeLabel: UILabel!
+  @IBOutlet var dateLabel: UILabel!
+  @IBOutlet weak var menuButton: UIButton!
+  
+  var users: NSArray = []
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+      
+    menuButton.addTarget(self.revealViewController(), action:"revealToggle:",
+                                            forControlEvents:UIControlEvents.TouchUpInside)
+    
+    User.index { (result, error) -> () in
+      if (error == nil) {
+        var user_index: NSMutableArray = []
+        for (index: String, user: JSON) in result!["users"] {
+          user_index.addObject(
+            User(json:user)
+          )
+        }
+        self.users = user_index
+        
+        var user = self.users[0] as User
+        
+        user.update({ (result, error) -> () in
+          NSLog ("done updating")
+        })
+        
+      } else {
+        // Display UIAlertView with failure?
+      }
+
+    }
+
+    
+  }
+  
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return users.count
+  }
+  
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = UITableViewCell(style : UITableViewCellStyle.Default, reuseIdentifier : "conversationCell")
+    var user = users[indexPath.row] as User
+    cell.textLabel?.text = user.firstName
+    return cell
+  }
+  
+  
+}
+>>>>>>> api_layer

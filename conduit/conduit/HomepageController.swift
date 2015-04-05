@@ -14,16 +14,7 @@ class HomepageController:UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    //User.get()
-//
-//    var rvc = self.revealViewController
-//    if (rvc != nil) {
-//      self.menuButton = UIBarButtonItem(title: "Menu",
-//        style: .Plain,
-//        target: rvc,
-//        action: "revealToggle:")
-//    }
+    // Authentication probably goes here.
   }
 
 }

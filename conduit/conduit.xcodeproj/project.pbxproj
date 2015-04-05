@@ -16,7 +16,7 @@
 		B57334191AABDC1500363B5C /* HomepageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57334181AABDC1500363B5C /* HomepageController.swift */; };
 		B582C45F1AABDE900083AD9A /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B582C45E1AABDE900083AD9A /* ScannerViewController.swift */; };
 		B58FD9B11ACE3191005B8648 /* AccountSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58FD9B01ACE3191005B8648 /* AccountSettingsView.swift */; };
-		B58FD9B31ACE67B5005B8648 /* changePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58FD9B21ACE67B5005B8648 /* changePasswordView.swift */; };
+		B58FD9B31ACE67B5005B8648 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */; };
 		BD4C1E1A1ACC6EDD00C10987 /* CustomMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C1E191ACC6EDD00C10987 /* CustomMessageController.swift */; };
 		BDD28DC31ACDDD4E001B031D /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD28DC21ACDDD4E001B031D /* MessagesViewController.swift */; };
 		BDE4EB5F1AAC2A8900588511 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */; };
@@ -57,7 +57,7 @@
 		B57334181AABDC1500363B5C /* HomepageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomepageController.swift; sourceTree = "<group>"; };
 		B582C45E1AABDE900083AD9A /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		B58FD9B01ACE3191005B8648 /* AccountSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingsView.swift; sourceTree = "<group>"; };
-		B58FD9B21ACE67B5005B8648 /* changePasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = changePasswordView.swift; sourceTree = "<group>"; };
+		B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		BD4C1E191ACC6EDD00C10987 /* CustomMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMessageController.swift; sourceTree = "<group>"; };
 		BDD28DC21ACDDD4E001B031D /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C5212BF21ABAA43C004171FD /* API Layer */ = {
+		C5212BF21ABAA43C004171FD /* API Models */ = {
 			isa = PBXGroup;
 			children = (
 				C56BFC991ABA92430074FCAA /* APIModel.swift */,
@@ -132,7 +132,7 @@
 				C56BFC9F1ABAA2330074FCAA /* Conversation.swift */,
 				C56BFCA11ABAA2400074FCAA /* Message.swift */,
 			);
-			name = "API Layer";
+			name = "API Models";
 			sourceTree = "<group>";
 		};
 		C5C70DB31AA68EDE00BE0753 = {
@@ -158,16 +158,15 @@
 		C5C70DBE1AA68EDE00BE0753 /* conduit */ = {
 			isa = PBXGroup;
 			children = (
-				C5212BF21ABAA43C004171FD /* API Layer */,
+				C5212BF21ABAA43C004171FD /* API Models */,
 				C5EFBDD91AABCCC9000029C3 /* Frameworks */,
 				C5C70DC11AA68EDE00BE0753 /* AppDelegate.swift */,
 				C5C70DC51AA68EDE00BE0753 /* Main.storyboard */,
-				B58FD9B21ACE67B5005B8648 /* changePasswordView.swift */,
+				B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */,
 				B58FD9B01ACE3191005B8648 /* AccountSettingsView.swift */,
 				B54FF8FB1ACDEDBF00450107 /* CarView.swift */,
 				BD4C1E191ACC6EDD00C10987 /* CustomMessageController.swift */,
 				B57334181AABDC1500363B5C /* HomepageController.swift */,
-				B54FF8F11AB04B3100450107 /* ConversationsViewController.swift */,
 				B57334161AABDB8100363B5C /* CreateAccountController.swift */,
 				BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */,
 				BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */,
@@ -384,7 +383,6 @@
 				BDD28DC31ACDDD4E001B031D /* MessagesViewController.swift in Sources */,
 				C5EFBDDB1AABD4CD000029C3 /* MenuTableViewController.swift in Sources */,
 				B54FF8F61ACD288200450107 /* SettingsViewController.swift in Sources */,
-				C5C70DC41AA68EDE00BE0753 /* ViewController.swift in Sources */,
 				B54FF8FC1ACDEDBF00450107 /* CarView.swift in Sources */,
 				C5EFBDE11AABD6C4000029C3 /* SWRevealViewController.m in Sources */,
 				B57334171AABDB8100363B5C /* CreateAccountController.swift in Sources */,
@@ -392,9 +390,7 @@
 				B54FF8F81ACDE90A00450107 /* CarManagementView.swift in Sources */,
 				BD4C1E1A1ACC6EDD00C10987 /* CustomMessageController.swift in Sources */,
 				C56BFC9C1ABA94F40074FCAA /* User.swift in Sources */,
-				C5EFBDDB1AABD4CD000029C3 /* MenuTableViewController.swift in Sources */,
 				C5EFBDE11AABD6C4000029C3 /* SWRevealViewController.m in Sources */,
-				B57334171AABDB8100363B5C /* CreateAccountController.swift in Sources */,
 				C56BFCA01ABAA2330074FCAA /* Conversation.swift in Sources */,
 				C56BFC9E1ABAA1FF0074FCAA /* Car.swift in Sources */,
 				B57334191AABDC1500363B5C /* HomepageController.swift in Sources */,
@@ -402,7 +398,7 @@
 				B582C45F1AABDE900083AD9A /* ScannerViewController.swift in Sources */,
 				C5C70DC21AA68EDE00BE0753 /* AppDelegate.swift in Sources */,
 				BDE4EB5F1AAC2A8900588511 /* LoginViewController.swift in Sources */,
-				B58FD9B31ACE67B5005B8648 /* changePasswordView.swift in Sources */,
+				B58FD9B31ACE67B5005B8648 /* ChangePasswordView.swift in Sources */,
 				C5AA6A781ACB465400FE9586 /* SwiftyJSON.swift in Sources */,
 				B54FF8F21AB04B3100450107 /* ConversationsViewController.swift in Sources */,
 				C56BFCA21ABAA2400074FCAA /* Message.swift in Sources */,
