@@ -21,6 +21,13 @@
 		BDD28DC31ACDDD4E001B031D /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD28DC21ACDDD4E001B031D /* MessagesViewController.swift */; };
 		BDE4EB5F1AAC2A8900588511 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */; };
 		BDE4EB651AAC44FB00588511 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */; };
+		C53B9CEA1AD1F6BE00BEFA88 /* LayerHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = C53B9CE91AD1F6BE00BEFA88 /* LayerHelpers.m */; };
+		C53B9CF01AD2046A00BEFA88 /* LayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C53B9CED1AD2046A00BEFA88 /* LayerKit.framework */; };
+		C53B9CF11AD2046A00BEFA88 /* layer-client-messaging-schema.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C53B9CEF1AD2046A00BEFA88 /* layer-client-messaging-schema.bundle */; };
+		C53B9CF31AD2048D00BEFA88 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C53B9CF21AD2048D00BEFA88 /* SystemConfiguration.framework */; };
+		C53B9CF51AD2049400BEFA88 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C53B9CF41AD2049400BEFA88 /* CFNetwork.framework */; };
+		C53B9CF71AD2049B00BEFA88 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C53B9CF61AD2049B00BEFA88 /* MobileCoreServices.framework */; };
+		C53B9CF91AD204A200BEFA88 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C53B9CF81AD204A200BEFA88 /* Security.framework */; };
 		C56BFC9A1ABA92430074FCAA /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BFC991ABA92430074FCAA /* APIModel.swift */; };
 		C56BFC9C1ABA94F40074FCAA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BFC9B1ABA94F40074FCAA /* User.swift */; };
 		C56BFC9E1ABAA1FF0074FCAA /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BFC9D1ABAA1FF0074FCAA /* Car.swift */; };
@@ -34,7 +41,6 @@
 		C5C70DD81AA68EDE00BE0753 /* conduitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C70DD71AA68EDE00BE0753 /* conduitTests.swift */; };
 		C5EFBDDB1AABD4CD000029C3 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EFBDDA1AABD4CD000029C3 /* MenuTableViewController.swift */; };
 		C5EFBDDD1AABD4ED000029C3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EFBDDC1AABD4ED000029C3 /* MainViewController.swift */; };
-		C5EFBDE11AABD6C4000029C3 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EFBDE01AABD6C4000029C3 /* SWRevealViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,12 +68,21 @@
 		BDD28DC21ACDDD4E001B031D /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
+		C53B9CE71AD1E57500BEFA88 /* conduit-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "conduit-Bridging-Header.h"; sourceTree = "<group>"; };
+		C53B9CE81AD1F6BE00BEFA88 /* LayerHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LayerHelpers.h; path = conduit/LayerHelpers.h; sourceTree = "<group>"; };
+		C53B9CE91AD1F6BE00BEFA88 /* LayerHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LayerHelpers.m; path = conduit/LayerHelpers.m; sourceTree = "<group>"; };
+		C53B9CED1AD2046A00BEFA88 /* LayerKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LayerKit.framework; sourceTree = "<group>"; };
+		C53B9CEF1AD2046A00BEFA88 /* layer-client-messaging-schema.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "layer-client-messaging-schema.bundle"; sourceTree = "<group>"; };
+		C53B9CF21AD2048D00BEFA88 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C53B9CF41AD2049400BEFA88 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		C53B9CF61AD2049B00BEFA88 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		C53B9CF81AD204A200BEFA88 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		C56BFC991ABA92430074FCAA /* APIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
 		C56BFC9B1ABA94F40074FCAA /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C56BFC9D1ABAA1FF0074FCAA /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		C56BFC9F1ABAA2330074FCAA /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		C56BFCA11ABAA2400074FCAA /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		C5AA6A771ACB465400FE9586 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		C5AA6A771ACB465400FE9586 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = conduit/SwiftyJSON.swift; sourceTree = "<group>"; };
 		C5AA6A791ACC658F00FE9586 /* ConduitPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ConduitPlayground.playground; sourceTree = "<group>"; };
 		C5C70DBC1AA68EDE00BE0753 /* conduit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = conduit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5C70DC01AA68EDE00BE0753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,7 +95,6 @@
 		C5C70DD71AA68EDE00BE0753 /* conduitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = conduitTests.swift; sourceTree = "<group>"; };
 		C5EFBDDA1AABD4CD000029C3 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		C5EFBDDC1AABD4ED000029C3 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		C5EFBDDE1AABD6C3000029C3 /* conduit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "conduit-Bridging-Header.h"; sourceTree = "<group>"; };
 		C5EFBDDF1AABD6C4000029C3 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		C5EFBDE01AABD6C4000029C3 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		CBA459C56B136A1775EDB032 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -92,7 +106,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C53B9CF91AD204A200BEFA88 /* Security.framework in Frameworks */,
+				C53B9CF71AD2049B00BEFA88 /* MobileCoreServices.framework in Frameworks */,
+				C53B9CF51AD2049400BEFA88 /* CFNetwork.framework in Frameworks */,
+				C53B9CF31AD2048D00BEFA88 /* SystemConfiguration.framework in Frameworks */,
 				9C5DB7A458806B50D7333057 /* Pods.framework in Frameworks */,
+				C53B9CF01AD2046A00BEFA88 /* LayerKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +137,15 @@
 		24BB40C57C7DF6D7C1B3FE43 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C53B9CF81AD204A200BEFA88 /* Security.framework */,
+				C53B9CF61AD2049B00BEFA88 /* MobileCoreServices.framework */,
+				C53B9CF41AD2049400BEFA88 /* CFNetwork.framework */,
+				C53B9CF21AD2048D00BEFA88 /* SystemConfiguration.framework */,
+				C53B9CEC1AD2046A00BEFA88 /* LayerKit.embeddedframework */,
+				C5AA6A771ACB465400FE9586 /* SwiftyJSON.swift */,
+				C5EFBDD51AABCCC3000029C3 /* SWRevealViewController */,
+				C53B9CE81AD1F6BE00BEFA88 /* LayerHelpers.h */,
+				C53B9CE91AD1F6BE00BEFA88 /* LayerHelpers.m */,
 				EFCCECC06C9C564191EED71E /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -133,6 +161,23 @@
 				C56BFCA11ABAA2400074FCAA /* Message.swift */,
 			);
 			name = "API Models";
+			sourceTree = "<group>";
+		};
+		C53B9CEC1AD2046A00BEFA88 /* LayerKit.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				C53B9CED1AD2046A00BEFA88 /* LayerKit.framework */,
+				C53B9CEE1AD2046A00BEFA88 /* Resources */,
+			);
+			path = LayerKit.embeddedframework;
+			sourceTree = "<group>";
+		};
+		C53B9CEE1AD2046A00BEFA88 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C53B9CEF1AD2046A00BEFA88 /* layer-client-messaging-schema.bundle */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		C5C70DB31AA68EDE00BE0753 = {
@@ -158,8 +203,8 @@
 		C5C70DBE1AA68EDE00BE0753 /* conduit */ = {
 			isa = PBXGroup;
 			children = (
+				C53B9CE71AD1E57500BEFA88 /* conduit-Bridging-Header.h */,
 				C5212BF21ABAA43C004171FD /* API Models */,
-				C5EFBDD91AABCCC9000029C3 /* Frameworks */,
 				C5C70DC11AA68EDE00BE0753 /* AppDelegate.swift */,
 				C5C70DC51AA68EDE00BE0753 /* Main.storyboard */,
 				B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */,
@@ -215,18 +260,9 @@
 			children = (
 				C5EFBDDF1AABD6C4000029C3 /* SWRevealViewController.h */,
 				C5EFBDE01AABD6C4000029C3 /* SWRevealViewController.m */,
-				C5EFBDDE1AABD6C3000029C3 /* conduit-Bridging-Header.h */,
 			);
-			path = SWRevealViewController;
-			sourceTree = "<group>";
-		};
-		C5EFBDD91AABCCC9000029C3 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C5AA6A771ACB465400FE9586 /* SwiftyJSON.swift */,
-				C5EFBDD51AABCCC3000029C3 /* SWRevealViewController */,
-			);
-			name = Frameworks;
+			name = SWRevealViewController;
+			path = conduit/SWRevealViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +350,7 @@
 			files = (
 				C5C70DC71AA68EDE00BE0753 /* Main.storyboard in Resources */,
 				C5C70DCC1AA68EDE00BE0753 /* LaunchScreen.xib in Resources */,
+				C53B9CF11AD2046A00BEFA88 /* layer-client-messaging-schema.bundle in Resources */,
 				C5C70DC91AA68EDE00BE0753 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,13 +421,11 @@
 				C5EFBDDB1AABD4CD000029C3 /* MenuTableViewController.swift in Sources */,
 				B54FF8F61ACD288200450107 /* SettingsViewController.swift in Sources */,
 				B54FF8FC1ACDEDBF00450107 /* CarView.swift in Sources */,
-				C5EFBDE11AABD6C4000029C3 /* SWRevealViewController.m in Sources */,
 				B57334171AABDB8100363B5C /* CreateAccountController.swift in Sources */,
 				B58FD9B11ACE3191005B8648 /* AccountSettingsView.swift in Sources */,
 				B54FF8F81ACDE90A00450107 /* CarManagementView.swift in Sources */,
 				BD4C1E1A1ACC6EDD00C10987 /* CustomMessageController.swift in Sources */,
 				C56BFC9C1ABA94F40074FCAA /* User.swift in Sources */,
-				C5EFBDE11AABD6C4000029C3 /* SWRevealViewController.m in Sources */,
 				C56BFCA01ABAA2330074FCAA /* Conversation.swift in Sources */,
 				C56BFC9E1ABAA1FF0074FCAA /* Car.swift in Sources */,
 				B57334191AABDC1500363B5C /* HomepageController.swift in Sources */,
@@ -404,6 +439,7 @@
 				C56BFCA21ABAA2400074FCAA /* Message.swift in Sources */,
 				C5EFBDDD1AABD4ED000029C3 /* MainViewController.swift in Sources */,
 				C56BFC9A1ABA92430074FCAA /* APIModel.swift in Sources */,
+				C53B9CEA1AD1F6BE00BEFA88 /* LayerHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,11 +564,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LayerKit.embeddedframework",
+				);
 				INFOPLIST_FILE = conduit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-framework",
+					"\"Alamofire\"",
+					"-lz",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "conduit/SWRevealViewController/conduit-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "conduit/conduit-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -544,11 +591,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LayerKit.embeddedframework",
+				);
 				INFOPLIST_FILE = conduit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-framework",
+					"\"Alamofire\"",
+					"-lz",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "conduit/SWRevealViewController/conduit-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "conduit/conduit-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -557,6 +615,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -568,6 +627,7 @@
 				INFOPLIST_FILE = conduitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/conduit.app/conduit";
 			};
 			name = Debug;
@@ -576,6 +636,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

@@ -20,19 +20,19 @@ class MessagesViewController : UIViewController, UITableViewDataSource {
     // passed from previous view - for now, faking it.
     super.viewDidLoad()
     
-    if fakeUser.userId == conversation.requesterUserId {
-      if conversation.receiverCar == nil {
-        // TODO: API call
-      }
-      
-      navBar.title = conversation.receiverCar.licensePlate
-    } else {
-      if conversation.requesterUser == nil {
-        // TODO: API call
-      }
-      
-      navBar.title = conversation.requesterUser.firstName
-    }
+//    if fakeUser.userId == conversation.requesterUserId {
+//      if conversation.receiverCar == nil {
+//        // TODO: API call
+//      }
+//      
+//      navBar.title = conversation.receiverCar.licensePlate
+//    } else {
+//      if conversation.requesterUser == nil {
+//        // TODO: API call
+//      }
+//      
+//      navBar.title = conversation.requesterUser.firstName
+//    }
     
     self.tableView.estimatedRowHeight = 44.0
     self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -41,17 +41,17 @@ class MessagesViewController : UIViewController, UITableViewDataSource {
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     var cell : MessageCell!
-    if conversation.messages[indexPath.row].senderId == fakeUser.userId {
-      cell = tableView.dequeueReusableCellWithIdentifier("SentMessageCell") as MessageCell
-    } else {
-      cell = tableView.dequeueReusableCellWithIdentifier("ReceivedMessageCell") as MessageCell
-    }
-    cell.messageText.text = conversation.messages[indexPath.row].text
+//    if conversation.messages[indexPath.row].senderId == fakeUser.userId {
+//      cell = tableView.dequeueReusableCellWithIdentifier("SentMessageCell") as MessageCell
+//    } else {
+//      cell = tableView.dequeueReusableCellWithIdentifier("ReceivedMessageCell") as MessageCell
+//    }
+//    cell.messageText.text = conversation.messages[indexPath.row].text
     return cell
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return conversation.messages.count
+    return 0// conversation.messages.count
   }
 
 }

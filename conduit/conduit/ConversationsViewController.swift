@@ -29,54 +29,54 @@ class ConversationsViewController : UIViewController, UITableViewDataSource {
     // TODO: This is fake. Here, we will need to add a real API call to populate
     // the list of conversations.
     
-    var fakePerson = User(firstName:"Bob", lastName:"Smith", id: 1)
-    
-    fakeUser = fakePerson
-    
-    var fakeCar = Car(userIds: [1], licensePlate:"CS210B")
-    conversations = [
-      Conversation(
-        receiverCarId: 2,
-        requesterUserId: 1,
-        requesterUser: fakePerson,
-        messages: [
-            Message(senderId: 1, text: "Hi, for how long are you planning to use your charging station?", timestamp: NSDate()),
-            Message(senderId: 2, text: "Only about five more minutes!", timestamp: NSDate()),
-            Message(senderId: 1, text: "Great, thank you!", timestamp: NSDate())
-          ],
-        isUnread: false
-      ),
-      Conversation(
-        receiverCarId: 3,
-        requesterUserId: 1,
-        requesterUser: fakePerson,
-        messages: [
-          Message(senderId: 1, text: "Hi, for how long are you planning to use your charging station?", timestamp: NSDate()),
-          Message(senderId: 3, text: "Only about five more minutes!", timestamp: NSDate())
-        ],
-        isUnread: true
-      ),
-      Conversation(
-        receiverCarId: 1,
-        requesterUserId: 4,
-        requesterUser: User(firstName: "Kanye", lastName: "West", userId: 4),
-        messages: [
-          Message(senderId: 4, text: "When will you be back to your charging station?", timestamp: NSDate()),
-          Message(senderId: 1, text: "10 mins! Be there soon.", timestamp: NSDate())
-        ],
-        isUnread: false
-      ),
-      Conversation(
-        receiverCarId: 5,
-        receiverCar: Car(userIds:[5], licensePlate:"XYZ123"),
-        requesterUserId: 1,
-        requesterUser: fakePerson,
-        messages: [
-          Message(senderId: 1, text: "Could I please use your charging station?", timestamp: NSDate())
-        ],
-        isUnread: false
-      )
-    ]
+//    var fakePerson = User(firstName:"Bob", lastName:"Smith", id: 1)
+//    
+//    fakeUser = fakePerson
+//    
+//    var fakeCar = Car(userIds: [1], licensePlate:"CS210B")
+//    conversations = [
+//      Conversation(
+//        receiverCarId: 2,
+//        requesterUserId: 1,
+//        requesterUser: fakePerson,
+//        messages: [
+//            Message(senderId: 1, text: "Hi, for how long are you planning to use your charging station?", timestamp: NSDate()),
+//            Message(senderId: 2, text: "Only about five more minutes!", timestamp: NSDate()),
+//            Message(senderId: 1, text: "Great, thank you!", timestamp: NSDate())
+//          ],
+//        isUnread: false
+//      ),
+//      Conversation(
+//        receiverCarId: 3,
+//        requesterUserId: 1,
+//        requesterUser: fakePerson,
+//        messages: [
+//          Message(senderId: 1, text: "Hi, for how long are you planning to use your charging station?", timestamp: NSDate()),
+//          Message(senderId: 3, text: "Only about five more minutes!", timestamp: NSDate())
+//        ],
+//        isUnread: true
+//      ),
+//      Conversation(
+//        receiverCarId: 1,
+//        requesterUserId: 4,
+//        requesterUser: User(firstName: "Kanye", lastName: "West", userId: 4),
+//        messages: [
+//          Message(senderId: 4, text: "When will you be back to your charging station?", timestamp: NSDate()),
+//          Message(senderId: 1, text: "10 mins! Be there soon.", timestamp: NSDate())
+//        ],
+//        isUnread: false
+//      ),
+//      Conversation(
+//        receiverCarId: 5,
+//        receiverCar: Car(userIds:[5], licensePlate:"XYZ123"),
+//        requesterUserId: 1,
+//        requesterUser: fakePerson,
+//        messages: [
+//          Message(senderId: 1, text: "Could I please use your charging station?", timestamp: NSDate())
+//        ],
+//        isUnread: false
+//      )
+//    ]
     
   }
   
@@ -89,30 +89,30 @@ class ConversationsViewController : UIViewController, UITableViewDataSource {
     
     var conv = conversations[indexPath.row]
     
-    // unread messages are bolded
-    if conv.isUnread == true {
-      cell.licensePlateLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
-      cell.latestMessageLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 14.0)
-    } else {    // cells are recycled, so we also have to un-bold read messages
-      cell.licensePlateLabel.font = UIFont(name:"HelveticaNeue", size: 16.0)
-      cell.latestMessageLabel.font = UIFont(name:"HelveticaNeue", size: 14.0)
-    }
-
-    if conv.receiverCar == nil {
-      // TODO: API call to get receiver car
-    }
-    cell.licensePlateLabel.text = conv.receiverCar.licensePlate
-    
-    if conv.messages.count == 0 {
-      // Error case here?
-    }
-    cell.latestMessageLabel.text = conv.messages[conv.messages.count-1].text
-    
-    let formatter = NSDateFormatter()
-    let usDateFormat = NSDateFormatter.dateFormatFromTemplate("MMddyy", options: 0, locale: NSLocale(localeIdentifier: "en-US"))
-    formatter.dateFormat = usDateFormat
- 
-    cell.dateLabel.text = formatter.stringFromDate(conv.messages[conv.messages.count-1].timestamp)
+//    // unread messages are bolded
+//    if conv.isUnread == true {
+//      cell.licensePlateLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
+//      cell.latestMessageLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 14.0)
+//    } else {    // cells are recycled, so we also have to un-bold read messages
+//      cell.licensePlateLabel.font = UIFont(name:"HelveticaNeue", size: 16.0)
+//      cell.latestMessageLabel.font = UIFont(name:"HelveticaNeue", size: 14.0)
+//    }
+//
+//    if conv.receiverCar == nil {
+//      // TODO: API call to get receiver car
+//    }
+//    cell.licensePlateLabel.text = conv.receiverCar.licensePlate
+//    
+//    if conv.messages.count == 0 {
+//      // Error case here?
+//    }
+//    cell.latestMessageLabel.text = conv.messages[conv.messages.count-1].text
+//    
+//    let formatter = NSDateFormatter()
+//    let usDateFormat = NSDateFormatter.dateFormatFromTemplate("MMddyy", options: 0, locale: NSLocale(localeIdentifier: "en-US"))
+//    formatter.dateFormat = usDateFormat
+// 
+//    cell.dateLabel.text = formatter.stringFromDate(conv.messages[conv.messages.count-1].timestamp)
     return cell
   }
   
