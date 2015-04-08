@@ -25,6 +25,8 @@
 		BDE4EB5F1AAC2A8900588511 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */; };
 		BDE4EB651AAC44FB00588511 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */; };
 		BDEB2DE81AD4A41E008C91C2 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2DE71AD4A41E008C91C2 /* Style.swift */; };
+		BDEB2DEA1AD5C2BC008C91C2 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2DE91AD5C2BC008C91C2 /* NavigationController.swift */; };
+		BDEB2DEC1AD5C5A9008C91C2 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2DEB1AD5C5A9008C91C2 /* Button.swift */; };
 		C5C70DC21AA68EDE00BE0753 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C70DC11AA68EDE00BE0753 /* AppDelegate.swift */; };
 		C5C70DC41AA68EDE00BE0753 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C70DC31AA68EDE00BE0753 /* ViewController.swift */; };
 		C5C70DC71AA68EDE00BE0753 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5C70DC51AA68EDE00BE0753 /* Main.storyboard */; };
@@ -65,6 +67,8 @@
 		BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
 		BDEB2DE71AD4A41E008C91C2 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		BDEB2DE91AD5C2BC008C91C2 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		BDEB2DEB1AD5C5A9008C91C2 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		C5C70DBC1AA68EDE00BE0753 /* conduit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = conduit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5C70DC01AA68EDE00BE0753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5C70DC11AA68EDE00BE0753 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 				B54FF8F71ACDE90A00450107 /* CarManagementView.swift */,
 				BDEB2DE71AD4A41E008C91C2 /* Style.swift */,
 				C5EFBDDC1AABD4ED000029C3 /* MainViewController.swift */,
+				BDEB2DE91AD5C2BC008C91C2 /* NavigationController.swift */,
+				BDEB2DEB1AD5C5A9008C91C2 /* Button.swift */,
 				C5C70DC81AA68EDE00BE0753 /* Images.xcassets */,
 				C5C70DCA1AA68EDE00BE0753 /* LaunchScreen.xib */,
 				C5C70DBF1AA68EDE00BE0753 /* Supporting Files */,
@@ -296,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDD28DC31ACDDD4E001B031D /* MessagesViewController.swift in Sources */,
+				BDEB2DEA1AD5C2BC008C91C2 /* NavigationController.swift in Sources */,
 				C5EFBDDB1AABD4CD000029C3 /* MenuTableViewController.swift in Sources */,
 				B54FF8F61ACD288200450107 /* SettingsViewController.swift in Sources */,
 				C5C70DC41AA68EDE00BE0753 /* ViewController.swift in Sources */,
@@ -309,6 +316,7 @@
 				B54FF8F81ACDE90A00450107 /* CarManagementView.swift in Sources */,
 				BD4C1E1A1ACC6EDD00C10987 /* CustomMessageController.swift in Sources */,
 				B57334191AABDC1500363B5C /* HomepageController.swift in Sources */,
+				BDEB2DEC1AD5C5A9008C91C2 /* Button.swift in Sources */,
 				BDE4EB651AAC44FB00588511 /* NewMessageViewController.swift in Sources */,
 				B54FF8FA1ACDEBC100450107 /* Car.swift in Sources */,
 				BD9869541ACDF4800032327C /* Conversation.swift in Sources */,

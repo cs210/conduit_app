@@ -23,9 +23,7 @@ class ScannerViewController : UIViewController,
   var stillImageOutput: AVCaptureStillImageOutput?
   var previewLayer: AVCaptureVideoPreviewLayer?
   var usingCamera = true
-  
-    
-  @IBOutlet weak var scanButton: UIButton!
+  var licensePlate : String!
     
   @IBOutlet weak var menuButton: UIButton!
   
@@ -38,9 +36,6 @@ class ScannerViewController : UIViewController,
     }
     
     menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
-    
-    // UI Stuff
-    scanButton.backgroundColor = StyleColor.getColor(.Primary, brightness: .Medium)
 
   }
     
@@ -65,10 +60,12 @@ class ScannerViewController : UIViewController,
                         
                         // We now have an image.
                         // TODO: talk to backend here
+                      self.licensePlate = "ABC123" // TODO: This will be come from API call
                     }
                     
                 })
                 dismissViewControllerAnimated(true, completion: {})
+              
                 performSegueWithIdentifier("new_message_segue", sender: self)
             }
         }
@@ -76,11 +73,15 @@ class ScannerViewController : UIViewController,
         
         // Otherwise, let's just go to the photo library:
         else {
-            println("photo lib")
-            let imagePicker = UIImagePickerController()
-            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-            imagePicker.delegate = self
-            presentViewController(imagePicker, animated: true, completion: nil)
+          println("photo lib")
+          let imagePicker = UIImagePickerController()
+          imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+          imagePicker.delegate = self
+          presentViewController(imagePicker, animated: true, completion: {() -> Void in
+            self.licensePlate = "ABC123" // TODO: This will be come from API call
+          })
+          
+          
             
         }
     }
@@ -128,6 +129,18 @@ class ScannerViewController : UIViewController,
         dismissViewControllerAnimated(true, completion: {})
         performSegueWithIdentifier("new_message_segue", sender: self)
     }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "new_message_segue" {
+      var next = segue.destinationViewController as NewMessageViewController
+      next.licensePlate = licensePlate
+      next.manualLicensePlate = false
+    } else if segue.identifier == "manual_new_message_segue" {
+      var next = segue.destinationViewController as NewMessageViewController
+      next.licensePlate = ""
+      next.manualLicensePlate = true
+    }
+  }
 }
 
 

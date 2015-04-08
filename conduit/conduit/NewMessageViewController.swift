@@ -18,8 +18,8 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
     "When will you be back to your car?",
     "Move your car now or else."
   ]
-  // fake data for testing
-  var fakeLicensePlate = "ABC123"
+  var licensePlate : String!
+  var manualLicensePlate : Bool!
 
   @IBOutlet weak var licenseTextField: UITextField!
   @IBOutlet weak var presetTable: UITableView!
@@ -28,13 +28,18 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
   // i.e. when you tap anywhere when keyboard is enabled, it is dismissed
   // i.e. when you tap to select a table cell, tapping elsewhere deselects it
   @IBOutlet var keyboardDismisser: UITapGestureRecognizer!
-
   @IBOutlet var presetDeselecter: UITapGestureRecognizer!
   
   override func viewDidLoad() {
     keyboardDismisser.enabled = false
     presetDeselecter.enabled = false
-    licenseTextField.text = fakeLicensePlate
+    if manualLicensePlate == true {
+      licenseTextField.text = "License Plate"
+      licenseTextField.textColor = StyleColor.getColor(.Grey, brightness: .Light)
+    } else {
+      licenseTextField.text = licensePlate
+      licenseTextField.textColor = UIColor.blackColor()
+    }
   }
   
   // These functions ensure correct tapping to dismiss keyboard and to deselect
@@ -46,6 +51,15 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
   @IBAction func dismissKeyboard(sender: AnyObject) {
     view.endEditing(true)
     keyboardDismisser.enabled = false
+  }
+  
+  @IBAction func manualLicensePlate(sender: AnyObject) {
+    if manualLicensePlate == false {
+      return
+    }
+    
+    licenseTextField.text = ""
+    licenseTextField.textColor = UIColor.blackColor()
   }
   
   @IBAction func deselectSelectedMessage(sender: AnyObject) {

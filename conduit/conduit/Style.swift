@@ -31,11 +31,11 @@ struct StyleColor {
       case .Primary:
         switch brightness {
           case .Dark:
-            return UIColor(hue: 197.0/360.0, saturation: 36.0/100.0, brightness: 31.0/100.0, alpha: 1.0)
+            return UIColor(hue: 203.0/360.0, saturation: 40.0/100.0, brightness: 30.0/100.0, alpha: 1.0)
           case .Medium:
-            return UIColor(hue: 197.0/360.0, saturation: 36.0/100.0, brightness: 51.0/100.0, alpha: 1.0)
+            return UIColor(hue: 203.0/360.0, saturation: 40.0/100.0, brightness: 50.0/100.0, alpha: 1.0)
           case .Light:
-            return UIColor(hue: 197.0/360.0, saturation: 36.0/100.0, brightness: 71.0/100.0, alpha: 1.0)
+            return UIColor(hue: 203.0/360.0, saturation: 40.0/100.0, brightness: 70.0/100.0, alpha: 1.0)
         }
       case .Secondary:
         switch brightness {
@@ -58,11 +58,11 @@ struct StyleColor {
       case .Grey:
         switch brightness {
           case .Dark:
-            return UIColor(hue: 0.0,   saturation: 0.0,  brightness: 65.0/100.0, alpha: 1.0)
+            return UIColor(hue: 0.0,   saturation: 0.0,  brightness: 25.0/100.0, alpha: 1.0)
           case .Medium:
             return UIColor(hue: 0.0,   saturation: 0.0,  brightness: 45.0/100.0, alpha: 1.0)
           case .Light:
-            return UIColor(hue: 0.0,   saturation: 0.0,  brightness: 25.0/100.0, alpha: 1.0)
+            return UIColor(hue: 0.0,   saturation: 0.0,  brightness: 65.0/100.0, alpha: 1.0)
         }
     }
   }
