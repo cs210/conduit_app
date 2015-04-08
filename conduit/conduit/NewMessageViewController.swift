@@ -34,8 +34,8 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
     keyboardDismisser.enabled = false
     presetDeselecter.enabled = false
     if manualLicensePlate == true {
-      licenseTextField.text = "License Plate"
-      licenseTextField.textColor = StyleColor.getColor(.Grey, brightness: .Light)
+      licenseTextField.text = ""
+      licenseTextField.becomeFirstResponder()
     } else {
       licenseTextField.text = licensePlate
       licenseTextField.textColor = UIColor.blackColor()
@@ -51,10 +51,17 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
   @IBAction func dismissKeyboard(sender: AnyObject) {
     view.endEditing(true)
     keyboardDismisser.enabled = false
+    if licenseTextField.text == "" {
+      licenseTextField.text = "License Plate"
+      licenseTextField.textColor = StyleColor.getColor(.Grey, brightness: .Light)
+      licensePlate = ""
+    } else {
+      licensePlate = licenseTextField.text
+    }
   }
   
   @IBAction func manualLicensePlate(sender: AnyObject) {
-    if manualLicensePlate == false {
+    if licensePlate != "" {
       return
     }
     

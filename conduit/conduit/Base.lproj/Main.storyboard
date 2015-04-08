@@ -516,19 +516,25 @@
                                 <rect key="frame" x="0.0" y="110" width="320" height="338"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PresetListItem" rowHeight="70" id="x78-bT-6AW" customClass="NewMessageTableViewCell" customModule="conduit" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PresetListItem" rowHeight="50" id="x78-bT-6AW" customClass="NewMessageTableViewCell" customModule="conduit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" tableViewCell="x78-bT-6AW" id="A2U-eo-p2n">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcg-0q-9Tb">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcg-0q-9Tb">
                                                     <rect key="frame" x="20" y="10" width="280" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="wcg-0q-9Tb" firstAttribute="leading" secondItem="A2U-eo-p2n" secondAttribute="leadingMargin" constant="10" id="BfW-Dh-oUK"/>
+                                                <constraint firstItem="wcg-0q-9Tb" firstAttribute="top" secondItem="A2U-eo-p2n" secondAttribute="topMargin" constant="1" id="ItJ-ax-pu7"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="wcg-0q-9Tb" secondAttribute="bottom" constant="1" id="MeX-Us-Wxo"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="wcg-0q-9Tb" secondAttribute="trailing" constant="10" id="ok2-c7-au3"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
                                         <connections>
@@ -545,22 +551,23 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="W8y-Ld-Wtd" secondAttribute="trailing" constant="20" id="7mt-5T-7Dm"/>
-                            <constraint firstItem="BNe-n1-PuK" firstAttribute="top" secondItem="W8y-Ld-Wtd" secondAttribute="bottom" id="MAF-bB-NjJ"/>
+                            <constraint firstItem="BNe-n1-PuK" firstAttribute="top" secondItem="W8y-Ld-Wtd" secondAttribute="bottom" constant="8" id="7QI-zz-b59"/>
+                            <constraint firstAttribute="trailing" secondItem="W8y-Ld-Wtd" secondAttribute="trailing" constant="15" id="7mt-5T-7Dm"/>
                             <constraint firstItem="US0-Qh-Web" firstAttribute="top" secondItem="BNe-n1-PuK" secondAttribute="bottom" id="Nye-gs-YOX"/>
-                            <constraint firstItem="W8y-Ld-Wtd" firstAttribute="leading" secondItem="De6-Lw-8ab" secondAttribute="trailing" constant="30" id="OcM-PI-jon"/>
+                            <constraint firstItem="W8y-Ld-Wtd" firstAttribute="leading" secondItem="De6-Lw-8ab" secondAttribute="trailing" constant="20" id="OcM-PI-jon"/>
                             <constraint firstItem="7GT-3a-Fkc" firstAttribute="leading" secondItem="eBW-b1-sgx" secondAttribute="leading" id="Rj4-Oz-ZNv"/>
                             <constraint firstItem="7GT-3a-Fkc" firstAttribute="top" secondItem="US0-Qh-Web" secondAttribute="bottom" constant="1" id="VC1-0r-NSb"/>
-                            <constraint firstItem="BNe-n1-PuK" firstAttribute="leading" secondItem="eBW-b1-sgx" secondAttribute="leadingMargin" id="acG-et-v8k"/>
-                            <constraint firstItem="De6-Lw-8ab" firstAttribute="leading" secondItem="eBW-b1-sgx" secondAttribute="leadingMargin" constant="20" id="cU3-40-V1a"/>
+                            <constraint firstItem="BNe-n1-PuK" firstAttribute="top" secondItem="W8y-Ld-Wtd" secondAttribute="bottom" constant="8" id="bpE-FA-u1e"/>
                             <constraint firstItem="W8y-Ld-Wtd" firstAttribute="top" secondItem="V78-hs-bWh" secondAttribute="bottom" constant="10" id="dhp-Pz-ybm"/>
                             <constraint firstAttribute="trailing" secondItem="US0-Qh-Web" secondAttribute="trailing" id="dl3-lP-PXh"/>
                             <constraint firstItem="US0-Qh-Web" firstAttribute="leading" secondItem="eBW-b1-sgx" secondAttribute="leading" id="mGG-3k-G7x"/>
                             <constraint firstItem="US0-Qh-Web" firstAttribute="top" secondItem="BNe-n1-PuK" secondAttribute="bottom" id="mi2-Mz-RqB"/>
-                            <constraint firstItem="De6-Lw-8ab" firstAttribute="top" secondItem="V78-hs-bWh" secondAttribute="bottom" constant="15" id="sge-Ua-Kbc"/>
+                            <constraint firstAttribute="trailing" secondItem="BNe-n1-PuK" secondAttribute="trailing" id="r0s-BM-9vQ"/>
+                            <constraint firstItem="De6-Lw-8ab" firstAttribute="top" secondItem="V78-hs-bWh" secondAttribute="bottom" constant="14" id="sge-Ua-Kbc"/>
                             <constraint firstAttribute="trailing" secondItem="7GT-3a-Fkc" secondAttribute="trailing" id="uM5-G6-jSm"/>
                             <constraint firstItem="VLf-2I-RBD" firstAttribute="top" secondItem="7GT-3a-Fkc" secondAttribute="bottom" id="v2R-eA-wbw"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="BNe-n1-PuK" secondAttribute="trailing" id="xmO-Lu-VDD"/>
+                            <constraint firstItem="De6-Lw-8ab" firstAttribute="leading" secondItem="eBW-b1-sgx" secondAttribute="leading" constant="15" id="whd-YB-3TY"/>
+                            <constraint firstItem="BNe-n1-PuK" firstAttribute="leading" secondItem="eBW-b1-sgx" secondAttribute="leading" id="zrU-Z6-gob"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="tqC-2l-KmV" appends="YES" id="SDD-U2-Nhy"/>
