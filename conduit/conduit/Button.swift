@@ -12,7 +12,7 @@ import UIKit
 class Button : UIButton {
   required init(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-    self.tintColor = UIColor.whiteColor()
+    self.tintColor = TextColor.getTextColor(.Light)
     self.backgroundColor = StyleColor.getColor(.Primary, brightness: .Medium)
   }
 }

@@ -21,6 +21,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
   var licensePlate : String!
   var manualLicensePlate : Bool!
 
+  @IBOutlet weak var toFieldBackground: UIView!
   @IBOutlet weak var licenseTextField: UITextField!
   @IBOutlet weak var presetTable: UITableView!
   
@@ -33,12 +34,13 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
   override func viewDidLoad() {
     keyboardDismisser.enabled = false
     presetDeselecter.enabled = false
+    toFieldBackground.backgroundColor = StyleColor.getColor(.Grey, brightness: .Light)
     if manualLicensePlate == true {
       licenseTextField.text = ""
       licenseTextField.becomeFirstResponder()
     } else {
       licenseTextField.text = licensePlate
-      licenseTextField.textColor = UIColor.blackColor()
+      licenseTextField.textColor = StyleColor.getColor(.Grey, brightness: .Dark)
     }
   }
   
@@ -104,7 +106,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "custom_message_segue" {
       var next = segue.destinationViewController as CustomMessageController
-      next.licensePlate = licenseTextField.text
+      next.licensePlate = licensePlate
     }
   }
   

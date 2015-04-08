@@ -62,8 +62,25 @@ struct StyleColor {
           case .Medium:
             return UIColor(hue: 0.0,   saturation: 0.0,  brightness: 45.0/100.0, alpha: 1.0)
           case .Light:
-            return UIColor(hue: 0.0,   saturation: 0.0,  brightness: 65.0/100.0, alpha: 1.0)
+            return UIColor(hue: 0.0,   saturation: 0.0,  brightness: 85.0/100.0, alpha: 1.0)
         }
+    }
+  }
+};
+
+struct TextColor {
+  enum Brightness {
+    case Light, Medium, Dark
+  }
+  
+  static func getTextColor(brightness: Brightness) -> UIColor {
+    switch brightness {
+      case .Light:
+        return UIColor.whiteColor()
+      case .Medium:
+        return StyleColor.getColor(.Grey, brightness: .Medium)
+      case .Dark:
+        return StyleColor.getColor(.Grey, brightness: .Dark)
     }
   }
 }
