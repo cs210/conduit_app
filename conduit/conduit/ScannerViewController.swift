@@ -18,27 +18,31 @@ class ScannerViewController : UIViewController,
                               UIImagePickerControllerDelegate,
                               UINavigationControllerDelegate {
     
-    @IBOutlet weak var cameraView: UIView!
-    var captureSession: AVCaptureSession?
-    var stillImageOutput: AVCaptureStillImageOutput?
-    var previewLayer: AVCaptureVideoPreviewLayer?
-    var usingCamera = true
+  @IBOutlet weak var cameraView: UIView!
+  var captureSession: AVCaptureSession?
+  var stillImageOutput: AVCaptureStillImageOutput?
+  var previewLayer: AVCaptureVideoPreviewLayer?
+  var usingCamera = true
+  
     
+  @IBOutlet weak var scanButton: UIButton!
     
-    @IBOutlet weak var menuButton: UIButton!
+  @IBOutlet weak var menuButton: UIButton!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        var loggedIn = NSUserDefaults.standardUserDefaults().boolForKey("loggedIn")
-        if !loggedIn {
-            performSegueWithIdentifier("to_login", sender: self)
-        }
-        
-        menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
-
-      
+    var loggedIn = NSUserDefaults.standardUserDefaults().boolForKey("loggedIn")
+    if !loggedIn {
+        performSegueWithIdentifier("to_login", sender: self)
     }
+    
+    menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
+    
+    // UI Stuff
+    scanButton.backgroundColor = StyleColor.getColor(.Primary, brightness: .Medium)
+
+  }
     
     @IBAction func didPressScan(sender: AnyObject) {
         // If we're connected to a camera

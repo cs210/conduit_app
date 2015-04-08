@@ -24,6 +24,7 @@
 		BDD28DC31ACDDD4E001B031D /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD28DC21ACDDD4E001B031D /* MessagesViewController.swift */; };
 		BDE4EB5F1AAC2A8900588511 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */; };
 		BDE4EB651AAC44FB00588511 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */; };
+		BDEB2DE81AD4A41E008C91C2 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2DE71AD4A41E008C91C2 /* Style.swift */; };
 		C5C70DC21AA68EDE00BE0753 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C70DC11AA68EDE00BE0753 /* AppDelegate.swift */; };
 		C5C70DC41AA68EDE00BE0753 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C70DC31AA68EDE00BE0753 /* ViewController.swift */; };
 		C5C70DC71AA68EDE00BE0753 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5C70DC51AA68EDE00BE0753 /* Main.storyboard */; };
@@ -63,6 +64,7 @@
 		BDD28DC21ACDDD4E001B031D /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
+		BDEB2DE71AD4A41E008C91C2 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		C5C70DBC1AA68EDE00BE0753 /* conduit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = conduit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5C70DC01AA68EDE00BE0753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5C70DC11AA68EDE00BE0753 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				B54FF8F91ACDEBC100450107 /* Car.swift */,
 				BD9869571ACDFAF10032327C /* User.swift */,
 				B54FF8F71ACDE90A00450107 /* CarManagementView.swift */,
+				BDEB2DE71AD4A41E008C91C2 /* Style.swift */,
 				C5EFBDDC1AABD4ED000029C3 /* MainViewController.swift */,
 				C5C70DC81AA68EDE00BE0753 /* Images.xcassets */,
 				C5C70DCA1AA68EDE00BE0753 /* LaunchScreen.xib */,
@@ -297,6 +300,7 @@
 				B54FF8F61ACD288200450107 /* SettingsViewController.swift in Sources */,
 				C5C70DC41AA68EDE00BE0753 /* ViewController.swift in Sources */,
 				B54FF8FC1ACDEDBF00450107 /* CarView.swift in Sources */,
+				BDEB2DE81AD4A41E008C91C2 /* Style.swift in Sources */,
 				C5EFBDE11AABD6C4000029C3 /* SWRevealViewController.m in Sources */,
 				B57334171AABDB8100363B5C /* CreateAccountController.swift in Sources */,
 				B58FD9B11ACE3191005B8648 /* AccountSettingsView.swift in Sources */,
