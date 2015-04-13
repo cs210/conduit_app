@@ -9,65 +9,141 @@
 import Foundation
 import UIKit
 
-class MessagesViewController : UIViewController, UITableViewDataSource {
+class MessagesViewController : UIViewController, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate, LYRQueryControllerDelegate {
+  
+  var conversation: LYRConversation!
+  var layerClient: LYRClient!
+  var queryController: LYRQueryController!
+  var messages : [LYRMessage] = []
+  
   @IBOutlet weak var navBar: UINavigationItem!
-  var conversation : Conversation!
-  var fakeUser : User!
+  
   @IBOutlet weak var tableView: UITableView!
   
+  @IBOutlet weak var sendButton: UIButton!
+  
+  @IBOutlet weak var isTypingLabel: UILabel!
+  
+  @IBOutlet weak var inputTextView: UITextView!
+
+  
   override func viewDidLoad() {
-    // TODO: API call to get conversation information using conversation ID 
-    // passed from previous view - for now, faking it.
     super.viewDidLoad()
-    
-//    if fakeUser.userId == conversation.requesterUserId {
-//      if conversation.receiverCar == nil {
-//        // TODO: API call
-//      }
-//      
-//      navBar.title = conversation.receiverCar.licensePlate
-//    } else {
-//      if conversation.requesterUser == nil {
-//        // TODO: API call
-//      }
-//      
-//      navBar.title = conversation.requesterUser.firstName
-//    }
-    
+
     self.tableView.estimatedRowHeight = 44.0
     self.tableView.rowHeight = UITableViewAutomaticDimension
-    self.tableView.reloadData()
+    
+    self.setupLayerNotificationObservers()
+    self.fetchLayerMessages()
+  }
+  
+  func setupLayerNotificationObservers() {
+    
+    // Register for typing indicator notifications
+    NSNotificationCenter.defaultCenter().addObserver(self,
+      selector: Selector("didReceiveTypingIndicator"),
+      name: LYRConversationDidReceiveTypingIndicatorNotification, object: self.conversation)
+    
+    NSNotificationCenter.defaultCenter().addObserver(self,
+      selector: Selector("didReceiveLayerObjectsDidChangeNotification"),
+      name: LYRClientObjectsDidChangeNotification, object: nil)
+    
+    NSNotificationCenter.defaultCenter().addObserver(self,
+      selector: Selector("didReceiveLayerClientWillBeginSynchronizationNotification"),
+      name: LYRClientWillBeginSynchronizationNotification, object: self.layerClient)
+    
+    NSNotificationCenter.defaultCenter().addObserver(self,
+      selector: Selector("didReceiveLayerClientDidFinishSynchronizationNotification"),
+      name: LYRClientDidFinishSynchronizationNotification, object: self.layerClient)
+  }
+  
+  func fetchLayerMessages() {
+    // Fetch all conversations related to the user
+    var query: LYRQuery = LayerHelpers.createQueryWithClass(LYRMessage.self)
+    var predicate: LYRPredicate = LayerHelpers.createPredicateWithProperty("conversation", _operator: LYRPredicateOperator.IsEqualTo, value: self.conversation)
+    query.sortDescriptors = [NSSortDescriptor(key: "position", ascending: true)]
+    
+    self.queryController = self.layerClient.queryControllerWithQuery(query)
+    self.queryController.delegate = self
+    
+    var error: NSError? = NSError()
+    
+    var success: Bool = self.queryController.execute(&error)
+    
+    if (success) {
+      NSLog("Query fetched \(self.queryController.numberOfObjectsInSection(0)) message objects");
+    } else {
+      NSLog("Query failed with error: \(error)");
+    }
+  }
+
+  // MARK - Table View Data Source Methods
+  
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    var count: UInt = self.queryController.numberOfObjectsInSection(UInt(section))
+    var countAsInt: Int = Int(count)
+    return countAsInt
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    var cell : MessageCell!
-//    if conversation.messages[indexPath.row].senderId == fakeUser.userId {
-//      cell = tableView.dequeueReusableCellWithIdentifier("SentMessageCell") as MessageCell
-//    } else {
-//      cell = tableView.dequeueReusableCellWithIdentifier("ReceivedMessageCell") as MessageCell
-//    }
-//    cell.messageText.text = conversation.messages[indexPath.row].text
+    let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell", forIndexPath: indexPath) as UITableViewCell
     return cell
   }
   
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 0// conversation.messages.count
+  func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    
+    var message: LYRMessage = self.queryController.objectAtIndexPath(indexPath) as LYRMessage
+    var messageCell: MessagesTableViewCell  = cell as MessagesTableViewCell
+    
+    // Set Message Text
+    var messagePart: LYRMessagePart = message.parts[0] as LYRMessagePart
+    messageCell.messageText.text = NSString(data: messagePart.data, encoding: NSUTF8StringEncoding)
   }
-
-}
-
-class MessageCell : UITableViewCell {
-  @IBOutlet weak var messageText: UILabel!
-}
-
-
-class FakeMessage {
-  var messageText : String!
-  var iAmSender : Bool!
-  // true if I sent the message, false if the other guy sent it
   
-  init(messageText : String, iAmSender : Bool) {
-    self.messageText = messageText
-    self.iAmSender = iAmSender
+  
+  // MARK - Receiving Typing Indicator
+  func didReceiveTypingIndicator(notification: NSNotification) {
+   // add code
   }
+  
+  // MARK - IBActions
+  
+  @IBAction func sendButtonPressed(sender: AnyObject) {
+    self.sendMessage(self.inputTextView.text)
+  }
+  
+  func sendMessage(messageText: String) {
+    // If no conversations exist, create a new conversation object with a single participant
+    if (self.conversation == nil) {
+      var error:NSError? = nil
+      self.conversation = self.layerClient.newConversationWithParticipants(
+        NSSet(array: [LQSParticipantUserID, LQSParticipant2UserID]), options: nil, error: &error)
+      
+      if (self.conversation == nil) {
+         NSLog("New Conversation creation failed: \(error)")
+      }
+    }
+    
+    var messagePart: LYRMessagePart = LYRMessagePart(text: messageText)
+    var pushMessage: String = "\(self.layerClient.authenticatedUserID) says \(messageText)"
+    var message: LYRMessage = self.layerClient.newMessageWithParts([messagePart], options: [LYRMessageOptionsPushNotificationAlertKey: pushMessage], error: nil)
+    
+    // Send message
+    var error:NSError? = nil
+    
+    var success:Bool = self.conversation.sendMessage(message, error:&error)
+    if (success) {
+      NSLog("Message queued to be sent: \(messageText)");
+      self.inputTextView.text = "";
+    } else {
+      NSLog("Message send failed: \(error)");
+    }
+
+  }
+  
+
+}
+
+class MessagesTableViewCell : UITableViewCell {
+  @IBOutlet weak var messageText: UILabel!
 }

@@ -1045,6 +1045,34 @@
                                     <outlet property="delegate" destination="wLx-uS-ZdO" id="Uu9-eS-Iyn"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YLh-gw-8dz" userLabel="ContainerView">
+                                <rect key="frame" x="0.0" y="488" width="320" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TzX-rg-uYD">
+                                        <rect key="frame" x="266" y="25" width="36" height="30"/>
+                                        <state key="normal" title="Send">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendButtonPressed:" destination="wLx-uS-ZdO" eventType="touchUpInside" id="3pK-pY-wgz"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqt-dw-eUB" userLabel="isTypingLabel">
+                                        <rect key="frame" x="8" y="0.0" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ztT-fc-tJG">
+                                        <rect key="frame" x="8" y="15" width="254" height="65"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1056,8 +1084,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="7a3-0C-iVN"/>
                     <connections>
+                        <outlet property="inputTextView" destination="ztT-fc-tJG" id="v13-fw-9qg"/>
+                        <outlet property="isTypingLabel" destination="dqt-dw-eUB" id="di8-8x-Ut7"/>
                         <outlet property="navBar" destination="7a3-0C-iVN" id="vJD-Eu-WtE"/>
-                        <outlet property="tableView" destination="ffc-No-G3f" id="q2m-XQ-Z3g"/>
+                        <outlet property="sendButton" destination="TzX-rg-uYD" id="arG-QY-dmC"/>
+                        <outlet property="tableView" destination="ffc-No-G3f" id="qzZ-Nk-wKM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PfS-C4-5fs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1128,6 +1159,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="psz-Zh-Tf1"/>
+        <segue reference="YKv-ZP-RES"/>
     </inferredMetricsTieBreakers>
 </document>

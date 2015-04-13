@@ -10,27 +10,16 @@
 
 @implementation LayerHelpers
 
-//- (void)init {
-//  
-//  NSUUID *appID = [[NSUUID alloc] initWithUUIDString:@"7b2aed30-db1b-11e4-a21a-52bb02000413"];
-//  self.layerClient = [LYRClient clientWithAppID:appID];
-//  [self.layerClient connectWithCompletion:^(BOOL success, NSError *error) {
-//    if (!success) {
-//      NSLog(@"Failed to connect to Layer: %@", error);
-//    } else {
-//      // For the purposes of this Quick Start project, let's authenticate as a user named 'Device'.  Alternatively, you can authenticate as a user named 'Simulator' if you're running on a Simulator.
-//      NSString *userIDString = @"Device";
-//      // Once connected, authenticate user.
-//      // Check Authenticate step for authenticateLayerWithUserID source
-//      [self authenticateLayerWithUserID:userIDString completion:^(BOOL success, NSError *error) {
-//        if (!success) {
-//          NSLog(@"Failed Authenticating Layer Client with error:%@", error);
-//        }
-//      }];
-//    }
-//  }];
-//  
-//}
++ (NSDateFormatter *)LQSDateFormatter
+{
+  static NSDateFormatter *dateFormatter;
+  if (!dateFormatter)
+  {
+    dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"HH:mm:ss";
+  }
+  return dateFormatter;
+}
 
 + (void)authenticateLayerWithUserID:(NSString *)userID client:(LYRClient *)client completion:(void (^)(BOOL success, NSError * error))completion
 {
@@ -157,6 +146,77 @@
   }] resume];
 }
 
++ (LYRQuery *)createQueryWithClass:(Class)class_type
+{
+  return [LYRQuery queryWithClass:class_type];
+}
 
++ (LYRPredicate *)createPredicateWithProperty:(NSString *)property
+                                    _operator:(LYRPredicateOperator)_operator
+                                        value:(id)value {
+  return [LYRPredicate predicateWithProperty:property operator:_operator value:value];
+}
+
+#pragma mark - Push Notification Methods
+
++ (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+             client:(LYRClient *)client fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+  // Get Message from Metadata
+  __block LYRMessage *message = [self messageFromRemoteNotification:userInfo client:client];
+
+  NSError *error;
+  BOOL success = [client synchronizeWithRemoteNotification:userInfo completion:^(NSArray *changes, NSError *error) {
+    if (changes)
+    {
+      if ([changes count])
+      {
+        message = [self messageFromRemoteNotification:userInfo client:client];
+        completionHandler(UIBackgroundFetchResultNewData);
+      }
+      else
+      {
+        completionHandler(UIBackgroundFetchResultNoData);
+      }
+    }
+    else
+    {
+      completionHandler(UIBackgroundFetchResultFailed);
+    }
+  }];
+  
+  if (success) {
+    NSLog(@"Application did complete remote notification sync");
+  } else {
+    NSLog(@"Failed processing push notification with error: %@", error);
+    completionHandler(UIBackgroundFetchResultNoData);
+  }
+}
+
+
++ (LYRMessage *)messageFromRemoteNotification:(NSDictionary *)remoteNotification client:(LYRClient *)client
+{
+  static NSString *const LQSPushMessageIdentifierKeyPath = @"layer.message_identifier";
+  
+  // Retrieve message URL from Push Notification
+  NSURL *messageURL = [NSURL URLWithString:[remoteNotification valueForKeyPath:LQSPushMessageIdentifierKeyPath]];
+  
+  // Retrieve LYRMessage from Message URL
+  LYRQuery *query = [LYRQuery queryWithClass:[LYRMessage class]];
+  query.predicate = [LYRPredicate predicateWithProperty:@"identifier" operator:LYRPredicateOperatorIsIn value:[NSSet setWithObject:messageURL]];
+  
+  NSError *error;
+  NSOrderedSet *messages = [client executeQuery:query error:&error];
+  if (!error) {
+    NSLog(@"Query contains %lu messages", (unsigned long)messages.count);
+    LYRMessage *message= messages.firstObject;
+    LYRMessagePart *messagePart = message.parts[0];
+    NSLog(@"Pushed Message Contents: %@",[[NSString alloc] initWithData:messagePart.data encoding:NSUTF8StringEncoding]);
+  } else {
+    NSLog(@"Query failed with error %@", error);
+  }
+  
+  return [messages firstObject];
+}
 
 @end
