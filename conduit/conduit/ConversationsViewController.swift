@@ -73,15 +73,15 @@ class ConversationsViewController : UIViewController, UITableViewDataSource, UIT
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
-    let cell = tableView.dequeueReusableCellWithIdentifier("ConversationsListItem", forIndexPath: indexPath) as UITableViewCell
+    let cell = tableView.dequeueReusableCellWithIdentifier("ConversationsListItem", forIndexPath: indexPath) as! UITableViewCell
 
     return cell
   }
   
   func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
     
-    var conversation: LYRConversation = self.queryController.objectAtIndexPath(indexPath) as LYRConversation
-    var convCell: ConversationsTableViewCell = cell as ConversationsTableViewCell
+    var conversation: LYRConversation = self.queryController.objectAtIndexPath(indexPath) as! LYRConversation
+    var convCell: ConversationsTableViewCell = cell as! ConversationsTableViewCell
     
     convCell.licensePlateLabel.text = conversation.description
     convCell.dateLabel.text = LayerHelpers.LQSDateFormatter().stringFromDate(conversation.createdAt)
@@ -96,8 +96,8 @@ class ConversationsViewController : UIViewController, UITableViewDataSource, UIT
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "conversation_segue" {
-      var next = segue.destinationViewController as MessagesViewController
-      next.conversation = self.queryController.objectAtIndexPath(self.selectedIndex) as LYRConversation
+      var next = segue.destinationViewController as! MessagesViewController
+      next.conversation = self.queryController.objectAtIndexPath(self.selectedIndex) as! LYRConversation
     }
   }
   

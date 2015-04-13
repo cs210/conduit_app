@@ -33,7 +33,6 @@
 		C56BFC9E1ABAA1FF0074FCAA /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BFC9D1ABAA1FF0074FCAA /* Car.swift */; };
 		C56BFCA01ABAA2330074FCAA /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BFC9F1ABAA2330074FCAA /* Conversation.swift */; };
 		C56BFCA21ABAA2400074FCAA /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BFCA11ABAA2400074FCAA /* Message.swift */; };
-		C5AA6A781ACB465400FE9586 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AA6A771ACB465400FE9586 /* SwiftyJSON.swift */; };
 		C5C70DC21AA68EDE00BE0753 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C70DC11AA68EDE00BE0753 /* AppDelegate.swift */; };
 		C5C70DC71AA68EDE00BE0753 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5C70DC51AA68EDE00BE0753 /* Main.storyboard */; };
 		C5C70DC91AA68EDE00BE0753 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5C70DC81AA68EDE00BE0753 /* Images.xcassets */; };
@@ -82,7 +81,6 @@
 		C56BFC9D1ABAA1FF0074FCAA /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		C56BFC9F1ABAA2330074FCAA /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		C56BFCA11ABAA2400074FCAA /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		C5AA6A771ACB465400FE9586 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = conduit/SwiftyJSON.swift; sourceTree = "<group>"; };
 		C5AA6A791ACC658F00FE9586 /* ConduitPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ConduitPlayground.playground; sourceTree = "<group>"; };
 		C5C70DBC1AA68EDE00BE0753 /* conduit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = conduit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5C70DC01AA68EDE00BE0753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 				C53B9CF41AD2049400BEFA88 /* CFNetwork.framework */,
 				C53B9CF21AD2048D00BEFA88 /* SystemConfiguration.framework */,
 				C53B9CEC1AD2046A00BEFA88 /* LayerKit.embeddedframework */,
-				C5AA6A771ACB465400FE9586 /* SwiftyJSON.swift */,
 				C5EFBDD51AABCCC3000029C3 /* SWRevealViewController */,
 				C53B9CE81AD1F6BE00BEFA88 /* LayerHelpers.h */,
 				C53B9CE91AD1F6BE00BEFA88 /* LayerHelpers.m */,
@@ -434,7 +431,6 @@
 				C5C70DC21AA68EDE00BE0753 /* AppDelegate.swift in Sources */,
 				BDE4EB5F1AAC2A8900588511 /* LoginViewController.swift in Sources */,
 				B58FD9B31ACE67B5005B8648 /* ChangePasswordView.swift in Sources */,
-				C5AA6A781ACB465400FE9586 /* SwiftyJSON.swift in Sources */,
 				B54FF8F21AB04B3100450107 /* ConversationsViewController.swift in Sources */,
 				C56BFCA21ABAA2400074FCAA /* Message.swift in Sources */,
 				C5EFBDDD1AABD4ED000029C3 /* MainViewController.swift in Sources */,
@@ -569,7 +565,7 @@
 					"$(PROJECT_DIR)/LayerKit.embeddedframework",
 				);
 				INFOPLIST_FILE = conduit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -597,7 +593,7 @@
 					"$(PROJECT_DIR)/LayerKit.embeddedframework",
 				);
 				INFOPLIST_FILE = conduit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

@@ -86,18 +86,19 @@ class MessagesViewController : UIViewController, UITextViewDelegate, UITableView
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell", forIndexPath: indexPath) as UITableViewCell
+    let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell", forIndexPath: indexPath) as! UITableViewCell
     return cell
   }
   
   func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
     
-    var message: LYRMessage = self.queryController.objectAtIndexPath(indexPath) as LYRMessage
-    var messageCell: MessagesTableViewCell  = cell as MessagesTableViewCell
+    var message: LYRMessage = self.queryController.objectAtIndexPath(indexPath) as! LYRMessage
+    var messageCell: MessagesTableViewCell  = cell as! MessagesTableViewCell
     
     // Set Message Text
-    var messagePart: LYRMessagePart = message.parts[0] as LYRMessagePart
-    messageCell.messageText.text = NSString(data: messagePart.data, encoding: NSUTF8StringEncoding)
+    var messagePart: LYRMessagePart = message.parts[0] as! LYRMessagePart
+    
+    messageCell.messageText.text = NSString(data: messagePart.data, encoding: NSUTF8StringEncoding) as? String
   }
   
   
@@ -117,7 +118,7 @@ class MessagesViewController : UIViewController, UITextViewDelegate, UITableView
     if (self.conversation == nil) {
       var error:NSError? = nil
       self.conversation = self.layerClient.newConversationWithParticipants(
-        NSSet(array: [LQSParticipantUserID, LQSParticipant2UserID]), options: nil, error: &error)
+        NSSet(array: [LQSParticipantUserID, LQSParticipant2UserID]) as Set<NSObject>, options: nil, error: &error)
       
       if (self.conversation == nil) {
          NSLog("New Conversation creation failed: \(error)")

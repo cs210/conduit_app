@@ -13,10 +13,10 @@ class MenuTableViewController: UITableViewController {
     var menuOptions = ["Scanner", "Conversations", "Settings"]
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MenuItem",
-            forIndexPath : indexPath) as UITableViewCell
+      let cell = tableView.dequeueReusableCellWithIdentifier("MenuItem",
+            forIndexPath : indexPath) as! UITableViewCell
         
-        cell.textLabel?.text = menuOptions[indexPath.row]
+        cell.textLabel!.text = menuOptions[indexPath.row]
         return cell
     }
     

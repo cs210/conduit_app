@@ -115,15 +115,15 @@ class ScannerViewController : UIViewController,
             usingCamera = false
         }
     }
+  
+  func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    let photo = info[UIImagePickerControllerOriginalImage] as! UIImage
+    // TODO: Send photo to backend somewhere in here
     
-    // This function is for when we use the photo library only!
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: NSDictionary) {
-        let photo = info[UIImagePickerControllerOriginalImage] as UIImage
-        // TODO: Send photo to backend somewhere in here
-        
-        dismissViewControllerAnimated(true, completion: {})
-        performSegueWithIdentifier("new_message_segue", sender: self)
-    }
+    dismissViewControllerAnimated(true, completion: {})
+    performSegueWithIdentifier("new_message_segue", sender: self)
+  }
+
 }
 
 

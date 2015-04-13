@@ -24,7 +24,7 @@ class CarManagementView : UIViewController, UITableViewDataSource {
   }
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("car_management_item",
-      forIndexPath : indexPath) as UITableViewCell
+      forIndexPath : indexPath) as! UITableViewCell
     
     cell.textLabel?.text = cars[indexPath.row].licensePlate
     return cell
@@ -43,7 +43,7 @@ class CarManagementView : UIViewController, UITableViewDataSource {
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "car_segue" {
-      var next = segue.destinationViewController as CarView
+      var next = segue.destinationViewController as! CarView
       
       // retrieve car from the array of car objects
       next.selectedCar = cars[selectedCarIndex.row]

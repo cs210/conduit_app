@@ -21,7 +21,7 @@ class SettingsViewController : UITableViewController {
   }
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("SettingsListItem",
-      forIndexPath : indexPath) as UITableViewCell
+      forIndexPath : indexPath) as! UITableViewCell
     
     cell.textLabel?.text = menuOptions[indexPath.row]
     return cell

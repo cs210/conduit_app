@@ -63,7 +63,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("PresetListItem", forIndexPath: indexPath) as NewMessageTableViewCell
+    let cell = tableView.dequeueReusableCellWithIdentifier("PresetListItem", forIndexPath: indexPath) as! NewMessageTableViewCell
       
     cell.label.text = presetMessages[indexPath.row]
     
@@ -71,7 +71,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    let cell = tableView.cellForRowAtIndexPath(indexPath) as NewMessageTableViewCell
+    let cell = tableView.cellForRowAtIndexPath(indexPath) as! NewMessageTableViewCell
     selectedMessage = cell.label.text!
     selectedMessageIndexPath = indexPath
     presetDeselecter.enabled = true
@@ -82,7 +82,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "custom_message_segue" {
-      var next = segue.destinationViewController as CustomMessageController
+      var next = segue.destinationViewController as! CustomMessageController
       next.licensePlate = licenseTextField.text
     }
   }
