@@ -122,7 +122,7 @@ class ScannerViewController : UIViewController,
     }
   
   func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-        let photo = info[UIImagePickerControllerOriginalImage] as UIImage
+        let photo = info[UIImagePickerControllerOriginalImage] as! UIImage
         // TODO: Send photo to backend somewhere in here
         
         dismissViewControllerAnimated(true, completion: {})
@@ -131,11 +131,11 @@ class ScannerViewController : UIViewController,
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "new_message_segue" {
-      var next = segue.destinationViewController as NewMessageViewController
+      var next = segue.destinationViewController as! NewMessageViewController
       next.licensePlate = licensePlate
       next.manualLicensePlate = false
     } else if segue.identifier == "manual_new_message_segue" {
-      var next = segue.destinationViewController as NewMessageViewController
+      var next = segue.destinationViewController as! NewMessageViewController
       next.licensePlate = ""
       next.manualLicensePlate = true
     }
