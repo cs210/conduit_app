@@ -8,14 +8,9 @@
 
 import UIKit
 
-class MainViewController: UINavigationController {
+class MainViewController: NavigationController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-
-    }
-    
-    
-    
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
 }

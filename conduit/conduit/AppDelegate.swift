@@ -50,6 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
     
     self.registerApplicationForPushNotifications(application)
     
+    UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+
     return true
   }
 

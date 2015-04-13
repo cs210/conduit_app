@@ -17,8 +17,13 @@ class CustomMessageController : UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    messageTextField.becomeFirstResponder()
-    licenseTextField.text = licensePlate
+    if licensePlate == "" {
+      licenseTextField.becomeFirstResponder()
+    } else {
+      messageTextField.becomeFirstResponder()
+      licenseTextField.text = licensePlate
+    }
+    self.view.backgroundColor = StyleColor.getColor(.Grey, brightness: .Light)
   }
   
   // Send a custom message 
