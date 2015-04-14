@@ -12,7 +12,13 @@ import UIKit
 class MessagesViewController : UIViewController, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate, LYRQueryControllerDelegate {
   
   var conversation: LYRConversation!
-  var layerClient: LYRClient!
+  var layerClient: LYRClient {
+    get {
+      let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+      return appDelegate.layerClient!
+    }
+  }
+  
   var queryController: LYRQueryController!
   var messages : [LYRMessage] = []
   
@@ -22,10 +28,9 @@ class MessagesViewController : UIViewController, UITextViewDelegate, UITableView
   
   @IBOutlet weak var sendButton: UIButton!
   
-  @IBOutlet weak var isTypingLabel: UILabel!
+  @IBOutlet weak var isTypingLabel: UILabel?
   
-  @IBOutlet weak var inputTextView: UITextView!
-
+  @IBOutlet weak var inputTextView: UITextView?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -41,19 +46,19 @@ class MessagesViewController : UIViewController, UITextViewDelegate, UITableView
     
     // Register for typing indicator notifications
     NSNotificationCenter.defaultCenter().addObserver(self,
-      selector: Selector("didReceiveTypingIndicator"),
+      selector: Selector("didReceiveTypingIndicator:"),
       name: LYRConversationDidReceiveTypingIndicatorNotification, object: self.conversation)
     
     NSNotificationCenter.defaultCenter().addObserver(self,
-      selector: Selector("didReceiveLayerObjectsDidChangeNotification"),
+      selector: Selector("didReceiveLayerObjectsDidChangeNotification:"),
       name: LYRClientObjectsDidChangeNotification, object: nil)
     
     NSNotificationCenter.defaultCenter().addObserver(self,
-      selector: Selector("didReceiveLayerClientWillBeginSynchronizationNotification"),
+      selector: Selector("didReceiveLayerClientWillBeginSynchronizationNotification:"),
       name: LYRClientWillBeginSynchronizationNotification, object: self.layerClient)
     
     NSNotificationCenter.defaultCenter().addObserver(self,
-      selector: Selector("didReceiveLayerClientDidFinishSynchronizationNotification"),
+      selector: Selector("didReceiveLayerClientDidFinishSynchronizationNotification:"),
       name: LYRClientDidFinishSynchronizationNotification, object: self.layerClient)
   }
   
@@ -61,6 +66,7 @@ class MessagesViewController : UIViewController, UITextViewDelegate, UITableView
     // Fetch all conversations related to the user
     var query: LYRQuery = LayerHelpers.createQueryWithClass(LYRMessage.self)
     var predicate: LYRPredicate = LayerHelpers.createPredicateWithProperty("conversation", _operator: LYRPredicateOperator.IsEqualTo, value: self.conversation)
+    
     query.sortDescriptors = [NSSortDescriptor(key: "position", ascending: true)]
     
     self.queryController = self.layerClient.queryControllerWithQuery(query)
@@ -76,7 +82,27 @@ class MessagesViewController : UIViewController, UITextViewDelegate, UITableView
       NSLog("Query failed with error: \(error)");
     }
   }
+  
+  // MARK - Layer Object Change Notification Handler
 
+  func didReceiveLayerObjectsDidChangeNotification(notification: NSNotification) {
+    if (self.messages.count == 0) {
+      self.fetchLayerMessages()
+      self.tableView.reloadData()
+    }
+  }
+
+  // MARK - Layer Sync Notification Handler
+  
+  func didReceiveLayerClientWillBeginSynchronizationNotification(notification: NSNotification) {
+    UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
+  }
+  
+  func didReceiveLayerClientDidFinishSynchronizationNotification(notification: NSNotification) {
+    UIApplication.sharedApplication().networkActivityIndicatorVisible = false;
+  }
+  
+  
   // MARK - Table View Data Source Methods
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -110,7 +136,7 @@ class MessagesViewController : UIViewController, UITextViewDelegate, UITableView
   // MARK - IBActions
   
   @IBAction func sendButtonPressed(sender: AnyObject) {
-    self.sendMessage(self.inputTextView.text)
+    self.sendMessage(self.inputTextView!.text)
   }
   
   func sendMessage(messageText: String) {
@@ -135,7 +161,7 @@ class MessagesViewController : UIViewController, UITextViewDelegate, UITableView
     var success:Bool = self.conversation.sendMessage(message, error:&error)
     if (success) {
       NSLog("Message queued to be sent: \(messageText)");
-      self.inputTextView.text = "";
+      self.inputTextView?.text = "";
     } else {
       NSLog("Message send failed: \(error)");
     }

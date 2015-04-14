@@ -42,6 +42,7 @@
 		C5C70DC91AA68EDE00BE0753 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5C70DC81AA68EDE00BE0753 /* Images.xcassets */; };
 		C5C70DCC1AA68EDE00BE0753 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5C70DCA1AA68EDE00BE0753 /* LaunchScreen.xib */; };
 		C5C70DD81AA68EDE00BE0753 /* conduitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C70DD71AA68EDE00BE0753 /* conduitTests.swift */; };
+		C5D02E721ADD9F2F00C201A5 /* CustomSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D02E711ADD9F2F00C201A5 /* CustomSegues.swift */; };
 		C5D32C1D1ADC829D001635AF /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EFBDE01AABD6C4000029C3 /* SWRevealViewController.m */; };
 		C5EFBDDB1AABD4CD000029C3 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EFBDDA1AABD4CD000029C3 /* MenuTableViewController.swift */; };
 		C5EFBDDD1AABD4ED000029C3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EFBDDC1AABD4ED000029C3 /* MainViewController.swift */; };
@@ -100,6 +101,7 @@
 		C5C70DD11AA68EDE00BE0753 /* conduitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = conduitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5C70DD61AA68EDE00BE0753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5C70DD71AA68EDE00BE0753 /* conduitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = conduitTests.swift; sourceTree = "<group>"; };
+		C5D02E711ADD9F2F00C201A5 /* CustomSegues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegues.swift; sourceTree = "<group>"; };
 		C5EFBDDA1AABD4CD000029C3 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		C5EFBDDC1AABD4ED000029C3 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C5EFBDDF1AABD6C4000029C3 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				C53B9CE71AD1E57500BEFA88 /* conduit-Bridging-Header.h */,
+				C5D02E711ADD9F2F00C201A5 /* CustomSegues.swift */,
 				C5212BF21ABAA43C004171FD /* API Models */,
 				C5C70DC11AA68EDE00BE0753 /* AppDelegate.swift */,
 				C5C70DC51AA68EDE00BE0753 /* Main.storyboard */,
@@ -431,6 +434,7 @@
 				BDD28DC31ACDDD4E001B031D /* MessagesViewController.swift in Sources */,
 				BDEB2DEA1AD5C2BC008C91C2 /* NavigationController.swift in Sources */,
 				C5EFBDDB1AABD4CD000029C3 /* MenuTableViewController.swift in Sources */,
+				C5D02E721ADD9F2F00C201A5 /* CustomSegues.swift in Sources */,
 				B54FF8F61ACD288200450107 /* SettingsViewController.swift in Sources */,
 				B54FF8FC1ACDEDBF00450107 /* CarView.swift in Sources */,
 				BDEB2DE81AD4A41E008C91C2 /* Style.swift in Sources */,

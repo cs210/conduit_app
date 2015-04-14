@@ -12,7 +12,13 @@ import SwiftyJSON
 
 class ConversationsViewController : UIViewController, UITableViewDataSource, UITableViewDelegate, LYRQueryControllerDelegate {
   
-  var layerClient: LYRClient!
+  var layerClient: LYRClient {
+    get {
+      let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+      return appDelegate.layerClient!
+    }
+  }
+  
   var queryController: LYRQueryController!
   var conversations: [LYRConversation] = []
   var selectedIndex: NSIndexPath!
@@ -35,11 +41,11 @@ class ConversationsViewController : UIViewController, UITableViewDataSource, UIT
       name: LYRClientObjectsDidChangeNotification, object: nil)
     
     NSNotificationCenter.defaultCenter().addObserver(self,
-      selector: Selector("didReceiveLayerClientWillBeginSynchronizationNotification"),
+      selector: Selector("didReceiveLayerClientWillBeginSynchronizationNotification:"),
       name: LYRClientWillBeginSynchronizationNotification, object: self.layerClient)
     
     NSNotificationCenter.defaultCenter().addObserver(self,
-      selector: Selector("didReceiveLayerClientDidFinishSynchronizationNotification"),
+      selector: Selector("didReceiveLayerClientDidFinishSynchronizationNotification:"),
       name: LYRClientDidFinishSynchronizationNotification, object: self.layerClient)
   }
   
@@ -48,7 +54,7 @@ class ConversationsViewController : UIViewController, UITableViewDataSource, UIT
     var query: LYRQuery = LayerHelpers.createQueryWithClass(LYRConversation.self)
     var predicate: LYRPredicate = LayerHelpers.createPredicateWithProperty("participants", _operator: LYRPredicateOperator.IsEqualTo, value: [LQSCurrentUserID])
     query.sortDescriptors = [NSSortDescriptor(key: "position", ascending: true)]
-    
+
     self.queryController = self.layerClient.queryControllerWithQuery(query)
     self.queryController.delegate = self
     

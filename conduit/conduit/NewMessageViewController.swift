@@ -110,15 +110,12 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
     }
   }
   
-  // This is the function to actually send a message. TODO: include API calls.
   @IBAction func sendMessage(sender: AnyObject) {
     // if there's no selected custom message, the send button does nothing.
     if selectedMessageIndexPath == nil {
       return
     }
-    
-    // TODO: send the message here.
-    
+  
   }
 }
 

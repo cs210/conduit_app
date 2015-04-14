@@ -501,6 +501,7 @@
                                 </state>
                                 <connections>
                                     <action selector="sendMessage:" destination="Z91-TC-IGc" eventType="touchUpInside" id="wlu-6o-Cnj"/>
+                                    <segue destination="wLx-uS-ZdO" kind="custom" identifier="sendToConversation" customClass="SendToConversationSegue" customModule="conduit" customModuleProvider="target" id="FxA-46-ita"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="US0-Qh-Web" customClass="Button" customModule="conduit" customModuleProvider="target">
@@ -1010,7 +1011,7 @@
         <!--Messages View Controller-->
         <scene sceneID="hig-YZ-QzA">
             <objects>
-                <viewController id="wLx-uS-ZdO" customClass="MessagesViewController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="messagesViewController" id="wLx-uS-ZdO" customClass="MessagesViewController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6pL-p9-R8l"/>
                         <viewControllerLayoutGuide type="bottom" id="gfn-1M-UrB"/>
@@ -1023,7 +1024,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SentMessageCell" id="3rI-MH-VPm" customClass="MessageCell" customModule="conduit" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" id="3rI-MH-VPm" customClass="MessagesTableViewCell" customModule="conduit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3rI-MH-VPm" id="bNg-TD-bdQ">
@@ -1044,32 +1045,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="messageText" destination="jZp-E5-6EF" id="BOV-fE-dVc"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReceivedMessageCell" id="MGe-GB-ury" customClass="MessageCell" customModule="conduit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MGe-GB-ury" id="Wd8-Zz-W36">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPh-sp-jHV">
-                                                    <rect key="frame" x="139" y="11" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="iPh-sp-jHV" secondAttribute="bottom" constant="10" id="6Rh-an-Pge"/>
-                                                <constraint firstItem="iPh-sp-jHV" firstAttribute="leading" secondItem="Wd8-Zz-W36" secondAttribute="leadingMargin" constant="10" id="GeC-gs-ChU"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="iPh-sp-jHV" secondAttribute="trailing" constant="10" id="Ncd-Dh-430"/>
-                                                <constraint firstItem="iPh-sp-jHV" firstAttribute="top" secondItem="Wd8-Zz-W36" secondAttribute="topMargin" constant="10" id="fhN-i7-Dy7"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.72531662815948039" green="0.18779256258590138" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <outlet property="messageText" destination="iPh-sp-jHV" id="dsv-HC-XV6"/>
+                                            <outlet property="messageText" destination="jZp-E5-6EF" id="qmi-4K-Ryb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1192,7 +1168,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="YKv-ZP-RES"/>
-        <segue reference="N6G-ku-Qmu"/>
+        <segue reference="psz-Zh-Tf1"/>
+        <segue reference="5Cw-WY-3LM"/>
+        <segue reference="Rys-Qo-KaZ"/>
     </inferredMetricsTieBreakers>
 </document>
