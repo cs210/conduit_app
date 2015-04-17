@@ -43,6 +43,62 @@
 		C5C70DCC1AA68EDE00BE0753 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5C70DCA1AA68EDE00BE0753 /* LaunchScreen.xib */; };
 		C5C70DD81AA68EDE00BE0753 /* conduitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C70DD71AA68EDE00BE0753 /* conduitTests.swift */; };
 		C5D02E721ADD9F2F00C201A5 /* CustomSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D02E711ADD9F2F00C201A5 /* CustomSegues.swift */; };
+		C5D02EC61AE085A300C201A5 /* Atlas.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02E751AE085A300C201A5 /* Atlas.m */; };
+		C5D02EC71AE085A300C201A5 /* ATLAddressBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02E781AE085A300C201A5 /* ATLAddressBarViewController.m */; };
+		C5D02EC81AE085A300C201A5 /* ATLBaseConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02E7A1AE085A300C201A5 /* ATLBaseConversationViewController.m */; };
+		C5D02EC91AE085A300C201A5 /* ATLConversationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02E7C1AE085A300C201A5 /* ATLConversationListViewController.m */; };
+		C5D02ECA1AE085A300C201A5 /* ATLConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02E7E1AE085A300C201A5 /* ATLConversationViewController.m */; };
+		C5D02ECB1AE085A300C201A5 /* ATLParticipantTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02E801AE085A300C201A5 /* ATLParticipantTableViewController.m */; };
+		C5D02ECC1AE085A300C201A5 /* ATLTypingIndicatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02E821AE085A300C201A5 /* ATLTypingIndicatorViewController.m */; };
+		C5D02ECD1AE085A300C201A5 /* ATLConversationDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02E851AE085A300C201A5 /* ATLConversationDataSource.m */; };
+		C5D02ECE1AE085A300C201A5 /* ATLDataSourceChange.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02E871AE085A300C201A5 /* ATLDataSourceChange.m */; };
+		C5D02ECF1AE085A300C201A5 /* ATLMediaAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02E891AE085A300C201A5 /* ATLMediaAttachment.m */; };
+		C5D02ED01AE085A300C201A5 /* ATLParticipantTableDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02E8B1AE085A300C201A5 /* ATLParticipantTableDataSet.m */; };
+		C5D02ED11AE085A300C201A5 /* ATLConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02E941AE085A300C201A5 /* ATLConstants.m */; };
+		C5D02ED21AE085A300C201A5 /* ATLErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02E961AE085A300C201A5 /* ATLErrors.m */; };
+		C5D02ED31AE085A300C201A5 /* ATLLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02E981AE085A300C201A5 /* ATLLocationManager.m */; };
+		C5D02ED41AE085A300C201A5 /* ATLMediaInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02E9A1AE085A300C201A5 /* ATLMediaInputStream.m */; };
+		C5D02ED51AE085A300C201A5 /* ATLMessagingUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02E9C1AE085A300C201A5 /* ATLMessagingUtilities.m */; };
+		C5D02ED61AE085A300C201A5 /* ATLUIImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02E9E1AE085A300C201A5 /* ATLUIImageHelper.m */; };
+		C5D02ED71AE085A300C201A5 /* ATLAddressBarContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02EA11AE085A300C201A5 /* ATLAddressBarContainerView.m */; };
+		C5D02ED81AE085A300C201A5 /* ATLAddressBarTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02EA31AE085A300C201A5 /* ATLAddressBarTextView.m */; };
+		C5D02ED91AE085A300C201A5 /* ATLAddressBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02EA51AE085A300C201A5 /* ATLAddressBarView.m */; };
+		C5D02EDA1AE085A300C201A5 /* ATLAvatarImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02EA71AE085A300C201A5 /* ATLAvatarImageView.m */; };
+		C5D02EDB1AE085A300C201A5 /* ATLConversationCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02EA91AE085A300C201A5 /* ATLConversationCollectionView.m */; };
+		C5D02EDC1AE085A300C201A5 /* ATLConversationCollectionViewFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02EAB1AE085A300C201A5 /* ATLConversationCollectionViewFooter.m */; };
+		C5D02EDD1AE085A300C201A5 /* ATLConversationCollectionViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02EAD1AE085A300C201A5 /* ATLConversationCollectionViewHeader.m */; };
+		C5D02EDE1AE085A300C201A5 /* ATLConversationCollectionViewMoreMessagesHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02EAF1AE085A300C201A5 /* ATLConversationCollectionViewMoreMessagesHeader.m */; };
+		C5D02EDF1AE085A300C201A5 /* ATLConversationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02EB11AE085A300C201A5 /* ATLConversationTableViewCell.m */; };
+		C5D02EE01AE085A300C201A5 /* ATLConversationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02EB31AE085A300C201A5 /* ATLConversationView.m */; };
+		C5D02EE11AE085A300C201A5 /* ATLIncomingMessageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02EB51AE085A300C201A5 /* ATLIncomingMessageCollectionViewCell.m */; };
+		C5D02EE21AE085A300C201A5 /* ATLMessageBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02EB71AE085A300C201A5 /* ATLMessageBubbleView.m */; };
+		C5D02EE31AE085A300C201A5 /* ATLMessageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02EB91AE085A300C201A5 /* ATLMessageCollectionViewCell.m */; };
+		C5D02EE41AE085A300C201A5 /* ATLMessageComposeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02EBB1AE085A300C201A5 /* ATLMessageComposeTextView.m */; };
+		C5D02EE51AE085A300C201A5 /* ATLMessageInputToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02EBD1AE085A300C201A5 /* ATLMessageInputToolbar.m */; };
+		C5D02EE61AE085A300C201A5 /* ATLOutgoingMessageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02EBF1AE085A300C201A5 /* ATLOutgoingMessageCollectionViewCell.m */; };
+		C5D02EE71AE085A300C201A5 /* ATLParticipantSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02EC11AE085A300C201A5 /* ATLParticipantSectionHeaderView.m */; };
+		C5D02EE81AE085A300C201A5 /* ATLParticipantTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02EC31AE085A300C201A5 /* ATLParticipantTableViewCell.m */; };
+		C5D02EE91AE085A300C201A5 /* ATLProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02EC51AE085A300C201A5 /* ATLProgressView.m */; };
+		C5D02EFE1AE085B000C201A5 /* block.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D02EEB1AE085B000C201A5 /* block.png */; };
+		C5D02EFF1AE085B000C201A5 /* block@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D02EEC1AE085B000C201A5 /* block@2x.png */; };
+		C5D02F001AE085B000C201A5 /* block@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D02EED1AE085B000C201A5 /* block@3x.png */; };
+		C5D02F011AE085B000C201A5 /* camera_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D02EEE1AE085B000C201A5 /* camera_dark.png */; };
+		C5D02F021AE085B000C201A5 /* camera_dark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D02EEF1AE085B000C201A5 /* camera_dark@2x.png */; };
+		C5D02F031AE085B000C201A5 /* camera_dark@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D02EF01AE085B000C201A5 /* camera_dark@3x.png */; };
+		C5D02F041AE085B000C201A5 /* chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D02EF11AE085B000C201A5 /* chevron.png */; };
+		C5D02F051AE085B000C201A5 /* chevron@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D02EF21AE085B000C201A5 /* chevron@2x.png */; };
+		C5D02F061AE085B000C201A5 /* chevron@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D02EF31AE085B000C201A5 /* chevron@3x.png */; };
+		C5D02F071AE085B000C201A5 /* layerbell.caf in Resources */ = {isa = PBXBuildFile; fileRef = C5D02EF41AE085B000C201A5 /* layerbell.caf */; };
+		C5D02F081AE085B000C201A5 /* layerLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D02EF51AE085B000C201A5 /* layerLogo.png */; };
+		C5D02F091AE085B000C201A5 /* layerLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D02EF61AE085B000C201A5 /* layerLogo@2x.png */; };
+		C5D02F0A1AE085B000C201A5 /* layerLogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D02EF71AE085B000C201A5 /* layerLogo@3x.png */; };
+		C5D02F0B1AE085B000C201A5 /* location_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D02EF81AE085B000C201A5 /* location_dark.png */; };
+		C5D02F0C1AE085B000C201A5 /* location_dark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D02EF91AE085B000C201A5 /* location_dark@2x.png */; };
+		C5D02F0D1AE085B000C201A5 /* location_dark@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D02EFA1AE085B000C201A5 /* location_dark@3x.png */; };
+		C5D02F0E1AE085B000C201A5 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D02EFB1AE085B000C201A5 /* plus.png */; };
+		C5D02F0F1AE085B000C201A5 /* plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D02EFC1AE085B000C201A5 /* plus@2x.png */; };
+		C5D02F101AE085B000C201A5 /* plus@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5D02EFD1AE085B000C201A5 /* plus@3x.png */; };
+		C5D02F131AE085E800C201A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5D02F121AE085E800C201A5 /* CoreLocation.framework */; };
 		C5D32C1D1ADC829D001635AF /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EFBDE01AABD6C4000029C3 /* SWRevealViewController.m */; };
 		C5EFBDDB1AABD4CD000029C3 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EFBDDA1AABD4CD000029C3 /* MenuTableViewController.swift */; };
 		C5EFBDDD1AABD4ED000029C3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EFBDDC1AABD4ED000029C3 /* MainViewController.swift */; };
@@ -102,6 +158,103 @@
 		C5C70DD61AA68EDE00BE0753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5C70DD71AA68EDE00BE0753 /* conduitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = conduitTests.swift; sourceTree = "<group>"; };
 		C5D02E711ADD9F2F00C201A5 /* CustomSegues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegues.swift; sourceTree = "<group>"; };
+		C5D02E741AE085A300C201A5 /* Atlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Atlas.h; sourceTree = "<group>"; };
+		C5D02E751AE085A300C201A5 /* Atlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Atlas.m; sourceTree = "<group>"; };
+		C5D02E771AE085A300C201A5 /* ATLAddressBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLAddressBarViewController.h; sourceTree = "<group>"; };
+		C5D02E781AE085A300C201A5 /* ATLAddressBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLAddressBarViewController.m; sourceTree = "<group>"; };
+		C5D02E791AE085A300C201A5 /* ATLBaseConversationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLBaseConversationViewController.h; sourceTree = "<group>"; };
+		C5D02E7A1AE085A300C201A5 /* ATLBaseConversationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLBaseConversationViewController.m; sourceTree = "<group>"; };
+		C5D02E7B1AE085A300C201A5 /* ATLConversationListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLConversationListViewController.h; sourceTree = "<group>"; };
+		C5D02E7C1AE085A300C201A5 /* ATLConversationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLConversationListViewController.m; sourceTree = "<group>"; };
+		C5D02E7D1AE085A300C201A5 /* ATLConversationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLConversationViewController.h; sourceTree = "<group>"; };
+		C5D02E7E1AE085A300C201A5 /* ATLConversationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLConversationViewController.m; sourceTree = "<group>"; };
+		C5D02E7F1AE085A300C201A5 /* ATLParticipantTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLParticipantTableViewController.h; sourceTree = "<group>"; };
+		C5D02E801AE085A300C201A5 /* ATLParticipantTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLParticipantTableViewController.m; sourceTree = "<group>"; };
+		C5D02E811AE085A300C201A5 /* ATLTypingIndicatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLTypingIndicatorViewController.h; sourceTree = "<group>"; };
+		C5D02E821AE085A300C201A5 /* ATLTypingIndicatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLTypingIndicatorViewController.m; sourceTree = "<group>"; };
+		C5D02E841AE085A300C201A5 /* ATLConversationDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLConversationDataSource.h; sourceTree = "<group>"; };
+		C5D02E851AE085A300C201A5 /* ATLConversationDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLConversationDataSource.m; sourceTree = "<group>"; };
+		C5D02E861AE085A300C201A5 /* ATLDataSourceChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLDataSourceChange.h; sourceTree = "<group>"; };
+		C5D02E871AE085A300C201A5 /* ATLDataSourceChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLDataSourceChange.m; sourceTree = "<group>"; };
+		C5D02E881AE085A300C201A5 /* ATLMediaAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLMediaAttachment.h; sourceTree = "<group>"; };
+		C5D02E891AE085A300C201A5 /* ATLMediaAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLMediaAttachment.m; sourceTree = "<group>"; };
+		C5D02E8A1AE085A300C201A5 /* ATLParticipantTableDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLParticipantTableDataSet.h; sourceTree = "<group>"; };
+		C5D02E8B1AE085A300C201A5 /* ATLParticipantTableDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLParticipantTableDataSet.m; sourceTree = "<group>"; };
+		C5D02E8D1AE085A300C201A5 /* ATLAvatarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLAvatarItem.h; sourceTree = "<group>"; };
+		C5D02E8E1AE085A300C201A5 /* ATLConversationPresenting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLConversationPresenting.h; sourceTree = "<group>"; };
+		C5D02E8F1AE085A300C201A5 /* ATLMessagePresenting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLMessagePresenting.h; sourceTree = "<group>"; };
+		C5D02E901AE085A300C201A5 /* ATLParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLParticipant.h; sourceTree = "<group>"; };
+		C5D02E911AE085A300C201A5 /* ATLParticipantPresenting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLParticipantPresenting.h; sourceTree = "<group>"; };
+		C5D02E931AE085A300C201A5 /* ATLConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLConstants.h; sourceTree = "<group>"; };
+		C5D02E941AE085A300C201A5 /* ATLConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLConstants.m; sourceTree = "<group>"; };
+		C5D02E951AE085A300C201A5 /* ATLErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLErrors.h; sourceTree = "<group>"; };
+		C5D02E961AE085A300C201A5 /* ATLErrors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLErrors.m; sourceTree = "<group>"; };
+		C5D02E971AE085A300C201A5 /* ATLLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLLocationManager.h; sourceTree = "<group>"; };
+		C5D02E981AE085A300C201A5 /* ATLLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLLocationManager.m; sourceTree = "<group>"; };
+		C5D02E991AE085A300C201A5 /* ATLMediaInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLMediaInputStream.h; sourceTree = "<group>"; };
+		C5D02E9A1AE085A300C201A5 /* ATLMediaInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLMediaInputStream.m; sourceTree = "<group>"; };
+		C5D02E9B1AE085A300C201A5 /* ATLMessagingUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLMessagingUtilities.h; sourceTree = "<group>"; };
+		C5D02E9C1AE085A300C201A5 /* ATLMessagingUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLMessagingUtilities.m; sourceTree = "<group>"; };
+		C5D02E9D1AE085A300C201A5 /* ATLUIImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLUIImageHelper.h; sourceTree = "<group>"; };
+		C5D02E9E1AE085A300C201A5 /* ATLUIImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLUIImageHelper.m; sourceTree = "<group>"; };
+		C5D02EA01AE085A300C201A5 /* ATLAddressBarContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLAddressBarContainerView.h; sourceTree = "<group>"; };
+		C5D02EA11AE085A300C201A5 /* ATLAddressBarContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLAddressBarContainerView.m; sourceTree = "<group>"; };
+		C5D02EA21AE085A300C201A5 /* ATLAddressBarTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLAddressBarTextView.h; sourceTree = "<group>"; };
+		C5D02EA31AE085A300C201A5 /* ATLAddressBarTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLAddressBarTextView.m; sourceTree = "<group>"; };
+		C5D02EA41AE085A300C201A5 /* ATLAddressBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLAddressBarView.h; sourceTree = "<group>"; };
+		C5D02EA51AE085A300C201A5 /* ATLAddressBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLAddressBarView.m; sourceTree = "<group>"; };
+		C5D02EA61AE085A300C201A5 /* ATLAvatarImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLAvatarImageView.h; sourceTree = "<group>"; };
+		C5D02EA71AE085A300C201A5 /* ATLAvatarImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLAvatarImageView.m; sourceTree = "<group>"; };
+		C5D02EA81AE085A300C201A5 /* ATLConversationCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLConversationCollectionView.h; sourceTree = "<group>"; };
+		C5D02EA91AE085A300C201A5 /* ATLConversationCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLConversationCollectionView.m; sourceTree = "<group>"; };
+		C5D02EAA1AE085A300C201A5 /* ATLConversationCollectionViewFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLConversationCollectionViewFooter.h; sourceTree = "<group>"; };
+		C5D02EAB1AE085A300C201A5 /* ATLConversationCollectionViewFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLConversationCollectionViewFooter.m; sourceTree = "<group>"; };
+		C5D02EAC1AE085A300C201A5 /* ATLConversationCollectionViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLConversationCollectionViewHeader.h; sourceTree = "<group>"; };
+		C5D02EAD1AE085A300C201A5 /* ATLConversationCollectionViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLConversationCollectionViewHeader.m; sourceTree = "<group>"; };
+		C5D02EAE1AE085A300C201A5 /* ATLConversationCollectionViewMoreMessagesHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLConversationCollectionViewMoreMessagesHeader.h; sourceTree = "<group>"; };
+		C5D02EAF1AE085A300C201A5 /* ATLConversationCollectionViewMoreMessagesHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLConversationCollectionViewMoreMessagesHeader.m; sourceTree = "<group>"; };
+		C5D02EB01AE085A300C201A5 /* ATLConversationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLConversationTableViewCell.h; sourceTree = "<group>"; };
+		C5D02EB11AE085A300C201A5 /* ATLConversationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLConversationTableViewCell.m; sourceTree = "<group>"; };
+		C5D02EB21AE085A300C201A5 /* ATLConversationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLConversationView.h; sourceTree = "<group>"; };
+		C5D02EB31AE085A300C201A5 /* ATLConversationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLConversationView.m; sourceTree = "<group>"; };
+		C5D02EB41AE085A300C201A5 /* ATLIncomingMessageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLIncomingMessageCollectionViewCell.h; sourceTree = "<group>"; };
+		C5D02EB51AE085A300C201A5 /* ATLIncomingMessageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLIncomingMessageCollectionViewCell.m; sourceTree = "<group>"; };
+		C5D02EB61AE085A300C201A5 /* ATLMessageBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLMessageBubbleView.h; sourceTree = "<group>"; };
+		C5D02EB71AE085A300C201A5 /* ATLMessageBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLMessageBubbleView.m; sourceTree = "<group>"; };
+		C5D02EB81AE085A300C201A5 /* ATLMessageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLMessageCollectionViewCell.h; sourceTree = "<group>"; };
+		C5D02EB91AE085A300C201A5 /* ATLMessageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLMessageCollectionViewCell.m; sourceTree = "<group>"; };
+		C5D02EBA1AE085A300C201A5 /* ATLMessageComposeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLMessageComposeTextView.h; sourceTree = "<group>"; };
+		C5D02EBB1AE085A300C201A5 /* ATLMessageComposeTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLMessageComposeTextView.m; sourceTree = "<group>"; };
+		C5D02EBC1AE085A300C201A5 /* ATLMessageInputToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLMessageInputToolbar.h; sourceTree = "<group>"; };
+		C5D02EBD1AE085A300C201A5 /* ATLMessageInputToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLMessageInputToolbar.m; sourceTree = "<group>"; };
+		C5D02EBE1AE085A300C201A5 /* ATLOutgoingMessageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLOutgoingMessageCollectionViewCell.h; sourceTree = "<group>"; };
+		C5D02EBF1AE085A300C201A5 /* ATLOutgoingMessageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLOutgoingMessageCollectionViewCell.m; sourceTree = "<group>"; };
+		C5D02EC01AE085A300C201A5 /* ATLParticipantSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLParticipantSectionHeaderView.h; sourceTree = "<group>"; };
+		C5D02EC11AE085A300C201A5 /* ATLParticipantSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLParticipantSectionHeaderView.m; sourceTree = "<group>"; };
+		C5D02EC21AE085A300C201A5 /* ATLParticipantTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLParticipantTableViewCell.h; sourceTree = "<group>"; };
+		C5D02EC31AE085A300C201A5 /* ATLParticipantTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLParticipantTableViewCell.m; sourceTree = "<group>"; };
+		C5D02EC41AE085A300C201A5 /* ATLProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLProgressView.h; sourceTree = "<group>"; };
+		C5D02EC51AE085A300C201A5 /* ATLProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLProgressView.m; sourceTree = "<group>"; };
+		C5D02EEB1AE085B000C201A5 /* block.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = block.png; sourceTree = "<group>"; };
+		C5D02EEC1AE085B000C201A5 /* block@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block@2x.png"; sourceTree = "<group>"; };
+		C5D02EED1AE085B000C201A5 /* block@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block@3x.png"; sourceTree = "<group>"; };
+		C5D02EEE1AE085B000C201A5 /* camera_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_dark.png; sourceTree = "<group>"; };
+		C5D02EEF1AE085B000C201A5 /* camera_dark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_dark@2x.png"; sourceTree = "<group>"; };
+		C5D02EF01AE085B000C201A5 /* camera_dark@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_dark@3x.png"; sourceTree = "<group>"; };
+		C5D02EF11AE085B000C201A5 /* chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chevron.png; sourceTree = "<group>"; };
+		C5D02EF21AE085B000C201A5 /* chevron@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chevron@2x.png"; sourceTree = "<group>"; };
+		C5D02EF31AE085B000C201A5 /* chevron@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chevron@3x.png"; sourceTree = "<group>"; };
+		C5D02EF41AE085B000C201A5 /* layerbell.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = layerbell.caf; sourceTree = "<group>"; };
+		C5D02EF51AE085B000C201A5 /* layerLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = layerLogo.png; sourceTree = "<group>"; };
+		C5D02EF61AE085B000C201A5 /* layerLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "layerLogo@2x.png"; sourceTree = "<group>"; };
+		C5D02EF71AE085B000C201A5 /* layerLogo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "layerLogo@3x.png"; sourceTree = "<group>"; };
+		C5D02EF81AE085B000C201A5 /* location_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_dark.png; sourceTree = "<group>"; };
+		C5D02EF91AE085B000C201A5 /* location_dark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location_dark@2x.png"; sourceTree = "<group>"; };
+		C5D02EFA1AE085B000C201A5 /* location_dark@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location_dark@3x.png"; sourceTree = "<group>"; };
+		C5D02EFB1AE085B000C201A5 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		C5D02EFC1AE085B000C201A5 /* plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus@2x.png"; sourceTree = "<group>"; };
+		C5D02EFD1AE085B000C201A5 /* plus@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus@3x.png"; sourceTree = "<group>"; };
+		C5D02F121AE085E800C201A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C5EFBDDA1AABD4CD000029C3 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		C5EFBDDC1AABD4ED000029C3 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C5EFBDDF1AABD6C4000029C3 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -115,6 +268,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5D02F131AE085E800C201A5 /* CoreLocation.framework in Frameworks */,
 				C53B9CF91AD204A200BEFA88 /* Security.framework in Frameworks */,
 				C53B9CF71AD2049B00BEFA88 /* MobileCoreServices.framework in Frameworks */,
 				C53B9CF51AD2049400BEFA88 /* CFNetwork.framework in Frameworks */,
@@ -146,6 +300,8 @@
 		24BB40C57C7DF6D7C1B3FE43 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C5D02F121AE085E800C201A5 /* CoreLocation.framework */,
+				C5D02F111AE085B500C201A5 /* Atlas */,
 				C53B9CF81AD204A200BEFA88 /* Security.framework */,
 				C53B9CF61AD2049B00BEFA88 /* MobileCoreServices.framework */,
 				C53B9CF41AD2049400BEFA88 /* CFNetwork.framework */,
@@ -268,6 +424,165 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C5D02E731AE085A300C201A5 /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				C5D02E741AE085A300C201A5 /* Atlas.h */,
+				C5D02E751AE085A300C201A5 /* Atlas.m */,
+				C5D02E761AE085A300C201A5 /* Controllers */,
+				C5D02E831AE085A300C201A5 /* Models */,
+				C5D02E8C1AE085A300C201A5 /* Protocols */,
+				C5D02E921AE085A300C201A5 /* Utilities */,
+				C5D02E9F1AE085A300C201A5 /* Views */,
+			);
+			path = Code;
+			sourceTree = "<group>";
+		};
+		C5D02E761AE085A300C201A5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C5D02E771AE085A300C201A5 /* ATLAddressBarViewController.h */,
+				C5D02E781AE085A300C201A5 /* ATLAddressBarViewController.m */,
+				C5D02E791AE085A300C201A5 /* ATLBaseConversationViewController.h */,
+				C5D02E7A1AE085A300C201A5 /* ATLBaseConversationViewController.m */,
+				C5D02E7B1AE085A300C201A5 /* ATLConversationListViewController.h */,
+				C5D02E7C1AE085A300C201A5 /* ATLConversationListViewController.m */,
+				C5D02E7D1AE085A300C201A5 /* ATLConversationViewController.h */,
+				C5D02E7E1AE085A300C201A5 /* ATLConversationViewController.m */,
+				C5D02E7F1AE085A300C201A5 /* ATLParticipantTableViewController.h */,
+				C5D02E801AE085A300C201A5 /* ATLParticipantTableViewController.m */,
+				C5D02E811AE085A300C201A5 /* ATLTypingIndicatorViewController.h */,
+				C5D02E821AE085A300C201A5 /* ATLTypingIndicatorViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C5D02E831AE085A300C201A5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C5D02E841AE085A300C201A5 /* ATLConversationDataSource.h */,
+				C5D02E851AE085A300C201A5 /* ATLConversationDataSource.m */,
+				C5D02E861AE085A300C201A5 /* ATLDataSourceChange.h */,
+				C5D02E871AE085A300C201A5 /* ATLDataSourceChange.m */,
+				C5D02E881AE085A300C201A5 /* ATLMediaAttachment.h */,
+				C5D02E891AE085A300C201A5 /* ATLMediaAttachment.m */,
+				C5D02E8A1AE085A300C201A5 /* ATLParticipantTableDataSet.h */,
+				C5D02E8B1AE085A300C201A5 /* ATLParticipantTableDataSet.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C5D02E8C1AE085A300C201A5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C5D02E8D1AE085A300C201A5 /* ATLAvatarItem.h */,
+				C5D02E8E1AE085A300C201A5 /* ATLConversationPresenting.h */,
+				C5D02E8F1AE085A300C201A5 /* ATLMessagePresenting.h */,
+				C5D02E901AE085A300C201A5 /* ATLParticipant.h */,
+				C5D02E911AE085A300C201A5 /* ATLParticipantPresenting.h */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		C5D02E921AE085A300C201A5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C5D02E931AE085A300C201A5 /* ATLConstants.h */,
+				C5D02E941AE085A300C201A5 /* ATLConstants.m */,
+				C5D02E951AE085A300C201A5 /* ATLErrors.h */,
+				C5D02E961AE085A300C201A5 /* ATLErrors.m */,
+				C5D02E971AE085A300C201A5 /* ATLLocationManager.h */,
+				C5D02E981AE085A300C201A5 /* ATLLocationManager.m */,
+				C5D02E991AE085A300C201A5 /* ATLMediaInputStream.h */,
+				C5D02E9A1AE085A300C201A5 /* ATLMediaInputStream.m */,
+				C5D02E9B1AE085A300C201A5 /* ATLMessagingUtilities.h */,
+				C5D02E9C1AE085A300C201A5 /* ATLMessagingUtilities.m */,
+				C5D02E9D1AE085A300C201A5 /* ATLUIImageHelper.h */,
+				C5D02E9E1AE085A300C201A5 /* ATLUIImageHelper.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C5D02E9F1AE085A300C201A5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C5D02EA01AE085A300C201A5 /* ATLAddressBarContainerView.h */,
+				C5D02EA11AE085A300C201A5 /* ATLAddressBarContainerView.m */,
+				C5D02EA21AE085A300C201A5 /* ATLAddressBarTextView.h */,
+				C5D02EA31AE085A300C201A5 /* ATLAddressBarTextView.m */,
+				C5D02EA41AE085A300C201A5 /* ATLAddressBarView.h */,
+				C5D02EA51AE085A300C201A5 /* ATLAddressBarView.m */,
+				C5D02EA61AE085A300C201A5 /* ATLAvatarImageView.h */,
+				C5D02EA71AE085A300C201A5 /* ATLAvatarImageView.m */,
+				C5D02EA81AE085A300C201A5 /* ATLConversationCollectionView.h */,
+				C5D02EA91AE085A300C201A5 /* ATLConversationCollectionView.m */,
+				C5D02EAA1AE085A300C201A5 /* ATLConversationCollectionViewFooter.h */,
+				C5D02EAB1AE085A300C201A5 /* ATLConversationCollectionViewFooter.m */,
+				C5D02EAC1AE085A300C201A5 /* ATLConversationCollectionViewHeader.h */,
+				C5D02EAD1AE085A300C201A5 /* ATLConversationCollectionViewHeader.m */,
+				C5D02EAE1AE085A300C201A5 /* ATLConversationCollectionViewMoreMessagesHeader.h */,
+				C5D02EAF1AE085A300C201A5 /* ATLConversationCollectionViewMoreMessagesHeader.m */,
+				C5D02EB01AE085A300C201A5 /* ATLConversationTableViewCell.h */,
+				C5D02EB11AE085A300C201A5 /* ATLConversationTableViewCell.m */,
+				C5D02EB21AE085A300C201A5 /* ATLConversationView.h */,
+				C5D02EB31AE085A300C201A5 /* ATLConversationView.m */,
+				C5D02EB41AE085A300C201A5 /* ATLIncomingMessageCollectionViewCell.h */,
+				C5D02EB51AE085A300C201A5 /* ATLIncomingMessageCollectionViewCell.m */,
+				C5D02EB61AE085A300C201A5 /* ATLMessageBubbleView.h */,
+				C5D02EB71AE085A300C201A5 /* ATLMessageBubbleView.m */,
+				C5D02EB81AE085A300C201A5 /* ATLMessageCollectionViewCell.h */,
+				C5D02EB91AE085A300C201A5 /* ATLMessageCollectionViewCell.m */,
+				C5D02EBA1AE085A300C201A5 /* ATLMessageComposeTextView.h */,
+				C5D02EBB1AE085A300C201A5 /* ATLMessageComposeTextView.m */,
+				C5D02EBC1AE085A300C201A5 /* ATLMessageInputToolbar.h */,
+				C5D02EBD1AE085A300C201A5 /* ATLMessageInputToolbar.m */,
+				C5D02EBE1AE085A300C201A5 /* ATLOutgoingMessageCollectionViewCell.h */,
+				C5D02EBF1AE085A300C201A5 /* ATLOutgoingMessageCollectionViewCell.m */,
+				C5D02EC01AE085A300C201A5 /* ATLParticipantSectionHeaderView.h */,
+				C5D02EC11AE085A300C201A5 /* ATLParticipantSectionHeaderView.m */,
+				C5D02EC21AE085A300C201A5 /* ATLParticipantTableViewCell.h */,
+				C5D02EC31AE085A300C201A5 /* ATLParticipantTableViewCell.m */,
+				C5D02EC41AE085A300C201A5 /* ATLProgressView.h */,
+				C5D02EC51AE085A300C201A5 /* ATLProgressView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C5D02EEA1AE085B000C201A5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C5D02EEB1AE085B000C201A5 /* block.png */,
+				C5D02EEC1AE085B000C201A5 /* block@2x.png */,
+				C5D02EED1AE085B000C201A5 /* block@3x.png */,
+				C5D02EEE1AE085B000C201A5 /* camera_dark.png */,
+				C5D02EEF1AE085B000C201A5 /* camera_dark@2x.png */,
+				C5D02EF01AE085B000C201A5 /* camera_dark@3x.png */,
+				C5D02EF11AE085B000C201A5 /* chevron.png */,
+				C5D02EF21AE085B000C201A5 /* chevron@2x.png */,
+				C5D02EF31AE085B000C201A5 /* chevron@3x.png */,
+				C5D02EF41AE085B000C201A5 /* layerbell.caf */,
+				C5D02EF51AE085B000C201A5 /* layerLogo.png */,
+				C5D02EF61AE085B000C201A5 /* layerLogo@2x.png */,
+				C5D02EF71AE085B000C201A5 /* layerLogo@3x.png */,
+				C5D02EF81AE085B000C201A5 /* location_dark.png */,
+				C5D02EF91AE085B000C201A5 /* location_dark@2x.png */,
+				C5D02EFA1AE085B000C201A5 /* location_dark@3x.png */,
+				C5D02EFB1AE085B000C201A5 /* plus.png */,
+				C5D02EFC1AE085B000C201A5 /* plus@2x.png */,
+				C5D02EFD1AE085B000C201A5 /* plus@3x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C5D02F111AE085B500C201A5 /* Atlas */ = {
+			isa = PBXGroup;
+			children = (
+				C5D02EEA1AE085B000C201A5 /* Resources */,
+				C5D02E731AE085A300C201A5 /* Code */,
+			);
+			name = Atlas;
+			sourceTree = "<group>";
+		};
 		C5EFBDD51AABCCC3000029C3 /* SWRevealViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,7 +679,26 @@
 				C5C70DC71AA68EDE00BE0753 /* Main.storyboard in Resources */,
 				C5C70DCC1AA68EDE00BE0753 /* LaunchScreen.xib in Resources */,
 				C53B9CF11AD2046A00BEFA88 /* layer-client-messaging-schema.bundle in Resources */,
+				C5D02F071AE085B000C201A5 /* layerbell.caf in Resources */,
+				C5D02F021AE085B000C201A5 /* camera_dark@2x.png in Resources */,
+				C5D02F0E1AE085B000C201A5 /* plus.png in Resources */,
+				C5D02F0C1AE085B000C201A5 /* location_dark@2x.png in Resources */,
+				C5D02F051AE085B000C201A5 /* chevron@2x.png in Resources */,
+				C5D02F031AE085B000C201A5 /* camera_dark@3x.png in Resources */,
+				C5D02F0D1AE085B000C201A5 /* location_dark@3x.png in Resources */,
+				C5D02F061AE085B000C201A5 /* chevron@3x.png in Resources */,
 				C5C70DC91AA68EDE00BE0753 /* Images.xcassets in Resources */,
+				C5D02F011AE085B000C201A5 /* camera_dark.png in Resources */,
+				C5D02F041AE085B000C201A5 /* chevron.png in Resources */,
+				C5D02F0A1AE085B000C201A5 /* layerLogo@3x.png in Resources */,
+				C5D02F091AE085B000C201A5 /* layerLogo@2x.png in Resources */,
+				C5D02F081AE085B000C201A5 /* layerLogo.png in Resources */,
+				C5D02F0B1AE085B000C201A5 /* location_dark.png in Resources */,
+				C5D02F001AE085B000C201A5 /* block@3x.png in Resources */,
+				C5D02EFF1AE085B000C201A5 /* block@2x.png in Resources */,
+				C5D02F0F1AE085B000C201A5 /* plus@2x.png in Resources */,
+				C5D02F101AE085B000C201A5 /* plus@3x.png in Resources */,
+				C5D02EFE1AE085B000C201A5 /* block.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,31 +765,67 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5D32C1D1ADC829D001635AF /* SWRevealViewController.m in Sources */,
+				C5D02EDA1AE085A300C201A5 /* ATLAvatarImageView.m in Sources */,
+				C5D02EE41AE085A300C201A5 /* ATLMessageComposeTextView.m in Sources */,
+				C5D02ECC1AE085A300C201A5 /* ATLTypingIndicatorViewController.m in Sources */,
+				C5D02EDE1AE085A300C201A5 /* ATLConversationCollectionViewMoreMessagesHeader.m in Sources */,
 				BDD28DC31ACDDD4E001B031D /* MessagesViewController.swift in Sources */,
+				C5D02EE01AE085A300C201A5 /* ATLConversationView.m in Sources */,
+				C5D02EDD1AE085A300C201A5 /* ATLConversationCollectionViewHeader.m in Sources */,
 				BDEB2DEA1AD5C2BC008C91C2 /* NavigationController.swift in Sources */,
+				C5D02EDB1AE085A300C201A5 /* ATLConversationCollectionView.m in Sources */,
 				C5EFBDDB1AABD4CD000029C3 /* MenuTableViewController.swift in Sources */,
+				C5D02ED91AE085A300C201A5 /* ATLAddressBarView.m in Sources */,
+				C5D02EE61AE085A300C201A5 /* ATLOutgoingMessageCollectionViewCell.m in Sources */,
 				C5D02E721ADD9F2F00C201A5 /* CustomSegues.swift in Sources */,
 				B54FF8F61ACD288200450107 /* SettingsViewController.swift in Sources */,
 				B54FF8FC1ACDEDBF00450107 /* CarView.swift in Sources */,
+				C5D02ED41AE085A300C201A5 /* ATLMediaInputStream.m in Sources */,
 				BDEB2DE81AD4A41E008C91C2 /* Style.swift in Sources */,
+				C5D02ECA1AE085A300C201A5 /* ATLConversationViewController.m in Sources */,
+				C5D02ED31AE085A300C201A5 /* ATLLocationManager.m in Sources */,
 				B57334171AABDB8100363B5C /* CreateAccountController.swift in Sources */,
+				C5D02ECF1AE085A300C201A5 /* ATLMediaAttachment.m in Sources */,
 				B58FD9B11ACE3191005B8648 /* AccountSettingsView.swift in Sources */,
 				B54FF8F81ACDE90A00450107 /* CarManagementView.swift in Sources */,
 				BD4C1E1A1ACC6EDD00C10987 /* CustomMessageController.swift in Sources */,
+				C5D02EDF1AE085A300C201A5 /* ATLConversationTableViewCell.m in Sources */,
 				C56BFC9C1ABA94F40074FCAA /* User.swift in Sources */,
+				C5D02EE21AE085A300C201A5 /* ATLMessageBubbleView.m in Sources */,
 				C56BFCA01ABAA2330074FCAA /* Conversation.swift in Sources */,
+				C5D02EE81AE085A300C201A5 /* ATLParticipantTableViewCell.m in Sources */,
 				C56BFC9E1ABAA1FF0074FCAA /* Car.swift in Sources */,
+				C5D02ED61AE085A300C201A5 /* ATLUIImageHelper.m in Sources */,
 				B57334191AABDC1500363B5C /* HomepageController.swift in Sources */,
+				C5D02ED51AE085A300C201A5 /* ATLMessagingUtilities.m in Sources */,
+				C5D02EE51AE085A300C201A5 /* ATLMessageInputToolbar.m in Sources */,
 				BDEB2DEC1AD5C5A9008C91C2 /* Button.swift in Sources */,
+				C5D02EE31AE085A300C201A5 /* ATLMessageCollectionViewCell.m in Sources */,
+				C5D02EC61AE085A300C201A5 /* Atlas.m in Sources */,
+				C5D02EC81AE085A300C201A5 /* ATLBaseConversationViewController.m in Sources */,
 				BDE4EB651AAC44FB00588511 /* NewMessageViewController.swift in Sources */,
+				C5D02ED11AE085A300C201A5 /* ATLConstants.m in Sources */,
+				C5D02EDC1AE085A300C201A5 /* ATLConversationCollectionViewFooter.m in Sources */,
+				C5D02ECE1AE085A300C201A5 /* ATLDataSourceChange.m in Sources */,
+				C5D02ECB1AE085A300C201A5 /* ATLParticipantTableViewController.m in Sources */,
 				BDEB2DEE1AD5D724008C91C2 /* Label.swift in Sources */,
 				B582C45F1AABDE900083AD9A /* ScannerViewController.swift in Sources */,
 				C5C70DC21AA68EDE00BE0753 /* AppDelegate.swift in Sources */,
 				BDE4EB5F1AAC2A8900588511 /* LoginViewController.swift in Sources */,
 				B58FD9B31ACE67B5005B8648 /* ChangePasswordView.swift in Sources */,
 				B54FF8F21AB04B3100450107 /* ConversationsViewController.swift in Sources */,
+				C5D02ECD1AE085A300C201A5 /* ATLConversationDataSource.m in Sources */,
+				C5D02EC71AE085A300C201A5 /* ATLAddressBarViewController.m in Sources */,
+				C5D02EE71AE085A300C201A5 /* ATLParticipantSectionHeaderView.m in Sources */,
 				C56BFCA21ABAA2400074FCAA /* Message.swift in Sources */,
+				C5D02ED81AE085A300C201A5 /* ATLAddressBarTextView.m in Sources */,
+				C5D02ED71AE085A300C201A5 /* ATLAddressBarContainerView.m in Sources */,
+				C5D02ED21AE085A300C201A5 /* ATLErrors.m in Sources */,
+				C5D02EE11AE085A300C201A5 /* ATLIncomingMessageCollectionViewCell.m in Sources */,
 				C5EFBDDD1AABD4ED000029C3 /* MainViewController.swift in Sources */,
+				C5D02ED01AE085A300C201A5 /* ATLParticipantTableDataSet.m in Sources */,
+				C5D02EC91AE085A300C201A5 /* ATLConversationListViewController.m in Sources */,
+				C5D02EE91AE085A300C201A5 /* ATLProgressView.m in Sources */,
 				C56BFC9A1ABA92430074FCAA /* APIModel.swift in Sources */,
 				C53B9CEA1AD1F6BE00BEFA88 /* LayerHelpers.m in Sources */,
 			);

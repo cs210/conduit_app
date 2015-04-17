@@ -163,15 +163,15 @@
              client:(LYRClient *)client fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
   // Get Message from Metadata
-  __block LYRMessage *message = [self messageFromRemoteNotification:userInfo client:client];
 
   NSError *error;
   BOOL success = [client synchronizeWithRemoteNotification:userInfo completion:^(NSArray *changes, NSError *error) {
     if (changes)
     {
+
       if ([changes count])
       {
-        message = [self messageFromRemoteNotification:userInfo client:client];
+    //    message = [self messageFromRemoteNotification:userInfo client:client];
         completionHandler(UIBackgroundFetchResultNewData);
       }
       else

@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+let LQSKeyboardHeight = 255.0
+let LQSMaxCharacterLimit = 66
+
 class MessagesViewController : UIViewController, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate, LYRQueryControllerDelegate {
   
   var conversation: LYRConversation!
@@ -137,6 +140,8 @@ class MessagesViewController : UIViewController, UITextViewDelegate, UITableView
   
   @IBAction func sendButtonPressed(sender: AnyObject) {
     self.sendMessage(self.inputTextView!.text)
+    self.moveViewUpToShowKeyboard(false)
+    self.inputTextView?.resignFirstResponder()
   }
   
   func sendMessage(messageText: String) {
@@ -144,7 +149,7 @@ class MessagesViewController : UIViewController, UITextViewDelegate, UITableView
     if (self.conversation == nil) {
       var error:NSError? = nil
       self.conversation = self.layerClient.newConversationWithParticipants(
-        NSSet(array: [LQSParticipantUserID, LQSParticipant2UserID]) as Set<NSObject>, options: nil, error: &error)
+        NSSet(array: [LQSParticipantUserID]) as Set<NSObject>, options: nil, error: &error)
       
       if (self.conversation == nil) {
          NSLog("New Conversation creation failed: \(error)")
@@ -168,6 +173,50 @@ class MessagesViewController : UIViewController, UITextViewDelegate, UITableView
 
   }
   
+  
+  func moveViewUpToShowKeyboard(moveUp: Bool) {
+    
+    UIView.beginAnimations(nil, context: nil)
+    UIView.setAnimationDuration(0.3)
+    var rect: CGRect = self.view.frame
+    
+    if (moveUp) {
+      if (rect.origin.y == 0) {
+        rect.origin.y = self.view.frame.origin.y - CGFloat(LQSKeyboardHeight)
+      }
+    } else {
+      if (rect.origin.y < 0) {
+        rect.origin.y = self.view.frame.origin.y + CGFloat(LQSKeyboardHeight)
+      }
+    }
+    
+    self.view.frame = rect
+    UIView.commitAnimations()
+    
+  }
+  
+  func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+    
+    if(text == "\n") {
+      self.inputTextView?.resignFirstResponder()
+      self.moveViewUpToShowKeyboard(false)
+      return false
+    }
+    
+    var limit = LQSMaxCharacterLimit
+    return true
+  //  return !(count(self.inputTextView?.text) > limit && count(text) > range.length);
+  }
+  
+  func textViewDidBeginEditing(textView: UITextView) {
+    self.conversation.sendTypingIndicator(LYRTypingIndicator.DidBegin)
+    self.moveViewUpToShowKeyboard(true)
+  }
+  
+  func textViewDidEndEditing(textView: UITextView) {
+    self.conversation.sendTypingIndicator(LYRTypingIndicator.DidFinish)
+
+  }
 
 }
 

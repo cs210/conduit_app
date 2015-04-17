@@ -35,9 +35,28 @@ class ConversationsViewController : UIViewController, UITableViewDataSource, UIT
     self.fetchLayerConversations()
   }
   
+  @IBAction func deleteAllPressed(sender: AnyObject) {
+    
+    var count: UInt = self.queryController.numberOfObjectsInSection(UInt(0))
+    var countAsInt: Int = Int(count)
+    
+    for var row = 0; row < countAsInt; row++ {
+        
+      var indexPath = NSIndexPath(forRow: row, inSection: 0)
+      var conversation: LYRConversation = self.queryController.objectAtIndexPath(indexPath) as! LYRConversation
+        
+      var error:NSError? = NSError()
+      var success = conversation.delete(LYRDeletionMode.AllParticipants, error: &error)
+      if (!success) {
+        NSLog("Conversation deletion erorr: \(error)")
+      }
+        
+    }
+  }
+  
   func setupLayerNotificationObservers() {
     NSNotificationCenter.defaultCenter().addObserver(self,
-      selector: Selector("didReceiveLayerObjectsDidChangeNotification"),
+      selector: Selector("didReceiveLayerObjectsDidChangeNotification:"),
       name: LYRClientObjectsDidChangeNotification, object: nil)
     
     NSNotificationCenter.defaultCenter().addObserver(self,
@@ -53,7 +72,7 @@ class ConversationsViewController : UIViewController, UITableViewDataSource, UIT
     // Fetch all conversations related to the user
     var query: LYRQuery = LayerHelpers.createQueryWithClass(LYRConversation.self)
     var predicate: LYRPredicate = LayerHelpers.createPredicateWithProperty("participants", _operator: LYRPredicateOperator.IsEqualTo, value: [LQSCurrentUserID])
-    query.sortDescriptors = [NSSortDescriptor(key: "position", ascending: true)]
+  //  query.sortDescriptors = [NSSortDescriptor(key: "position", ascending: true)]
 
     self.queryController = self.layerClient.queryControllerWithQuery(query)
     self.queryController.delegate = self
@@ -71,6 +90,10 @@ class ConversationsViewController : UIViewController, UITableViewDataSource, UIT
   
   // MARK - Table View Data Source Methods
 
+  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    return 1
+  }
+  
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     var count: UInt = self.queryController.numberOfObjectsInSection(UInt(section))
     var countAsInt: Int = Int(count)
@@ -89,7 +112,16 @@ class ConversationsViewController : UIViewController, UITableViewDataSource, UIT
     var conversation: LYRConversation = self.queryController.objectAtIndexPath(indexPath) as! LYRConversation
     var convCell: ConversationsTableViewCell = cell as! ConversationsTableViewCell
     
-    convCell.licensePlateLabel.text = conversation.description
+//    var participants:NSSet<AnyObject> = conversation.participants
+//    
+//    var participants:NSSet<AnyObject> = conversation.participants.subtract(NSSet(object: LQSCurrentUserID))
+//    
+//    var conversationName:String = ""
+//    for participant in participants {
+//      conversationName += participant
+//    }
+//    
+//    convCell.licensePlateLabel.text = conversationName
     convCell.dateLabel.text = LayerHelpers.LQSDateFormatter().stringFromDate(conversation.createdAt)
   }
   
@@ -155,10 +187,10 @@ class ConversationsViewController : UIViewController, UITableViewDataSource, UIT
   // MARK - Layer Object Change Notification Handler
   
   func didReceiveLayerObjectsDidChangeNotification(notification: NSNotification) {
-    if (self.conversations.count == 0) {
-      self.fetchLayerConversations()
-      self.tableView.reloadData()
-    }
+//    if (self.conversations.count == 0) {
+//      self.fetchLayerConversations()
+//      self.tableView.reloadData()
+//    }
   }
 
 }
