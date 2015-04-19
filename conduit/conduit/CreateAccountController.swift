@@ -10,6 +10,13 @@ import Foundation
 import UIKit
 
 class CreateAccountController : UIViewController {
+  @IBOutlet var usernameField: UITextField!
+  @IBOutlet var passwordField: UITextField!
+  @IBOutlet var retypePasswordField: UITextField!
+  @IBOutlet var emailField: UITextField!
+  @IBOutlet var phoneField: UITextField!
+  @IBOutlet var licenseField: UITextField!
+  
   @IBAction func cancel(sender: AnyObject) {
     navigationController?.popViewControllerAnimated(true)
   }
