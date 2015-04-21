@@ -9,15 +9,15 @@
 import Foundation
 import UIKit
 
-class SettingsViewController : UITableViewController {
+class SettingsViewController : UITableViewController, ConfirmPasswordDelegate {
   var menuOptions = ["Account Settings", "Privacy Settings", "Car Management"]
+  var segueOptions = ["account_settings_segue", "privacy_settings_segue", "car_management_segue"]
 
   @IBOutlet weak var menuButton: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
-
   }
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("SettingsListItem",
@@ -33,13 +33,23 @@ class SettingsViewController : UITableViewController {
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     // TODO: This is where we go to a new view.
+    performSegueWithIdentifier("confirm_password_segue", sender: tableView.cellForRowAtIndexPath(indexPath))
     
-    if menuOptions[indexPath.row] == "Account Settings" {
-      performSegueWithIdentifier("account_settings_segue", sender: self)
-    } else if menuOptions[indexPath.row] == "Privacy Settings" {
-      performSegueWithIdentifier("privacy_settings_segue", sender: self)
-    } else if menuOptions[indexPath.row] == "Car Management" {
-      performSegueWithIdentifier("car_management_segue", sender: self)
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if (segue.identifier == "confirm_password_segue") {
+      var next = segue.destinationViewController as! ConfirmPasswordViewController
+      next.delegate = self
+      var cell = sender as! UITableViewCell
+      var nextSegueID = segueOptions[tableView.indexPathForCell(cell)!.row]
+      next.nextSegueID = nextSegueID
     }
   }
+  func nextSegueAfterConfirm(segueId: String) {
+    self.navigationController?.viewControllers.removeLast()
+    performSegueWithIdentifier(segueId, sender: self)
+  }
+  
+  
 }

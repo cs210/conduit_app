@@ -12,6 +12,7 @@
 		B54FF8F61ACD288200450107 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54FF8F51ACD288200450107 /* SettingsViewController.swift */; };
 		B54FF8F81ACDE90A00450107 /* CarManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54FF8F71ACDE90A00450107 /* CarManagementView.swift */; };
 		B54FF8FC1ACDEDBF00450107 /* CarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54FF8FB1ACDEDBF00450107 /* CarView.swift */; };
+		B55805F81AE6CF7300EB5512 /* ConfirmPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55805F71AE6CF7300EB5512 /* ConfirmPasswordViewController.swift */; };
 		B57334171AABDB8100363B5C /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57334161AABDB8100363B5C /* CreateAccountController.swift */; };
 		B57334191AABDC1500363B5C /* HomepageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57334181AABDC1500363B5C /* HomepageController.swift */; };
 		B582C45F1AABDE900083AD9A /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B582C45E1AABDE900083AD9A /* ScannerViewController.swift */; };
@@ -120,6 +121,7 @@
 		B54FF8F51ACD288200450107 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B54FF8F71ACDE90A00450107 /* CarManagementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarManagementView.swift; sourceTree = "<group>"; };
 		B54FF8FB1ACDEDBF00450107 /* CarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarView.swift; sourceTree = "<group>"; };
+		B55805F71AE6CF7300EB5512 /* ConfirmPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPasswordViewController.swift; sourceTree = "<group>"; };
 		B57334161AABDB8100363B5C /* CreateAccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
 		B57334181AABDC1500363B5C /* HomepageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomepageController.swift; sourceTree = "<group>"; };
 		B582C45E1AABDE900083AD9A /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 				C5C70DC81AA68EDE00BE0753 /* Images.xcassets */,
 				C5C70DCA1AA68EDE00BE0753 /* LaunchScreen.xib */,
 				C5C70DBF1AA68EDE00BE0753 /* Supporting Files */,
+				B55805F71AE6CF7300EB5512 /* ConfirmPasswordViewController.swift */,
 			);
 			path = conduit;
 			sourceTree = "<group>";
@@ -811,6 +814,7 @@
 				BDEB2DEE1AD5D724008C91C2 /* Label.swift in Sources */,
 				B582C45F1AABDE900083AD9A /* ScannerViewController.swift in Sources */,
 				C5C70DC21AA68EDE00BE0753 /* AppDelegate.swift in Sources */,
+				B55805F81AE6CF7300EB5512 /* ConfirmPasswordViewController.swift in Sources */,
 				BDE4EB5F1AAC2A8900588511 /* LoginViewController.swift in Sources */,
 				B58FD9B31ACE67B5005B8648 /* ChangePasswordView.swift in Sources */,
 				B54FF8F21AB04B3100450107 /* ConversationsViewController.swift in Sources */,

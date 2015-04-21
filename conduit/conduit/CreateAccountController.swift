@@ -26,6 +26,14 @@ class CreateAccountController : UIViewController {
   }
   
   @IBAction func createAccount(sender: AnyObject) {
-    //TODO
+    APIModel.post("/sessions", parameters: ["user_id": "1"]) { (result, error) -> () in
+      if (error == nil) {
+        var defaults = NSUserDefaults.standardUserDefaults()
+        var sessionKey = result!["session"] as! String
+        defaults.setValue("session", forKey: sessionKey)
+      } else {
+        NSLog("ERROR: Session error")
+      }
+    }
   }
 }
