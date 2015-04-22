@@ -26,9 +26,9 @@ class Car: APIModel {
     )
   }
   
-  func description() -> String {
-    return "id:\(self.id)\n" +
-            "licensePlate:\(self.licensePlate)\n"
-  }
+//  func description() -> String {
+//    return "id:\(self.id)\n" +
+//            "licensePlate:\(self.licensePlate)\n"
+//  }
   
 }

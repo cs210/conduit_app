@@ -8,7 +8,7 @@
 
 import UIKit
 
-#if TARGET_IPHONE_SIMULATOR
+#if arch(i386) || arch(x86_64)
   let LQSCurrentUserID = "Simulator"
   let LQSParticipantUserID = "Device"
   let LQSInitialMessageTexta = "Hey Device! This is your friend, Simulator."
@@ -26,9 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
   
   var window: UIWindow?
   var layerClient: LYRClient?
-
+  
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
+    
+    self.initAppearance()
     
     var appID =  NSUUID(UUIDString: LQSLayerAppIDString)
     self.layerClient = LYRClient(appID: appID)
@@ -53,6 +55,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
     UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
 
     return true
+  }
+  
+  func initAppearance () {
+    UINavigationBar.appearance().backgroundColor = StyleColor.getColor(.Primary, brightness: .Medium)
+    UINavigationBar.appearance().barTintColor = StyleColor.getColor(.Primary, brightness: .Medium)
+    UINavigationBar.appearance().translucent = false
+    
+    UINavigationBar.appearance().tintColor = TextColor.getTextColor(.Light)
+    UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : TextColor.getTextColor(.Light)]
   }
 
   func registerApplicationForPushNotifications(application: UIApplication) {

@@ -32,6 +32,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
   @IBOutlet var presetDeselecter: UITapGestureRecognizer!
   
   override func viewDidLoad() {
+    
     keyboardDismisser.enabled = false
     presetDeselecter.enabled = false
     toFieldBackground.backgroundColor = StyleColor.getColor(.Grey, brightness: .Light)
@@ -110,13 +111,16 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
     }
   }
   
-  @IBAction func sendMessage(sender: AnyObject) {
+  @IBAction func sendPressed(sender: AnyObject) {
     // if there's no selected custom message, the send button does nothing.
     if selectedMessageIndexPath == nil {
       return
     }
-  
+    
+    self.performSegueWithIdentifier("send_to_conversation", sender: self)
+    
   }
+
 }
 
 // We have a custom table cell which contains a label, so that we can customize

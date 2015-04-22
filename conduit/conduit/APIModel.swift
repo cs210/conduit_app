@@ -19,9 +19,10 @@ let APIURL = "http://0.0.0.0:8080/"
    Do not include path unless you have a very good reason to do so!
 */
 
-class APIModel {
+class APIModel: NSObject {
   
-  var id: Int
+  var id: Int!
+  
   init(id: Int) {
     self.id = id
   }

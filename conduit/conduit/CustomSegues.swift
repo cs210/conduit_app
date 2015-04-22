@@ -21,16 +21,22 @@ class SendToConversationSegue: UIStoryboardSegue {
     var revealController: SWRevealViewController = navigationController.revealViewController()
     revealController.rearViewController.performSegueWithIdentifier("conversations_segue", sender: self)
     
-    var conversationsNavigationController: NavigationController = revealController.frontViewController as! NavigationController
-    var conversationsController: ConversationsViewController = conversationsNavigationController.visibleViewController as! ConversationsViewController
+    var conversationListNavigationController: UINavigationController = revealController.frontViewController as! UINavigationController
+    var conversationListController: ConversationListViewController = conversationListNavigationController.visibleViewController as! ConversationListViewController
     // Create messages view
-    var messagesViewController: MessagesViewController = conversationsController.storyboard?.instantiateViewControllerWithIdentifier("messagesViewController") as! MessagesViewController
     
-    // Push messages view
-    conversationsNavigationController.pushViewController(messagesViewController, animated: false)
+    var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    var conversationViewController: ConversationViewController = ConversationViewController(layerClient: appDelegate.layerClient)
     
-    messagesViewController.sendMessage(sourceViewController.selectedMessage)
+    conversationViewController.conversation = nil
+    conversationListNavigationController.pushViewController(conversationViewController, animated: false)
+
+    conversationViewController.sendInitMessage(sourceViewController.selectedMessage)
 
   }
   
 }
+
+
+
+
