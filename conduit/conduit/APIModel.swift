@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+// default base url
 let APIURL = "http://0.0.0.0:8080/"
 
 /* Defines a base API model class, which implements basic REST functionality on any subclass.

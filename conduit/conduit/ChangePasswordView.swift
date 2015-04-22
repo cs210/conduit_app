@@ -11,29 +11,25 @@ import UIKit
 
 class ChangePasswordView : UIViewController {
   
-  @IBOutlet var oldPasswordField: UITextField!
   @IBOutlet var newPasswordField: UITextField!
   @IBOutlet var confirmPasswordField: UITextField!
   
   @IBAction func savePassword(sender: AnyObject) {
     var error = false
-    if (oldPasswordField.text != "password") {
-      error = true
-      var alert = UIAlertController(title: "Error", message: "Incorrect Password!", preferredStyle: UIAlertControllerStyle.Alert)
-      alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-      self.presentViewController(alert, animated: true, completion: nil)
-    }
     if (newPasswordField.text != confirmPasswordField.text) {
       var alert = UIAlertController(title: "Error", message: "Passwords don't match!", preferredStyle: UIAlertControllerStyle.Alert)
       alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
       self.presentViewController(alert, animated: true, completion: nil)
       error = true
+    } else {
+        println("weinhere")
     }
-    
-    if (!error) {
-      var alert = UIAlertController(title: "Success", message: "Password changed!", preferredStyle: UIAlertControllerStyle.Alert)
-      alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-      self.presentViewController(alert, animated: true, completion: nil)
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if (segue.identifier == "notify_changed_password_segue") {
+      println("notifying!")
+      self.navigationController?.viewControllers.removeLast()
     }
   }
   
