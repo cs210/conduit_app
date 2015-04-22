@@ -23,7 +23,6 @@
 		BDE4EB5F1AAC2A8900588511 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */; };
 		BDE4EB651AAC44FB00588511 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */; };
 		BDEB2DE81AD4A41E008C91C2 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2DE71AD4A41E008C91C2 /* Style.swift */; };
-		BDEB2DEA1AD5C2BC008C91C2 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2DE91AD5C2BC008C91C2 /* NavigationController.swift */; };
 		BDEB2DEC1AD5C5A9008C91C2 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2DEB1AD5C5A9008C91C2 /* Button.swift */; };
 		BDEB2DEE1AD5D724008C91C2 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2DED1AD5D724008C91C2 /* Label.swift */; };
 		C53B9CEA1AD1F6BE00BEFA88 /* LayerHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = C53B9CE91AD1F6BE00BEFA88 /* LayerHelpers.m */; };
@@ -103,7 +102,6 @@
 		C5D02F131AE085E800C201A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5D02F121AE085E800C201A5 /* CoreLocation.framework */; };
 		C5D32C1D1ADC829D001635AF /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EFBDE01AABD6C4000029C3 /* SWRevealViewController.m */; };
 		C5EFBDDB1AABD4CD000029C3 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EFBDDA1AABD4CD000029C3 /* MenuTableViewController.swift */; };
-		C5EFBDDD1AABD4ED000029C3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EFBDDC1AABD4ED000029C3 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,7 +131,6 @@
 		BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
 		BDEB2DE71AD4A41E008C91C2 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
-		BDEB2DE91AD5C2BC008C91C2 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		BDEB2DEB1AD5C5A9008C91C2 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		BDEB2DED1AD5D724008C91C2 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		C53B9CE71AD1E57500BEFA88 /* conduit-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "conduit-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -260,7 +257,6 @@
 		C5D02EFD1AE085B000C201A5 /* plus@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus@3x.png"; sourceTree = "<group>"; };
 		C5D02F121AE085E800C201A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C5EFBDDA1AABD4CD000029C3 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
-		C5EFBDDC1AABD4ED000029C3 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C5EFBDDF1AABD6C4000029C3 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		C5EFBDE01AABD6C4000029C3 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		CBA459C56B136A1775EDB032 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -391,8 +387,6 @@
 				C5EFBDDA1AABD4CD000029C3 /* MenuTableViewController.swift */,
 				B54FF8F51ACD288200450107 /* SettingsViewController.swift */,
 				B54FF8F71ACDE90A00450107 /* CarManagementView.swift */,
-				C5EFBDDC1AABD4ED000029C3 /* MainViewController.swift */,
-				BDEB2DE91AD5C2BC008C91C2 /* NavigationController.swift */,
 				BDEB2DE71AD4A41E008C91C2 /* Style.swift */,
 				BDEB2DEB1AD5C5A9008C91C2 /* Button.swift */,
 				BDEB2DED1AD5D724008C91C2 /* Label.swift */,
@@ -778,7 +772,6 @@
 				BDD28DC31ACDDD4E001B031D /* ConversationViewController.swift in Sources */,
 				C5D02EE01AE085A300C201A5 /* ATLConversationView.m in Sources */,
 				C5D02EDD1AE085A300C201A5 /* ATLConversationCollectionViewHeader.m in Sources */,
-				BDEB2DEA1AD5C2BC008C91C2 /* NavigationController.swift in Sources */,
 				C5D02EDB1AE085A300C201A5 /* ATLConversationCollectionView.m in Sources */,
 				C5EFBDDB1AABD4CD000029C3 /* MenuTableViewController.swift in Sources */,
 				C5D02ED91AE085A300C201A5 /* ATLAddressBarView.m in Sources */,
@@ -830,7 +823,6 @@
 				C5D02ED71AE085A300C201A5 /* ATLAddressBarContainerView.m in Sources */,
 				C5D02ED21AE085A300C201A5 /* ATLErrors.m in Sources */,
 				C5D02EE11AE085A300C201A5 /* ATLIncomingMessageCollectionViewCell.m in Sources */,
-				C5EFBDDD1AABD4ED000029C3 /* MainViewController.swift in Sources */,
 				C5D02ED01AE085A300C201A5 /* ATLParticipantTableDataSet.m in Sources */,
 				C5D02EC91AE085A300C201A5 /* ATLConversationListViewController.m in Sources */,
 				C5D02EE91AE085A300C201A5 /* ATLProgressView.m in Sources */,
