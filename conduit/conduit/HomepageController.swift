@@ -10,13 +10,23 @@ import Foundation
 import UIKit
 
 class HomepageController:UIViewController {
-  @IBOutlet weak var menuButton: UIBarButtonItem!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     // Authentication probably goes here.
   }
 
+  @IBAction func dismissKeyboard(sender: AnyObject) {
+    view.endEditing(true)
+  }
+  
+  // This function is called when "Login" is pressed
+  // Currently, it just does a segue to the scanner, but eventually, 
+  // authentication will happen here.
+  @IBAction func doLogin(sender: AnyObject) {
+    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "loggedIn")
+    performSegueWithIdentifier("login_to_scanner", sender: self)
+  }
 }
 
 
