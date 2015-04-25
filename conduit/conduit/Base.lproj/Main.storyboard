@@ -206,9 +206,6 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="JeC-LZ-yzQ"/>
-                    <connections>
-                        <segue destination="g2N-zI-cJa" kind="modal" identifier="login_to_scanner" id="gfJ-iv-tG6"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1n-1t-gxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="8GZ-jX-pq6">

@@ -25,7 +25,8 @@ class HomepageController:UIViewController {
   // authentication will happen here.
   @IBAction func doLogin(sender: AnyObject) {
     NSUserDefaults.standardUserDefaults().setBool(true, forKey: "loggedIn")
-    performSegueWithIdentifier("login_to_scanner", sender: self)
+    self.dismissViewControllerAnimated(true, completion: {})
+
   }
 }
 
