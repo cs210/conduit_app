@@ -177,6 +177,6 @@ class CreateAccountController : UIViewController {
   // returns false if the username is already taken
   // true is the username is available
   func isValidUsername(un : String) -> Bool {
-    return false
+    return true
   }
 }
