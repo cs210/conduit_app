@@ -22,7 +22,7 @@ struct StyleColor {
   }
   
   enum Color {
-    case Primary, Secondary, Accent, Grey
+    case Primary, Secondary, Accent, Grey, Error
   }
   
   static func getColor(color : Color, brightness : Brightness) -> UIColor {
@@ -64,6 +64,8 @@ struct StyleColor {
           case .Light:
             return UIColor(hue: 0.0,   saturation: 0.0,  brightness: 85.0/100.0, alpha: 1.0)
         }
+      case .Error:
+        return UIColor(hue:9.0, saturation: 95.0, brightness:82.0/100.0, alpha:1.0)
     }
   }
 };
