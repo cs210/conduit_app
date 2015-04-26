@@ -53,7 +53,7 @@ struct StyleColor {
           case .Medium:
             return UIColor(hue: 37.0/360.0,  saturation: 85.0/100.0, brightness: 88.0/100.0, alpha: 1.0)
           case .Light:
-            return UIColor(hue: 37.0/360.0,  saturation: 85.0/100.0, brightness: 98.0/100.0, alpha: 1.0)
+            return UIColor(hue: 37.0/360.0,  saturation: 85.0/100.0, brightness: 100.0/100.0, alpha: 1.0)
         }
       case .Grey:
         switch brightness {
