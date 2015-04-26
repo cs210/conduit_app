@@ -356,7 +356,7 @@
                         <outlet property="passwordField" destination="CJ5-4K-aNq" id="RqX-3v-zzT"/>
                         <outlet property="retypePasswordErrorLabel" destination="xb9-DI-Zle" id="WdK-ly-7QY"/>
                         <outlet property="retypePasswordField" destination="Mj1-kp-fok" id="Sqd-fy-wR0"/>
-                        <segue destination="bG3-dy-Uj2" kind="custom" identifier="create_to_invite_segue" customClass="CreateAcctToInviteSegue" customModule="conduit" customModuleProvider="target" id="vAA-rI-zW9"/>
+                        <segue destination="0Yr-RS-Ulj" kind="custom" identifier="create_to_invite_segue" customClass="CreateAcctToInviteSegue" customModule="conduit" customModuleProvider="target" id="WLJ-3z-lzm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oxg-0C-cqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1440,11 +1440,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="DhA-g4-u7t"/>
         <segue reference="psz-Zh-Tf1"/>
-        <segue reference="N6G-ku-Qmu"/>
-        <segue reference="wdb-MR-V5N"/>
         <segue reference="xLd-Lx-gY5"/>
-        <segue reference="vAA-rI-zW9"/>
+        <segue reference="wdb-MR-V5N"/>
+        <segue reference="N6G-ku-Qmu"/>
         <segue reference="a4X-s1-m85"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -84,12 +84,7 @@ class CreateAccountController : UIViewController {
       }
     }
     
-    
-    
-    
-    // TEMPORARY
-//    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "loggedIn")
-//    self.dismissViewControllerAnimated(true, completion: {})
+    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "loggedIn")
     self.performSegueWithIdentifier("create_to_invite_segue", sender: self)
   }
   
