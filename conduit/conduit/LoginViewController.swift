@@ -36,7 +36,7 @@ class LoginViewController : UIViewController {
         return
       }
     }
-    NSUserDefaults.standardUserDefaults().setBool(false, forKey: "loggedIn")
+    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "loggedIn")
     self.dismissViewControllerAnimated(true, completion: {})
   }
   

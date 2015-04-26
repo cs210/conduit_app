@@ -35,7 +35,6 @@ class ScannerViewController : UIViewController,
     
     var loggedIn = NSUserDefaults.standardUserDefaults().boolForKey("loggedIn")
     if !loggedIn {
-      println("sdf")
         performSegueWithIdentifier("to_login", sender: self)
     }
     
