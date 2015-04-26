@@ -58,6 +58,7 @@ class CreateAccountController : UIViewController {
       if (error == nil) {
         var defaults = NSUserDefaults.standardUserDefaults()
         var sessionKey = result!["session"] as! String
+        println(sessionKey)
         defaults.setValue("session", forKey: sessionKey)
       } else {
         NSLog("ERROR: Session error")
