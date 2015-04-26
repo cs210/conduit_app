@@ -64,6 +64,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
     
     UINavigationBar.appearance().tintColor = TextColor.getTextColor(.Light)
     UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : TextColor.getTextColor(.Light)]
+    
+    UIButton.appearance().backgroundColor = StyleColor.getColor(.Primary, brightness: .Medium)
+    UIButton.appearance().tintColor = TextColor.getTextColor(.Light)
+    
+    UITableView.appearance().backgroundColor = StyleColor.getColor(.Grey, brightness: .Light)
+    UITableView.appearance().separatorStyle = .None
+    
+    UITableViewCell.appearance().layer.borderWidth = 2
+    UITableViewCell.appearance().layer.borderColor = StyleColor.getColor(.Grey, brightness: .Light).CGColor
+    
+    UILabel.appearance().textColor = TextColor.getTextColor(.Dark)
+    
   }
 
   func registerApplicationForPushNotifications(application: UIApplication) {

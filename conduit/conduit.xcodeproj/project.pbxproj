@@ -19,12 +19,11 @@
 		B58FD9B11ACE3191005B8648 /* AccountSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58FD9B01ACE3191005B8648 /* AccountSettingsView.swift */; };
 		B58FD9B31ACE67B5005B8648 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */; };
 		BD4C1E1A1ACC6EDD00C10987 /* CustomMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C1E191ACC6EDD00C10987 /* CustomMessageController.swift */; };
+		BDB898411AEC3301007E8FE1 /* InviteFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */; };
 		BDD28DC31ACDDD4E001B031D /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD28DC21ACDDD4E001B031D /* ConversationViewController.swift */; };
 		BDE4EB5F1AAC2A8900588511 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */; };
 		BDE4EB651AAC44FB00588511 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */; };
 		BDEB2DE81AD4A41E008C91C2 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2DE71AD4A41E008C91C2 /* Style.swift */; };
-		BDEB2DEC1AD5C5A9008C91C2 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2DEB1AD5C5A9008C91C2 /* Button.swift */; };
-		BDEB2DEE1AD5D724008C91C2 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2DED1AD5D724008C91C2 /* Label.swift */; };
 		C53B9CEA1AD1F6BE00BEFA88 /* LayerHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = C53B9CE91AD1F6BE00BEFA88 /* LayerHelpers.m */; };
 		C53B9CF01AD2046A00BEFA88 /* LayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C53B9CED1AD2046A00BEFA88 /* LayerKit.framework */; };
 		C53B9CF11AD2046A00BEFA88 /* layer-client-messaging-schema.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C53B9CEF1AD2046A00BEFA88 /* layer-client-messaging-schema.bundle */; };
@@ -127,12 +126,11 @@
 		B58FD9B01ACE3191005B8648 /* AccountSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingsView.swift; sourceTree = "<group>"; };
 		B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		BD4C1E191ACC6EDD00C10987 /* CustomMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMessageController.swift; sourceTree = "<group>"; };
+		BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendsViewController.swift; sourceTree = "<group>"; };
 		BDD28DC21ACDDD4E001B031D /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
 		BDEB2DE71AD4A41E008C91C2 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
-		BDEB2DEB1AD5C5A9008C91C2 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		BDEB2DED1AD5D724008C91C2 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		C53B9CE71AD1E57500BEFA88 /* conduit-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "conduit-Bridging-Header.h"; sourceTree = "<group>"; };
 		C53B9CE81AD1F6BE00BEFA88 /* LayerHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LayerHelpers.h; path = conduit/LayerHelpers.h; sourceTree = "<group>"; };
 		C53B9CE91AD1F6BE00BEFA88 /* LayerHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LayerHelpers.m; path = conduit/LayerHelpers.m; sourceTree = "<group>"; };
@@ -373,6 +371,7 @@
 				C5212BF21ABAA43C004171FD /* API Models */,
 				C5C70DC11AA68EDE00BE0753 /* AppDelegate.swift */,
 				C5C70DC51AA68EDE00BE0753 /* Main.storyboard */,
+				BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */,
 				B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */,
 				B58FD9B01ACE3191005B8648 /* AccountSettingsView.swift */,
 				B54FF8FB1ACDEDBF00450107 /* CarView.swift */,
@@ -388,8 +387,6 @@
 				B54FF8F51ACD288200450107 /* SettingsViewController.swift */,
 				B54FF8F71ACDE90A00450107 /* CarManagementView.swift */,
 				BDEB2DE71AD4A41E008C91C2 /* Style.swift */,
-				BDEB2DEB1AD5C5A9008C91C2 /* Button.swift */,
-				BDEB2DED1AD5D724008C91C2 /* Label.swift */,
 				C5C70DC81AA68EDE00BE0753 /* Images.xcassets */,
 				C5C70DCA1AA68EDE00BE0753 /* LaunchScreen.xib */,
 				C5C70DBF1AA68EDE00BE0753 /* Supporting Files */,
@@ -785,6 +782,7 @@
 				C5D02ECA1AE085A300C201A5 /* ATLConversationViewController.m in Sources */,
 				C5D02ED31AE085A300C201A5 /* ATLLocationManager.m in Sources */,
 				B57334171AABDB8100363B5C /* CreateAccountController.swift in Sources */,
+				BDB898411AEC3301007E8FE1 /* InviteFriendsViewController.swift in Sources */,
 				C5D02ECF1AE085A300C201A5 /* ATLMediaAttachment.m in Sources */,
 				B58FD9B11ACE3191005B8648 /* AccountSettingsView.swift in Sources */,
 				B54FF8F81ACDE90A00450107 /* CarManagementView.swift in Sources */,
@@ -799,7 +797,6 @@
 				B57334191AABDC1500363B5C /* HomepageController.swift in Sources */,
 				C5D02ED51AE085A300C201A5 /* ATLMessagingUtilities.m in Sources */,
 				C5D02EE51AE085A300C201A5 /* ATLMessageInputToolbar.m in Sources */,
-				BDEB2DEC1AD5C5A9008C91C2 /* Button.swift in Sources */,
 				C5D02EE31AE085A300C201A5 /* ATLMessageCollectionViewCell.m in Sources */,
 				C5D02EC61AE085A300C201A5 /* Atlas.m in Sources */,
 				C5D02EC81AE085A300C201A5 /* ATLBaseConversationViewController.m in Sources */,
@@ -808,7 +805,6 @@
 				C5D02EDC1AE085A300C201A5 /* ATLConversationCollectionViewFooter.m in Sources */,
 				C5D02ECE1AE085A300C201A5 /* ATLDataSourceChange.m in Sources */,
 				C5D02ECB1AE085A300C201A5 /* ATLParticipantTableViewController.m in Sources */,
-				BDEB2DEE1AD5D724008C91C2 /* Label.swift in Sources */,
 				B582C45F1AABDE900083AD9A /* ScannerViewController.swift in Sources */,
 				C5C70DC21AA68EDE00BE0753 /* AppDelegate.swift in Sources */,
 				B55805F81AE6CF7300EB5512 /* ConfirmPasswordViewController.swift in Sources */,

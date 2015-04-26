@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 class CreateAccountController : UIViewController {
-  @IBOutlet var usernameField: UITextField!
-  @IBOutlet weak var usernameErrorLabel: UILabel!
+  @IBOutlet weak var firstNameField: UITextField!
+  @IBOutlet weak var lastNameField: UITextField!
   @IBOutlet var passwordField: UITextField!
   @IBOutlet var retypePasswordField: UITextField!
   @IBOutlet weak var retypePasswordErrorLabel: UILabel!
@@ -21,14 +21,14 @@ class CreateAccountController : UIViewController {
   @IBOutlet var licenseField: UITextField!
   
   override func viewDidLoad() {
-    highlightError(usernameField)
-    usernameErrorLabel.text = ""
-    usernameErrorLabel.textColor = StyleColor.getColor(.Error, brightness: .Medium)
+    highlightError(firstNameField)
+    highlightError(lastNameField)
     highlightError(passwordField)
     highlightError(retypePasswordField)
     retypePasswordErrorLabel.text = ""
     retypePasswordErrorLabel.textColor = StyleColor.getColor(.Error, brightness: .Medium)
     highlightError(emailField)
+    emailField.autocorrectionType = UITextAutocorrectionType.No
     emailErrorLabel.text = ""
     emailErrorLabel.textColor = StyleColor.getColor(.Error, brightness: .Medium)
   }
@@ -72,27 +72,24 @@ class CreateAccountController : UIViewController {
       }
     }
     
-    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "loggedIn")
-    self.dismissViewControllerAnimated(true, completion: {})
+    // TEMPORARY
+//    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "loggedIn")
+//    self.dismissViewControllerAnimated(true, completion: {})
+    self.performSegueWithIdentifier("create_to_invite_segue", sender: self)
   }
   
   // Checks that all req'd fields are filled in and valid. Returns false for 
   // invalid inputs.
   func checkInputs() -> Bool {
-    // Required fields: username, password, retype password, email
+    // Required fields: first/last name, password, retype password, email
     
     var error = false
     
-    if (usernameField.text == "") {
+    if (emailField.text == "" || !isValidEmail(emailField.text) || !isAvailableEmail(emailField.text)) {
       error = true
-    } else {
-      // check to see if hte username is taken or not
-      if (isValidUsername(usernameField.text) == false) {
-        error = true
-      }
     }
     
-    if (passwordField.text == "" || retypePasswordField.text == "" || emailField.text == "") {
+    if (firstNameField.text == "" || lastNameField.text == "" || passwordField.text == "" || retypePasswordField.text == "") {
       error = true
     }
     
@@ -112,21 +109,7 @@ class CreateAccountController : UIViewController {
     field.layer.borderWidth = 0
     field.layer.borderColor = UIColor.clearColor().CGColor
   }
- 
-  // Check the input of a username when the field is done editing.
-  @IBAction func checkUsernameInput(sender: UITextField) {
-    if (sender.text == "") {
-      highlightError(sender)
-      usernameErrorLabel.text = ""
-    } else if (!isValidUsername(sender.text)) {
-      usernameErrorLabel.text = "That username is already taken."
-      highlightError(sender)
-    } else {
-      unhighlightError(sender)
-      usernameErrorLabel.text = ""
-    }
-  }
-  
+
   @IBAction func checkRetypePasswordInput(sender: UITextField) {
     if (sender.text == "") {
       highlightError(sender)
@@ -150,7 +133,10 @@ class CreateAccountController : UIViewController {
       emailErrorLabel.text = ""
     } else if (isValidEmail(sender.text) == false) {
       highlightError(sender)
-      emailErrorLabel.text = "Please enter a valid email address."
+      emailErrorLabel.text = "Please enter a valid e-mail address."
+    } else if (isAvailableEmail(sender.text) == false) {
+      highlightError(sender)
+      emailErrorLabel.text = "There is already an account with that e-mail."
     } else {
       unhighlightError(sender)
       emailErrorLabel.text = ""
@@ -163,9 +149,15 @@ class CreateAccountController : UIViewController {
     
     let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
     return emailTest.evaluateWithObject(s)
+    
   }
   
-  // Check the input of a required non-username field upon editing completion
+  func isAvailableEmail(s : String) -> Bool {
+    // TODO(nisha): returns true if the email address is available, false if it's taken
+    return true
+  }
+  
+  // Check the input of a required field upon editing completion
   @IBAction func checkInput(sender: UITextField) {
     if (sender.text == "") {
       highlightError(sender)
@@ -174,9 +166,5 @@ class CreateAccountController : UIViewController {
     }
   }
 
-  // returns false if the username is already taken
-  // true is the username is available
-  func isValidUsername(un : String) -> Bool {
-    return true
-  }
+
 }
