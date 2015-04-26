@@ -17,7 +17,6 @@ class CreateAccountController : UIViewController {
   @IBOutlet weak var retypePasswordErrorLabel: UILabel!
   @IBOutlet var emailField: UITextField!
   @IBOutlet weak var emailErrorLabel: UILabel!
-  @IBOutlet var phoneField: UITextField!
   @IBOutlet var licenseField: UITextField!
   
   override func viewDidLoad() {
@@ -128,7 +127,7 @@ class CreateAccountController : UIViewController {
       retypePasswordErrorLabel.text = "Passwords do not match."
       sender.text = ""
       highlightError(sender)
-      retypePasswordField.becomeFirstResponder()
+//      retypePasswordField.becomeFirstResponder()
     } else {
       unhighlightError(sender)
       retypePasswordErrorLabel.text = ""

@@ -28,6 +28,11 @@ class ConversationViewController : ATLConversationViewController {
     self.dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
     
     self.configureUIColors()
+    
+    self.messageInputToolbar.leftAccessoryButton = nil
+    self.messageInputToolbar.displaysRightAccessoryImage = false
+    self.messageInputToolbar.rightAccessoryButton.setTitleColor(StyleColor.getColor(.Primary, brightness: .Medium), forState:.Normal)
+    self.messageInputToolbar.rightAccessoryButton.backgroundColor = nil
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -65,15 +70,28 @@ class ConversationViewController : ATLConversationViewController {
     ATLIncomingMessageCollectionViewCell.appearance().bubbleViewCornerRadius = 10
 
     ATLIncomingMessageCollectionViewCell.appearance().bubbleViewColor = ATLLightGrayColor()
-    ATLIncomingMessageCollectionViewCell.appearance().messageTextColor = UIColor.blackColor()
-    ATLIncomingMessageCollectionViewCell.appearance().messageLinkTextColor = ATLBlueColor()
+    ATLIncomingMessageCollectionViewCell.appearance().messageTextColor = TextColor.getTextColor(.Dark)
+    ATLIncomingMessageCollectionViewCell.appearance().messageLinkTextColor = StyleColor.getColor(.Secondary, brightness:.Dark)
     
     ATLOutgoingMessageCollectionViewCell.appearance().bubbleViewCornerRadius = 10
     ATLOutgoingMessageCollectionViewCell.appearance().bubbleViewColor = StyleColor.getColor(.Primary, brightness: .Light)
     ATLOutgoingMessageCollectionViewCell.appearance().messageTextColor = UIColor.whiteColor()
     ATLOutgoingMessageCollectionViewCell.appearance().messageLinkTextColor = UIColor.whiteColor()
+    
+    ATLMessageInputToolbar.appearance().tintColor = TextColor.getTextColor(.Dark)
+//    applyConversationAppearance()
   }
   
+//  func applyConversationAppearance() {
+//    UIButton.appearance().tintColor = TextColor.getTextColor(.Dark)
+//    UIButton.appearance().backgroundColor = UIColor.whiteColor()
+//  }
+//  
+//  func resetGlobalAppearance() {
+//    UIButton.appearance().tintColor = TextColor.getTextColor(.Light)
+//    UIButton.appearance().backgroundColor = StyleColor.getColor(.Primary, brightness: .Medium)
+//  }
+//  
 }
 
 extension ConversationViewController: ATLConversationViewControllerDelegate {
