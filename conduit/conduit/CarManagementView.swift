@@ -39,6 +39,7 @@ class CarManagementView : UIViewController, UITableViewDataSource {
   }
   @IBAction func addCar(sender: AnyObject) {
     // go to the scanner object
+    
   }
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("car_management_item",
@@ -61,10 +62,14 @@ class CarManagementView : UIViewController, UITableViewDataSource {
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "car_segue" {
-      var next = segue.destinationViewController as! CarView
+      var next = segue.destinationViewController as! CarDetailsViewController
       
       // retrieve car from the array of car objects
       next.selectedCar = cars[selectedCarIndex.row]
+    }
+    if segue.identifier == "add_car_segue" {
+      var next = segue.destinationViewController as! ScannerViewController
+      next.addingCarFlag = true
     }
   }
   

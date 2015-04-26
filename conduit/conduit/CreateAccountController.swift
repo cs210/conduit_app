@@ -65,6 +65,12 @@ class CreateAccountController : UIViewController {
           var defaults = NSUserDefaults.standardUserDefaults()
           var sessionKey = result!["session"] as! String
           defaults.setValue(sessionKey, forKey: "session")
+          
+          APIModel.post("cars/create", parameters: ["license_plate": self.licenseField.text, "manufacturer": "None", "session_token": sessionKey], post_completion: { (result, error) -> () in
+                if (error != nil) {
+                  NSLog("ERROR: Error creating a car")
+                }
+          })
         } else {
           NSLog("ERROR: Session error")
           

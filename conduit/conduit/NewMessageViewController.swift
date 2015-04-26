@@ -112,10 +112,17 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
   }
   
   @IBAction func sendPressed(sender: AnyObject) {
-    // if there's no selected custom message, the send button does nothing.
-    if selectedMessageIndexPath == nil {
+    // if there's no selected custom message or license plate, the send button does nothing.
+    if selectedMessageIndexPath == nil || licenseTextField.text == "" {
       return
     }
+    
+    // grab UUIDs for layer here - FIX PATH
+    var session = NSUserDefaults().stringForKey("session")
+    
+//    APIModel.post("cars/ids", parameters: ["license_plate":licensePlate, "manufacturer": "None", "session_token", session]) { (result, error) -> () in
+//      // use ids that you grab to actually send the message
+//    }
     
     self.performSegueWithIdentifier("send_to_conversation", sender: self)
     

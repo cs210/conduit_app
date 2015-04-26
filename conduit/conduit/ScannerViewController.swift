@@ -27,6 +27,9 @@ class ScannerViewController : UIViewController,
     
   @IBOutlet weak var menuButton: UIButton!
   
+  // we turn this flag on when we're adding a car from the car management view
+  var addingCarFlag = false
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -67,7 +70,7 @@ class ScannerViewController : UIViewController,
                 })
                 dismissViewControllerAnimated(true, completion: {})
               
-                performSegueWithIdentifier("new_message_segue", sender: self)
+              
             }
         }
         
@@ -85,6 +88,11 @@ class ScannerViewController : UIViewController,
           
             
         }
+      if (!addingCarFlag) {
+        performSegueWithIdentifier("new_message_segue", sender: self)
+      } else {
+        performSegueWithIdentifier("car_list_segue", sender: self)
+      }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -127,7 +135,6 @@ class ScannerViewController : UIViewController,
         // TODO: Send photo to backend somewhere in here
         
         dismissViewControllerAnimated(true, completion: {})
-        performSegueWithIdentifier("new_message_segue", sender: self)
     }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
