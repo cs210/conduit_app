@@ -291,6 +291,18 @@
                                     <action selector="checkInput:" destination="gP5-ji-s31" eventType="editingDidEnd" id="Wtm-a9-4CV"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWz-Zm-9hu">
+                                <rect key="frame" x="40" y="290" width="235" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1J-xy-eCZ">
+                                <rect key="frame" x="40" y="355" width="235" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -330,13 +342,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="emailErrorLabel" destination="I1J-xy-eCZ" id="wat-fW-LpK"/>
                         <outlet property="emailField" destination="YUP-wC-iHw" id="Y2t-Cq-rm5"/>
                         <outlet property="firstNameField" destination="z3T-xF-nmX" id="t1D-h8-IlB"/>
                         <outlet property="lastNameField" destination="tPV-VV-yNt" id="Mxm-PB-X47"/>
                         <outlet property="licenseField" destination="Qhx-ll-abl" id="AHV-2D-Pwz"/>
                         <outlet property="passwordField" destination="CJ5-4K-aNq" id="RqX-3v-zzT"/>
+                        <outlet property="retypePasswordErrorLabel" destination="yWz-Zm-9hu" id="uDi-b5-Jay"/>
                         <outlet property="retypePasswordField" destination="Mj1-kp-fok" id="Sqd-fy-wR0"/>
-                        <segue destination="bG3-dy-Uj2" kind="custom" identifier="create_to_invite_segue" customClass="CreateAcctToInviteSegue" customModule="conduit" customModuleProvider="target" id="vAA-rI-zW9"/>
+                        <segue destination="bG3-dy-Uj2" kind="modal" identifier="create_to_invite_segue" modalTransitionStyle="coverVertical" id="vAA-rI-zW9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oxg-0C-cqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -472,7 +486,7 @@
                     <connections>
                         <outlet property="cameraView" destination="sqZ-CP-nQ7" id="Fsb-HJ-ua8"/>
                         <outlet property="menuButton" destination="Od9-AH-wTn" id="rPk-n3-3mT"/>
-                        <segue destination="HgJ-U3-ESl" kind="modal" identifier="to_login" id="3Er-8E-rZo"/>
+                        <segue destination="HgJ-U3-ESl" kind="modal" identifier="to_login" modalPresentationStyle="fullScreen" animates="NO" id="3Er-8E-rZo"/>
                         <segue destination="Z91-TC-IGc" kind="push" identifier="new_message_segue" id="Rys-Qo-KaZ"/>
                     </connections>
                 </viewController>
@@ -1366,7 +1380,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="psz-Zh-Tf1"/>
         <segue reference="Rys-Qo-KaZ"/>
-        <segue reference="a4X-s1-m85"/>
         <segue reference="vAA-rI-zW9"/>
+        <segue reference="a4X-s1-m85"/>
     </inferredMetricsTieBreakers>
 </document>

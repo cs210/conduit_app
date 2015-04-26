@@ -53,30 +53,33 @@ class CreateAccountController : UIViewController {
       self.presentViewController(alertController, animated: true, completion: nil)
       return
     }
-    
-    
-    //    var newUser:User = User(firstName: <#String#>, lastName: <#String#>, phoneNumber: <#String#>, emailAddress: <#String#>, deviceToken: <#String#>, pushEnabled: <#Bool#>, participantIdentifier: <#String#>)
-    //
-//    APIModel.post(path: "/users", parameters: <#[String : AnyObject]?#>) { (result, error) -> () in
-//      <#code#>
-//    }
-    
-    APIModel.post("/sessions", parameters: ["password": passwordField.text, "email_address": emailField.text]) { (result, error) -> () in
-      if (error == nil) {
-        var defaults = NSUserDefaults.standardUserDefaults()
-        var sessionKey = result!["session"] as! String
-        defaults.setValue(sessionKey, forKey: "session")
-      } else {
-        NSLog("ERROR: Session error")
-        
-        let alertController = UIAlertController(title: "", message: "There was an error logging into your account. Please try again.",
-          preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-        
-        self.presentViewController(alertController, animated: true, completion: nil)
-        return
+    println("before post")
+    // note phone number is mocked in the backend
+    APIModel.post("/users/create", parameters: ["email_address": emailField.text, "password": passwordField.text, "first_name": firstNameField.text, "last_name": lastNameField.text, "phone_number": "123456789"]) { (result, error) -> () in
+      println("creating a user!")
+      println(result)
+      // grab token
+      APIModel.post("/sessions/create", parameters: ["password": self.passwordField.text, "email_address": self.emailField.text]) { (result, error) -> () in
+        if (error == nil) {
+          println("creating a session key!")
+          println(result)
+          var defaults = NSUserDefaults.standardUserDefaults()
+          var sessionKey = result!["session"] as! String
+          defaults.setValue(sessionKey, forKey: "session")
+        } else {
+          NSLog("ERROR: Session error")
+          
+          let alertController = UIAlertController(title: "", message: "There was an error logging into your account. Please try again.",
+            preferredStyle: UIAlertControllerStyle.Alert)
+          alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+          
+          self.presentViewController(alertController, animated: true, completion: nil)
+          return
+        }
       }
     }
+    
+    
     
     
     // TEMPORARY
