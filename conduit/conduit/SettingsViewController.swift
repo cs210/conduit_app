@@ -16,6 +16,9 @@ class SettingsViewController : UITableViewController, ConfirmPasswordDelegate {
   @IBOutlet weak var menuButton: UIButton!
   
   override func viewDidLoad() {
+    var defaults = NSUserDefaults.standardUserDefaults()
+    println("SEESSSION")
+    println(defaults.stringForKey("session"))
     super.viewDidLoad()
     menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
   }
@@ -33,8 +36,12 @@ class SettingsViewController : UITableViewController, ConfirmPasswordDelegate {
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     // TODO: This is where we go to a new view.
-    performSegueWithIdentifier("confirm_password_segue", sender: tableView.cellForRowAtIndexPath(indexPath))
-    
+    var cell = tableView.cellForRowAtIndexPath(indexPath)
+    if (indexPath.row == 0){
+      performSegueWithIdentifier("confirm_password_segue", sender: cell)
+    } else {
+      performSegueWithIdentifier(segueOptions[indexPath.row], sender: cell)
+    }
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -119,10 +119,10 @@
             </objects>
             <point key="canvasLocation" x="1459" y="-512"/>
         </scene>
-        <!--Homepage Controller-->
+        <!--Login View Controller-->
         <scene sceneID="b1K-jK-HJx">
             <objects>
-                <viewController id="AMY-Fj-ScN" customClass="HomepageController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AMY-Fj-ScN" customClass="LoginViewController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3eT-w5-oh1"/>
                         <viewControllerLayoutGuide type="bottom" id="gUk-ip-T7C"/>
@@ -151,7 +151,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RoL-6R-Wz6">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RoL-6R-Wz6">
                                 <rect key="frame" x="57" y="269" width="207" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="w6w-4h-gSa"/>
@@ -178,7 +178,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="doLogin:" destination="AMY-Fj-ScN" eventType="touchUpInside" id="Fbo-9i-EMg"/>
+                                    <action selector="loginPressed:" destination="AMY-Fj-ScN" eventType="touchUpInside" id="swo-M9-edW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -206,6 +206,10 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="JeC-LZ-yzQ"/>
+                    <connections>
+                        <outlet property="emailField" destination="RoL-6R-Wz6" id="xsb-WW-3sS"/>
+                        <outlet property="passwordField" destination="RXR-gF-Nw5" id="x0g-vh-SCA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1n-1t-gxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="8GZ-jX-pq6">
@@ -279,18 +283,6 @@
                                     <action selector="checkEmailInput:" destination="gP5-ji-s31" eventType="editingDidEnd" id="Jo1-Bx-wtb"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Llg-bl-9nd">
-                                <rect key="frame" x="57" y="412" width="223" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D31-El-eMi">
-                                <rect key="frame" x="40" y="352" width="240" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="first name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z3T-xF-nmX">
                                 <rect key="frame" x="40" y="108" width="240" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -305,17 +297,12 @@
                         <constraints>
                             <constraint firstItem="z3T-xF-nmX" firstAttribute="top" secondItem="kE2-bT-NFl" secondAttribute="bottom" constant="40" id="13h-Mo-yDh"/>
                             <constraint firstAttribute="trailing" secondItem="CJ5-4K-aNq" secondAttribute="trailing" constant="40" id="3JE-ED-kHJ"/>
-                            <constraint firstItem="D31-El-eMi" firstAttribute="leading" secondItem="iOT-we-3Ki" secondAttribute="leading" constant="40" id="55L-uZ-PF4"/>
                             <constraint firstItem="tPV-VV-yNt" firstAttribute="leading" secondItem="iOT-we-3Ki" secondAttribute="leading" constant="40" id="5c9-WU-D7P"/>
                             <constraint firstItem="YUP-wC-iHw" firstAttribute="leading" secondItem="iOT-we-3Ki" secondAttribute="leading" constant="40" id="6T5-qg-KkJ"/>
                             <constraint firstItem="CJ5-4K-aNq" firstAttribute="top" secondItem="tPV-VV-yNt" secondAttribute="bottom" constant="40" id="9nE-Bg-uwd"/>
-                            <constraint firstItem="YUP-wC-iHw" firstAttribute="top" secondItem="D31-El-eMi" secondAttribute="bottom" constant="18" id="Bdc-6h-wMh"/>
                             <constraint firstItem="gyx-tc-shj" firstAttribute="top" secondItem="NHN-Fg-Wun" secondAttribute="bottom" id="FY5-5H-FEY"/>
-                            <constraint firstItem="Llg-bl-9nd" firstAttribute="leading" secondItem="iOT-we-3Ki" secondAttribute="leading" constant="40" id="MxD-yx-BOC"/>
-                            <constraint firstItem="Qhx-ll-abl" firstAttribute="top" secondItem="Llg-bl-9nd" secondAttribute="bottom" constant="18" id="RK7-Kk-IdE"/>
                             <constraint firstItem="Qhx-ll-abl" firstAttribute="top" secondItem="YUP-wC-iHw" secondAttribute="bottom" constant="40" id="TmC-Hd-91W"/>
                             <constraint firstItem="Mj1-kp-fok" firstAttribute="leading" secondItem="iOT-we-3Ki" secondAttribute="leading" constant="40" id="Urq-mu-T6S"/>
-                            <constraint firstAttribute="trailing" secondItem="Llg-bl-9nd" secondAttribute="trailing" id="V0i-uo-87I"/>
                             <constraint firstItem="CJ5-4K-aNq" firstAttribute="leading" secondItem="iOT-we-3Ki" secondAttribute="leading" constant="40" id="VL6-bF-0m3"/>
                             <constraint firstAttribute="trailing" secondItem="tPV-VV-yNt" secondAttribute="trailing" constant="40" id="WHy-um-Hbm"/>
                             <constraint firstAttribute="trailing" secondItem="Mj1-kp-fok" secondAttribute="trailing" constant="40" id="cVI-bc-CDK"/>
@@ -323,7 +310,6 @@
                             <constraint firstAttribute="trailing" secondItem="YUP-wC-iHw" secondAttribute="trailing" constant="40" id="dQW-Gl-1bd"/>
                             <constraint firstItem="tPV-VV-yNt" firstAttribute="top" secondItem="z3T-xF-nmX" secondAttribute="bottom" constant="40" id="ddE-EH-481"/>
                             <constraint firstAttribute="trailing" secondItem="Qhx-ll-abl" secondAttribute="trailing" constant="40" id="eD5-xm-RrQ"/>
-                            <constraint firstAttribute="trailing" secondItem="D31-El-eMi" secondAttribute="trailing" constant="40" id="lYw-ym-4Ww"/>
                             <constraint firstItem="Qhx-ll-abl" firstAttribute="leading" secondItem="iOT-we-3Ki" secondAttribute="leading" constant="40" id="p8n-SI-sKP"/>
                             <constraint firstItem="NHN-Fg-Wun" firstAttribute="leading" secondItem="iOT-we-3Ki" secondAttribute="leading" id="pev-8y-ZJ7"/>
                             <constraint firstAttribute="trailing" secondItem="NHN-Fg-Wun" secondAttribute="trailing" id="qLL-mU-If6"/>
@@ -344,13 +330,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="emailErrorLabel" destination="Llg-bl-9nd" id="cES-vq-IRc"/>
                         <outlet property="emailField" destination="YUP-wC-iHw" id="Y2t-Cq-rm5"/>
                         <outlet property="firstNameField" destination="z3T-xF-nmX" id="t1D-h8-IlB"/>
                         <outlet property="lastNameField" destination="tPV-VV-yNt" id="Mxm-PB-X47"/>
                         <outlet property="licenseField" destination="Qhx-ll-abl" id="AHV-2D-Pwz"/>
                         <outlet property="passwordField" destination="CJ5-4K-aNq" id="RqX-3v-zzT"/>
-                        <outlet property="retypePasswordErrorLabel" destination="D31-El-eMi" id="gEJ-AH-TLL"/>
                         <outlet property="retypePasswordField" destination="Mj1-kp-fok" id="Sqd-fy-wR0"/>
                         <segue destination="bG3-dy-Uj2" kind="custom" identifier="create_to_invite_segue" customClass="CreateAcctToInviteSegue" customModule="conduit" customModuleProvider="target" id="vAA-rI-zW9"/>
                     </connections>
@@ -883,7 +867,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5Tn-yq-UWP">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5Tn-yq-UWP">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -902,8 +886,20 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="5Tn-yq-UWP" secondAttribute="trailing" id="Arq-dp-Zef"/>
+                            <constraint firstItem="5Tn-yq-UWP" firstAttribute="leading" secondItem="wAg-wk-MSk" secondAttribute="leading" id="Jtq-Xa-KNQ"/>
+                            <constraint firstItem="Y8w-MV-3ey" firstAttribute="top" secondItem="5Tn-yq-UWP" secondAttribute="bottom" id="Spi-0x-71H"/>
+                            <constraint firstItem="5Tn-yq-UWP" firstAttribute="top" secondItem="wAg-wk-MSk" secondAttribute="top" id="v3S-17-Nd5"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Car Management" id="MOV-bA-3AK"/>
+                    <navigationItem key="navigationItem" title="Car Management" id="MOV-bA-3AK">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="AY6-j0-nPR">
+                            <connections>
+                                <action selector="addCar:" destination="OAf-hD-Gcj" id="lSW-yt-azw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="jUd-YT-Wv9" kind="push" identifier="car_segue" id="Ffl-0R-mqf"/>
                     </connections>
