@@ -21,6 +21,24 @@ class CarManagementView : UIViewController, UITableViewDataSource {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    // grab cars
+    var sessionToken = NSUserDefaults().stringForKey("session") as String?
+    APIModel.get("users/car", parameters: ["session_token" : sessionToken!]) {
+      (result, error) -> () in
+      if (error != nil) {
+        return
+      }
+      for (var i=0; i<result?.count; i++){
+        var carJSON = result![i]
+        var car = Car(json: carJSON)
+        self.cars.append(car)
+      }
+    }
+    println(cars)
+  }
+  @IBAction func addCar(sender: AnyObject) {
+    // go to the scanner object
   }
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("car_management_item",
