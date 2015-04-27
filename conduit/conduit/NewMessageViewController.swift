@@ -124,6 +124,8 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
 //      // use ids that you grab to actually send the message
 //    }
     
+    
+    println("Going to send_to_conversation segue")
     self.performSegueWithIdentifier("send_to_conversation", sender: self)
     
   }

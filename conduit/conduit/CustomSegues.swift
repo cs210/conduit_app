@@ -11,15 +11,31 @@ import Foundation
 class SendToConversationSegue: UIStoryboardSegue {
   
   override func perform() {
+    
+//    println("Beginning send_to_conversation segue")
     var sourceViewController: NewMessageViewController = self.sourceViewController as! NewMessageViewController
+//    println("Source View Controller: " + sourceViewController.restorationIdentifier!)
+    
     var navigationController: UINavigationController = sourceViewController.navigationController!
+//    println("Navigation Controller: " + navigationController.restorationIdentifier!)
     
     // Go back to the basics
     navigationController.popToRootViewControllerAnimated(false)
+//    println("Navigation Controller After Pop: " + navigationController.restorationIdentifier!)
+    
     
     // Switch to conversations view from root side menu
     var revealController: SWRevealViewController = navigationController.revealViewController()
-    revealController.rearViewController.performSegueWithIdentifier("conversations_segue", sender: self)
+//    println("Reveal Controller: " + revealController.restorationIdentifier!)
+//    println("RevealController Rear View Controller: " + revealController.rearViewController.restorationIdentifier!)
+    
+    var newNavController : UINavigationController = revealController.rearViewController as! UINavigationController
+    
+    var rootViewController = newNavController.topViewController
+    
+//    println("RootViewController: " + rootViewController.restorationIdentifier!)
+    
+    rootViewController.performSegueWithIdentifier("conversations_segue", sender: self)
     
     var conversationListNavigationController: UINavigationController = revealController.frontViewController as! UINavigationController
     var conversationListController: ConversationListViewController = conversationListNavigationController.visibleViewController as! ConversationListViewController
