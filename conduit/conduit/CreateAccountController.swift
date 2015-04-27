@@ -54,43 +54,32 @@ class CreateAccountController : UIViewController {
     }
     println("before post")
     // note phone number is mocked in the backend
-    var params = ["email_address": emailField.text, "password": passwordField.text, "first_name": firstNameField.text, "last_name": lastNameField.text, "phone_number": "123456789"]
+    var params = ["email_address": emailField.text, "password": passwordField.text, "first_name": firstNameField.text, "last_name": lastNameField.text, "phone_number": "123456789", "license_plate": licenseField.text, "manufacturer": "None"]
     APIModel.post("users/create", parameters: params) { (result, error) -> () in
       if (error == nil) {
-        println(result!)
-        // grab token
-        var login_params = ["password": self.passwordField.text, "email_address": self.emailField.text]
-        APIModel.post("sessions/create", parameters: login_params) { (result, error) -> () in
-          if (error == nil) {
-            var defaults = NSUserDefaults.standardUserDefaults()
-            var sessionKey = result!["session_token"].string!
-            defaults.setValue(sessionKey, forKey: "session")
-            println("Created user and got session: " + sessionKey)
-            APIModel.post("cars/create", parameters: ["license_plate": self.licenseField.text, "manufacturer": "None", "session_token": sessionKey], post_completion: { (result, error) -> () in
-              if (error != nil) {
-                NSLog("ERROR: Error creating a car")
-              } else {
-                println("created a car!" + self.licenseField.text)
-              }
-            })
-          } else {
-            NSLog("ERROR: Session error")
-            
-            let alertController = UIAlertController(title: "", message: "There was an error logging into your account. Please try again.",
-              preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
-            return
-          }
-        }
+        // notify user that car has been added to their account!
+        var licensePlate = result!["license_plate"].string!
+        let alertController = UIAlertController(title: "", message: "\(licensePlate) has been added to your list of cars.",
+          preferredStyle: UIAlertControllerStyle.Alert)
+        var cars = result!["cars"].arrayValue
+        var car_strings:[String] = cars.map { $0["license_plate"].string!}
+        println(car_strings)
+        // car license plates will appear as an alert
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        
+        // @Nathan: we need to redirect it back to the login screen after the create to invite segue
+        self.performSegueWithIdentifier("create_to_invite_segue", sender: self)
       } else {
         // this is if the user creation fails
         println(error)
+        let alertController = UIAlertController(title: "", message: "There was an error creating your account. Please try again.",
+          preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        return
       }
-      
     }
-    self.performSegueWithIdentifier("create_to_invite_segue", sender: self)
   }
   
   // Checks that all req'd fields are filled in and valid. Returns false for 
