@@ -18,8 +18,12 @@ class CreateAccountController : UIViewController {
   @IBOutlet var emailField: UITextField!
   @IBOutlet weak var emailErrorLabel: UILabel!
   @IBOutlet var licenseField: UITextField!
+  @IBOutlet weak var scrollView: UIScrollView!
+  
+  var activeTextField : UITextField!
   
   override func viewDidLoad() {
+    super.viewDidLoad()
     highlightError(firstNameField)
     highlightError(lastNameField)
     highlightError(passwordField)
@@ -32,6 +36,69 @@ class CreateAccountController : UIViewController {
     emailErrorLabel.textColor = StyleColor.getColor(.Error, brightness: .Medium)
   }
   
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+    
+//    self.registerForKeyboardNotifications()
+  }
+  
+  override func viewDidDisappear(animated: Bool) {
+    super.viewDidDisappear(animated)
+    NSNotificationCenter.defaultCenter().removeObserver(self)
+  }
+  
+  
+  /////////////////////// Begin Keyboard Scrolling Code ////////////////////////
+  //
+  // http://creativecoefficient.net/swift/keyboard-management/
+  // https://developer.apple.com/library/ios/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html
+  //
+  
+  func registerForKeyboardNotifications() {
+    let notificationCenter = NSNotificationCenter.defaultCenter()
+    notificationCenter.addObserver(self, selector: "keyboardWillBeShown", name: UIKeyboardWillShowNotification, object: nil)
+    notificationCenter.addObserver(self, selector: "keyboardWillBeHidden", name: UIKeyboardWillHideNotification, object: nil)
+  }
+  
+  func keyboardWillBeShown(sender : NSNotification) {
+    
+    let info : NSDictionary = sender.userInfo!
+    let value: NSValue = info.valueForKey(UIKeyboardFrameBeginUserInfoKey) as! NSValue
+    let keyboardSize: CGSize = value.CGRectValue().size
+    let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0)
+    scrollView.contentInset = contentInsets
+    scrollView.scrollIndicatorInsets = contentInsets
+    
+    // if necessary, do scrolling
+    var aRect: CGRect = self.view.frame
+    aRect.size.height -= keyboardSize.height
+    let activeTextFieldRect: CGRect? = activeTextField?.frame
+    let activeTextFieldOrigin: CGPoint? = activeTextFieldRect?.origin
+    if (!CGRectContainsPoint(aRect, activeTextFieldOrigin!)) {
+      scrollView.scrollRectToVisible(activeTextFieldRect!, animated:true)
+    }
+    
+  }
+  
+  func keyboardWillBeHidden(sender: NSNotification) {
+    let contentInsets: UIEdgeInsets = UIEdgeInsetsZero
+    scrollView.contentInset = contentInsets
+    scrollView.scrollIndicatorInsets = contentInsets
+  }
+  
+  @IBAction func textFieldDidBeginEditing(textField: UITextField!) {
+    activeTextField = textField
+    scrollView.scrollEnabled = true
+  }
+  
+  @IBAction func textFieldDidEndEditing(textField: UITextField!) {
+    activeTextField = nil
+    scrollView.scrollEnabled = false
+  }
+  
+  //
+  /////////////////////// End Keyboard Scrolling Code //////////////////////////
+
   @IBAction func cancel(sender: AnyObject) {
     navigationController?.popViewControllerAnimated(true)
   }
