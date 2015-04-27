@@ -437,6 +437,9 @@
                                 <state key="normal" title="Not now">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="goToScanner:" destination="bG3-dy-Uj2" eventType="touchUpInside" id="Z5o-zV-pFF"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -471,6 +474,7 @@
                         <outlet property="friendsTableView" destination="APf-fb-N88" id="hnn-ug-sMJ"/>
                         <outlet property="infoLabel" destination="IiO-CA-THB" id="JcI-CH-ZNy"/>
                         <outlet property="menuButton" destination="Yxn-jM-Ewo" id="GED-4v-AVj"/>
+                        <segue destination="j9T-Rb-Wnj" kind="custom" identifier="invite_to_scanner_segue" customClass="InviteToScannerSegue" customModule="conduit" customModuleProvider="target" id="v3Q-xY-liv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZ2-p2-9nk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1443,7 +1447,7 @@
         <segue reference="gKK-Hm-Kkw"/>
         <segue reference="psz-Zh-Tf1"/>
         <segue reference="DhA-g4-u7t"/>
-        <segue reference="4OC-v3-aWV"/>
+        <segue reference="v3Q-xY-liv"/>
         <segue reference="xLd-Lx-gY5"/>
         <segue reference="N6G-ku-Qmu"/>
     </inferredMetricsTieBreakers>

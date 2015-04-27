@@ -58,6 +58,9 @@ class InviteFriendsViewController : UIViewController, UITableViewDataSource {
     }
   }
   
+  @IBAction func goToScanner(sender: AnyObject) {
+    self.performSegueWithIdentifier("invite_to_scanner_segue", sender: self)
+  }
   
   @IBAction func inviteFriends(sender: AnyObject) {
     var friendsInvited : Bool = false
@@ -70,10 +73,13 @@ class InviteFriendsViewController : UIViewController, UITableViewDataSource {
       self.sendMessages()
       
       let sentAlertController = UIAlertController(title: "", message:
-        "Message Sent!",
+        "Message Sent!\n\n Invite more friends?",
         preferredStyle: UIAlertControllerStyle.Alert)
       
-      sentAlertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler:nil))
+      sentAlertController.addAction(UIAlertAction(title: "Yes!", style: UIAlertActionStyle.Default,handler: nil))
+      sentAlertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel,handler: {(action) in
+        self.performSegueWithIdentifier("invite_to_scanner_segue", sender: self)
+      }))
       
       self.presentViewController(sentAlertController, animated: true, completion: nil)
     }))

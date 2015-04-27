@@ -59,4 +59,20 @@ class CreateAcctToInviteSegue : UIStoryboardSegue {
   }
 }
 
+class InviteToScannerSegue : UIStoryboardSegue {
+  override func perform() {
+    var sourceViewController: InviteFriendsViewController = self.sourceViewController as! InviteFriendsViewController
+    var navigationController: UINavigationController = sourceViewController.navigationController!
+    // Go back to the basics
+    navigationController.popToRootViewControllerAnimated(false)
+    
+    var revealController: SWRevealViewController = navigationController.revealViewController()
+    var newNavController : UINavigationController = revealController.rearViewController as! UINavigationController
+    
+    var menuViewController = newNavController.topViewController
+    
+    menuViewController.performSegueWithIdentifier("scanner_segue", sender: self)
+  }
+}
+
 
