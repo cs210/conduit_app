@@ -51,7 +51,7 @@ class APIModel: NSObject {
                
   }
 
-  class func post(path: String, parameters: [String: AnyObject]? = nil,
+  class func post(path: String, parameters: [String: AnyObject]?,
                   post_completion: (result: JSON?, error: NSError?) -> ()){
 
     var url = "\(APIURL)\(path)"

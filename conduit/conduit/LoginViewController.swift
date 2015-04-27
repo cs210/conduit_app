@@ -19,12 +19,13 @@ class LoginViewController : UIViewController {
   }
   
   @IBAction func loginPressed(sender: AnyObject) {
-    
-    APIModel.post("/sessions", parameters: ["password": passwordField.text, "email_address": emailField.text]) { (result, error) -> () in
+    let params = ["password": passwordField.text, "email_address": emailField.text]
+    APIModel.post("sessions/create", parameters: params) { (result, error) -> () in
       if (error == nil) {
         var defaults = NSUserDefaults.standardUserDefaults()
-        var sessionKey = result!["session"] as! String
+        var sessionKey = result!["session_token"].string!
         defaults.setValue(sessionKey, forKey: "session")
+        println("Set token to be: " + sessionKey)
       } else {
         NSLog("ERROR: Session error")
         
@@ -36,7 +37,6 @@ class LoginViewController : UIViewController {
         return
       }
     }
-    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "loggedIn")
     self.dismissViewControllerAnimated(true, completion: {})
   }
   

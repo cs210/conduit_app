@@ -33,8 +33,8 @@ class ScannerViewController : UIViewController,
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    var loggedIn = NSUserDefaults.standardUserDefaults().boolForKey("loggedIn")
-    if !loggedIn {
+    var sessionKey = NSUserDefaults.standardUserDefaults().stringForKey("session")
+    if (sessionKey == nil) {
         performSegueWithIdentifier("to_login", sender: self)
     }
     
