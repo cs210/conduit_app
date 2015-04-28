@@ -25,7 +25,13 @@ class InviteFriendsViewController : UIViewController, UITableViewDataSource {
   var sentFriends : [String] = []
   
   override func viewDidLoad() {
-    menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
+    
+    var defaults = NSUserDefaults.standardUserDefaults()
+    if defaults.boolForKey("isNewAccount") {
+      menuButton.hidden = true
+    } else {
+      menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
+    }
     friendsTableView.layer.borderWidth = 1
     friendsTableView.layer.borderColor = StyleColor.getColor(.Grey, brightness: .Light).CGColor
     infoLabel.text = HEADER_MESSAGE
@@ -59,7 +65,15 @@ class InviteFriendsViewController : UIViewController, UITableViewDataSource {
   }
   
   @IBAction func goToScanner(sender: AnyObject) {
-    self.performSegueWithIdentifier("invite_to_scanner_segue", sender: self)
+    
+    var defaults = NSUserDefaults.standardUserDefaults()
+    if defaults.boolForKey("isNewAccount") {
+      defaults.setBool(false, forKey: "isNewAccount")
+      self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+    } else {
+      InviteToScannerSegue().perform()
+      //  self.performSegueWithIdentifier("invite_to_scanner_segue", sender: self)
+    }
   }
   
   @IBAction func inviteFriends(sender: AnyObject) {

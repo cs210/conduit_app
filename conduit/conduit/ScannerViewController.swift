@@ -64,6 +64,7 @@ class ScannerViewController : UIViewController,
                         // We now have an image.
                         // TODO: talk to backend here
                       self.licensePlate = "ABC123" // TODO: This will be come from API call
+                      self.proceedWithLicensePlate()
                     }
                     
                 })
@@ -82,18 +83,32 @@ class ScannerViewController : UIViewController,
           imagePicker.delegate = self
           presentViewController(imagePicker, animated: true, completion: {() -> Void in
             self.licensePlate = "ABC123" // TODO: This will be come from API call
+            self.proceedWithLicensePlate()
           })
           
           
             
         }
-      if (!addingCarFlag) {
-        performSegueWithIdentifier("new_message_segue", sender: self)
-      } else {
-        performSegueWithIdentifier("car_list_segue", sender: self)
-      }
+      
     }
-    
+  
+  func proceedWithLicensePlate() {
+    if (!addingCarFlag) {
+      performSegueWithIdentifier("new_message_segue", sender: self)
+    } else {
+      // Add car here
+      
+      let alertController = UIAlertController(title: "", message: "Car created!",
+        preferredStyle: UIAlertControllerStyle.Alert)
+      alertController.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.Default,handler: {(action) in
+        var view = InviteFriendsViewController()
+        self.navigationController?.pushViewController(view, animated: true)
+      }))
+      
+      self.presentViewController(alertController, animated: true, completion: nil)
+    }
+  }
+  
     override func viewDidAppear(animated: Bool) {
         captureSession = AVCaptureSession()
         captureSession!.sessionPreset = AVCaptureSessionPresetPhoto

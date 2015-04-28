@@ -463,7 +463,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="pHF-CH-TDb"/>
                                 </constraints>
-                                <state key="normal" title="Not now">
+                                <state key="normal" title="Done">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -806,6 +806,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zgb-fy-3tT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1898" y="-68"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="f0g-ky-uAo">
+            <objects>
+                <navigationController id="rQA-wx-zsY" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qju-xX-8yO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="GQ2-4K-RNT" kind="relationship" relationship="rootViewController" id="Tim-My-w4d"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aff-ua-d1X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1666" y="664"/>
+        </scene>
+        <!--Welcome!-->
+        <scene sceneID="aLR-bZ-GeV">
+            <objects>
+                <viewController id="GQ2-4K-RNT" customClass="WelcomeViewController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4mK-MP-IuW"/>
+                        <viewControllerLayoutGuide type="bottom" id="7En-pL-Uhg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1sJ-Cb-gEW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Welcome to Conduit! To get started, let's set up your car." translatesAutoresizingMaskIntoConstraints="NO" id="3cz-zw-1NQ">
+                                <rect key="frame" x="0.0" y="57" width="320" height="367"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TRP-KJ-eKH">
+                                <rect key="frame" x="0.0" y="471" width="320" height="30"/>
+                                <state key="normal" title="Add a Car">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToScanner:" destination="GQ2-4K-RNT" eventType="touchUpInside" id="2sg-3o-yFE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rup-qh-aqC">
+                                <rect key="frame" x="0.0" y="509" width="320" height="30"/>
+                                <state key="normal" title="Not now">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToInviteFriends:" destination="GQ2-4K-RNT" eventType="touchUpInside" id="nlv-3w-kbF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Welcome!" id="Tc2-yW-ScC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7XY-Ad-Klu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2134" y="664"/>
         </scene>
         <!--Change Password-->
         <scene sceneID="VY1-Pp-dwC">

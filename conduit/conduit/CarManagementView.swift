@@ -76,10 +76,6 @@ class CarManagementView : UIViewController, UITableViewDataSource {
       // retrieve car from the array of car objects
       next.selectedCar = cars[selectedCarIndex.row]
     }
-    if segue.identifier == "add_car_segue" {
-      var next = segue.destinationViewController as! ScannerViewController
-      next.addingCarFlag = true
-    }
   }
   
 }

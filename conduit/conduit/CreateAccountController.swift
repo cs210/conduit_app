@@ -120,7 +120,8 @@ class CreateAccountController : UIViewController {
     }
     println("before post")
     
-    var deviceToken = NSUserDefaults.standardUserDefaults().valueForKey("deviceToken") as? String
+    var defaults = NSUserDefaults.standardUserDefaults()
+    var deviceToken = defaults.valueForKey("deviceToken") as? String
 
     // Note: we do not yet have the user id or participantIdentifier since they do not exist on the server.
     var user: User = User(id: nil, firstName: firstNameField.text, lastName: lastNameField.text, phoneNumber: "None",
@@ -141,13 +142,18 @@ class CreateAccountController : UIViewController {
         return
       }
       
+      defaults.setBool(true, forKey: "isNewAccount")
+      self.navigationController?.popViewControllerAnimated(true)
+      
       
       // Success. Now create the Layer participantIdentifier
 
-      var emailAddress: String = result!["email_address"].string!
+//      var emailAddress: String = result!["email_address"].string!
+//      
+//      var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//
+//      
       
-      var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-
 //      LayerHelpers.authenticationTokenWithEmailAddress(emailAddress, client: appDelegate.layerClient, completion: { (success, error) -> Void in
 //        if (error != nil) {
 //          NSLog("Layer Auth error")
@@ -157,7 +163,8 @@ class CreateAccountController : UIViewController {
 //        
 
         // redirect to login
-        self.navigationController?.popViewControllerAnimated(true)
+      
+//        self.navigationController?.popViewControllerAnimated(true)
      // })
       
 

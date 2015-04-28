@@ -27,6 +27,15 @@ class LoginViewController : UIViewController {
         defaults.setValue(sessionKey, forKey: "session")
         println("Set token to be: " + sessionKey)
         
+        self.dismissViewControllerAnimated(false, completion: {
+          if defaults.boolForKey("isNewAccount") {
+            // Go to welcome view
+            var view = WelcomeViewController()
+            self.navigationController?.presentViewController(view, animated: true, completion: nil)
+          }
+          
+        })
+      
         // auth with layer...
       } else {
         NSLog("ERROR: Session error")
@@ -39,7 +48,9 @@ class LoginViewController : UIViewController {
         return
       }
     }
-    self.dismissViewControllerAnimated(true, completion: {})
+    
+    
+    
   }
   
 }
