@@ -17,7 +17,6 @@ class CreateAccountController : UIViewController {
   @IBOutlet weak var retypePasswordErrorLabel: UILabel!
   @IBOutlet var emailField: UITextField!
   @IBOutlet weak var emailErrorLabel: UILabel!
-  @IBOutlet var licenseField: UITextField!
   @IBOutlet weak var scrollView: UIScrollView!
   
   var activeTextField : UITextField!

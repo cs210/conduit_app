@@ -99,7 +99,7 @@ class ScannerViewController : UIViewController,
  
   @IBAction func enterLicensePlateManually(sender: AnyObject) {
     if addingCarFlag {
-      let alertController = UIAlertController(title: "", message: "Enter your license plate:",
+      let alertController = UIAlertController(title: "Enter your license plate:", message: "",
         preferredStyle: UIAlertControllerStyle.Alert)
       
       alertController.addTextFieldWithConfigurationHandler({ (textField) in
@@ -127,7 +127,7 @@ class ScannerViewController : UIViewController,
     } else {
       // Add car here
       
-      let alertController = UIAlertController(title: "", message: "Car created!",
+      let alertController = UIAlertController(title: "Car created!", message: "",
         preferredStyle: UIAlertControllerStyle.Alert)
       
       alertController.addAction(UIAlertAction(title: "Add another car", style: UIAlertActionStyle.Default,handler: nil))

@@ -40,25 +40,6 @@ class SendToConversationSegue: UIStoryboardSegue {
   
 }
 
-class CreateAcctToInviteSegue : UIStoryboardSegue {
-  override func perform() {
-    var sourceViewController: CreateAccountController = self.sourceViewController as! CreateAccountController
-    var navigationController: UINavigationController = sourceViewController.navigationController!
-    
-    navigationController.dismissViewControllerAnimated(false, completion: nil)
-    var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    
-    var revealController : SWRevealViewController = appDelegate.window!.rootViewController as! SWRevealViewController
-
-    // Switch to invite friends view from root side menu
-    
-    var newNavController : UINavigationController = revealController.rearViewController as! UINavigationController
-    
-    var rootViewController = newNavController.topViewController
-    rootViewController.performSegueWithIdentifier("invite_friends_segue", sender: self)
-  }
-}
-
 class InviteToScannerSegue : UIStoryboardSegue {
   override func perform() {
     var sourceViewController: InviteFriendsViewController = self.sourceViewController as! InviteFriendsViewController
