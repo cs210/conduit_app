@@ -542,7 +542,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Z91-TC-IGc" kind="push" identifier="manual_new_message_segue" id="N6G-ku-Qmu"/>
+                                    <action selector="enterLicensePlateManually:" destination="j9T-Rb-Wnj" eventType="touchUpInside" id="wC3-wf-iE1"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sqZ-CP-nQ7">
@@ -574,12 +574,23 @@
                                 </state>
                             </button>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="MlQ-y8-AtW">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1kX-cl-e5k">
+                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cameraView" destination="sqZ-CP-nQ7" id="Fsb-HJ-ua8"/>
+                        <outlet property="doneButton" destination="1kX-cl-e5k" id="g7p-nz-qWV"/>
                         <outlet property="menuButton" destination="Od9-AH-wTn" id="rPk-n3-3mT"/>
                         <segue destination="HgJ-U3-ESl" kind="modal" identifier="to_login" modalPresentationStyle="fullScreen" animates="NO" id="3Er-8E-rZo"/>
                         <segue destination="Z91-TC-IGc" kind="push" identifier="new_message_segue" id="Rys-Qo-KaZ"/>
+                        <segue destination="Z91-TC-IGc" kind="push" identifier="manual_new_message_segue" id="dob-8K-FQJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3QY-dQ-3P0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1352,7 +1363,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="psz-Zh-Tf1"/>
-        <segue reference="N6G-ku-Qmu"/>
         <segue reference="gKK-Hm-Kkw"/>
+        <segue reference="dob-8K-FQJ"/>
     </inferredMetricsTieBreakers>
 </document>

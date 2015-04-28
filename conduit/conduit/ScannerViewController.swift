@@ -26,6 +26,7 @@ class ScannerViewController : UIViewController,
   var licensePlate : String!
     
   @IBOutlet weak var menuButton: UIButton!
+  @IBOutlet weak var doneButton: UIButton!
   
   // we turn this flag on when we're adding a car from the car management view
   var addingCarFlag = false
@@ -41,8 +42,12 @@ class ScannerViewController : UIViewController,
       menuButton.hidden = true
     } else {
       menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
+      doneButton.hidden = true
     }
   }
+  
+  
+
     
     @IBAction func didPressScan(sender: AnyObject) {
         // If we're connected to a camera
@@ -87,12 +92,34 @@ class ScannerViewController : UIViewController,
             self.licensePlate = "ABC123" // TODO: This will be come from API call
             self.proceedWithLicensePlate()
           })
-          
-          
-            
+
         }
       
     }
+ 
+  @IBAction func enterLicensePlateManually(sender: AnyObject) {
+    if addingCarFlag {
+      let alertController = UIAlertController(title: "", message: "Enter your license plate:",
+        preferredStyle: UIAlertControllerStyle.Alert)
+      
+      alertController.addTextFieldWithConfigurationHandler({ (textField) in
+        textField.text = ""
+      })
+      
+      //3. Grab the value from the text field, and print it when the user clicks OK.
+      alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) in
+        let textField = alertController.textFields![0] as! UITextField
+        self.licensePlate = textField.text
+        self.proceedWithLicensePlate()
+      }))
+      
+      self.presentViewController(alertController, animated: true, completion: nil)
+      
+      
+    } else {
+      self.performSegueWithIdentifier("manual_new_message_segue", sender: self)
+    }
+  }
   
   func proceedWithLicensePlate() {
     if (!addingCarFlag) {
@@ -102,9 +129,13 @@ class ScannerViewController : UIViewController,
       
       let alertController = UIAlertController(title: "", message: "Car created!",
         preferredStyle: UIAlertControllerStyle.Alert)
-      alertController.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.Default,handler: {(action) in
-        var view = InviteFriendsViewController()
-        self.navigationController?.pushViewController(view, animated: true)
+      
+      alertController.addAction(UIAlertAction(title: "Add another car", style: UIAlertActionStyle.Default,handler: nil))
+      
+      alertController.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default,handler: {(action) in
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let destViewController : InviteFriendsViewController = mainStoryboard.instantiateViewControllerWithIdentifier("inviteFriendsView") as! InviteFriendsViewController
+        self.navigationController?.pushViewController(destViewController, animated: true)
       }))
       
       self.presentViewController(alertController, animated: true, completion: nil)
