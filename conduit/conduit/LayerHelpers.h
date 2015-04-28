@@ -18,14 +18,13 @@
                          completion:(void (^)(BOOL success, NSError * error))completion;
 
 
-+ (void)authenticationTokenWithUserId:(NSString *)userID
-                               client:(LYRClient *)client
-                           completion:(void (^)(BOOL success, NSError* error))completion;
++ (void)authenticationTokenWithEmailAddress:(NSString *)emailAddress
+                                     client:(LYRClient *)client
+                                 completion:(void (^)(BOOL success, NSError* error))completion;
   
-+ (void)requestIdentityTokenForUserID:(NSString *)userID
-                                appID:(NSString *)appID
-                                nonce:(NSString *)nonce
-                           completion:(void(^)(NSString *identityToken, NSError *error))completion;
++ (void)requestIdentityTokenForEmailAddress:(NSString *)emailAddress
+                                      nonce:(NSString *)nonce
+                                 completion:(void(^)(NSString *identityToken, NSError *error))completion;
 
 + (LYRQuery *)createQueryWithClass:(Class)class_type;
 

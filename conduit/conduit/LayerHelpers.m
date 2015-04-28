@@ -21,12 +21,12 @@
   return dateFormatter;
 }
 
-+ (void)authenticateLayerWithUserID:(NSString *)userID client:(LYRClient *)client completion:(void (^)(BOOL success, NSError * error))completion
++ (void)authenticateLayerWithEmailAddress:(NSString *)emailAddress client:(LYRClient *)client completion:(void (^)(BOOL success, NSError * error))completion
 {
   // Check to see if the layerClient is already authenticated.
   if (client.authenticatedUserID) {
     // If the layerClient is authenticated with the requested userID, complete the authentication process.
-    if ([client.authenticatedUserID isEqualToString:userID]){
+    if ([client.authenticatedUserID isEqualToString:emailAddress]){
       NSLog(@"Layer Authenticated as User %@", client.authenticatedUserID);
       if (completion) completion(YES, nil);
       return;
@@ -34,7 +34,7 @@
       //If the authenticated userID is different, then deauthenticate the current client and re-authenticate with the new userID.
       [client deauthenticateWithCompletion:^(BOOL success, NSError *error) {
         if (!error){
-          [self authenticationTokenWithUserId:userID client:client completion:^(BOOL success, NSError *error) {
+          [self authenticationTokenWithEmailAddress:emailAddress client:client completion:^(BOOL success, NSError *error) {
             if (completion){
               completion(success, error);
             }
@@ -48,7 +48,7 @@
     }
   } else {
     // If the layerClient isn't already authenticated, then authenticate.
-    [self authenticationTokenWithUserId:userID client:client completion:^(BOOL success, NSError *error) {
+    [self authenticationTokenWithEmailAddress:emailAddress client:client completion:^(BOOL success, NSError *error) {
       if (completion){
         completion(success, error);
       }
@@ -56,7 +56,7 @@
   }
 }
 
-+ (void)authenticationTokenWithUserId:(NSString *)userID client:(LYRClient *)client completion:(void (^)(BOOL success, NSError* error))completion{
++ (void)authenticationTokenWithEmailAddress:(NSString *)emailAddress client:(LYRClient *)client completion:(void (^)(BOOL success, NSError* error))completion{
   
   /*
    * 1. Request an authentication Nonce from Layer
@@ -72,7 +72,7 @@
     /*
      * 2. Acquire identity Token from Layer Identity Service
      */
-    [self requestIdentityTokenForUserID:userID appID:[client.appID UUIDString] nonce:nonce completion:^(NSString *identityToken, NSError *error) {
+    [self requestIdentityTokenForEmailAddress:emailAddress nonce:nonce completion:^(NSString *identityToken, NSError *error) {
       if (!identityToken) {
         if (completion) {
           completion(NO, error);
@@ -97,20 +97,21 @@
   }];
 }
 
-+ (void)requestIdentityTokenForUserID:(NSString *)userID appID:(NSString *)appID nonce:(NSString *)nonce completion:(void(^)(NSString *identityToken, NSError *error))completion
++ (void)requestIdentityTokenForEmailAddress:(NSString *)emailAddress nonce:(NSString *)nonce completion:(void(^)(NSString *identityToken, NSError *error))completion
 {
-  NSParameterAssert(userID);
-  NSParameterAssert(appID);
+  NSParameterAssert(emailAddress);
   NSParameterAssert(nonce);
   NSParameterAssert(completion);
   
-  NSURL *identityTokenURL = [NSURL URLWithString:@"https://layer-identity-provider.herokuapp.com/identity_tokens"];
+  NSString *url = [NSString stringWithFormat:@"http://0.0.0.0:8080/users/identifier"];
+
+  NSURL *identityTokenURL = [NSURL URLWithString:url];
   NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:identityTokenURL];
   request.HTTPMethod = @"POST";
   [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
   [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
   
-  NSDictionary *parameters = @{ @"app_id": appID, @"user_id": userID, @"nonce": nonce };
+  NSDictionary *parameters = @{ @"email_address": emailAddress, @"nonce": nonce };
   NSData *requestBody = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
   request.HTTPBody = requestBody;
   
@@ -126,12 +127,11 @@
     NSDictionary *responseObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     if(![responseObject valueForKey:@"error"])
     {
-      NSString *identityToken = responseObject[@"identity_token"];
+      NSString *identityToken = responseObject[@"participant_identifier"];
       completion(identityToken, nil);
     }
     else
     {
-      NSString *domain = @"layer-identity-provider.herokuapp.com";
       NSInteger code = [responseObject[@"status"] integerValue];
       NSDictionary *userInfo =
       @{
@@ -139,7 +139,7 @@
         NSLocalizedRecoverySuggestionErrorKey: @"There may be a problem with your APPID."
         };
       
-      NSError *error = [[NSError alloc] initWithDomain:domain code:code userInfo:userInfo];
+      NSError *error = [[NSError alloc] initWithDomain:url code:code userInfo:userInfo];
       completion(nil, error);
     }
     

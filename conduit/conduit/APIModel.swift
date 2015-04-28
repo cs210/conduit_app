@@ -22,9 +22,9 @@ let APIURL = "http://0.0.0.0:8080/"
 
 class APIModel: NSObject {
   
-  var id: Int!
+  var id: Int? =  nil
   
-  init(id: Int) {
+  init(id: Int?) {
     self.id = id
   }
   

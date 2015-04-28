@@ -9,6 +9,15 @@
 import UIKit
 import Foundation
 
+
+//var licensePlate = result!["license_plate"].string!
+//let alertController = UIAlertController(title: "", message: "\(licensePlate) has been added to your list of cars.",
+//  preferredStyle: UIAlertControllerStyle.Alert)
+//var cars = result!["cars"].arrayValue
+//var car_strings:[String] = cars.map { $0["license_plate"].string!}
+//println(car_strings)
+
+
 class CarManagementView : UIViewController, UITableViewDataSource {
   // we will download from server in the future
   var cars:[Car] = [

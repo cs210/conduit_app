@@ -36,11 +36,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
     self.layerClient = LYRClient(appID: appID)
     self.layerClient?.delegate = self
     
+    self.registerApplicationForPushNotifications(application)
+    
+    UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+    
+    return true
+  }
+  
+  func authenticateWithLayer() {
+    
     self.layerClient?.connectWithCompletion({ (success:Bool, error:NSError!) -> Void in
       if (!success) {
         NSLog("Failed to connect to Layer: \(error)");
       } else {
         // TODO: This should be a UUID of the user!
+        
         LayerHelpers.authenticateLayerWithUserID(LQSCurrentUserID, client: self.layerClient, completion: { (success:Bool, error:NSError!) -> Void in
           if (!success) {
             NSLog("Failed Authenticating Layer Client with error:\(error)");
@@ -49,12 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
       }
       
     })
-    
-    self.registerApplicationForPushNotifications(application)
-    
-    UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
-
-    return true
   }
   
   func initAppearance () {
@@ -101,6 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
     var success = self.layerClient?.updateRemoteNotificationDeviceToken(deviceToken, error: &error)
     if (success != nil) {
       NSLog("Application did register for remote notifications: \(deviceToken)");
+      NSUserDefaults.standardUserDefaults().setValue(deviceToken, forKey: "deviceToken");
     } else {
       NSLog("Failed updating device token with error: \(error)");
     }

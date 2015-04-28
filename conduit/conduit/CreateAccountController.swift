@@ -110,7 +110,6 @@ class CreateAccountController : UIViewController {
   // Create account
   @IBAction func createAccount(sender: AnyObject) {
     
-    
     if (checkInputs() == false) {
       let alertController = UIAlertController(title: "", message:
         "Please fill in all required inputs.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -120,33 +119,51 @@ class CreateAccountController : UIViewController {
       return
     }
     println("before post")
-    // note phone number is mocked in the backend
-    var params = ["email_address": emailField.text, "password": passwordField.text, "first_name": firstNameField.text, "last_name": lastNameField.text, "phone_number": "123456789", "license_plate": licenseField.text, "manufacturer": "None"]
+    
+    var deviceToken = NSUserDefaults.standardUserDefaults().valueForKey("deviceToken") as? String
+
+    // Note: we do not yet have the user id or participantIdentifier since they do not exist on the server.
+    var user: User = User(id: nil, firstName: firstNameField.text, lastName: lastNameField.text, phoneNumber: "None",
+      emailAddress: emailField.text, deviceToken: deviceToken, pushEnabled: true, participantIdentifier: nil)
+    // TODO: bug, push enabled not set to true
+    var params = user.present()
+    params.updateValue(passwordField.text, forKey: "password")
+
+    
     APIModel.post("users/create", parameters: params) { (result, error) -> () in
-      if (error == nil) {
-        // notify user that car has been added to their account!
-        var licensePlate = result!["license_plate"].string!
-        let alertController = UIAlertController(title: "", message: "\(licensePlate) has been added to your list of cars.",
-          preferredStyle: UIAlertControllerStyle.Alert)
-        var cars = result!["cars"].arrayValue
-        var car_strings:[String] = cars.map { $0["license_plate"].string!}
-        println(car_strings)
-        // car license plates will appear as an alert
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-        
-        // @Nathan: we need to redirect it back to the login screen after the create to invite segue
-        self.performSegueWithIdentifier("create_to_invite_segue", sender: self)
-      } else {
-        // this is if the user creation fails
-        println(error)
+      
+      if (error != nil) {
         let alertController = UIAlertController(title: "", message: "There was an error creating your account. Please try again.",
           preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-        
+      
         self.presentViewController(alertController, animated: true, completion: nil)
         return
       }
+      
+      
+      // Success. Now create the Layer participantIdentifier
+
+      var emailAddress: String = result!["email_address"].string!
+      
+      var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
+//      LayerHelpers.authenticationTokenWithEmailAddress(emailAddress, client: appDelegate.layerClient, completion: { (success, error) -> Void in
+//        if (error != nil) {
+//          NSLog("Layer Auth error")
+//          // todo add alert
+//          return
+//        }
+//        
+
+        // redirect to login
+        self.navigationController?.popViewControllerAnimated(true)
+     // })
+      
+
     }
+  
+    
   }
   
   // Checks that all req'd fields are filled in and valid. Returns false for 

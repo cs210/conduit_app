@@ -26,6 +26,8 @@ class LoginViewController : UIViewController {
         var sessionKey = result!["session_token"].string!
         defaults.setValue(sessionKey, forKey: "session")
         println("Set token to be: " + sessionKey)
+        
+        // auth with layer...
       } else {
         NSLog("ERROR: Session error")
         

@@ -17,13 +17,13 @@ class User: APIModel, ATLParticipant {
   var fullName              : String
   var phoneNumber           : String
   var emailAddress          : String
-  var deviceToken           : String
+  var deviceToken           : String?
   var pushEnabled           : Bool
-  var participantIdentifier : String
+  var participantIdentifier : String? = nil
 
-  init(id:Int, firstName:String, lastName:String, phoneNumber:String, emailAddress:String,
-    deviceToken:String, pushEnabled:Bool, participantIdentifier: String) {
-//    self.init(id:id)
+  init(id:Int?, firstName:String, lastName:String, phoneNumber:String, emailAddress:String,
+    deviceToken:String?, pushEnabled:Bool, participantIdentifier: String?) {
+
     self.firstName = firstName
     self.lastName = lastName
     self.fullName = "\(firstName) \(lastName)"
@@ -51,31 +51,27 @@ class User: APIModel, ATLParticipant {
   }
   
   override func present() -> [String:AnyObject] {
-    return [
-      "id": self.id,
+    var present: [String:AnyObject] = [
       "first_name": self.firstName,
       "last_name": self.lastName,
       "phone_number": self.phoneNumber,
       "email_address": self.emailAddress,
-      "device_token": self.deviceToken,
-      "push_enabled": self.pushEnabled,
-      "participant_identifier": self.participantIdentifier
+      "push_enabled": self.pushEnabled
     ]
+    
+    if let id = self.id {
+      present.updateValue(id, forKey: "id")
+    }
+    if let participantIdentifier = self.participantIdentifier {
+      present.updateValue(participantIdentifier, forKey: "participant_identifier")
+    }
+    
+    if let deviceToken = self.deviceToken {
+      present.updateValue(deviceToken, forKey: "device_token")
+    }
+    
+    return present
   }
-  
-//  func description() -> String {
-//    var str1 = "id:\(self.id)\n" +
-//           "firstName:\(self.firstName)\n" +
-//           "lastName:\(self.lastName)\n" +
-//           "phoneNumber:\(self.phoneNumber)\n"
-//    var str2 =
-//           "emailAddress:\(self.emailAddress)\n" +
-//           "deviceToken:\(self.deviceToken)\n" +
-//           "pushEnable:\(self.pushEnabled)\n" +
-//           "participant_identifier:\(self.participantIdentifier)\n"
-//    
-//    return str1 + str2
-//  }
   
   var avatarImage:UIImage! {
     get {
