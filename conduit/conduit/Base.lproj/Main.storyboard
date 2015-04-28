@@ -512,7 +512,7 @@
         <!--Scanner-->
         <scene sceneID="Ild-J1-Bob">
             <objects>
-                <viewController restorationIdentifier="Scanner" id="j9T-Rb-Wnj" customClass="ScannerViewController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="Scanner" storyboardIdentifier="scannerView" id="j9T-Rb-Wnj" customClass="ScannerViewController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9pn-iw-KcA"/>
                         <viewControllerLayoutGuide type="bottom" id="fbn-wx-VOk"/>
