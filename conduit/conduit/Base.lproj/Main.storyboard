@@ -106,7 +106,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Hca-fe-TKc">
             <objects>
-                <navigationController id="HgJ-U3-ESl" customClass="NavigationController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="LoginNavController" id="HgJ-U3-ESl" customClass="NavigationController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FsT-Fg-NB4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -400,7 +400,7 @@
         <!--Invite Friends-->
         <scene sceneID="KML-Ly-6Vt">
             <objects>
-                <viewController id="bG3-dy-Uj2" customClass="InviteFriendsViewController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="inviteFriendsView" id="bG3-dy-Uj2" customClass="InviteFriendsViewController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dRn-as-H3I"/>
                         <viewControllerLayoutGuide type="bottom" id="BcA-lo-eb0"/>
@@ -826,7 +826,7 @@
         <!--Welcome!-->
         <scene sceneID="aLR-bZ-GeV">
             <objects>
-                <viewController id="GQ2-4K-RNT" customClass="WelcomeViewController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="welcomeView" id="GQ2-4K-RNT" customClass="WelcomeViewController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4mK-MP-IuW"/>
                         <viewControllerLayoutGuide type="bottom" id="7En-pL-Uhg"/>
@@ -835,14 +835,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Welcome to Conduit! To get started, let's set up your car." translatesAutoresizingMaskIntoConstraints="NO" id="3cz-zw-1NQ">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Welcome to Conduit! To get started, let's set up your car." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3cz-zw-1NQ">
                                 <rect key="frame" x="0.0" y="57" width="320" height="367"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TRP-KJ-eKH">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TRP-KJ-eKH">
                                 <rect key="frame" x="0.0" y="471" width="320" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="HFN-bS-nIA"/>
+                                </constraints>
                                 <state key="normal" title="Add a Car">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -850,8 +853,11 @@
                                     <action selector="goToScanner:" destination="GQ2-4K-RNT" eventType="touchUpInside" id="2sg-3o-yFE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rup-qh-aqC">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rup-qh-aqC">
                                 <rect key="frame" x="0.0" y="509" width="320" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="sho-Z0-Dlc"/>
+                                </constraints>
                                 <state key="normal" title="Not now">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -861,6 +867,17 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3cz-zw-1NQ" firstAttribute="leading" secondItem="1sJ-Cb-gEW" secondAttribute="leading" constant="20" id="0q4-hA-MDX"/>
+                            <constraint firstItem="7En-pL-Uhg" firstAttribute="top" secondItem="Rup-qh-aqC" secondAttribute="bottom" id="6VG-eN-1ir"/>
+                            <constraint firstAttribute="trailing" secondItem="3cz-zw-1NQ" secondAttribute="trailing" constant="20" id="HR4-i4-Wh6"/>
+                            <constraint firstItem="Rup-qh-aqC" firstAttribute="leading" secondItem="1sJ-Cb-gEW" secondAttribute="leading" id="KbQ-qm-NVc"/>
+                            <constraint firstItem="TRP-KJ-eKH" firstAttribute="leading" secondItem="1sJ-Cb-gEW" secondAttribute="leading" id="Q8f-LN-Cgy"/>
+                            <constraint firstItem="Rup-qh-aqC" firstAttribute="top" secondItem="TRP-KJ-eKH" secondAttribute="bottom" id="TFe-jg-Xoh"/>
+                            <constraint firstAttribute="trailing" secondItem="TRP-KJ-eKH" secondAttribute="trailing" id="VT7-Vm-0uq"/>
+                            <constraint firstAttribute="trailing" secondItem="Rup-qh-aqC" secondAttribute="trailing" id="XIx-s6-k9I"/>
+                            <constraint firstItem="Rup-qh-aqC" firstAttribute="top" secondItem="TRP-KJ-eKH" secondAttribute="bottom" id="oR8-EF-Vv3"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome!" id="Tc2-yW-ScC"/>
                 </viewController>

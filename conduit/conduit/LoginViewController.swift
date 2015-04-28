@@ -30,8 +30,18 @@ class LoginViewController : UIViewController {
         self.dismissViewControllerAnimated(false, completion: {
           if defaults.boolForKey("isNewAccount") {
             // Go to welcome view
-            var view = WelcomeViewController()
-            self.navigationController?.presentViewController(view, animated: true, completion: nil)
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+            let destViewController : WelcomeViewController = mainStoryboard.instantiateViewControllerWithIdentifier("welcomeView") as! WelcomeViewController
+            
+            // This is eventually what we want to do. Right now it gives a blank screen.
+            var destNavController = UINavigationController(rootViewController: destViewController)
+            
+            var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            var revealController : SWRevealViewController = appDelegate.window!.rootViewController as! SWRevealViewController
+            var navController : UINavigationController = revealController.frontViewController as! UINavigationController
+            
+            navController.presentViewController(destNavController, animated: true, completion: nil)
+            
           }
           
         })

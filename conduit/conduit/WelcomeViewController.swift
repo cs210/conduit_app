@@ -10,17 +10,22 @@ import Foundation
 import UIKit
 
 class WelcomeViewController : UIViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
   @IBAction func goToScanner(sender: AnyObject) {
-    var view = ScannerViewController()
-    view.title = "Add a Car"
-    view.addingCarFlag = true
-    self.navigationController?.pushViewController(view, animated: true)
+//    var view = ScannerViewController()
+//    view.title = "Add a Car"
+//    view.addingCarFlag = true
+//    self.navigationController?.pushViewController(view, animated: true)
   }
   
   
   @IBAction func goToInviteFriends(sender: AnyObject) {
-    var view = InviteFriendsViewController()
-    self.navigationController?.pushViewController(view, animated: true)
+//    let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+//    let destViewController : InviteFriendsViewController = mainStoryboard.instantiateViewControllerWithIdentifier("inviteFriendsView") as! InviteFriendsViewController
+//    self.navigationController?.pushViewController(destViewController, animated: true)
   }
   
 }

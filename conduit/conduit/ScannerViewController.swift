@@ -37,9 +37,11 @@ class ScannerViewController : UIViewController,
     if (sessionKey == nil) {
         performSegueWithIdentifier("to_login", sender: self)
     }
-    
-    menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
-
+    if addingCarFlag {
+      menuButton.hidden = true
+    } else {
+      menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
+    }
   }
     
     @IBAction func didPressScan(sender: AnyObject) {
