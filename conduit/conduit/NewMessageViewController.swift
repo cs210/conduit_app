@@ -100,7 +100,8 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
   func sendMessageToLicensePlate(licensePlate : String) {
     var session = NSUserDefaults().stringForKey("session")
     var parameters = ["license_plate": licensePlate]
-    var userIds : [String] = []
+    var participantIdentifiers : [String] = []
+    
     APIModel.get("users", parameters: parameters) {(result, error) in
       if error != nil {
         NSLog("No car for license plate")
@@ -113,18 +114,12 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
       }
       
       for (var i=0; i<result?.count; i++){
-        var userIdJson = result![i]
-        var userId = userIdJson["id"].stringValue
-        userIds.append(userId)
+        var userJson = result![i]
+        var participantIdentifier = userJson["participant_identifier"].stringValue
+        participantIdentifiers.append(participantIdentifier)
       }
     }
-    
-    for userId in userIds {
-      
-      // Send message using Layer
-      // We should probably have one method that does all of these calls
-    }
-
+  
     // Callback code:
     
 //    if error != nil {

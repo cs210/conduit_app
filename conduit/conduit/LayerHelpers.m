@@ -85,10 +85,10 @@
        */
       [client authenticateWithIdentityToken:identityToken completion:^(NSString *authenticatedUserID, NSError *error) {
         if (authenticatedUserID) {
+          NSLog(@"Layer Authenticated as User: %@ with Identifier: %@", authenticatedUserID, identityToken);
           if (completion) {
             completion(YES, nil);
           }
-          NSLog(@"Layer Authenticated as User: %@", authenticatedUserID);
         } else {
           completion(NO, error);
         }

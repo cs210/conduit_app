@@ -149,16 +149,14 @@ class CreateAccountController : UIViewController {
       // Success. Now create the Layer participantIdentifier
 
       var emailAddress: String = result!["email_address"].string!
-      
       var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-
+      
       LayerHelpers.authenticationTokenWithEmailAddress(emailAddress, client: appDelegate.layerClient, completion: { (success, error) -> Void in
         if (error != nil) {
           NSLog("Layer Auth error: \(error)")
           // todo add alert
           return
         }
-        
         // Redirect back to login
         self.navigationController?.popViewControllerAnimated(true)
       })

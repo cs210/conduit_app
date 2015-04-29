@@ -12,6 +12,8 @@ import SwiftyJSON
 
 class User: APIModel, ATLParticipant {
 
+  // Note: sessionToken should not be stored on the User since it's not an attribute on the server.
+  
   var firstName             : String
   var lastName              : String
   var fullName              : String

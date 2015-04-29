@@ -61,7 +61,7 @@ class APIModel: NSObject {
     Alamofire.request(.POST, url, parameters: parameters, encoding:.JSON).responseJSON {
       (req, res, json, error) in
       if(error != nil) {
-        NSLog("POST Error: \(error)")
+        NSLog("POST Error: \(error) \(res)")
         post_completion(result:nil, error:error!)
       } else {
         var json = JSON(json!)
