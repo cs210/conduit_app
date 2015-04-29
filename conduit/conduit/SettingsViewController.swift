@@ -10,17 +10,16 @@ import Foundation
 import UIKit
 
 class SettingsViewController : UITableViewController, ConfirmPasswordDelegate {
-  var menuOptions = ["Account Settings", "Privacy Settings", "Car Management"]
-  var segueOptions = ["account_settings_segue", "privacy_settings_segue", "car_management_segue"]
+  var menuOptions = ["Change Name", "Change Password", "Change Email", "Change Push Notifications", "Car Management"]
+  var segueOptions = ["change_name_segue", "change_password_segue", "change_email_segue", "change_push_notifications", "car_management_segue"]
 
   @IBOutlet weak var menuButton: UIButton!
   
   override func viewDidLoad() {
     var defaults = NSUserDefaults.standardUserDefaults()
-    println("SEESSSION")
     println(defaults.stringForKey("session"))
     super.viewDidLoad()
-    menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
+    menuButton.addTarget(self.revealViewController(), action: "revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
   }
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("SettingsListItem",
@@ -37,7 +36,7 @@ class SettingsViewController : UITableViewController, ConfirmPasswordDelegate {
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     // TODO: This is where we go to a new view.
     var cell = tableView.cellForRowAtIndexPath(indexPath)
-    if (indexPath.row == 0){
+    if (indexPath.row == 1){
       performSegueWithIdentifier("confirm_password_segue", sender: cell)
     } else {
       performSegueWithIdentifier(segueOptions[indexPath.row], sender: cell)
