@@ -317,6 +317,11 @@
                                             <action selector="textFieldDidEndEditing:" destination="gP5-ji-s31" eventType="editingDidEnd" id="nhD-CP-XNF"/>
                                         </connections>
                                     </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="6501234567" borderStyle="roundedRect" placeholder="Phone Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1FE-IQ-PKX">
+                                        <rect key="frame" x="20" y="359" width="97" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="z3T-xF-nmX" secondAttribute="trailing" constant="40" id="4UM-Rv-EhC"/>
@@ -328,11 +333,14 @@
                                     <constraint firstItem="CJ5-4K-aNq" firstAttribute="top" secondItem="tPV-VV-yNt" secondAttribute="bottom" constant="40" id="MFe-w1-xnl"/>
                                     <constraint firstItem="tPV-VV-yNt" firstAttribute="leading" secondItem="giM-VM-MY9" secondAttribute="leading" constant="40" id="TK8-h1-zEP"/>
                                     <constraint firstAttribute="trailing" secondItem="Mj1-kp-fok" secondAttribute="trailing" constant="40" id="Veu-mb-weB"/>
+                                    <constraint firstItem="1FE-IQ-PKX" firstAttribute="top" secondItem="A6i-HV-DbY" secondAttribute="bottom" constant="17" id="X02-Qc-QM0"/>
                                     <constraint firstItem="A6i-HV-DbY" firstAttribute="leading" secondItem="giM-VM-MY9" secondAttribute="leading" constant="40" id="XVn-pP-OG3"/>
+                                    <constraint firstAttribute="trailing" secondItem="1FE-IQ-PKX" secondAttribute="trailing" constant="40" id="YoA-Jk-NAZ"/>
                                     <constraint firstItem="A6i-HV-DbY" firstAttribute="top" secondItem="YUP-wC-iHw" secondAttribute="bottom" constant="2" id="Ysi-dm-H7J"/>
                                     <constraint firstItem="Mj1-kp-fok" firstAttribute="top" secondItem="CJ5-4K-aNq" secondAttribute="bottom" constant="40" id="ZFT-NX-3pH"/>
                                     <constraint firstItem="YUP-wC-iHw" firstAttribute="leading" secondItem="giM-VM-MY9" secondAttribute="leading" constant="40" id="bEO-fw-aJu"/>
                                     <constraint firstItem="z3T-xF-nmX" firstAttribute="leading" secondItem="giM-VM-MY9" secondAttribute="leading" constant="40" id="d88-CT-5th"/>
+                                    <constraint firstItem="1FE-IQ-PKX" firstAttribute="leading" secondItem="giM-VM-MY9" secondAttribute="leading" constant="40" id="kGj-kc-RfW"/>
                                     <constraint firstAttribute="trailing" secondItem="CJ5-4K-aNq" secondAttribute="trailing" constant="40" id="l2g-Zb-2N6"/>
                                     <constraint firstItem="CJ5-4K-aNq" firstAttribute="leading" secondItem="giM-VM-MY9" secondAttribute="leading" constant="40" id="nzp-JU-OTt"/>
                                     <constraint firstItem="YUP-wC-iHw" firstAttribute="top" secondItem="xb9-DI-Zle" secondAttribute="bottom" constant="17" id="ovM-1O-sZ9"/>
@@ -370,6 +378,7 @@
                         <outlet property="firstNameField" destination="z3T-xF-nmX" id="t1D-h8-IlB"/>
                         <outlet property="lastNameField" destination="tPV-VV-yNt" id="Mxm-PB-X47"/>
                         <outlet property="passwordField" destination="CJ5-4K-aNq" id="RqX-3v-zzT"/>
+                        <outlet property="phoneNumberField" destination="1FE-IQ-PKX" id="hW3-BV-Mrj"/>
                         <outlet property="retypePasswordErrorLabel" destination="xb9-DI-Zle" id="WdK-ly-7QY"/>
                         <outlet property="retypePasswordField" destination="Mj1-kp-fok" id="Sqd-fy-wR0"/>
                         <outlet property="scrollView" destination="giM-VM-MY9" id="hKc-5s-RcD"/>
