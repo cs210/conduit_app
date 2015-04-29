@@ -628,18 +628,6 @@
                                     <action selector="manualLicensePlate:" destination="Z91-TC-IGc" eventType="editingDidBegin" id="XWb-ke-Tvg"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7GT-3a-Fkc">
-                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="3nQ-0v-nd8"/>
-                                </constraints>
-                                <state key="normal" title="Send">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendPressed:" destination="Z91-TC-IGc" eventType="touchUpInside" id="Sgh-Ae-lZk"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="US0-Qh-Web">
                                 <rect key="frame" x="0.0" y="448" width="320" height="70"/>
                                 <constraints>
@@ -695,12 +683,11 @@
                             <constraint firstItem="BNe-n1-PuK" firstAttribute="top" secondItem="W8y-Ld-Wtd" secondAttribute="bottom" constant="8" id="7QI-zz-b59"/>
                             <constraint firstAttribute="trailing" secondItem="6fu-f9-rrO" secondAttribute="trailing" id="7is-Jf-GHY"/>
                             <constraint firstAttribute="trailing" secondItem="W8y-Ld-Wtd" secondAttribute="trailing" constant="15" id="7mt-5T-7Dm"/>
+                            <constraint firstItem="VLf-2I-RBD" firstAttribute="top" secondItem="US0-Qh-Web" secondAttribute="bottom" id="JMP-KI-Vww"/>
                             <constraint firstItem="6fu-f9-rrO" firstAttribute="top" secondItem="V78-hs-bWh" secondAttribute="bottom" id="NW3-NU-G48"/>
                             <constraint firstItem="US0-Qh-Web" firstAttribute="top" secondItem="BNe-n1-PuK" secondAttribute="bottom" id="Nye-gs-YOX"/>
                             <constraint firstItem="W8y-Ld-Wtd" firstAttribute="leading" secondItem="De6-Lw-8ab" secondAttribute="trailing" constant="20" id="OcM-PI-jon"/>
                             <constraint firstItem="6fu-f9-rrO" firstAttribute="leading" secondItem="eBW-b1-sgx" secondAttribute="leading" id="QgA-ec-tUl"/>
-                            <constraint firstItem="7GT-3a-Fkc" firstAttribute="leading" secondItem="eBW-b1-sgx" secondAttribute="leading" id="Rj4-Oz-ZNv"/>
-                            <constraint firstItem="7GT-3a-Fkc" firstAttribute="top" secondItem="US0-Qh-Web" secondAttribute="bottom" constant="1" id="VC1-0r-NSb"/>
                             <constraint firstItem="BNe-n1-PuK" firstAttribute="top" secondItem="6fu-f9-rrO" secondAttribute="bottom" id="ZAn-x6-I82"/>
                             <constraint firstItem="BNe-n1-PuK" firstAttribute="top" secondItem="W8y-Ld-Wtd" secondAttribute="bottom" constant="8" id="bpE-FA-u1e"/>
                             <constraint firstItem="W8y-Ld-Wtd" firstAttribute="top" secondItem="V78-hs-bWh" secondAttribute="bottom" constant="10" id="dhp-Pz-ybm"/>
@@ -709,21 +696,17 @@
                             <constraint firstItem="US0-Qh-Web" firstAttribute="top" secondItem="BNe-n1-PuK" secondAttribute="bottom" id="mi2-Mz-RqB"/>
                             <constraint firstAttribute="trailing" secondItem="BNe-n1-PuK" secondAttribute="trailing" id="r0s-BM-9vQ"/>
                             <constraint firstItem="De6-Lw-8ab" firstAttribute="top" secondItem="V78-hs-bWh" secondAttribute="bottom" constant="14" id="sge-Ua-Kbc"/>
-                            <constraint firstAttribute="trailing" secondItem="7GT-3a-Fkc" secondAttribute="trailing" id="uM5-G6-jSm"/>
-                            <constraint firstItem="VLf-2I-RBD" firstAttribute="top" secondItem="7GT-3a-Fkc" secondAttribute="bottom" id="v2R-eA-wbw"/>
                             <constraint firstItem="De6-Lw-8ab" firstAttribute="leading" secondItem="eBW-b1-sgx" secondAttribute="leading" constant="15" id="whd-YB-3TY"/>
                             <constraint firstItem="BNe-n1-PuK" firstAttribute="leading" secondItem="eBW-b1-sgx" secondAttribute="leading" id="zrU-Z6-gob"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="tqC-2l-KmV" appends="YES" id="SDD-U2-Nhy"/>
-                            <outletCollection property="gestureRecognizers" destination="AO3-Eh-52A" appends="YES" id="0WM-RJ-edN"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="New Message" id="gLT-44-Ggt"/>
                     <connections>
                         <outlet property="keyboardDismisser" destination="tqC-2l-KmV" id="lih-er-lhM"/>
                         <outlet property="licenseTextField" destination="W8y-Ld-Wtd" id="QEW-oI-Jtm"/>
-                        <outlet property="presetDeselecter" destination="AO3-Eh-52A" id="lZn-Yl-NbC"/>
                         <outlet property="presetTable" destination="BNe-n1-PuK" id="4N3-qu-pLN"/>
                         <outlet property="toFieldBackground" destination="6fu-f9-rrO" id="1dL-JY-Sa6"/>
                         <segue destination="E6s-kG-WmU" kind="custom" identifier="send_to_conversation" customClass="SendToConversationSegue" customModule="conduit" customModuleProvider="target" id="a4X-s1-m85"/>
@@ -733,11 +716,6 @@
                 <tapGestureRecognizer enabled="NO" id="tqC-2l-KmV">
                     <connections>
                         <action selector="dismissKeyboard:" destination="Z91-TC-IGc" id="a26-ot-6ql"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="AO3-Eh-52A">
-                    <connections>
-                        <action selector="deselectSelectedMessage:" destination="Z91-TC-IGc" id="Zz9-xN-oqb"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

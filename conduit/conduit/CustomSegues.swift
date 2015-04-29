@@ -34,6 +34,7 @@ class SendToConversationSegue: UIStoryboardSegue {
     conversationViewController.conversation = nil
     conversationListNavigationController.pushViewController(conversationViewController, animated: false)
 
+    // TODO: broken here because layer is broken
     conversationViewController.sendInitMessage(sourceViewController.selectedMessage)
 
   }
