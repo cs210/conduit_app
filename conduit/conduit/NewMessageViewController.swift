@@ -111,23 +111,56 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
     }
   }
   
+  func sendMessageToLicensePlate(licensePlate : String) {
+    var session = NSUserDefaults().stringForKey("session")
+    var parameters = ["license_plate": licensePlate]
+    var userIds : [String] = []
+    APIModel.get("users", parameters: parameters) {(result, error) in
+      if error != nil {
+        NSLog("No car for license plate")
+        let alertController = UIAlertController(title: "", message: "We could not find owners of a car with that license plate.",
+          preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+
+        self.presentViewController(alertController, animated: true, completion: nil)
+        return
+      }
+      
+      for (var i=0; i<result?.count; i++){
+        var userIdJson = result![i]
+        var userId = userIdJson["id"].stringValue
+        userIds.append(userId)
+      }
+    }
+    
+    for userId in userIds {
+      // Send message using Layer
+      // We should probably have one method that does all of these calls
+    }
+
+    // Callback code:
+    
+//    if error != nil {
+//      NSLog("Error sending message")
+//      let alertController = UIAlertController(title: "", message: "Could not send message. Please try again.",
+//        preferredStyle: UIAlertControllerStyle.Alert)
+//      alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+//      
+//      self.presentViewController(alertController, animated: true, completion: nil)
+//      return
+//    }
+//    
+    NSLog("Going to send_to_conversation segue")
+    self.performSegueWithIdentifier("send_to_conversation", sender: self)
+  }
+  
   @IBAction func sendPressed(sender: AnyObject) {
     // if there's no selected custom message or license plate, the send button does nothing.
     if selectedMessageIndexPath == nil || licenseTextField.text == "" {
       return
     }
-    
-    // grab UUIDs for layer here - FIX PATH
-    var session = NSUserDefaults().stringForKey("session")
-    
-//    APIModel.post("cars/ids", parameters: ["license_plate":licensePlate, "manufacturer": "None", "session_token", session]) { (result, error) -> () in
-//      // use ids that you grab to actually send the message
-//    }
-    
-    
-    println("Going to send_to_conversation segue")
-    self.performSegueWithIdentifier("send_to_conversation", sender: self)
-    
+
+    sendMessageToLicensePlate(licensePlate)
   }
 
 }

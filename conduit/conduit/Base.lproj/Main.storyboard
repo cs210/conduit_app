@@ -317,7 +317,7 @@
                                             <action selector="textFieldDidEndEditing:" destination="gP5-ji-s31" eventType="editingDidEnd" id="nhD-CP-XNF"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="6501234567" borderStyle="roundedRect" placeholder="Phone Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1FE-IQ-PKX">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="6501234567" borderStyle="roundedRect" placeholder="Phone Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w81-2n-sne">
                                         <rect key="frame" x="20" y="359" width="97" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -328,23 +328,23 @@
                                     <constraint firstItem="Mj1-kp-fok" firstAttribute="leading" secondItem="giM-VM-MY9" secondAttribute="leading" constant="40" id="7dh-2A-Mkp"/>
                                     <constraint firstAttribute="trailing" secondItem="YUP-wC-iHw" secondAttribute="trailing" constant="40" id="9Zg-cI-xDq"/>
                                     <constraint firstItem="tPV-VV-yNt" firstAttribute="top" secondItem="z3T-xF-nmX" secondAttribute="bottom" constant="40" id="FPE-ON-bm8"/>
+                                    <constraint firstAttribute="trailing" secondItem="w81-2n-sne" secondAttribute="trailing" constant="40" id="HuL-cc-r5h"/>
                                     <constraint firstItem="xb9-DI-Zle" firstAttribute="leading" secondItem="giM-VM-MY9" secondAttribute="leading" constant="40" id="JPJ-ZI-u3Z"/>
+                                    <constraint firstItem="w81-2n-sne" firstAttribute="leading" secondItem="giM-VM-MY9" secondAttribute="leading" constant="40" id="Jku-QA-85g"/>
                                     <constraint firstAttribute="trailing" secondItem="tPV-VV-yNt" secondAttribute="trailing" constant="40" id="Lgw-Vb-Cqm"/>
                                     <constraint firstItem="CJ5-4K-aNq" firstAttribute="top" secondItem="tPV-VV-yNt" secondAttribute="bottom" constant="40" id="MFe-w1-xnl"/>
                                     <constraint firstItem="tPV-VV-yNt" firstAttribute="leading" secondItem="giM-VM-MY9" secondAttribute="leading" constant="40" id="TK8-h1-zEP"/>
                                     <constraint firstAttribute="trailing" secondItem="Mj1-kp-fok" secondAttribute="trailing" constant="40" id="Veu-mb-weB"/>
-                                    <constraint firstItem="1FE-IQ-PKX" firstAttribute="top" secondItem="A6i-HV-DbY" secondAttribute="bottom" constant="17" id="X02-Qc-QM0"/>
                                     <constraint firstItem="A6i-HV-DbY" firstAttribute="leading" secondItem="giM-VM-MY9" secondAttribute="leading" constant="40" id="XVn-pP-OG3"/>
-                                    <constraint firstAttribute="trailing" secondItem="1FE-IQ-PKX" secondAttribute="trailing" constant="40" id="YoA-Jk-NAZ"/>
                                     <constraint firstItem="A6i-HV-DbY" firstAttribute="top" secondItem="YUP-wC-iHw" secondAttribute="bottom" constant="2" id="Ysi-dm-H7J"/>
                                     <constraint firstItem="Mj1-kp-fok" firstAttribute="top" secondItem="CJ5-4K-aNq" secondAttribute="bottom" constant="40" id="ZFT-NX-3pH"/>
                                     <constraint firstItem="YUP-wC-iHw" firstAttribute="leading" secondItem="giM-VM-MY9" secondAttribute="leading" constant="40" id="bEO-fw-aJu"/>
                                     <constraint firstItem="z3T-xF-nmX" firstAttribute="leading" secondItem="giM-VM-MY9" secondAttribute="leading" constant="40" id="d88-CT-5th"/>
-                                    <constraint firstItem="1FE-IQ-PKX" firstAttribute="leading" secondItem="giM-VM-MY9" secondAttribute="leading" constant="40" id="kGj-kc-RfW"/>
                                     <constraint firstAttribute="trailing" secondItem="CJ5-4K-aNq" secondAttribute="trailing" constant="40" id="l2g-Zb-2N6"/>
                                     <constraint firstItem="CJ5-4K-aNq" firstAttribute="leading" secondItem="giM-VM-MY9" secondAttribute="leading" constant="40" id="nzp-JU-OTt"/>
                                     <constraint firstItem="YUP-wC-iHw" firstAttribute="top" secondItem="xb9-DI-Zle" secondAttribute="bottom" constant="17" id="ovM-1O-sZ9"/>
                                     <constraint firstItem="xb9-DI-Zle" firstAttribute="top" secondItem="Mj1-kp-fok" secondAttribute="bottom" constant="2" id="v5C-qE-M2i"/>
+                                    <constraint firstItem="w81-2n-sne" firstAttribute="top" secondItem="A6i-HV-DbY" secondAttribute="bottom" constant="17" id="vht-b9-uQP"/>
                                     <constraint firstItem="z3T-xF-nmX" firstAttribute="top" secondItem="giM-VM-MY9" secondAttribute="top" constant="40" id="zQP-zc-Goo"/>
                                 </constraints>
                             </scrollView>
@@ -378,7 +378,7 @@
                         <outlet property="firstNameField" destination="z3T-xF-nmX" id="t1D-h8-IlB"/>
                         <outlet property="lastNameField" destination="tPV-VV-yNt" id="Mxm-PB-X47"/>
                         <outlet property="passwordField" destination="CJ5-4K-aNq" id="RqX-3v-zzT"/>
-                        <outlet property="phoneNumberField" destination="1FE-IQ-PKX" id="hW3-BV-Mrj"/>
+                        <outlet property="phoneNumberField" destination="w81-2n-sne" id="Bsv-f0-Wjr"/>
                         <outlet property="retypePasswordErrorLabel" destination="xb9-DI-Zle" id="WdK-ly-7QY"/>
                         <outlet property="retypePasswordField" destination="Mj1-kp-fok" id="Sqd-fy-wR0"/>
                         <outlet property="scrollView" destination="giM-VM-MY9" id="hKc-5s-RcD"/>
@@ -454,13 +454,28 @@
                                     <action selector="inviteFriends:" destination="bG3-dy-Uj2" eventType="touchUpInside" id="qyw-Ra-dtI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8N7-io-u1H">
+                                <rect key="frame" x="0.0" y="538" width="320" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="pHF-CH-TDb"/>
+                                </constraints>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToScanner:" destination="bG3-dy-Uj2" eventType="touchUpInside" id="Z5o-zV-pFF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="APf-fb-N88" firstAttribute="leading" secondItem="FKg-iY-hsy" secondAttribute="leading" constant="10" id="3Lp-hD-ewS"/>
                             <constraint firstAttribute="trailing" secondItem="IiO-CA-THB" secondAttribute="trailing" constant="20" id="3nB-7m-ci0"/>
                             <constraint firstItem="g0v-Mz-Ax5" firstAttribute="leading" secondItem="FKg-iY-hsy" secondAttribute="leading" id="5Kh-M0-IDs"/>
-                            <constraint firstItem="BcA-lo-eb0" firstAttribute="top" secondItem="g0v-Mz-Ax5" secondAttribute="bottom" id="A4E-Df-B6q"/>
+                            <constraint firstItem="8N7-io-u1H" firstAttribute="leading" secondItem="FKg-iY-hsy" secondAttribute="leading" id="5k6-Xd-qT0"/>
+                            <constraint firstItem="8N7-io-u1H" firstAttribute="top" secondItem="g0v-Mz-Ax5" secondAttribute="bottom" constant="1" id="92O-Cg-vgU"/>
+                            <constraint firstAttribute="trailing" secondItem="8N7-io-u1H" secondAttribute="trailing" id="G0G-dI-1Yj"/>
+                            <constraint firstItem="BcA-lo-eb0" firstAttribute="top" secondItem="8N7-io-u1H" secondAttribute="bottom" id="Pag-9g-1bI"/>
                             <constraint firstItem="IiO-CA-THB" firstAttribute="leading" secondItem="FKg-iY-hsy" secondAttribute="leading" constant="20" id="S4C-aa-x8O"/>
                             <constraint firstItem="IiO-CA-THB" firstAttribute="top" secondItem="dRn-as-H3I" secondAttribute="bottom" constant="20" id="Vh5-vS-zT4"/>
                             <constraint firstItem="g0v-Mz-Ax5" firstAttribute="top" secondItem="APf-fb-N88" secondAttribute="bottom" constant="10" id="gHo-0f-6Gj"/>
@@ -479,21 +494,8 @@
                                 </state>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="vaU-AQ-M8u">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2mY-G0-nPH">
-                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Done">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="goToScanner:" destination="bG3-dy-Uj2" eventType="touchUpInside" id="55B-fe-Knl"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="doneButton" destination="2mY-G0-nPH" id="xuP-To-sGw"/>
                         <outlet property="friendsTableView" destination="APf-fb-N88" id="hnn-ug-sMJ"/>
                         <outlet property="infoLabel" destination="IiO-CA-THB" id="JcI-CH-ZNy"/>
                         <outlet property="menuButton" destination="Yxn-jM-Ewo" id="GED-4v-AVj"/>
@@ -878,9 +880,10 @@
                             <constraint firstAttribute="trailing" secondItem="3cz-zw-1NQ" secondAttribute="trailing" constant="20" id="HR4-i4-Wh6"/>
                             <constraint firstItem="Rup-qh-aqC" firstAttribute="leading" secondItem="1sJ-Cb-gEW" secondAttribute="leading" id="KbQ-qm-NVc"/>
                             <constraint firstItem="TRP-KJ-eKH" firstAttribute="leading" secondItem="1sJ-Cb-gEW" secondAttribute="leading" id="Q8f-LN-Cgy"/>
-                            <constraint firstItem="Rup-qh-aqC" firstAttribute="top" secondItem="TRP-KJ-eKH" secondAttribute="bottom" constant="1" id="TFe-jg-Xoh"/>
+                            <constraint firstItem="Rup-qh-aqC" firstAttribute="top" secondItem="TRP-KJ-eKH" secondAttribute="bottom" id="TFe-jg-Xoh"/>
                             <constraint firstAttribute="trailing" secondItem="TRP-KJ-eKH" secondAttribute="trailing" id="VT7-Vm-0uq"/>
                             <constraint firstAttribute="trailing" secondItem="Rup-qh-aqC" secondAttribute="trailing" id="XIx-s6-k9I"/>
+                            <constraint firstItem="Rup-qh-aqC" firstAttribute="top" secondItem="TRP-KJ-eKH" secondAttribute="bottom" id="oR8-EF-Vv3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome!" id="Tc2-yW-ScC"/>
@@ -1356,7 +1359,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="psz-Zh-Tf1"/>
-        <segue reference="gKK-Hm-Kkw"/>
         <segue reference="dob-8K-FQJ"/>
+        <segue reference="a4X-s1-m85"/>
     </inferredMetricsTieBreakers>
 </document>
