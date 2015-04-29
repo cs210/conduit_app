@@ -30,6 +30,7 @@ class ScannerViewController : UIViewController,
   
   // we turn this flag on when we're adding a car from the car management view
   var addingCarFlag = false
+  var carManagementFlag = false
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -148,15 +149,29 @@ class ScannerViewController : UIViewController,
         
         alertController.addAction(UIAlertAction(title: "Add another car", style: UIAlertActionStyle.Default,handler: nil))
         
+        
         alertController.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default,handler: {(action) in
-          let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-          let destViewController : InviteFriendsViewController = mainStoryboard.instantiateViewControllerWithIdentifier("inviteFriendsView") as! InviteFriendsViewController
-          self.navigationController?.pushViewController(destViewController, animated: true)
+          self.doDoneTransition()
         }))
         
         self.presentViewController(alertController, animated: true, completion: nil)
       }
     }
+  }
+  
+  @IBAction func didPressDoneButton(sender: AnyObject) {
+    self.doDoneTransition()
+  }
+  
+  func doDoneTransition() {
+    if self.carManagementFlag {
+      self.navigationController?.popViewControllerAnimated(true)
+      return
+    }
+    let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+    let destViewController : InviteFriendsViewController = mainStoryboard.instantiateViewControllerWithIdentifier("inviteFriendsView") as! InviteFriendsViewController
+    self.navigationController?.pushViewController(destViewController, animated: true)
+    
   }
   
     override func viewDidAppear(animated: Bool) {
@@ -200,6 +215,9 @@ class ScannerViewController : UIViewController,
         
         dismissViewControllerAnimated(true, completion: {})
     }
+  
+  
+
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "new_message_segue" {

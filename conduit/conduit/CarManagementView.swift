@@ -20,11 +20,7 @@ import Foundation
 
 class CarManagementView : UIViewController, UITableViewDataSource {
   // we will download from server in the future
-  var cars:[Car] = [
-    Car(id:1, licensePlate: "ABC123"),
-    Car(id:2, licensePlate: "XYZ789"),
-    Car(id:3, licensePlate: "CS210B")
-  ]
+  var cars:[Car] = []
   
   var selectedCarIndex:NSIndexPath!
   
@@ -32,10 +28,17 @@ class CarManagementView : UIViewController, UITableViewDataSource {
     super.viewDidLoad()
     
     // grab cars
-    var sessionToken = NSUserDefaults().stringForKey("session") as String?
-    APIModel.get("users/car", parameters: ["session_token" : sessionToken!]) {
-      (result, error) -> () in
-      if (error != nil) {
+    self.loadCars()
+    
+  }
+  
+  func loadCars() {
+    var defaults = NSUserDefaults.standardUserDefaults()
+    var sessionToken : String = defaults.valueForKey("session") as! String
+    var params = ["session_token" : sessionToken]
+    APIModel.get("cars", parameters: params) {(result, error) in
+      if error != nil {
+        NSLog("Error getting cars list")
         return
       }
       for (var i=0; i<result?.count; i++){
@@ -46,10 +49,17 @@ class CarManagementView : UIViewController, UITableViewDataSource {
     }
     println(cars)
   }
+  
   @IBAction func addCar(sender: AnyObject) {
-    // go to the scanner object
+    let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+    var destViewController : ScannerViewController = mainStoryboard.instantiateViewControllerWithIdentifier("scannerView") as! ScannerViewController
+    destViewController.title = "Add a Car"
+    destViewController.addingCarFlag = true
+    destViewController.carManagementFlag = true
+    self.navigationController?.pushViewController(destViewController, animated: true)
     
   }
+  
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("car_management_item",
       forIndexPath : indexPath) as! UITableViewCell
@@ -63,10 +73,10 @@ class CarManagementView : UIViewController, UITableViewDataSource {
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    selectedCarIndex = indexPath
     
-      tableView.deselectRowAtIndexPath(indexPath, animated: false)
-      selectedCarIndex = indexPath
-      performSegueWithIdentifier("car_segue", sender: self)
+    // TODO: enable deleting car
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
