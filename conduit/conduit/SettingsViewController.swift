@@ -11,7 +11,7 @@ import UIKit
 
 class SettingsViewController : UITableViewController, ConfirmPasswordDelegate {
   var menuOptions = ["Change Name", "Change Password", "Change Email", "Change Push Notifications", "Car Management"]
-  var segueOptions = ["change_name_segue", "change_password_segue", "change_email_segue", "change_push_notifications", "car_management_segue"]
+  var segueOptions = ["change_name_segue", "change_password_segue", "change_email_segue", "change_push_notifs_segue", "car_management_segue"]
 
   @IBOutlet weak var menuButton: UIButton!
   
