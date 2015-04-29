@@ -14,6 +14,9 @@
 		B55805F81AE6CF7300EB5512 /* ConfirmPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55805F71AE6CF7300EB5512 /* ConfirmPasswordViewController.swift */; };
 		B57334171AABDB8100363B5C /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57334161AABDB8100363B5C /* CreateAccountController.swift */; };
 		B582C45F1AABDE900083AD9A /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B582C45E1AABDE900083AD9A /* ScannerViewController.swift */; };
+		B58C3F491AF0CA4C002311EE /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C3F481AF0CA4C002311EE /* ChangeNameViewController.swift */; };
+		B58C3F4B1AF0CA5C002311EE /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C3F4A1AF0CA5C002311EE /* ChangeEmailViewController.swift */; };
+		B58C3F4D1AF0CA6E002311EE /* ChangeNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C3F4C1AF0CA6E002311EE /* ChangeNotificationsViewController.swift */; };
 		B58FD9B11ACE3191005B8648 /* AccountSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58FD9B01ACE3191005B8648 /* AccountSettingsView.swift */; };
 		B58FD9B31ACE67B5005B8648 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */; };
 		B5FD86701AECC0E900E4629E /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD866F1AECC0E900E4629E /* CarDetailsViewController.swift */; };
@@ -121,6 +124,9 @@
 		B55805F71AE6CF7300EB5512 /* ConfirmPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPasswordViewController.swift; sourceTree = "<group>"; };
 		B57334161AABDB8100363B5C /* CreateAccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
 		B582C45E1AABDE900083AD9A /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		B58C3F481AF0CA4C002311EE /* ChangeNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
+		B58C3F4A1AF0CA5C002311EE /* ChangeEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewController.swift; sourceTree = "<group>"; };
+		B58C3F4C1AF0CA6E002311EE /* ChangeNotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeNotificationsViewController.swift; sourceTree = "<group>"; };
 		B58FD9B01ACE3191005B8648 /* AccountSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingsView.swift; sourceTree = "<group>"; };
 		B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		B5FD866F1AECC0E900E4629E /* CarDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
@@ -391,6 +397,9 @@
 				C5C70DBF1AA68EDE00BE0753 /* Supporting Files */,
 				B55805F71AE6CF7300EB5512 /* ConfirmPasswordViewController.swift */,
 				B5FD866F1AECC0E900E4629E /* CarDetailsViewController.swift */,
+				B58C3F481AF0CA4C002311EE /* ChangeNameViewController.swift */,
+				B58C3F4A1AF0CA5C002311EE /* ChangeEmailViewController.swift */,
+				B58C3F4C1AF0CA6E002311EE /* ChangeNotificationsViewController.swift */,
 			);
 			path = conduit;
 			sourceTree = "<group>";
@@ -771,6 +780,7 @@
 				C5D02EDD1AE085A300C201A5 /* ATLConversationCollectionViewHeader.m in Sources */,
 				C5D02EDB1AE085A300C201A5 /* ATLConversationCollectionView.m in Sources */,
 				C5EFBDDB1AABD4CD000029C3 /* MenuTableViewController.swift in Sources */,
+				B58C3F4B1AF0CA5C002311EE /* ChangeEmailViewController.swift in Sources */,
 				C5D02ED91AE085A300C201A5 /* ATLAddressBarView.m in Sources */,
 				C5D02EE61AE085A300C201A5 /* ATLOutgoingMessageCollectionViewCell.m in Sources */,
 				C5B7FC971AE7008A001F6E9C /* DataStore.swift in Sources */,
@@ -801,6 +811,7 @@
 				C5D02EC81AE085A300C201A5 /* ATLBaseConversationViewController.m in Sources */,
 				BDE4EB651AAC44FB00588511 /* NewMessageViewController.swift in Sources */,
 				C5D02ED11AE085A300C201A5 /* ATLConstants.m in Sources */,
+				B58C3F4D1AF0CA6E002311EE /* ChangeNotificationsViewController.swift in Sources */,
 				C5D02EDC1AE085A300C201A5 /* ATLConversationCollectionViewFooter.m in Sources */,
 				C5D02ECE1AE085A300C201A5 /* ATLDataSourceChange.m in Sources */,
 				C5D02ECB1AE085A300C201A5 /* ATLParticipantTableViewController.m in Sources */,
@@ -824,6 +835,7 @@
 				C5D02EE91AE085A300C201A5 /* ATLProgressView.m in Sources */,
 				C56BFC9A1ABA92430074FCAA /* APIModel.swift in Sources */,
 				C53B9CEA1AD1F6BE00BEFA88 /* LayerHelpers.m in Sources */,
+				B58C3F491AF0CA4C002311EE /* ChangeNameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

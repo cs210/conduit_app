@@ -30,6 +30,7 @@ class ScannerViewController : UIViewController,
   
   // we turn this flag on when we're adding a car from the car management view
   var addingCarFlag = false
+  var carManagementFlag = false
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -99,7 +100,7 @@ class ScannerViewController : UIViewController,
  
   @IBAction func enterLicensePlateManually(sender: AnyObject) {
     if addingCarFlag {
-      let alertController = UIAlertController(title: "", message: "Enter your license plate:",
+      let alertController = UIAlertController(title: "Enter your license plate:", message: "",
         preferredStyle: UIAlertControllerStyle.Alert)
       
       alertController.addTextFieldWithConfigurationHandler({ (textField) in
@@ -125,21 +126,52 @@ class ScannerViewController : UIViewController,
     if (!addingCarFlag) {
       performSegueWithIdentifier("new_message_segue", sender: self)
     } else {
-      // Add car here
+      // TODO(nisha): manufacturer
+      var defaults = NSUserDefaults.standardUserDefaults()
+      var sessionToken : String = defaults.valueForKey("session") as! String
+      let params = ["session_token": sessionToken, "license_plate": self.licensePlate, "manufacturer": ""]
       
-      let alertController = UIAlertController(title: "", message: "Car created!",
-        preferredStyle: UIAlertControllerStyle.Alert)
-      
-      alertController.addAction(UIAlertAction(title: "Add another car", style: UIAlertActionStyle.Default,handler: nil))
-      
-      alertController.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default,handler: {(action) in
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let destViewController : InviteFriendsViewController = mainStoryboard.instantiateViewControllerWithIdentifier("inviteFriendsView") as! InviteFriendsViewController
-        self.navigationController?.pushViewController(destViewController, animated: true)
-      }))
-      
-      self.presentViewController(alertController, animated: true, completion: nil)
+      APIModel.post("cars/create", parameters: params) { (result, error) -> () in
+        if (error != nil) {
+          NSLog("Error creating car")
+          let alertController = UIAlertController(title: "", message: "There was an error creating this car. Please try again.",
+            preferredStyle: UIAlertControllerStyle.Alert)
+          alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+          
+          self.presentViewController(alertController, animated: true, completion: nil)
+          return
+        }
+        
+        // if there is no error -> create car succeeded!
+        
+        let alertController = UIAlertController(title: "Car created!", message: "",
+          preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Add another car", style: UIAlertActionStyle.Default,handler: nil))
+        
+        
+        alertController.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default,handler: {(action) in
+          self.doDoneTransition()
+        }))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+      }
     }
+  }
+  
+  @IBAction func didPressDoneButton(sender: AnyObject) {
+    self.doDoneTransition()
+  }
+  
+  func doDoneTransition() {
+    if self.carManagementFlag {
+      self.navigationController?.popViewControllerAnimated(true)
+      return
+    }
+    let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+    let destViewController : InviteFriendsViewController = mainStoryboard.instantiateViewControllerWithIdentifier("inviteFriendsView") as! InviteFriendsViewController
+    self.navigationController?.pushViewController(destViewController, animated: true)
+    
   }
   
     override func viewDidAppear(animated: Bool) {
@@ -183,6 +215,9 @@ class ScannerViewController : UIViewController,
         
         dismissViewControllerAnimated(true, completion: {})
     }
+  
+  
+
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "new_message_segue" {

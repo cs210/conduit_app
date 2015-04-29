@@ -14,6 +14,7 @@ class InviteFriendsViewController : UIViewController, UITableViewDataSource {
   @IBOutlet weak var infoLabel: UILabel!
   @IBOutlet weak var menuButton: UIButton!
   @IBOutlet weak var friendsTableView: UITableView!
+  @IBOutlet weak var doneButton: UIButton!
   
   let HEADER_MESSAGE : String = "The more people are on Conduit, the better " +
                  "experience everyone has, so invite your EV-owning friends!\n " +
@@ -31,6 +32,7 @@ class InviteFriendsViewController : UIViewController, UITableViewDataSource {
       menuButton.hidden = true
     } else {
       menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
+      doneButton.hidden = true
     }
     friendsTableView.layer.borderWidth = 1
     friendsTableView.layer.borderColor = StyleColor.getColor(.Grey, brightness: .Light).CGColor
@@ -65,15 +67,9 @@ class InviteFriendsViewController : UIViewController, UITableViewDataSource {
   }
   
   @IBAction func goToScanner(sender: AnyObject) {
-    
     var defaults = NSUserDefaults.standardUserDefaults()
-    if defaults.boolForKey("isNewAccount") {
-      defaults.setBool(false, forKey: "isNewAccount")
-      self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
-    } else {
-      InviteToScannerSegue().perform()
-      //  self.performSegueWithIdentifier("invite_to_scanner_segue", sender: self)
-    }
+    defaults.setBool(false, forKey: "isNewAccount")
+    self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
   }
   
   @IBAction func inviteFriends(sender: AnyObject) {
@@ -87,13 +83,10 @@ class InviteFriendsViewController : UIViewController, UITableViewDataSource {
       self.sendMessages()
       
       let sentAlertController = UIAlertController(title: "", message:
-        "Message Sent!\n\n Invite more friends?",
+        "Message Sent!",
         preferredStyle: UIAlertControllerStyle.Alert)
       
-      sentAlertController.addAction(UIAlertAction(title: "Yes!", style: UIAlertActionStyle.Default,handler: nil))
-      sentAlertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel,handler: {(action) in
-        self.performSegueWithIdentifier("invite_to_scanner_segue", sender: self)
-      }))
+      sentAlertController.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.Default,handler: nil))
       
       self.presentViewController(sentAlertController, animated: true, completion: nil)
     }))

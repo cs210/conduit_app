@@ -17,7 +17,7 @@ class CreateAccountController : UIViewController {
   @IBOutlet weak var retypePasswordErrorLabel: UILabel!
   @IBOutlet var emailField: UITextField!
   @IBOutlet weak var emailErrorLabel: UILabel!
-  @IBOutlet var licenseField: UITextField!
+  @IBOutlet weak var phoneNumberField: UITextField!
   @IBOutlet weak var scrollView: UIScrollView!
   
   var activeTextField : UITextField!
@@ -124,8 +124,9 @@ class CreateAccountController : UIViewController {
     var deviceToken = defaults.valueForKey("deviceToken") as? String
 
     // Note: we do not yet have the user id or participantIdentifier since they do not exist on the server.
-    var user: User = User(id: nil, firstName: firstNameField.text, lastName: lastNameField.text, phoneNumber: "None",
-      emailAddress: emailField.text, deviceToken: deviceToken, pushEnabled: true, participantIdentifier: nil)
+    var user: User = User(id: nil, firstName: firstNameField.text, lastName: lastNameField.text,
+      phoneNumber: phoneNumberField.text, emailAddress: emailField.text, deviceToken: deviceToken,
+      pushEnabled: true, participantIdentifier: nil)
     // TODO: bug, push enabled not set to true
     var params = user.present()
     params.updateValue(passwordField.text, forKey: "password")
