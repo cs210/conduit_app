@@ -129,7 +129,6 @@ class CreateAccountController : UIViewController {
     // TODO: bug, push enabled not set to true
     var params = user.present()
     params.updateValue(passwordField.text, forKey: "password")
-
     
     APIModel.post("users/create", parameters: params) { (result, error) -> () in
       
@@ -148,29 +147,23 @@ class CreateAccountController : UIViewController {
       
       // Success. Now create the Layer participantIdentifier
 
-//      var emailAddress: String = result!["email_address"].string!
-//      
-//      var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//
-//      
+      var emailAddress: String = result!["email_address"].string!
       
-//      LayerHelpers.authenticationTokenWithEmailAddress(emailAddress, client: appDelegate.layerClient, completion: { (success, error) -> Void in
-//        if (error != nil) {
-//          NSLog("Layer Auth error")
-//          // todo add alert
-//          return
-//        }
-//        
+      var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
-        // redirect to login
-      
-//        self.navigationController?.popViewControllerAnimated(true)
-     // })
-      
-
+      LayerHelpers.authenticationTokenWithEmailAddress(emailAddress, client: appDelegate.layerClient, completion: { (success, error) -> Void in
+        if (error != nil) {
+          NSLog("Layer Auth error: \(error)")
+          // todo add alert
+          return
+        }
+        
+        // Redirect back to login
+        self.navigationController?.popViewControllerAnimated(true)
+      })
+    
     }
   
-    
   }
   
   // Checks that all req'd fields are filled in and valid. Returns false for 
