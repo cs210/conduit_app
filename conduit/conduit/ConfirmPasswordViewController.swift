@@ -18,6 +18,7 @@ class ConfirmPasswordViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordField.delegate = self
+      
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,6 +26,8 @@ class ConfirmPasswordViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
      
     }
+  
+    
     
 
     /*
@@ -37,7 +40,19 @@ class ConfirmPasswordViewController: UIViewController, UITextFieldDelegate {
     }
     */
   @IBAction func confirmPassword(sender: AnyObject) {
-    delegate?.nextSegueAfterConfirm(nextSegueID)
+    var user = User.getUserFromDefaults()
+    let params = ["password": passwordField.text, "email_address": user?.emailAddress]
+    APIModel.post("session/create", parameters: params) { (result, error) -> () in
+      if (error == nil) {
+        self.delegate?.nextSegueAfterConfirm(self.nextSegueID)
+      } else {
+        let alertController = UIAlertController(title: "", message:
+          "Incorrect Password!", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+      }
+    }
   }
 
   func textFieldShouldReturn(textField: UITextField) -> Bool {
