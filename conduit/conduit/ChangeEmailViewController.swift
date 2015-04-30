@@ -26,8 +26,7 @@ class ChangeEmailViewController: UIViewController {
     if user == nil {
       return
     }
-    var params = user!.present()
-    params.updateValue(emailTextField.text, forKey: "email_address")
+    user?.emailAddress = emailTextField.text
     user!.update { (result, error) -> () in
       let alertController = UIAlertController(title: "", message:
         "Your email has been updated!", preferredStyle: UIAlertControllerStyle.Alert)

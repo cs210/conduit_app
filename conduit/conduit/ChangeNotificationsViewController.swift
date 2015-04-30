@@ -27,8 +27,7 @@ class ChangeNotificationsViewController: UIViewController {
     if user == nil {
       return
     }
-    var params = user!.present()
-    params.updateValue(changeNotificationSwitch.on, forKey: "push_enabled")
+    user?.pushEnabled = changeNotificationSwitch.on
     user!.update { (result, error) -> () in
       let alertController = UIAlertController(title: "", message:
         "Your settings have been updated!", preferredStyle: UIAlertControllerStyle.Alert)

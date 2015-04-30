@@ -28,9 +28,9 @@ class ChangeNameViewController: UIViewController {
     if user == nil {
       return
     }
-    var params = user!.present()
-    params.updateValue(firstNameField.text, forKey: "first_name")
-    params.updateValue(lastNameField.text, forKey: "last_name")
+
+    user?.firstName = firstNameField.text
+    user?.lastName = lastNameField.text
     user!.update { (result, error) -> () in
       let alertController = UIAlertController(title: "", message:
         "Your name has been updated!", preferredStyle: UIAlertControllerStyle.Alert)
