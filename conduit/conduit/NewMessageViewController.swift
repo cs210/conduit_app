@@ -102,6 +102,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
     var parameters = ["license_plate": licensePlate]
     var participantIdentifiers : [String] = []
     
+    // /cars/license_plate/users
     APIModel.get("users", parameters: parameters) {(result, error) in
       if error != nil {
         NSLog("No car for license plate")

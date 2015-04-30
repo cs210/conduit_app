@@ -823,12 +823,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Welcome to Conduit! To get started, let's set up your car." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3cz-zw-1NQ">
-                                <rect key="frame" x="0.0" y="57" width="320" height="367"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TRP-KJ-eKH">
                                 <rect key="frame" x="0.0" y="471" width="320" height="30"/>
                                 <constraints>
@@ -853,12 +847,16 @@
                                     <action selector="goToInviteFriends:" destination="GQ2-4K-RNT" eventType="touchUpInside" id="nlv-3w-kbF"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to Conduit! To get started, let's set up your car." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IfY-ya-BOq">
+                                <rect key="frame" x="46" y="222" width="228" height="124"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3cz-zw-1NQ" firstAttribute="leading" secondItem="1sJ-Cb-gEW" secondAttribute="leading" constant="20" id="0q4-hA-MDX"/>
                             <constraint firstItem="7En-pL-Uhg" firstAttribute="top" secondItem="Rup-qh-aqC" secondAttribute="bottom" id="6VG-eN-1ir"/>
-                            <constraint firstAttribute="trailing" secondItem="3cz-zw-1NQ" secondAttribute="trailing" constant="20" id="HR4-i4-Wh6"/>
                             <constraint firstItem="Rup-qh-aqC" firstAttribute="leading" secondItem="1sJ-Cb-gEW" secondAttribute="leading" id="KbQ-qm-NVc"/>
                             <constraint firstItem="TRP-KJ-eKH" firstAttribute="leading" secondItem="1sJ-Cb-gEW" secondAttribute="leading" id="Q8f-LN-Cgy"/>
                             <constraint firstItem="Rup-qh-aqC" firstAttribute="top" secondItem="TRP-KJ-eKH" secondAttribute="bottom" id="TFe-jg-Xoh"/>

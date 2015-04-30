@@ -118,7 +118,6 @@ class CreateAccountController : UIViewController {
       self.presentViewController(alertController, animated: true, completion: nil)
       return
     }
-    println("before post")
     
     var defaults = NSUserDefaults.standardUserDefaults()
     var deviceToken = defaults.valueForKey("deviceToken") as? String
@@ -141,8 +140,6 @@ class CreateAccountController : UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
         return
       } else {
-        println("User created!")
-        println(result)
         var user = User(json: result!)
         let encodedUser = NSKeyedArchiver.archivedDataWithRootObject(user)
         defaults.setObject(encodedUser, forKey: "user")
@@ -153,7 +150,6 @@ class CreateAccountController : UIViewController {
       
       
       // Success. Now create the Layer participantIdentifier
-
       var emailAddress: String = result!["email_address"].string!
       var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
       

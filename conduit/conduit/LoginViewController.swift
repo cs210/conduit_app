@@ -37,21 +37,10 @@ class LoginViewController : UIViewController {
       var sessionKey = result!["session_token"].string!
       defaults.setValue(sessionKey, forKey: "session")
 
-      APIModel.get("\(sessionKey)/users", parameters: nil, get_completion: { (result, error) -> () in
-        if (error == nil) {
-          // we receive the user and save it into defaults
-          var user = User(json: result!)
-          let encodedUser = NSKeyedArchiver.archivedDataWithRootObject(user)
-          defaults.setObject(encodedUser, forKey: "user")
-        } else {
-          //alert the user that we couldn't retrieve the user model
-          let alertController = UIAlertController(title: "", message: "There was an error retrieving your information after logging into your account. Please try again.",
-            preferredStyle: UIAlertControllerStyle.Alert)
-          alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-          
-          self.presentViewController(alertController, animated: true, completion: nil)
-        }
-      })
+      var user = User(json: result!["user"])
+      let encodedUser = NSKeyedArchiver.archivedDataWithRootObject(user)
+      defaults.setObject(encodedUser, forKey: "user")
+
       
       self.dismissViewControllerAnimated(false, completion: {
         if defaults.boolForKey("isNewAccount") {

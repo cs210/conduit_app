@@ -71,6 +71,47 @@ class APIModel: NSObject {
     }
   }
   
+  class func put(path: String, parameters: [String: AnyObject]?,
+    put_completion: (result: JSON?, error: NSError?) -> ()){
+      
+      var url = "\(APIURL)\(path)"
+      
+      NSLog("Preparing for PUT request to: \(url)")
+      Alamofire.request(.PUT, url, parameters: parameters, encoding:.JSON).responseJSON {
+        (req, res, json, error) in
+        if(error != nil) {
+          NSLog("PUT Error: \(error) \(res)")
+          put_completion(result:nil, error:error!)
+        } else {
+          var json = JSON(json!)
+          NSLog("PUT Result: \(json)")
+          put_completion(result:json, error:nil)
+        }
+      }
+  }
+  
+  class func delete(path: String, parameters: [String: AnyObject]?,
+    delete_completion: (result: JSON?, error: NSError?) -> ()){
+      
+      var url = "\(APIURL)\(path)"
+      
+      NSLog("Preparing for DELETE request to: \(url)")
+      
+      Alamofire.request(.DELETE, url, parameters: parameters, encoding:.JSON).responseJSON {
+        (req, res, json, error) in
+        if(error != nil) {
+          NSLog("DELETE Error: \(error) \(res)")
+          delete_completion(result:nil, error:error!)
+        } else {
+          var json = JSON(json!)
+          NSLog("DELETE Result: \(json)")
+          delete_completion(result:json, error:nil)
+        }
+      }
+  }
+  
+  
+  
   class func index(completion: (result: JSON?, error: NSError?) -> ()){
     self.get("\(self.model())", get_completion:({ (result: JSON?, error: NSError?) in
       completion(result: result, error: error)
@@ -80,15 +121,15 @@ class APIModel: NSObject {
   // MARK - Instance Methods.
   
   func update(completion: (result: JSON?, error: NSError?) -> ()){
-    var path = "\(self.model())/update/\(self.id)"
-    APIModel.post(path, parameters: self.present()) { (result, error) -> () in
-      NSLog ("/update POST complete")
+    var path = "\(self.model())/\(self.id)"
+    APIModel.put(path, parameters: self.present()) { (result, error) -> () in
+      NSLog ("/put complete")
     }
   }
   
   func delete(completion: (result: JSON?, error: NSError?) -> ()){
-    var path = "\(self.model())/\(self.id)/delete"
-    APIModel.post(path, parameters: self.present()) { (result, error) -> () in
+    var path = "\(self.model())/\(self.id)"
+    APIModel.delete(path, parameters: self.present()) { (result, error) -> () in
       NSLog ("/delete POST complete")
     }
   }
