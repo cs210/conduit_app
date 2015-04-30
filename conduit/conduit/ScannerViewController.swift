@@ -36,6 +36,7 @@ class ScannerViewController : UIViewController,
     super.viewDidLoad()
     
     var sessionKey = NSUserDefaults.standardUserDefaults().stringForKey("session")
+    // testing if the session key is actually valid...
     if (sessionKey == nil) {
         performSegueWithIdentifier("to_login", sender: self)
     }
