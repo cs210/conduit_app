@@ -24,17 +24,14 @@ class ChangeNameViewController: UIViewController {
     }
     
   @IBAction func saveChanges(sender: AnyObject) {
-    var sessionToken = NSUserDefaults().stringForKey("session")
-    var user : User!
-    if let data = NSUserDefaults().objectForKey("user") as? NSData {
-      user = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! User
+    var user = User.getUserFromDefaults()
+    if user == nil {
+      return
     }
-    
-    var params = user.present()
+    var params = user!.present()
     params.updateValue(firstNameField.text, forKey: "first_name")
     params.updateValue(lastNameField.text, forKey: "last_name")
-    params.updateValue(sessionToken!, forKey: "session_token")
-    user.update { (result, error) -> () in
+    user!.update { (result, error) -> () in
       let alertController = UIAlertController(title: "", message:
         "Your name has been updated!", preferredStyle: UIAlertControllerStyle.Alert)
       alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))

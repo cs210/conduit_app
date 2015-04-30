@@ -861,10 +861,9 @@
                             <constraint firstAttribute="trailing" secondItem="3cz-zw-1NQ" secondAttribute="trailing" constant="20" id="HR4-i4-Wh6"/>
                             <constraint firstItem="Rup-qh-aqC" firstAttribute="leading" secondItem="1sJ-Cb-gEW" secondAttribute="leading" id="KbQ-qm-NVc"/>
                             <constraint firstItem="TRP-KJ-eKH" firstAttribute="leading" secondItem="1sJ-Cb-gEW" secondAttribute="leading" id="Q8f-LN-Cgy"/>
-                            <constraint firstItem="Rup-qh-aqC" firstAttribute="top" secondItem="TRP-KJ-eKH" secondAttribute="bottom" id="TFe-jg-Xoh"/>
+                            <constraint firstItem="Rup-qh-aqC" firstAttribute="top" secondItem="TRP-KJ-eKH" secondAttribute="bottom" constant="1" id="TFe-jg-Xoh"/>
                             <constraint firstAttribute="trailing" secondItem="TRP-KJ-eKH" secondAttribute="trailing" id="VT7-Vm-0uq"/>
                             <constraint firstAttribute="trailing" secondItem="Rup-qh-aqC" secondAttribute="trailing" id="XIx-s6-k9I"/>
-                            <constraint firstItem="Rup-qh-aqC" firstAttribute="top" secondItem="TRP-KJ-eKH" secondAttribute="bottom" id="oR8-EF-Vv3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome!" id="Tc2-yW-ScC"/>
@@ -1266,7 +1265,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Change Email" id="y5H-jY-xW8"/>
                     <connections>
-                        <outlet property="emailLabel" destination="WGI-cg-rXM" id="fdL-9e-R8e"/>
+                        <outlet property="emailTextField" destination="WGI-cg-rXM" id="Bdw-MY-ULF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnS-yk-STc" userLabel="First Responder" sceneMemberID="firstResponder"/>
