@@ -10,7 +10,7 @@ import UIKit
 
 class MenuTableViewController: UITableViewController {
 
-  var menuOptions = ["Scanner", "Conversations", "Settings", "Invite Friends"]
+  var menuOptions = ["Scanner", "Conversations", "Settings", "Invite Friends", "Log Out"]
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("MenuItem",
@@ -35,7 +35,15 @@ class MenuTableViewController: UITableViewController {
       performSegueWithIdentifier("settings_segue", sender: self)
     } else if menuOptions[indexPath.row] == "Invite Friends" {
       performSegueWithIdentifier("invite_friends_segue", sender: self)
+    } else if menuOptions[indexPath.row] == "Log Out" {
+      doLogOut()
     }
+  }
+  
+  func doLogOut() {
+    var defaults = NSUserDefaults.standardUserDefaults()
+    defaults.removeObjectForKey("session")
+    performSegueWithIdentifier("scanner_segue", sender: self)
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
