@@ -110,12 +110,28 @@ class User: APIModel, ATLParticipant, NSCoding {
     return present
   }
   
+  override func update(completion: (result: JSON?, error: NSError?) -> ()){
+    var sessionToken = NSUserDefaults().stringForKey("session")
+    var path = "users/\(sessionToken!)/update"
+    APIModel.post(path, parameters: self.present()) { (result, error) -> () in
+      NSLog ("/update POST complete")
+    }
+  }
+  
   var avatarImage:UIImage! {
     get {
       return UIImage(named: "DefaultFriendThumbnail")
     }
   }
 
+  class func getUserFromDefaults() -> User? {
+    var sessionToken = NSUserDefaults().stringForKey("session")
+    var user : User
+    if let data = NSUserDefaults().objectForKey("user") as? NSData {
+      return NSKeyedUnarchiver.unarchiveObjectWithData(data) as! User
+    }
+    return nil
+  }
   
   // pragma mark - NSCoding http://nshipster.com/nscoding/
   
