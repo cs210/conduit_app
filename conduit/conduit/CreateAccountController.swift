@@ -140,6 +140,11 @@ class CreateAccountController : UIViewController {
       
         self.presentViewController(alertController, animated: true, completion: nil)
         return
+      } else {
+        println("User created!")
+        println(result)
+        var user = User(json: result!)
+        defaults.setObject(user, forKey: "user")
       }
       
       defaults.setBool(true, forKey: "isNewAccount")
