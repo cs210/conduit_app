@@ -19,7 +19,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
   ]
   var licensePlate : String!
   var manualLicensePlate : Bool!
-  var participantIdentifiers : [String]?
+  var participantIdentifiers : [String] = []
 
   @IBOutlet weak var toFieldBackground: UIView!
   @IBOutlet weak var licenseTextField: UITextField!
@@ -97,15 +97,13 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
       next.licensePlate = licenseTextField.text
     }
     if segue.identifier == "send_to_conversation" {
-      var next = segue.destinationViewController as! ConversationViewController
-      next.participantIdentifiers = participantIdentifiers
+//      var next = segue.destinationViewController as! ConversationListViewController
+//      next.newParticipantIdentifiers = self.participantIdentifiers
     }
   }
   
   func sendMessageToLicensePlate(licensePlate : String) {
-    var session = NSUserDefaults().stringForKey("session")
-    
-    participantIdentifiers = []
+    var session = NSUserDefaults().stringForKey("session")!
     
     // /cars/license_plate/users
     APIModel.get("cars/\(licensePlate)/users?session_token=\(session)", parameters: nil) {(result, error) in
@@ -119,10 +117,14 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
         return
       }
       
-      for (var i=0; i<result?.count; i++){
-        var userJson = result![i]
-        var participantIdentifier = userJson["participant_identifier"].stringValue
-        self.participantIdentifiers!.append(participantIdentifier)
+      var userList = result!["users"]
+      if userList != nil  {
+        for (var i = 0; i<userList.count; i++) {
+          var userJSON = userList[i]
+          var participantIdentifier = userJSON["participant_identifier"].stringValue
+          self.participantIdentifiers.append(participantIdentifier)
+        }
+
       }
       
       NSLog("Going to send_to_conversation segue")

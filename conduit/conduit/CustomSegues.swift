@@ -32,6 +32,7 @@ class SendToConversationSegue: UIStoryboardSegue {
     var conversationViewController: ConversationViewController = ConversationViewController(layerClient: appDelegate.layerClient)
     
     conversationViewController.conversation = nil
+    conversationViewController.participantIdentifiers = sourceViewController.participantIdentifiers
     conversationListNavigationController.pushViewController(conversationViewController, animated: false)
 
     // TODO: broken here because layer is broken

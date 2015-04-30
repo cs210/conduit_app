@@ -13,7 +13,7 @@ import SwiftyJSON
 #if arch(i386) || arch(x86_64)
   let APIURL = "http://0.0.0.0:8080/"
 #else
-  let APIURL = "http://171.66.208.5:8080/"
+  let APIURL = "http://172.20.10.2:8080/"
 #endif
 
 // default base url

@@ -8,7 +8,14 @@
 
 #import "LayerHelpers.h"
 
+#if TARGET_IPHONE_SIMULATOR
+const static NSString *APIURL = @"http://0.0.0.0:8080/";
+#else
+const static NSString *APIURL = @"http://172.20.10.2:8080/";
+#endif
+
 @implementation LayerHelpers
+
 
 + (NSDateFormatter *)LQSDateFormatter
 {
@@ -103,7 +110,8 @@
   NSParameterAssert(nonce);
   NSParameterAssert(completion);
   
-  NSString *url = [NSString stringWithFormat:@"http://0.0.0.0:8080/users/identifier"];
+  
+  NSString *url = [NSString stringWithFormat:@"%@users/identifier", APIURL];
 
   NSURL *identityTokenURL = [NSURL URLWithString:url];
   NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:identityTokenURL];

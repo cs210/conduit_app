@@ -14,7 +14,7 @@ class ConversationListViewController : ATLConversationListViewController, ATLCon
 
   var selectedIndex: NSIndexPath!
   var dateFormatter: NSDateFormatter!
-  
+  // The conversation view controllers uses this to start new conversations
   override func viewDidLoad() {
     super.viewDidLoad()
     
