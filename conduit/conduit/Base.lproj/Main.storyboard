@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -248,7 +248,7 @@
                                     <action selector="createAccount:" destination="gP5-ji-s31" eventType="touchUpInside" id="31V-ok-56c"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="giM-VM-MY9">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="giM-VM-MY9">
                                 <rect key="frame" x="20" y="88" width="280" height="416"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="last" borderStyle="roundedRect" placeholder="last name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tPV-VV-yNt">
@@ -257,8 +257,6 @@
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <action selector="checkInput:" destination="gP5-ji-s31" eventType="editingDidEnd" id="Cvv-be-24x"/>
-                                            <action selector="textFieldDidBeginEditing:" destination="gP5-ji-s31" eventType="editingDidBegin" id="63Q-qk-zBG"/>
-                                            <action selector="textFieldDidEndEditing:" destination="gP5-ji-s31" eventType="editingDidEnd" id="elM-WK-LMe"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="abc" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CJ5-4K-aNq">
@@ -267,8 +265,6 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <connections>
                                             <action selector="checkInput:" destination="gP5-ji-s31" eventType="editingDidEnd" id="dd1-5K-f74"/>
-                                            <action selector="textFieldDidBeginEditing:" destination="gP5-ji-s31" eventType="editingDidBegin" id="27a-Eq-PzR"/>
-                                            <action selector="textFieldDidEndEditing:" destination="gP5-ji-s31" eventType="editingDidEnd" id="zPp-ZY-HI7"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="abc" borderStyle="roundedRect" placeholder="retype password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mj1-kp-fok">
@@ -277,8 +273,6 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <connections>
                                             <action selector="checkRetypePasswordInput:" destination="gP5-ji-s31" eventType="editingDidEnd" id="tbS-uq-MWr"/>
-                                            <action selector="textFieldDidBeginEditing:" destination="gP5-ji-s31" eventType="editingDidBegin" id="y9y-bA-Ihw"/>
-                                            <action selector="textFieldDidEndEditing:" destination="gP5-ji-s31" eventType="editingDidEnd" id="vZF-TF-jS9"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="first@gmail.com" borderStyle="roundedRect" placeholder="e-mail address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YUP-wC-iHw">
@@ -287,8 +281,6 @@
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                         <connections>
                                             <action selector="checkEmailInput:" destination="gP5-ji-s31" eventType="editingDidEnd" id="Jo1-Bx-wtb"/>
-                                            <action selector="textFieldDidBeginEditing:" destination="gP5-ji-s31" eventType="editingDidBegin" id="NMp-Kc-bjn"/>
-                                            <action selector="textFieldDidEndEditing:" destination="gP5-ji-s31" eventType="editingDidEnd" id="KcK-8d-5RY"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xb9-DI-Zle">
@@ -315,8 +307,6 @@
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <action selector="checkInput:" destination="gP5-ji-s31" eventType="editingDidEnd" id="Wtm-a9-4CV"/>
-                                            <action selector="textFieldDidBeginEditing:" destination="gP5-ji-s31" eventType="editingDidBegin" id="zyQ-c1-b7o"/>
-                                            <action selector="textFieldDidEndEditing:" destination="gP5-ji-s31" eventType="editingDidEnd" id="nhD-CP-XNF"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="6501234567" borderStyle="roundedRect" placeholder="Phone Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w81-2n-sne">
@@ -335,6 +325,8 @@
                                     <constraint firstItem="w81-2n-sne" firstAttribute="leading" secondItem="giM-VM-MY9" secondAttribute="leading" constant="40" id="Jku-QA-85g"/>
                                     <constraint firstAttribute="trailing" secondItem="tPV-VV-yNt" secondAttribute="trailing" constant="40" id="Lgw-Vb-Cqm"/>
                                     <constraint firstItem="CJ5-4K-aNq" firstAttribute="top" secondItem="tPV-VV-yNt" secondAttribute="bottom" constant="40" id="MFe-w1-xnl"/>
+                                    <constraint firstItem="z3T-xF-nmX" firstAttribute="top" secondItem="giM-VM-MY9" secondAttribute="top" constant="40" id="Pxw-gK-R7K"/>
+                                    <constraint firstAttribute="bottom" secondItem="w81-2n-sne" secondAttribute="bottom" constant="20" id="QRD-oU-Rjg"/>
                                     <constraint firstItem="tPV-VV-yNt" firstAttribute="leading" secondItem="giM-VM-MY9" secondAttribute="leading" constant="40" id="TK8-h1-zEP"/>
                                     <constraint firstAttribute="trailing" secondItem="Mj1-kp-fok" secondAttribute="trailing" constant="40" id="Veu-mb-weB"/>
                                     <constraint firstItem="A6i-HV-DbY" firstAttribute="leading" secondItem="giM-VM-MY9" secondAttribute="leading" constant="40" id="XVn-pP-OG3"/>
@@ -347,7 +339,6 @@
                                     <constraint firstItem="YUP-wC-iHw" firstAttribute="top" secondItem="xb9-DI-Zle" secondAttribute="bottom" constant="17" id="ovM-1O-sZ9"/>
                                     <constraint firstItem="xb9-DI-Zle" firstAttribute="top" secondItem="Mj1-kp-fok" secondAttribute="bottom" constant="2" id="v5C-qE-M2i"/>
                                     <constraint firstItem="w81-2n-sne" firstAttribute="top" secondItem="A6i-HV-DbY" secondAttribute="bottom" constant="17" id="vht-b9-uQP"/>
-                                    <constraint firstItem="z3T-xF-nmX" firstAttribute="top" secondItem="giM-VM-MY9" secondAttribute="top" constant="40" id="zQP-zc-Goo"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -375,6 +366,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bottomConstraint" destination="FZy-8C-dF6" id="5eH-hZ-pG9"/>
                         <outlet property="emailErrorLabel" destination="A6i-HV-DbY" id="sNN-J5-fNg"/>
                         <outlet property="emailField" destination="YUP-wC-iHw" id="Y2t-Cq-rm5"/>
                         <outlet property="firstNameField" destination="z3T-xF-nmX" id="t1D-h8-IlB"/>
@@ -383,7 +375,6 @@
                         <outlet property="phoneNumberField" destination="w81-2n-sne" id="Bsv-f0-Wjr"/>
                         <outlet property="retypePasswordErrorLabel" destination="xb9-DI-Zle" id="WdK-ly-7QY"/>
                         <outlet property="retypePasswordField" destination="Mj1-kp-fok" id="Sqd-fy-wR0"/>
-                        <outlet property="scrollView" destination="giM-VM-MY9" id="hKc-5s-RcD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oxg-0C-cqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
