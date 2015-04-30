@@ -43,6 +43,8 @@ class MenuTableViewController: UITableViewController {
   func doLogOut() {
     var defaults = NSUserDefaults.standardUserDefaults()
     defaults.removeObjectForKey("session")
+    defaults.removeObjectForKey("user")
+    defaults.removeObjectForKey("participantIdentifier")
     performSegueWithIdentifier("scanner_segue", sender: self)
   }
   

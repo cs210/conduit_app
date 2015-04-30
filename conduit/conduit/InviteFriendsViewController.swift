@@ -73,7 +73,9 @@ class InviteFriendsViewController : UIViewController, UITableViewDataSource {
   }
   
   @IBAction func inviteFriends(sender: AnyObject) {
-    var friendsInvited : Bool = false
+    if selectedFriends.count == 0 {
+      return
+    }
     let alertController = UIAlertController(title: "", message:
       "Send an invitation to conduit to " + String(selectedFriends.count) + " friends?",
       preferredStyle: UIAlertControllerStyle.Alert)

@@ -25,7 +25,11 @@ class ChangeNameViewController: UIViewController {
     
   @IBAction func saveChanges(sender: AnyObject) {
     var sessionToken = NSUserDefaults().stringForKey("session")
-    var user = NSUserDefaults().objectForKey("user") as! User
+    var user : User!
+    if let data = NSUserDefaults().objectForKey("user") as? NSData {
+      user = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! User
+    }
+    
     var params = user.present()
     params.updateValue(firstNameField.text, forKey: "first_name")
     params.updateValue(lastNameField.text, forKey: "last_name")
