@@ -130,7 +130,7 @@ class CreateAccountController : UIViewController {
     var params = user.present()
     params.updateValue(passwordField.text, forKey: "password")
     
-    APIModel.post("users/create", parameters: params) { (result, error) -> () in
+    APIModel.post("users", parameters: params) { (result, error) -> () in
       
       if (error != nil) {
         let alertController = UIAlertController(title: "", message: "There was an error creating your account. Please try again.",

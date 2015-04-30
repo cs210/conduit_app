@@ -112,9 +112,13 @@ class User: APIModel, ATLParticipant, NSCoding {
   
   override func update(completion: (result: JSON?, error: NSError?) -> ()){
     var sessionToken = NSUserDefaults().stringForKey("session")
-    var path = "users/\(sessionToken!)/update"
-    APIModel.post(path, parameters: self.present()) { (result, error) -> () in
-      NSLog ("/update POST complete")
+    var path = "users/\(sessionToken!)"
+    APIModel.put(path, parameters: self.present()) { (result, error) -> () in
+      if (error != nil) {
+        completion(result: nil, error: error!)
+      } else {
+        completion(result: result, error: nil)
+      }
     }
   }
   

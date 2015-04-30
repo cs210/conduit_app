@@ -13,9 +13,9 @@
 
 + (NSDateFormatter *)LQSDateFormatter;
 
-+ (void)authenticateLayerWithUserID:(NSString *)userID
-                             client:(LYRClient *)client
-                         completion:(void (^)(BOOL success, NSError * error))completion;
++ (void)authenticateLayerWithEmailAddress:(NSString *)emailAddress
+                                   client:(LYRClient *)client
+                               completion:(void (^)(BOOL success, NSError * error))completion;
 
 
 + (void)authenticationTokenWithEmailAddress:(NSString *)emailAddress

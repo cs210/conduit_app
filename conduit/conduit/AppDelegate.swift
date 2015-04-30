@@ -8,16 +8,16 @@
 
 import UIKit
 
-#if arch(i386) || arch(x86_64)
-  let LQSCurrentUserID = "Simulator"
-  let LQSParticipantUserID = "Device"
-  let LQSInitialMessageTexta = "Hey Device! This is your friend, Simulator."
-#else
-  let LQSCurrentUserID = "Device"
-  let LQSParticipantUserID = "Simulator"
-  let LQSInitialMessageTexta = "Hey Simulator! This is your friend, Device."
-#endif
-  let LQSParticipant2UserID = "Dashboard"
+//#if arch(i386) || arch(x86_64)
+//  let LQSCurrentUserID = "Simulator"
+//  let LQSParticipantUserID = "Device"
+//  let LQSInitialMessageTexta = "Hey Device! This is your friend, Simulator."
+//#else
+//  let LQSCurrentUserID = "Device"
+//  let LQSParticipantUserID = "Simulator"
+//  let LQSInitialMessageTexta = "Hey Simulator! This is your friend, Device."
+//#endif
+//  let LQSParticipant2UserID = "Dashboard"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
@@ -45,13 +45,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
   
   func authenticateWithLayer() {
     
+    if self.layerClient?.authenticatedUserID != nil {
+      NSLog("Already connected to Layer");
+      return
+    }
+    
+    
     self.layerClient?.connectWithCompletion({ (success:Bool, error:NSError!) -> Void in
       if (!success) {
         NSLog("Failed to connect to Layer: \(error)");
       } else {
-        // TODO: This should be a UUID of the user!
         
-        LayerHelpers.authenticateLayerWithUserID(LQSCurrentUserID, client: self.layerClient, completion: { (success:Bool, error:NSError!) -> Void in
+        var currentUser: User = User.getUserFromDefaults()!
+        LayerHelpers.authenticateLayerWithEmailAddress(currentUser.emailAddress, client: self.layerClient, completion: { (success:Bool, error:NSError!) -> Void in
           if (!success) {
             NSLog("Failed Authenticating Layer Client with error:\(error)");
           }

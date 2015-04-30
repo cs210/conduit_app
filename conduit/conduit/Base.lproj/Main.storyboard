@@ -885,12 +885,12 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sIj-BM-0vQ">
                                 <rect key="frame" x="65" y="221" width="190" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm New Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mW7-TE-NyU">
                                 <rect key="frame" x="65" y="300" width="190" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please enter a new password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHI-zq-thU">
                                 <rect key="frame" x="47" y="142" width="226" height="21"/>
@@ -911,7 +911,6 @@
                                 <connections>
                                     <action selector="confirmPassword:" destination="4ag-mv-46A" eventType="touchUpInside" id="hJL-nX-9Lx"/>
                                     <action selector="savePassword:" destination="YNa-1T-O9y" eventType="touchUpInside" id="T4b-Ff-6lF"/>
-                                    <segue destination="rwI-BF-umf" kind="push" identifier="notify_changed_password_segue" id="yHB-Fw-iEp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -926,11 +925,12 @@
                     <connections>
                         <outlet property="confirmPasswordField" destination="mW7-TE-NyU" id="7IC-V9-mb8"/>
                         <outlet property="newPasswordField" destination="sIj-BM-0vQ" id="MYb-hy-RqX"/>
+                        <segue destination="rwI-BF-umf" kind="push" identifier="notify_changed_password_segue" id="2d6-n7-gak"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SKB-Ua-Ys3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1553" y="1942"/>
+            <point key="canvasLocation" x="1553" y="1952"/>
         </scene>
         <!--Change Name-->
         <scene sceneID="tQ8-1I-9KU">
@@ -991,7 +991,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sTC-BA-geI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1553" y="2569"/>
+            <point key="canvasLocation" x="1561" y="2717"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="FC8-sF-WCw">

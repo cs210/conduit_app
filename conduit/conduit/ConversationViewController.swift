@@ -14,6 +14,7 @@ class ConversationViewController : ATLConversationViewController {
   
   var dateFormatter: NSDateFormatter!
   var conversationTitle: String!
+  var participantIdentifiers: [String]?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -44,7 +45,7 @@ class ConversationViewController : ATLConversationViewController {
     if (self.conversation == nil) {
       var error:NSError? = nil
       self.conversation = self.layerClient.newConversationWithParticipants(
-        NSSet(array: [LQSParticipantUserID]) as Set<NSObject>, options: nil, error: &error)
+        NSSet(array: participantIdentifiers!) as Set<NSObject>, options: nil, error: &error)
       
       if (self.conversation == nil) {
         NSLog("New Conversation creation failed: \(error)")

@@ -26,14 +26,14 @@ class ConversationListViewController : ATLConversationListViewController, ATLCon
     self.dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
     self.dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
     
-    var user1 = User(id: 1, firstName: "FirstName", lastName: "LastName", phoneNumber: "xx", emailAddress: "xx",
-      deviceToken: "xx", pushEnabled: true, participantIdentifier: LQSCurrentUserID)
-
-    var user2 = User(id: 2, firstName: "FirstName2", lastName: "LastName2", phoneNumber: "xx", emailAddress: "xx",
-      deviceToken: "xx", pushEnabled: true, participantIdentifier: LQSParticipantUserID)
-
-    DataStore.sharedInstance.persistUsers(Set([user1, user2]))
-    
+//    var user1 = User(id: 1, firstName: "FirstName", lastName: "LastName", phoneNumber: "xx", emailAddress: "xx",
+//      deviceToken: "xx", pushEnabled: true, participantIdentifier: LQSCurrentUserID)
+//
+//    var user2 = User(id: 2, firstName: "FirstName2", lastName: "LastName2", phoneNumber: "xx", emailAddress: "xx",
+//      deviceToken: "xx", pushEnabled: true, participantIdentifier: LQSParticipantUserID)
+//
+//    DataStore.sharedInstance.persistUsers(Set([user1, user2]))
+//    
     self.navigationController?.navigationBar.topItem?.title = "Conversations"
   }
   
@@ -71,7 +71,7 @@ extension ConversationListViewController: ATLConversationListViewControllerDataS
     }
     
     var participants:Set<String> = conversation.participants as! Set<String>
-    participants = participants.subtract([LQSCurrentUserID])
+  //  participants = participants.subtract([User.getUserFromDefaults()?.participantIdentifier]!)
     
     var conversationName: String = ""
     for participant in participants {
@@ -84,7 +84,7 @@ extension ConversationListViewController: ATLConversationListViewControllerDataS
   
   func conversationListViewController(conversationListViewController: ATLConversationListViewController!, avatarItemForConversation conversation: LYRConversation!) -> ATLAvatarItem! {
     return User(id: 1, firstName: "FirstName", lastName: "LastName", phoneNumber: "xx", emailAddress: "xx",
-      deviceToken: "xx", pushEnabled: true, participantIdentifier: LQSParticipantUserID)
+      deviceToken: "xx", pushEnabled: true, participantIdentifier: "blah")
   }
   
 }

@@ -24,7 +24,7 @@ class CarManagementView : UIViewController, UITableViewDataSource {
     self.cars = []
     var defaults = NSUserDefaults.standardUserDefaults()
     var sessionToken : String = defaults.valueForKey("session") as! String
-    APIModel.get("cars/\(sessionToken)", parameters: nil) {(result, error) in
+    APIModel.get("users/\(sessionToken)/cars", parameters: nil) {(result, error) in
       if error != nil {
         NSLog("Error getting cars list")
         return

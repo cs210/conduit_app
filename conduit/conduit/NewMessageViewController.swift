@@ -19,6 +19,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
   ]
   var licensePlate : String!
   var manualLicensePlate : Bool!
+  var participantIdentifiers : [String]?
 
   @IBOutlet weak var toFieldBackground: UIView!
   @IBOutlet weak var licenseTextField: UITextField!
@@ -95,15 +96,19 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
       var next = segue.destinationViewController as! CustomMessageController
       next.licensePlate = licenseTextField.text
     }
+    if segue.identifier == "send_to_conversation" {
+      var next = segue.destinationViewController as! ConversationViewController
+      next.participantIdentifiers = participantIdentifiers
+    }
   }
   
   func sendMessageToLicensePlate(licensePlate : String) {
     var session = NSUserDefaults().stringForKey("session")
-    var parameters = ["license_plate": licensePlate]
-    var participantIdentifiers : [String] = []
+    
+    participantIdentifiers = []
     
     // /cars/license_plate/users
-    APIModel.get("users", parameters: parameters) {(result, error) in
+    APIModel.get("cars/\(licensePlate)/users?session_token=\(session)", parameters: nil) {(result, error) in
       if error != nil {
         NSLog("No car for license plate")
         let alertController = UIAlertController(title: "", message: "We could not find owners of a car with that license plate.",
@@ -117,24 +122,14 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
       for (var i=0; i<result?.count; i++){
         var userJson = result![i]
         var participantIdentifier = userJson["participant_identifier"].stringValue
-        participantIdentifiers.append(participantIdentifier)
+        self.participantIdentifiers!.append(participantIdentifier)
       }
+      
+      NSLog("Going to send_to_conversation segue")
+      self.performSegueWithIdentifier("send_to_conversation", sender: self)
+      
     }
   
-    // Callback code:
-    
-//    if error != nil {
-//      NSLog("Error sending message")
-//      let alertController = UIAlertController(title: "", message: "Could not send message. Please try again.",
-//        preferredStyle: UIAlertControllerStyle.Alert)
-//      alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-//      
-//      self.presentViewController(alertController, animated: true, completion: nil)
-//      return
-//    }
-//    
-    NSLog("Going to send_to_conversation segue")
-    self.performSegueWithIdentifier("send_to_conversation", sender: self)
   }
 
 }

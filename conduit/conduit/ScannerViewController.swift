@@ -132,7 +132,7 @@ class ScannerViewController : UIViewController,
       // let params = ["session_token": sessionToken, "license_plate": self.licensePlate, "manufacturer": ""]
       let params = ["license_plate": self.licensePlate, "manufacturer": ""]
 
-      APIModel.post("\(sessionToken)/cars/create", parameters: params) { (result, error) -> () in
+      APIModel.post("users/\(sessionToken)/cars", parameters: params) { (result, error) -> () in
         if (error != nil) {
           NSLog("Error creating car")
           let alertController = UIAlertController(title: "", message: "There was an error creating this car. Please try again.",
@@ -149,7 +149,6 @@ class ScannerViewController : UIViewController,
           preferredStyle: UIAlertControllerStyle.Alert)
         
         alertController.addAction(UIAlertAction(title: "Add another car", style: UIAlertActionStyle.Default,handler: nil))
-        
         
         alertController.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default,handler: {(action) in
           self.doDoneTransition()

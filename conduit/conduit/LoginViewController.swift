@@ -23,7 +23,7 @@ class LoginViewController : UIViewController {
     let params = ["password": passwordField.text, "email_address": emailField.text]
     
     // Create a new session for the user, logging them into their account.
-    APIModel.post("sessions/create", parameters: params) { (result, error) -> () in
+    APIModel.post("sessions", parameters: params) { (result, error) -> () in
       if (error != nil) {
         let alertController = UIAlertController(title: "", message: "There was an error logging into your account. Please try again.",
           preferredStyle: UIAlertControllerStyle.Alert)
@@ -41,6 +41,8 @@ class LoginViewController : UIViewController {
       let encodedUser = NSKeyedArchiver.archivedDataWithRootObject(user)
       defaults.setObject(encodedUser, forKey: "user")
 
+      var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+      appDelegate.authenticateWithLayer()
       
       self.dismissViewControllerAnimated(false, completion: {
         if defaults.boolForKey("isNewAccount") {

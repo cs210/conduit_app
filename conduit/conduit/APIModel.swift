@@ -10,8 +10,14 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+#if arch(i386) || arch(x86_64)
+  let APIURL = "http://0.0.0.0:8080/"
+#else
+  let APIURL = "http://171.66.208.5:8080/"
+#endif
+
 // default base url
-let APIURL = "http://0.0.0.0:8080/"
+
 
 /* Defines a base API model class, which implements basic REST functionality on any subclass.
    PATH is optional since introspection can determine the model name. If provided, it is always 
@@ -123,14 +129,22 @@ class APIModel: NSObject {
   func update(completion: (result: JSON?, error: NSError?) -> ()){
     var path = "\(self.model())/\(self.id)"
     APIModel.put(path, parameters: self.present()) { (result, error) -> () in
-      NSLog ("/put complete")
+      if (error != nil) {
+        completion(result: nil, error: error!)
+      } else {
+        completion(result: result, error: nil)
+      }
     }
   }
   
   func delete(completion: (result: JSON?, error: NSError?) -> ()){
     var path = "\(self.model())/\(self.id)"
     APIModel.delete(path, parameters: self.present()) { (result, error) -> () in
-      NSLog ("/delete POST complete")
+      if (error != nil) {
+        completion(result: nil, error: error!)
+      } else {
+        completion(result: result, error: nil)
+      }
     }
   }
   
