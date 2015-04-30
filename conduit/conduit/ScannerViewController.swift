@@ -129,9 +129,10 @@ class ScannerViewController : UIViewController,
       // TODO(nisha): manufacturer
       var defaults = NSUserDefaults.standardUserDefaults()
       var sessionToken : String = defaults.valueForKey("session") as! String
-      let params = ["session_token": sessionToken, "license_plate": self.licensePlate, "manufacturer": ""]
-      
-      APIModel.post("cars/create", parameters: params) { (result, error) -> () in
+      // let params = ["session_token": sessionToken, "license_plate": self.licensePlate, "manufacturer": ""]
+      let params = ["license_plate": self.licensePlate, "manufacturer": ""]
+
+      APIModel.post("\(sessionToken)/cars/create", parameters: params) { (result, error) -> () in
         if (error != nil) {
           NSLog("Error creating car")
           let alertController = UIAlertController(title: "", message: "There was an error creating this car. Please try again.",
@@ -165,6 +166,8 @@ class ScannerViewController : UIViewController,
   
   func doDoneTransition() {
     if self.carManagementFlag {
+      let prevVC : CarManagementView = self.getPreviousViewController() as! CarManagementView
+      prevVC.loadCars()
       self.navigationController?.popViewControllerAnimated(true)
       return
     }
@@ -173,6 +176,27 @@ class ScannerViewController : UIViewController,
     self.navigationController?.pushViewController(destViewController, animated: true)
     
   }
+  
+  func getPreviousViewController() -> UIViewController? {
+    let numVCs = self.navigationController!.viewControllers.count
+    
+    if numVCs < 2 {
+      return nil
+    }
+    
+    return self.navigationController!.viewControllers[numVCs - 2] as! UIViewController
+  }
+  
+  
+//  - (UIViewController *)backViewController
+//  {
+//  NSInteger numberOfViewControllers = self.navigationController.viewControllers.count;
+//  
+//  if (numberOfViewControllers < 2)
+//  return nil;
+//  else
+//  return [self.navigationController.viewControllers objectAtIndex:numberOfViewControllers - 2];
+//  }
   
     override func viewDidAppear(animated: Bool) {
         captureSession = AVCaptureSession()

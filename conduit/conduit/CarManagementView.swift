@@ -9,45 +9,37 @@
 import UIKit
 import Foundation
 
-
-//var licensePlate = result!["license_plate"].string!
-//let alertController = UIAlertController(title: "", message: "\(licensePlate) has been added to your list of cars.",
-//  preferredStyle: UIAlertControllerStyle.Alert)
-//var cars = result!["cars"].arrayValue
-//var car_strings:[String] = cars.map { $0["license_plate"].string!}
-//println(car_strings)
-
-
 class CarManagementView : UIViewController, UITableViewDataSource {
   // we will download from server in the future
   var cars:[Car] = []
-  
   var selectedCarIndex:NSIndexPath!
+  @IBOutlet weak var carsTableView: UITableView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // grab cars
     self.loadCars()
-    
   }
   
   func loadCars() {
+    self.cars = []
     var defaults = NSUserDefaults.standardUserDefaults()
     var sessionToken : String = defaults.valueForKey("session") as! String
-    var params = ["session_token" : sessionToken]
-    APIModel.get("\(sessionToken)/cars", parameters: params) {(result, error) in
+    APIModel.get("cars/\(sessionToken)", parameters: nil) {(result, error) in
       if error != nil {
         NSLog("Error getting cars list")
         return
       }
-      for (var i=0; i<result?.count; i++){
-        var carJSON = result![i]
-        var car = Car(json: carJSON)
-        self.cars.append(car)
+      var carlist = result!["cars"]
+      if carlist != nil {
+        for (var i=0; i<carlist.count; i++){
+          var carJSON = carlist[i]
+          var car = Car(json: carJSON)
+          self.cars.append(car)
+        }
       }
+      NSLog("Done getting cars")
+      self.carsTableView.reloadData()
     }
-    println(cars)
   }
   
   @IBAction func addCar(sender: AnyObject) {

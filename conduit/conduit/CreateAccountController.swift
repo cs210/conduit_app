@@ -144,7 +144,8 @@ class CreateAccountController : UIViewController {
         println("User created!")
         println(result)
         var user = User(json: result!)
-        defaults.setObject(user, forKey: "user")
+        let encodedUser = NSKeyedArchiver.archivedDataWithRootObject(user)
+        defaults.setObject(encodedUser, forKey: "user")
       }
       
       defaults.setBool(true, forKey: "isNewAccount")

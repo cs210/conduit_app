@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import SwiftyJSON
 
-class User: APIModel, ATLParticipant {
+class User: APIModel, ATLParticipant, NSCoding {
 
   // Note: sessionToken should not be stored on the User since it's not an attribute on the server.
   
@@ -51,6 +51,41 @@ class User: APIModel, ATLParticipant {
       participantIdentifier: json["participant_identifier"].stringValue
     )
   }
+  
+  required convenience init(coder decoder: NSCoder) {
+    var dId = decoder.decodeIntegerForKey("id")
+    var dFirstName : String = decoder.decodeObjectForKey("firstName") as! String
+    var dLastName : String = decoder.decodeObjectForKey("lastName") as! String
+    var dFullName : String = decoder.decodeObjectForKey("fullName") as! String
+    var dPhoneNumber : String = decoder.decodeObjectForKey("phoneNumber") as! String
+    var dEmailAddress : String = decoder.decodeObjectForKey("emailAddress") as! String
+    var dDeviceToken : String? = decoder.decodeObjectForKey("deviceToken") as! String?
+    var dPushEnabled : Bool = decoder.decodeBoolForKey("pushEnabled")
+    var dParticipantIdentifier : String? = decoder.decodeObjectForKey("participantIdentifier") as! String?
+    
+    self.init(id: dId, firstName: dFirstName, lastName: dLastName, phoneNumber: dPhoneNumber,
+      emailAddress: dEmailAddress, deviceToken: dDeviceToken, pushEnabled: dPushEnabled,
+      participantIdentifier: dParticipantIdentifier)
+  }
+  
+  func encodeWithCoder(coder: NSCoder) {
+    if self.id != nil {
+      coder.encodeInteger(self.id!, forKey:"id")
+    }
+    coder.encodeObject(self.firstName, forKey:"firstName")
+    coder.encodeObject(self.lastName, forKey:"lastName")
+    coder.encodeObject(self.fullName, forKey:"fullName")
+    coder.encodeObject(self.phoneNumber, forKey:"phoneNumber")
+    coder.encodeObject(self.emailAddress, forKey:"emailAddress")
+    if self.deviceToken != nil {
+      coder.encodeObject(self.deviceToken!,  forKey:"deviceToken")
+    }
+    coder.encodeBool(self.pushEnabled, forKey: "pushEnabled")
+    if self.participantIdentifier != nil {
+      coder.encodeObject(self.participantIdentifier, forKey:"participantIdentifier")
+    }
+  }
+  
   
   override func present() -> [String:AnyObject] {
     var present: [String:AnyObject] = [
