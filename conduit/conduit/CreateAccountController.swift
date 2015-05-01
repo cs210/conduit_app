@@ -9,7 +9,8 @@
 import Foundation
 import UIKit
 
-class CreateAccountController : UIViewController {
+class CreateAccountController : UIViewController, UITextFieldDelegate {
+  @IBOutlet var scrollView: UIScrollView!
   @IBOutlet weak var firstNameField: UITextField!
   @IBOutlet weak var lastNameField: UITextField!
   @IBOutlet var passwordField: UITextField!
@@ -18,11 +19,12 @@ class CreateAccountController : UIViewController {
   @IBOutlet var emailField: UITextField!
   @IBOutlet weak var emailErrorLabel: UILabel!
   @IBOutlet weak var phoneNumberField: UITextField!
-  @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
   
   var activeTextField : UITextField!
   
-  
+  @IBAction func dismissKeyboard(sender: AnyObject) {
+    view.endEditing(true)
+  }
   override func viewDidLoad() {
     super.viewDidLoad()
     highlightError(firstNameField)
@@ -41,6 +43,23 @@ class CreateAccountController : UIViewController {
 
   }
   
+  func keyboardWillShow(notification: NSNotification) {
+    var info = notification.userInfo as! [String: NSObject]
+    if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+      self.scrollView.setContentOffset(CGPoint(x: 0, y: keyboardSize.height), animated: true)
+    }
+    
+  }
+
+  
+  func keyboardWillHide(notification: NSNotification) {
+    self.scrollView.setContentOffset(CGPointZero, animated: true)
+  }
+  
+  func textFieldDidBeginEditing(textField: UITextField) {
+    textField.delegate = self
+  }
+  
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
   }
@@ -50,24 +69,12 @@ class CreateAccountController : UIViewController {
     NSNotificationCenter.defaultCenter().removeObserver(self)
   }
 
-  func keyboardWillShow(sender: NSNotification) {
-    var info = sender.userInfo!
-    var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-    self.bottomConstraint.constant = keyboardFrame.size.height
-  }
-  
-  func keyboardWillHide(sender: NSNotification) {
-    var info = sender.userInfo!
-    var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-    self.bottomConstraint.constant = 0
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    return textField.resignFirstResponder()
   }
   
   @IBAction func cancel(sender: AnyObject) {
     navigationController?.popViewControllerAnimated(true)
-  }
-  
-  @IBAction func dismissKeyboard(sender: AnyObject) {
-    view.endEditing(true)
   }
   
   // Create account
@@ -147,6 +154,7 @@ class CreateAccountController : UIViewController {
     
     return !error
   }
+  
   
   
   // Helper functions to highlight and unhighlight text boxes

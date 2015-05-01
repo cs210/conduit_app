@@ -17,6 +17,7 @@
 		B58C3F491AF0CA4C002311EE /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C3F481AF0CA4C002311EE /* ChangeNameViewController.swift */; };
 		B58C3F4B1AF0CA5C002311EE /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C3F4A1AF0CA5C002311EE /* ChangeEmailViewController.swift */; };
 		B58C3F4D1AF0CA6E002311EE /* ChangeNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C3F4C1AF0CA6E002311EE /* ChangeNotificationsViewController.swift */; };
+		B58C3F4F1AF40ECE002311EE /* PhoneSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C3F4E1AF40ECE002311EE /* PhoneSettingsViewController.swift */; };
 		B58FD9B11ACE3191005B8648 /* AccountSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58FD9B01ACE3191005B8648 /* AccountSettingsView.swift */; };
 		B58FD9B31ACE67B5005B8648 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */; };
 		B5FD86701AECC0E900E4629E /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD866F1AECC0E900E4629E /* CarDetailsViewController.swift */; };
@@ -127,6 +128,7 @@
 		B58C3F481AF0CA4C002311EE /* ChangeNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
 		B58C3F4A1AF0CA5C002311EE /* ChangeEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewController.swift; sourceTree = "<group>"; };
 		B58C3F4C1AF0CA6E002311EE /* ChangeNotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeNotificationsViewController.swift; sourceTree = "<group>"; };
+		B58C3F4E1AF40ECE002311EE /* PhoneSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneSettingsViewController.swift; sourceTree = "<group>"; };
 		B58FD9B01ACE3191005B8648 /* AccountSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingsView.swift; sourceTree = "<group>"; };
 		B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		B5FD866F1AECC0E900E4629E /* CarDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
@@ -400,6 +402,7 @@
 				B58C3F481AF0CA4C002311EE /* ChangeNameViewController.swift */,
 				B58C3F4A1AF0CA5C002311EE /* ChangeEmailViewController.swift */,
 				B58C3F4C1AF0CA6E002311EE /* ChangeNotificationsViewController.swift */,
+				B58C3F4E1AF40ECE002311EE /* PhoneSettingsViewController.swift */,
 			);
 			path = conduit;
 			sourceTree = "<group>";
@@ -776,6 +779,7 @@
 				C5D02ECC1AE085A300C201A5 /* ATLTypingIndicatorViewController.m in Sources */,
 				C5D02EDE1AE085A300C201A5 /* ATLConversationCollectionViewMoreMessagesHeader.m in Sources */,
 				BDD28DC31ACDDD4E001B031D /* ConversationViewController.swift in Sources */,
+				B58C3F4F1AF40ECE002311EE /* PhoneSettingsViewController.swift in Sources */,
 				C5D02EE01AE085A300C201A5 /* ATLConversationView.m in Sources */,
 				C5D02EDD1AE085A300C201A5 /* ATLConversationCollectionViewHeader.m in Sources */,
 				C5D02EDB1AE085A300C201A5 /* ATLConversationCollectionView.m in Sources */,
