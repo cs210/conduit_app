@@ -27,8 +27,9 @@ class ConfirmPasswordViewController: UIViewController, UITextFieldDelegate {
      
     }
   
-    
-    
+  @IBAction func dismissKeyboard(sender: AnyObject) {
+    view.endEditing(true)
+  }
 
     /*
     // MARK: - Navigation
@@ -42,7 +43,8 @@ class ConfirmPasswordViewController: UIViewController, UITextFieldDelegate {
   @IBAction func confirmPassword(sender: AnyObject) {
     var user = User.getUserFromDefaults()
     let params = ["password": passwordField.text, "email_address": user?.emailAddress]
-    APIModel.post("session/create", parameters: params) { (result, error) -> () in
+    println(params)
+    APIModel.post("sessions", parameters: params) { (result, error) -> () in
       if (error == nil) {
         self.delegate?.nextSegueAfterConfirm(self.nextSegueID)
       } else {

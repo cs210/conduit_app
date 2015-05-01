@@ -14,6 +14,9 @@ class ChangePasswordView : UIViewController {
   @IBOutlet var newPasswordField: UITextField!
   @IBOutlet var confirmPasswordField: UITextField!
   
+  @IBAction func dismissKeyboard(sender: AnyObject) {
+    view.endEditing(true)
+  }
   @IBAction func savePassword(sender: AnyObject) {
     var error = false
     if (newPasswordField.text != confirmPasswordField.text) {
