@@ -9,13 +9,29 @@
 import Foundation
 import UIKit
 
-class LoginViewController : UIViewController {
+class LoginViewController : UIViewController, UITextFieldDelegate {
   
   @IBOutlet weak var emailField: UITextField!
   @IBOutlet weak var passwordField: UITextField!
   
   @IBAction func dismissKeyboard(sender: AnyObject) {
     view.endEditing(true)
+  }
+  
+  override func viewDidLoad() {
+    emailField.delegate = self
+    passwordField.delegate = self
+  }
+  
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    println("inside")
+    if (textField == emailField) {
+      passwordField.becomeFirstResponder()
+    }
+    if (textField == passwordField) {
+      loginPressed(self)
+    }
+    return true;
   }
   
   @IBAction func loginPressed(sender: AnyObject) {

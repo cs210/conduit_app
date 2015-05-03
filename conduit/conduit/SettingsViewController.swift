@@ -36,7 +36,7 @@ class SettingsViewController : UITableViewController, ConfirmPasswordDelegate {
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     // TODO: This is where we go to a new view.
     var cell = tableView.cellForRowAtIndexPath(indexPath)
-    if (indexPath.row == 1){
+    if (indexPath.row == 1 || indexPath.row == 2){
       performSegueWithIdentifier("confirm_password_segue", sender: cell)
     } else {
       performSegueWithIdentifier(segueOptions[indexPath.row], sender: cell)
