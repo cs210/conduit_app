@@ -19,6 +19,7 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
   @IBOutlet var emailField: UITextField!
   @IBOutlet weak var emailErrorLabel: UILabel!
   @IBOutlet weak var phoneNumberField: UITextField!
+  @IBOutlet weak var phoneNumberErrorLabel: UILabel!
   
   var activeTextField : UITextField!
   
@@ -37,6 +38,9 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
     emailField.autocorrectionType = UITextAutocorrectionType.No
     emailErrorLabel.text = ""
     emailErrorLabel.textColor = StyleColor.getColor(.Error, brightness: .Medium)
+    highlightError(phoneNumberField)
+    phoneNumberErrorLabel.text = ""
+    phoneNumberErrorLabel.textColor = StyleColor.getColor(.Error, brightness: .Medium)
     
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
@@ -103,7 +107,7 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
     APIModel.post("users", parameters: params) { (result, error) -> () in
       
       if (error != nil) {
-        let alertController = UIAlertController(title: "", message: "There was an error creating your account. Please try again.",
+        let alertController = UIAlertController(title: "", message: "There was an error creating your account. Check to see if your email address or phone number is associated with another account and please try again.",
           preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
       
@@ -133,7 +137,9 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
       error = true
     }
     
-    if (firstNameField.text == "" || lastNameField.text == "" || passwordField.text == "" || retypePasswordField.text == "") {
+    if (firstNameField.text == "" || lastNameField.text == "" ||
+      passwordField.text == "" || retypePasswordField.text == "" ||
+      phoneNumberField.text == "") {
       error = true
     }
     
@@ -209,6 +215,35 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
     } else {
       unhighlightError(sender)
     }
+  }
+  
+  @IBAction func checkPhoneNumberInput(sender : UITextField) {
+    if sender.text == "" {
+      highlightError(sender)
+      phoneNumberErrorLabel.text = ""
+    } else if isValidPhoneNumber(sender.text) == false {
+      highlightError(sender)
+      phoneNumberErrorLabel.text = "Please enter a valid phone number."
+    } else if isAvailablePhoneNumber(sender.text) == false {
+      highlightError(sender)
+      phoneNumberErrorLabel.text = "There is already an account with that phone number."
+    } else {
+      unhighlightError(sender)
+      phoneNumberErrorLabel.text = ""
+    }
+  }
+  
+  func isValidPhoneNumber(s : String) -> Bool {
+    let PHONE_REGEX = "^\\(?\\d{3}\\)?-?\\s?\\d{3}-?\\d{4}$"
+    
+    let phoneTest = NSPredicate(format:"SELF MATCHES %@", PHONE_REGEX)
+    return phoneTest.evaluateWithObject(s)
+  }
+  
+  func isAvailablePhoneNumber(s : String) -> Bool {
+    // TODO(nisha): returns true if the phone number is available, false if it's taken
+
+    return true
   }
 
 

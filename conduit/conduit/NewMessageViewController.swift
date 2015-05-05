@@ -39,6 +39,8 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
       licenseTextField.text = licensePlate
       licenseTextField.textColor = StyleColor.getColor(.Grey, brightness: .Dark)
     }
+    
+    licenseTextField.autocorrectionType = UITextAutocorrectionType.No
   }
   
   // These functions ensure correct tapping to dismiss keyboard and to deselect
@@ -50,22 +52,6 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
   @IBAction func dismissKeyboard(sender: AnyObject) {
     view.endEditing(true)
     keyboardDismisser.enabled = false
-    if licenseTextField.text == "" {
-      licenseTextField.text = "License Plate"
-      licenseTextField.textColor = StyleColor.getColor(.Grey, brightness: .Light)
-      licensePlate = ""
-    } else {
-      licensePlate = licenseTextField.text
-    }
-  }
-  
-  @IBAction func manualLicensePlate(sender: AnyObject) {
-    if licensePlate != "" {
-      return
-    }
-    
-    licenseTextField.text = ""
-    licenseTextField.textColor = UIColor.blackColor()
   }
   
   // These functions manage the preset message list.
