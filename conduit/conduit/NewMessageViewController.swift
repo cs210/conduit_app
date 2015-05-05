@@ -104,6 +104,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
   
   func sendMessageToLicensePlate(licensePlate : String) {
     var session = NSUserDefaults().stringForKey("session")!
+    self.participantIdentifiers = []
     
     // /cars/license_plate/users
     APIModel.get("cars/\(licensePlate)/users?session_token=\(session)", parameters: nil) {(result, error) in
@@ -121,10 +122,9 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
       if userList != nil  {
         for (var i = 0; i<userList.count; i++) {
           var userJSON = userList[i]
-          var participantIdentifier = userJSON["participant_identifier"].stringValue
+          var participantIdentifier = userJSON["email_address"].stringValue
           self.participantIdentifiers.append(participantIdentifier)
         }
-
       }
       
       NSLog("Going to send_to_conversation segue")

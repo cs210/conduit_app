@@ -26,52 +26,23 @@ class ConversationListViewController : ATLConversationListViewController, ATLCon
     self.dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
     self.dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
     
-//    var user1 = User(id: 1, firstName: "FirstName", lastName: "LastName", phoneNumber: "xx", emailAddress: "xx",
-//      deviceToken: "xx", pushEnabled: true, participantIdentifier: LQSCurrentUserID)
-//
-//    var user2 = User(id: 2, firstName: "FirstName2", lastName: "LastName2", phoneNumber: "xx", emailAddress: "xx",
-//      deviceToken: "xx", pushEnabled: true, participantIdentifier: LQSParticipantUserID)
-//
-//    DataStore.sharedInstance.persistUsers(Set([user1, user2]))
-//    
     self.navigationController?.navigationBar.topItem?.title = "Conversations"
+
   }
   
   @IBAction func menuPressed(sender: AnyObject) {
     self.revealViewController().revealToggle(self)
   }
+
 }
-
-//  @IBAction func deleteAllPressed(sender: AnyObject) {
-//    
-//    var count: UInt = self.queryController.numberOfObjectsInSection(UInt(0))
-//    var countAsInt: Int = Int(count)
-//    
-//    for var row = 0; row < countAsInt; row++ {
-//        
-//      var indexPath = NSIndexPath(forRow: row, inSection: 0)
-//      var conversation: LYRConversation = self.queryController.objectAtIndexPath(indexPath) as! LYRConversation
-//        
-//      var error:NSError? = NSError()
-//      var success = conversation.delete(LYRDeletionMode.AllParticipants, error: &error)
-//      if (!success) {
-//        NSLog("Conversation deletion erorr: \(error)")
-//      }
-//        
-//    }
-//  }
-
-
 
 extension ConversationListViewController: ATLConversationListViewControllerDataSource {
   func conversationListViewController(conversationListViewController: ATLConversationListViewController!, titleForConversation conversation: LYRConversation!) -> String! {
-    if self.layerClient.authenticatedUserID == nil
-    {
-      return "Not auth'd";
-    }
     
     var participants:Set<String> = conversation.participants as! Set<String>
-  //  participants = participants.subtract([User.getUserFromDefaults()?.participantIdentifier]!)
+    var currentUser: String = User.getUserFromDefaults()!.participantIdentifier
+
+    participants = participants.subtract([currentUser])
     
     var conversationName: String = ""
     for participant in participants {
@@ -84,7 +55,7 @@ extension ConversationListViewController: ATLConversationListViewControllerDataS
   
   func conversationListViewController(conversationListViewController: ATLConversationListViewController!, avatarItemForConversation conversation: LYRConversation!) -> ATLAvatarItem! {
     return User(id: 1, firstName: "FirstName", lastName: "LastName", phoneNumber: "xx", emailAddress: "xx",
-      deviceToken: "xx", pushEnabled: true, participantIdentifier: "blah")
+      deviceToken: "xx", pushEnabled: true)
   }
   
 }

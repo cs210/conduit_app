@@ -95,7 +95,7 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
     // Note: we do not yet have the user id or participantIdentifier since they do not exist on the server.
     var user: User = User(id: nil, firstName: firstNameField.text, lastName: lastNameField.text,
       phoneNumber: phoneNumberField.text, emailAddress: emailField.text, deviceToken: deviceToken,
-      pushEnabled: true, participantIdentifier: nil)
+      pushEnabled: true)
     // TODO: bug, push enabled not set to true
     var params = user.present()
     params.updateValue(passwordField.text, forKey: "password")
@@ -117,21 +117,6 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
       
       defaults.setBool(true, forKey: "isNewAccount")
       self.navigationController?.popViewControllerAnimated(true)
-      
-      
-      // Success. Now create the Layer participantIdentifier
-      var emailAddress: String = result!["email_address"].string!
-      var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-      
-      LayerHelpers.authenticationTokenWithEmailAddress(emailAddress, client: appDelegate.layerClient, completion: { (success, error) -> Void in
-        if (error != nil) {
-          NSLog("Layer Auth error: \(error)")
-          // todo add alert
-          return
-        }
-        // Redirect back to login
-        self.navigationController?.popViewControllerAnimated(true)
-      })
     
     }
   

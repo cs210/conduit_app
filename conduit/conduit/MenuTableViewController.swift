@@ -45,7 +45,16 @@ class MenuTableViewController: UITableViewController {
     defaults.removeObjectForKey("session")
     defaults.removeObjectForKey("user")
     defaults.removeObjectForKey("participantIdentifier")
-    performSegueWithIdentifier("scanner_segue", sender: self)
+    var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    appDelegate.layerClient?.deauthenticateWithCompletion({ (success, err) -> Void in
+      if err != nil {
+        NSLog("Deauthenticate with Layer failed with error: \(err)")
+      }
+      
+      self.performSegueWithIdentifier("scanner_segue", sender: self)
+      
+    })
+    
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

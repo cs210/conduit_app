@@ -92,7 +92,7 @@ const static NSString *APIURL = @"http://172.20.10.2:8080/";
        */
       [client authenticateWithIdentityToken:identityToken completion:^(NSString *authenticatedUserID, NSError *error) {
         if (authenticatedUserID) {
-          NSLog(@"Layer Authenticated as User: %@ with Identifier: %@", authenticatedUserID, identityToken);
+          NSLog(@"Layer Authenticated with identifier: %@ and identity: %@", authenticatedUserID, identityToken);
           if (completion) {
             completion(YES, nil);
           }
@@ -111,7 +111,7 @@ const static NSString *APIURL = @"http://172.20.10.2:8080/";
   NSParameterAssert(completion);
   
   
-  NSString *url = [NSString stringWithFormat:@"%@users/identifier", APIURL];
+  NSString *url = [NSString stringWithFormat:@"%@users/identity", APIURL];
 
   NSURL *identityTokenURL = [NSURL URLWithString:url];
   NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:identityTokenURL];
@@ -135,7 +135,7 @@ const static NSString *APIURL = @"http://172.20.10.2:8080/";
     NSDictionary *responseObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     if(![responseObject valueForKey:@"error"])
     {
-      NSString *identityToken = responseObject[@"participant_identifier"];
+      NSString *identityToken = responseObject[@"identity"];
       completion(identityToken, nil);
     }
     else

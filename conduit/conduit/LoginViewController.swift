@@ -58,6 +58,7 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
       defaults.setObject(encodedUser, forKey: "user")
 
       var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+      
       appDelegate.authenticateWithLayer()
       
       self.dismissViewControllerAnimated(false, completion: {

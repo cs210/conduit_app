@@ -21,10 +21,15 @@ class User: APIModel, ATLParticipant, NSCoding {
   var emailAddress          : String
   var deviceToken           : String?
   var pushEnabled           : Bool
-  var participantIdentifier : String? = nil
+  
+  var participantIdentifier: String {
+    get {
+      return self.emailAddress
+    }
+  }
 
   init(id:Int?, firstName:String, lastName:String, phoneNumber:String, emailAddress:String,
-    deviceToken:String?, pushEnabled:Bool, participantIdentifier: String?) {
+    deviceToken:String?, pushEnabled:Bool) {
 
     self.firstName = firstName
     self.lastName = lastName
@@ -33,7 +38,6 @@ class User: APIModel, ATLParticipant, NSCoding {
     self.emailAddress = emailAddress
     self.deviceToken = deviceToken
     self.pushEnabled = pushEnabled
-    self.participantIdentifier = participantIdentifier
     super.init(id:id)
 
   }
@@ -47,8 +51,7 @@ class User: APIModel, ATLParticipant, NSCoding {
       phoneNumber:  json["phone_number"].stringValue,
       emailAddress: json["email_address"].stringValue,
       deviceToken:  json["device_token"].stringValue,
-      pushEnabled:  json["push_enabled"].boolValue,
-      participantIdentifier: json["participant_identifier"].stringValue
+      pushEnabled:  json["push_enabled"].boolValue
     )
   }
   
@@ -61,11 +64,9 @@ class User: APIModel, ATLParticipant, NSCoding {
     var dEmailAddress : String = decoder.decodeObjectForKey("emailAddress") as! String
     var dDeviceToken : String? = decoder.decodeObjectForKey("deviceToken") as! String?
     var dPushEnabled : Bool = decoder.decodeBoolForKey("pushEnabled")
-    var dParticipantIdentifier : String? = decoder.decodeObjectForKey("participantIdentifier") as! String?
     
     self.init(id: dId, firstName: dFirstName, lastName: dLastName, phoneNumber: dPhoneNumber,
-      emailAddress: dEmailAddress, deviceToken: dDeviceToken, pushEnabled: dPushEnabled,
-      participantIdentifier: dParticipantIdentifier)
+      emailAddress: dEmailAddress, deviceToken: dDeviceToken, pushEnabled: dPushEnabled)
   }
   
   func encodeWithCoder(coder: NSCoder) {
@@ -81,9 +82,6 @@ class User: APIModel, ATLParticipant, NSCoding {
       coder.encodeObject(self.deviceToken!,  forKey:"deviceToken")
     }
     coder.encodeBool(self.pushEnabled, forKey: "pushEnabled")
-    if self.participantIdentifier != nil {
-      coder.encodeObject(self.participantIdentifier, forKey:"participantIdentifier")
-    }
   }
   
   
@@ -98,9 +96,6 @@ class User: APIModel, ATLParticipant, NSCoding {
     
     if let id = self.id {
       present.updateValue(id, forKey: "id")
-    }
-    if let participantIdentifier = self.participantIdentifier {
-      present.updateValue(participantIdentifier, forKey: "participant_identifier")
     }
     
     if let deviceToken = self.deviceToken {

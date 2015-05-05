@@ -13,6 +13,7 @@ import SwiftyJSON
 #if arch(i386) || arch(x86_64)
   let APIURL = "http://0.0.0.0:8080/"
 #else
+  //let APIURL = "http://127.0.0.1:8080/"
   let APIURL = "http://172.20.10.2:8080/"
 #endif
 
@@ -63,7 +64,6 @@ class APIModel: NSObject {
     var url = "\(APIURL)\(path)"
     
     NSLog("Preparing for POST request to: \(url)")
-    
     Alamofire.request(.POST, url, parameters: parameters, encoding:.JSON).responseJSON {
       (req, res, json, error) in
       if(error != nil) {

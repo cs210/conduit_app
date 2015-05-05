@@ -22,10 +22,11 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
   
+  // Set to production
   let LQSLayerAppIDString = "7b2aed30-db1b-11e4-a21a-52bb02000413"
   
   var window: UIWindow?
-  var layerClient: LYRClient?
+  var layerClient: LYRClient!
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
@@ -33,8 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
     self.initAppearance()
     
     var appID =  NSUUID(UUIDString: LQSLayerAppIDString)
-    self.layerClient = LYRClient(appID: appID)
-    self.layerClient?.delegate = self
+    layerClient = LYRClient(appID: appID)
+    layerClient.delegate = self
     
     self.registerApplicationForPushNotifications(application)
     
@@ -45,23 +46,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
   
   func authenticateWithLayer() {
     
-    if self.layerClient?.authenticatedUserID != nil {
-      NSLog("Already connected to Layer");
-      return
-    }
-    
-    
-    self.layerClient?.connectWithCompletion({ (success:Bool, error:NSError!) -> Void in
+    self.layerClient.connectWithCompletion({ (success:Bool, error:NSError!) -> Void in
       if (!success) {
         NSLog("Failed to connect to Layer: \(error)");
       } else {
         
         var currentUser: User = User.getUserFromDefaults()!
-        LayerHelpers.authenticateLayerWithEmailAddress(currentUser.emailAddress, client: self.layerClient, completion: { (success:Bool, error:NSError!) -> Void in
+        self.authenticateLayerWithUserID(currentUser.emailAddress, completion: { (success, error) -> Void in
           if (!success) {
             NSLog("Failed Authenticating Layer Client with error:\(error)");
           }
         })
+        
       }
       
     })
@@ -117,10 +113,132 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
     }
   }
   
-  func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-    // Delegate directly to the LayerHelper class function
-    LayerHelpers.application(application, didReceiveRemoteNotification: userInfo, client: self.layerClient, fetchCompletionHandler: completionHandler)
+  
+  func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject],
+    fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+    println("didReceiveRemoteNotification")
+    
+    println(userInfo)
+    
+    var error: NSError?
+    var success:Bool =  self.layerClient.synchronizeWithRemoteNotification(userInfo, completion: {(changes,error) in
+      
+      if changes != nil {
+        if changes.count > 0 {
+          var message:LYRMessage = self.messageFromRemoteNotification(userInfo)!
+          completionHandler(UIBackgroundFetchResult.NewData)
+        } else {
+          completionHandler(UIBackgroundFetchResult.NoData)
+        }
+      } else {
+        completionHandler(UIBackgroundFetchResult.Failed)
+      }
+    })
+    
+    if success
+    {
+      println("Application did complete remote notification sync");
+    } else {
+      println("Failed processing push notification with error: \(error)");
+      completionHandler(UIBackgroundFetchResult.NoData);
+    }
+    
   }
+  
+  func messageFromRemoteNotification(remoteNotification:NSDictionary) -> LYRMessage?
+  {
+    var notification:NSDictionary = remoteNotification.objectForKey("layer") as! NSDictionary
+    var message:LYRMessage?
+    
+    if let messageIdentifier:String = notification.objectForKey("message_identifier") as? String {
+      var query:LYRQuery = LYRQuery(`withClass`: LYRMessage.self)
+      query.predicate = LYRPredicate(property: "identifier", `operator`: LYRPredicateOperator.IsEqualTo, value: NSURL(string: messageIdentifier))
+      
+      var error: NSError?
+      var conversation:LYRConversation?
+      if let messages:NSOrderedSet = self.layerClient?.executeQuery(query, error:&error) {
+        if (error != nil) {
+          println("Query failed with error \(error)");
+        }
+        
+        // Retrieve the last conversation
+        if (messages.count > 0) {
+          message = messages.firstObject as? LYRMessage;
+        }
+      }
+    }
+    
+    if message != nil {
+      var messagePart:LYRMessagePart = message!.parts[0] as! LYRMessagePart
+      let messageText = NSString(data:messagePart.data!, encoding: NSUTF8StringEncoding)
+      println ("Pushed Message Contents: \(messageText!)")
+    } else {
+      println ("Message couldn't be found")
+    }
+    
+    return message
+  }
+  
+  // MARK: - Layer Authentication Methods
+  func authenticateLayerWithUserID(userID:String, completion :(success:Bool,error:NSError?) -> Void)
+  {
+    if let authenticatedUserID = layerClient.authenticatedUserID {
+      println("1Layer Authenticated as User \(authenticatedUserID)");
+      completion(success:true, error:nil);
+    } else {
+      /*
+      * 1. Request an authentication Nonce from Layer
+      */
+      layerClient.requestAuthenticationNonceWithCompletion({(nonce, error) in
+        if let nonce = nonce {
+          println("nonce \(nonce)");
+          
+          /*
+          * 2. Acquire identity Token from Layer Identity Service
+          */
+          self.requestIdentityTokenForUserID(userID, appID: self.layerClient.appID.UUIDString,
+            nonce: nonce, completion: { (identityToken, error) in
+            
+            if let identityToken = identityToken {
+              /*
+              * 3. Submit identity token to Layer for validation
+              */
+              self.layerClient.authenticateWithIdentityToken(identityToken, completion: {(authenticatedUserID, error) in
+                if let authenticatedUserID = authenticatedUserID {
+                  println("2Layer Authenticated as User: \(authenticatedUserID)");
+                  completion(success:true, error:nil);
+                } else {
+                  completion(success:false, error:error);
+                }
+                completion(success:true, error:nil);
+              })
+            } else {
+              completion(success:false, error:error);
+            }
+          })
+        } else {
+          completion(success:false, error:error);
+        }
+      })
+    }
+    
+    return;
+  }
+  
+  func requestIdentityTokenForUserID(userID:String, appID:String, nonce:String,
+    completion :(identityToken:String?,error:NSError?) -> Void) {
+    
+    let params = ["email_address":userID, "nonce":nonce]
+    APIModel.post("users/identity", parameters: params) { (result, error) -> () in
+      if error != nil {
+        NSLog("Conduit identity token generation error")
+        completion(identityToken: nil, error: error)
+      } else {
+        completion(identityToken: result!["identity"].stringValue, error: nil)
+      }
+    }
+  }
+  
   
   func applicationWillResignActive(application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
