@@ -1006,7 +1006,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CYj-9U-6xs">
-                                <rect key="frame" x="94" y="162" width="132" height="30"/>
+                                <rect key="frame" x="40" y="164" width="240" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -1025,32 +1025,41 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Mo-QH-6an">
-                                <rect key="frame" x="94" y="253" width="132" height="30"/>
+                                <rect key="frame" x="40" y="234" width="240" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7Mo-QH-6an" firstAttribute="leading" secondItem="0kb-ep-W4E" secondAttribute="leading" constant="94" id="23A-9f-Q4Q"/>
+                            <constraint firstItem="7Mo-QH-6an" firstAttribute="leading" secondItem="0kb-ep-W4E" secondAttribute="leading" constant="40" id="23A-9f-Q4Q"/>
                             <constraint firstItem="7Mo-QH-6an" firstAttribute="centerX" secondItem="CYj-9U-6xs" secondAttribute="centerX" id="Sna-R3-WsF"/>
                             <constraint firstItem="ydA-am-vu1" firstAttribute="leading" secondItem="0kb-ep-W4E" secondAttribute="leading" id="WwW-De-99b"/>
-                            <constraint firstItem="CYj-9U-6xs" firstAttribute="leading" secondItem="0kb-ep-W4E" secondAttribute="leading" constant="94" id="efE-jn-Ic1"/>
-                            <constraint firstItem="CYj-9U-6xs" firstAttribute="top" secondItem="ryO-2W-tVe" secondAttribute="bottom" constant="98" id="ha7-du-X8n"/>
+                            <constraint firstItem="CYj-9U-6xs" firstAttribute="leading" secondItem="0kb-ep-W4E" secondAttribute="leading" constant="40" id="efE-jn-Ic1"/>
+                            <constraint firstItem="CYj-9U-6xs" firstAttribute="top" secondItem="ryO-2W-tVe" secondAttribute="bottom" constant="100" id="ha7-du-X8n"/>
                             <constraint firstAttribute="trailing" secondItem="ydA-am-vu1" secondAttribute="trailing" id="i9W-Yr-8hL"/>
-                            <constraint firstAttribute="trailing" secondItem="7Mo-QH-6an" secondAttribute="trailing" constant="94" id="pMo-EX-o3a"/>
-                            <constraint firstItem="7Mo-QH-6an" firstAttribute="top" secondItem="CYj-9U-6xs" secondAttribute="bottom" constant="61" id="tKZ-ia-sGk"/>
-                            <constraint firstAttribute="trailing" secondItem="CYj-9U-6xs" secondAttribute="trailing" constant="94" id="vwG-j8-EUp"/>
+                            <constraint firstAttribute="trailing" secondItem="7Mo-QH-6an" secondAttribute="trailing" constant="40" id="pMo-EX-o3a"/>
+                            <constraint firstItem="7Mo-QH-6an" firstAttribute="top" secondItem="CYj-9U-6xs" secondAttribute="bottom" constant="40" id="tKZ-ia-sGk"/>
+                            <constraint firstAttribute="trailing" secondItem="CYj-9U-6xs" secondAttribute="trailing" constant="40" id="vwG-j8-EUp"/>
                             <constraint firstItem="Q4X-l8-3tJ" firstAttribute="top" secondItem="ydA-am-vu1" secondAttribute="bottom" id="y7Q-R3-odf"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="twq-ae-CeM" appends="YES" id="2Ry-Ua-rLe"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Change Name" id="4s3-K3-lQd"/>
                     <connections>
+                        <outlet property="bottomConstraint" destination="y7Q-R3-odf" id="KBa-F7-L0u"/>
                         <outlet property="firstNameField" destination="CYj-9U-6xs" id="orD-Xy-R6R"/>
                         <outlet property="lastNameField" destination="7Mo-QH-6an" id="rkr-Yd-kJD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sTC-BA-geI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="twq-ae-CeM">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="aSn-GQ-NWE" id="3Ff-6c-3GY"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1561" y="2717"/>
         </scene>

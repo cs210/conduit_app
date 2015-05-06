@@ -9,19 +9,45 @@
 import UIKit
 
 class ChangeNameViewController: UIViewController {
-
   @IBOutlet var lastNameField: UITextField!
   @IBOutlet var firstNameField: UITextField!
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
+    // Do any additional setup after loading the view.
+    
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    
+    firstNameField.autocorrectionType = UITextAutocorrectionType.No
+    lastNameField.autocorrectionType = UITextAutocorrectionType.No
+  }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+  @IBAction func dismissKeyboard(sender: AnyObject) {
+    view.endEditing(true)
+  }
+  
+  func keyboardWillShow(notification: NSNotification) {
+    var info = notification.userInfo as! [String: NSObject]
+    if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+      self.bottomConstraint.constant = keyboardSize.height
     }
+  }
+  
+  func keyboardWillHide(notification: NSNotification) {
+    self.bottomConstraint.constant = 0
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+  }
+  
+  override func viewDidDisappear(animated: Bool) {
+    super.viewDidDisappear(animated)
+    NSNotificationCenter.defaultCenter().removeObserver(self)
+  }
     
   @IBAction func saveChanges(sender: AnyObject) {
     var user = User.getUserFromDefaults()
@@ -39,15 +65,5 @@ class ChangeNameViewController: UIViewController {
       self.presentViewController(alertController, animated: true, completion: nil)
     }
   }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

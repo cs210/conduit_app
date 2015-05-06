@@ -25,11 +25,22 @@ class ChangePasswordView : UIViewController {
       self.presentViewController(alert, animated: true, completion: nil)
       error = true
     } else {
-        println("weinhere")
-      // So now PUT it in
+      var user = User.getUserFromDefaults()
+      if user == nil {
+        return
+      }
+  
+//      user?.password = newPasswordField.text
+//      user!.update { (result, error) -> () in
+//        let alertController = UIAlertController(title: "", message:
+//          "Your password has been updated!", preferredStyle: UIAlertControllerStyle.Alert)
+//        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+//  
+//        self.presentViewController(alertController, animated: true, completion: nil)
+//      }
     }
   }
-  
+ 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if (segue.identifier == "notify_changed_password_segue") {
       println("notifying!")
