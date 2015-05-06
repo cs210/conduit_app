@@ -13,8 +13,8 @@ class CustomMessageController : UIViewController {
   
   @IBOutlet weak var licenseTextField: UITextField!
   @IBOutlet weak var messageTextField: UITextField!
-  var licensePlate : String!
   @IBOutlet weak var buttonPosition: NSLayoutConstraint!
+  var licensePlate : String! // Only used to pass variables from previous VC
   
   @IBOutlet var keyboardDismisser: UITapGestureRecognizer!
   
@@ -22,6 +22,7 @@ class CustomMessageController : UIViewController {
     super.viewDidLoad()
     if licensePlate == "" {
       licenseTextField.becomeFirstResponder()
+      
     } else {
       messageTextField.becomeFirstResponder()
       licenseTextField.text = licensePlate
@@ -31,6 +32,7 @@ class CustomMessageController : UIViewController {
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     
+    licenseTextField.autocorrectionType = UITextAutocorrectionType.No
     messageTextField.autocorrectionType = UITextAutocorrectionType.No
     keyboardDismisser.enabled = true
   }
@@ -73,6 +75,13 @@ class CustomMessageController : UIViewController {
       return
     }
     
-    // TODO: API calls here.
+    if let n = self.navigationController?.viewControllers?.count {
+      if let previousViewController = self.navigationController?.viewControllers[n-2] as! NewMessageViewController? {
+        self.navigationController?.popViewControllerAnimated(false)
+        previousViewController.selectedMessage = message
+        previousViewController.licenseTextField.text = licenseTextField.text
+        previousViewController.sendMessageToLicensePlate(self.licenseTextField.text)
+      }
+    }
   }
 }

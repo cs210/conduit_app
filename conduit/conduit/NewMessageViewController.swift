@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class NewMessageViewController : UIViewController, UITableViewDataSource {
+class NewMessageViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
   // Init selected message to "" because  you can't send an empty message
   var selectedMessage = ""
   var presetMessages = [
@@ -17,13 +17,13 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
     "When will you be back to your car?",
     "Move your car now or else."
   ]
-  var licensePlate : String!
   var manualLicensePlate : Bool!
   var participantIdentifiers : [String] = []
 
   @IBOutlet weak var toFieldBackground: UIView!
   @IBOutlet weak var licenseTextField: UITextField!
   @IBOutlet weak var presetTable: UITableView!
+  var licensePlate : String!
   
   // These variables make sure that tapping works as expected
   // i.e. when you tap anywhere when keyboard is enabled, it is dismissed
@@ -37,7 +37,6 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
       licenseTextField.becomeFirstResponder()
     } else {
       licenseTextField.text = licensePlate
-      licenseTextField.textColor = StyleColor.getColor(.Grey, brightness: .Dark)
     }
     
     licenseTextField.autocorrectionType = UITextAutocorrectionType.No
@@ -71,7 +70,23 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
     let cell = tableView.cellForRowAtIndexPath(indexPath) as! NewMessageTableViewCell
     selectedMessage = cell.label.text!
     
-    sendMessageToLicensePlate(licensePlate)
+    sendMessageToLicensePlate(licenseTextField.text)
+  }
+  
+  func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    var button = UIButton()
+    button.setTitle("Custom", forState: .Normal)
+    button.addTarget(self, action: "goToCustomMessage", forControlEvents: UIControlEvents.TouchUpInside)
+    button.titleLabel!.font = UIFont.systemFontOfSize(14.0)
+    return button
+  }
+  
+  func goToCustomMessage() {
+    self.performSegueWithIdentifier("custom_message_segue", sender: self)
+  }
+  
+  func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    return 50.0
   }
   
   // This function ensures that data from this view (i.e. license plate) is sent
@@ -79,6 +94,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource {
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "custom_message_segue" {
+      view.endEditing(true)
       var next = segue.destinationViewController as! CustomMessageController
       next.licensePlate = licenseTextField.text
     }
