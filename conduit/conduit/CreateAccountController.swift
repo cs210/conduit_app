@@ -19,6 +19,7 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
   @IBOutlet var emailField: UITextField!
   @IBOutlet weak var emailErrorLabel: UILabel!
   @IBOutlet weak var phoneNumberField: UITextField!
+  @IBOutlet weak var phoneNumberErrorLabel: UILabel!
   
   var activeTextField : UITextField!
   
@@ -27,16 +28,19 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
   }
   override func viewDidLoad() {
     super.viewDidLoad()
-    highlightError(firstNameField)
-    highlightError(lastNameField)
-    highlightError(passwordField)
-    highlightError(retypePasswordField)
+    Validator.highlightError(firstNameField)
+    Validator.highlightError(lastNameField)
+    Validator.highlightError(passwordField)
+    Validator.highlightError(retypePasswordField)
     retypePasswordErrorLabel.text = ""
     retypePasswordErrorLabel.textColor = StyleColor.getColor(.Error, brightness: .Medium)
-    highlightError(emailField)
+    Validator.highlightError(emailField)
     emailField.autocorrectionType = UITextAutocorrectionType.No
     emailErrorLabel.text = ""
     emailErrorLabel.textColor = StyleColor.getColor(.Error, brightness: .Medium)
+    Validator.highlightError(phoneNumberField)
+    phoneNumberErrorLabel.text = ""
+    phoneNumberErrorLabel.textColor = StyleColor.getColor(.Error, brightness: .Medium)
     
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
@@ -74,6 +78,16 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
   }
   
   @IBAction func cancel(sender: AnyObject) {
+    self.doneCreatingAccount()
+  }
+  
+  func doneCreatingAccount() {
+    if let n = self.navigationController?.viewControllers?.count {
+      if let previousViewController = self.navigationController?.viewControllers[n-2] as! LoginViewController? {
+        previousViewController.emailField.text = ""
+        previousViewController.passwordField.text = ""
+      }
+    }
     navigationController?.popViewControllerAnimated(true)
   }
   
@@ -103,7 +117,7 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
     APIModel.post("users", parameters: params) { (result, error) -> () in
       
       if (error != nil) {
-        let alertController = UIAlertController(title: "", message: "There was an error creating your account. Please try again.",
+        let alertController = UIAlertController(title: "", message: "There was an error creating your account. Check to see if your email address or phone number is associated with another account and please try again.",
           preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
       
@@ -116,7 +130,7 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
       }
       
       defaults.setBool(true, forKey: "isNewAccount")
-      self.navigationController?.popViewControllerAnimated(true)
+      self.doneCreatingAccount()
     
     }
   
@@ -129,43 +143,31 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
     
     var error = false
     
-    if (emailField.text == "" || !isValidEmail(emailField.text) || !isAvailableEmail(emailField.text)) {
+    if (emailField.text == "" || !Validator.isValidEmail(emailField.text) || !isAvailableEmail(emailField.text)) {
       error = true
     }
     
-    if (firstNameField.text == "" || lastNameField.text == "" || passwordField.text == "" || retypePasswordField.text == "") {
+    if (firstNameField.text == "" || lastNameField.text == "" ||
+      passwordField.text == "" || retypePasswordField.text == "" ||
+      phoneNumberField.text == "") {
       error = true
     }
     
     return !error
   }
   
-  
-  
-  // Helper functions to highlight and unhighlight text boxes
-  func highlightError(field : UITextField) {
-    field.layer.cornerRadius = 5
-    field.layer.borderWidth = 2
-    field.layer.borderColor = StyleColor.getColor(.Error, brightness: .Medium).CGColor
-    
-  }
-  
-  func unhighlightError(field : UITextField) {
-    field.layer.borderWidth = 0
-    field.layer.borderColor = UIColor.clearColor().CGColor
-  }
 
   @IBAction func checkRetypePasswordInput(sender: UITextField) {
     if (sender.text == "") {
-      highlightError(sender)
+      Validator.highlightError(sender)
       retypePasswordErrorLabel.text = ""
     } else if (passwordField.text != sender.text) {
       retypePasswordErrorLabel.text = "Passwords do not match."
       sender.text = ""
-      highlightError(sender)
+      Validator.highlightError(sender)
 //      retypePasswordField.becomeFirstResponder()
     } else {
-      unhighlightError(sender)
+      Validator.unhighlightError(sender)
       retypePasswordErrorLabel.text = ""
     }
   }
@@ -174,27 +176,18 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
   // Check the format of the email address
   @IBAction func checkEmailInput(sender: UITextField) {
     if (sender.text == "") {
-      highlightError(sender)
+      Validator.highlightError(sender)
       emailErrorLabel.text = ""
-    } else if (isValidEmail(sender.text) == false) {
-      highlightError(sender)
+    } else if (Validator.isValidEmail(sender.text) == false) {
+      Validator.highlightError(sender)
       emailErrorLabel.text = "Please enter a valid e-mail address."
     } else if (isAvailableEmail(sender.text) == false) {
-      highlightError(sender)
+      Validator.highlightError(sender)
       emailErrorLabel.text = "There is already an account with that e-mail."
     } else {
-      unhighlightError(sender)
+      Validator.unhighlightError(sender)
       emailErrorLabel.text = ""
     }
-  }
-  
-  // https://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
-  func isValidEmail(s:String) -> Bool {
-    let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
-    
-    let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-    return emailTest.evaluateWithObject(s)
-    
   }
   
   func isAvailableEmail(s : String) -> Bool {
@@ -205,10 +198,33 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
   // Check the input of a required field upon editing completion
   @IBAction func checkInput(sender: UITextField) {
     if (sender.text == "") {
-      highlightError(sender)
+      Validator.highlightError(sender)
     } else {
-      unhighlightError(sender)
+      Validator.unhighlightError(sender)
     }
+  }
+  
+  @IBAction func checkPhoneNumberInput(sender : UITextField) {
+    if sender.text == "" {
+      Validator.highlightError(sender)
+      phoneNumberErrorLabel.text = ""
+    } else if Validator.isValidPhoneNumber(sender.text) == false {
+      Validator.highlightError(sender)
+      phoneNumberErrorLabel.text = "Please enter a valid phone number."
+    } else if isAvailablePhoneNumber(sender.text) == false {
+      Validator.highlightError(sender)
+      phoneNumberErrorLabel.text = "There is already an account with that phone number."
+    } else {
+      Validator.unhighlightError(sender)
+      phoneNumberErrorLabel.text = ""
+    }
+  }
+
+  
+  func isAvailablePhoneNumber(s : String) -> Bool {
+    // TODO(nisha): returns true if the phone number is available, false if it's taken
+
+    return true
   }
 
 

@@ -21,7 +21,9 @@
 		B58FD9B11ACE3191005B8648 /* AccountSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58FD9B01ACE3191005B8648 /* AccountSettingsView.swift */; };
 		B58FD9B31ACE67B5005B8648 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */; };
 		B5FD86701AECC0E900E4629E /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD866F1AECC0E900E4629E /* CarDetailsViewController.swift */; };
+		BD19A1BF1AFA065B00015E34 /* AddCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19A1BE1AFA065B00015E34 /* AddCarViewController.swift */; };
 		BD4C1E1A1ACC6EDD00C10987 /* CustomMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C1E191ACC6EDD00C10987 /* CustomMessageController.swift */; };
+		BD7039671AF9FC32009E87D8 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7039661AF9FC32009E87D8 /* Validator.swift */; };
 		BDB898411AEC3301007E8FE1 /* InviteFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */; };
 		BDD28DC31ACDDD4E001B031D /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD28DC21ACDDD4E001B031D /* ConversationViewController.swift */; };
 		BDE4EB5F1AAC2A8900588511 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */; };
@@ -132,7 +134,9 @@
 		B58FD9B01ACE3191005B8648 /* AccountSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingsView.swift; sourceTree = "<group>"; };
 		B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		B5FD866F1AECC0E900E4629E /* CarDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
+		BD19A1BE1AFA065B00015E34 /* AddCarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCarViewController.swift; sourceTree = "<group>"; };
 		BD4C1E191ACC6EDD00C10987 /* CustomMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMessageController.swift; sourceTree = "<group>"; };
+		BD7039661AF9FC32009E87D8 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendsViewController.swift; sourceTree = "<group>"; };
 		BDD28DC21ACDDD4E001B031D /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -379,6 +383,7 @@
 				C5212BF21ABAA43C004171FD /* API Models */,
 				C5C70DC11AA68EDE00BE0753 /* AppDelegate.swift */,
 				C5C70DC51AA68EDE00BE0753 /* Main.storyboard */,
+				BD19A1BE1AFA065B00015E34 /* AddCarViewController.swift */,
 				C5762AC61AEF64FE00275E89 /* WelcomeViewController.swift */,
 				BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */,
 				B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */,
@@ -401,6 +406,7 @@
 				B5FD866F1AECC0E900E4629E /* CarDetailsViewController.swift */,
 				B58C3F481AF0CA4C002311EE /* ChangeNameViewController.swift */,
 				B58C3F4A1AF0CA5C002311EE /* ChangeEmailViewController.swift */,
+				BD7039661AF9FC32009E87D8 /* Validator.swift */,
 				B58C3F4C1AF0CA6E002311EE /* ChangeNotificationsViewController.swift */,
 				B58C3F4E1AF40ECE002311EE /* PhoneSettingsViewController.swift */,
 			);
@@ -785,6 +791,7 @@
 				C5D02EDB1AE085A300C201A5 /* ATLConversationCollectionView.m in Sources */,
 				C5EFBDDB1AABD4CD000029C3 /* MenuTableViewController.swift in Sources */,
 				B58C3F4B1AF0CA5C002311EE /* ChangeEmailViewController.swift in Sources */,
+				BD7039671AF9FC32009E87D8 /* Validator.swift in Sources */,
 				C5D02ED91AE085A300C201A5 /* ATLAddressBarView.m in Sources */,
 				C5D02EE61AE085A300C201A5 /* ATLOutgoingMessageCollectionViewCell.m in Sources */,
 				C5B7FC971AE7008A001F6E9C /* DataStore.swift in Sources */,
@@ -823,6 +830,7 @@
 				C5C70DC21AA68EDE00BE0753 /* AppDelegate.swift in Sources */,
 				B55805F81AE6CF7300EB5512 /* ConfirmPasswordViewController.swift in Sources */,
 				BDE4EB5F1AAC2A8900588511 /* LoginViewController.swift in Sources */,
+				BD19A1BF1AFA065B00015E34 /* AddCarViewController.swift in Sources */,
 				B58FD9B31ACE67B5005B8648 /* ChangePasswordView.swift in Sources */,
 				B54FF8F21AB04B3100450107 /* ConversationListViewController.swift in Sources */,
 				C5D02ECD1AE085A300C201A5 /* ATLConversationDataSource.m in Sources */,
