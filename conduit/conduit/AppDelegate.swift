@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import GoogleAnalytics_iOS_SDK
+
 
 //#if arch(i386) || arch(x86_64)
 //  let LQSCurrentUserID = "Simulator"
@@ -40,6 +42,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
     self.registerApplicationForPushNotifications(application)
     
     UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+    
+    
+    // Google Analytics
+    GAI.sharedInstance().trackUncaughtExceptions = true
+    GAI.sharedInstance().dispatchInterval = 20
+    GAI.sharedInstance().logger.logLevel = GAILogLevel.Verbose
+    GAI.sharedInstance().trackerWithTrackingId("UA-62445439-1")
     
     return true
   }
