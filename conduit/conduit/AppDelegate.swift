@@ -98,12 +98,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
   }
   
   func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-    // Send device token to Layer so Layer can send pushes to this device.
-    // For more information about Push, check out:
-    // https://developer.layer.com/docs/guides/ios#push-notification
     
     var error: NSError?
-    
     var success = self.layerClient?.updateRemoteNotificationDeviceToken(deviceToken, error: &error)
     if (success != nil) {
       NSLog("Application did register for remote notifications: \(deviceToken)");
@@ -112,7 +108,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
       NSLog("Failed updating device token with error: \(error)");
     }
   }
-  
   
   func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject],
     fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
