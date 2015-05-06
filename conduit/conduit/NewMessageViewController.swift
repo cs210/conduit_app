@@ -20,6 +20,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
   var manualLicensePlate : Bool!
   var participantIdentifiers : [String] = []
 
+  @IBOutlet weak var menuButton: UIButton!
   @IBOutlet weak var toFieldBackground: UIView!
   @IBOutlet weak var licenseTextField: UITextField!
   @IBOutlet weak var presetTable: UITableView!
@@ -30,27 +31,24 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
   @IBOutlet var keyboardDismisser: UITapGestureRecognizer!
   
   override func viewDidLoad() {
-    keyboardDismisser.enabled = false
-    toFieldBackground.backgroundColor = StyleColor.getColor(.Grey, brightness: .Light)
-    if manualLicensePlate == true {
-      licenseTextField.text = ""
-      licenseTextField.becomeFirstResponder()
-    } else {
-      licenseTextField.text = licensePlate
+    
+    var sessionKey = NSUserDefaults.standardUserDefaults().stringForKey("session")
+    // testing if the session key is actually valid...
+    if (sessionKey == nil) {
+      performSegueWithIdentifier("to_login", sender: self)
     }
     
+    toFieldBackground.backgroundColor = StyleColor.getColor(.Grey, brightness: .Light)
+    licenseTextField.text = ""
+    licenseTextField.becomeFirstResponder()
     licenseTextField.autocorrectionType = UITextAutocorrectionType.No
-  }
-  
-  // These functions ensure correct tapping to dismiss keyboard and to deselect
-  // table cells
-  @IBAction func enableKeyboardDismisser(sender: AnyObject) {
-    keyboardDismisser.enabled = true
+    
+    menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
+    
   }
   
   @IBAction func dismissKeyboard(sender: AnyObject) {
     view.endEditing(true)
-    keyboardDismisser.enabled = false
   }
   
   // These functions manage the preset message list.
@@ -69,6 +67,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let cell = tableView.cellForRowAtIndexPath(indexPath) as! NewMessageTableViewCell
     selectedMessage = cell.label.text!
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
     
     sendMessageToLicensePlate(licenseTextField.text)
   }
@@ -117,6 +116,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
 
         self.presentViewController(alertController, animated: true, completion: nil)
+        self.selectedMessage = ""
         return
       }
       

@@ -16,9 +16,7 @@ class WelcomeViewController : UIViewController {
   }
   @IBAction func goToScanner(sender: AnyObject) {
     let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-    var destViewController : ScannerViewController = mainStoryboard.instantiateViewControllerWithIdentifier("scannerView") as! ScannerViewController
-    destViewController.title = "Add a Car"
-    destViewController.addingCarFlag = true
+    var destViewController : AddCarViewController = mainStoryboard.instantiateViewControllerWithIdentifier("addCarView") as! AddCarViewController
     self.navigationController?.pushViewController(destViewController, animated: true)
   }
   

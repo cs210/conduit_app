@@ -44,9 +44,7 @@ class CarManagementView : UIViewController, UITableViewDataSource {
   
   @IBAction func addCar(sender: AnyObject) {
     let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-    var destViewController : ScannerViewController = mainStoryboard.instantiateViewControllerWithIdentifier("scannerView") as! ScannerViewController
-    destViewController.title = "Add a Car"
-    destViewController.addingCarFlag = true
+    var destViewController : AddCarViewController = mainStoryboard.instantiateViewControllerWithIdentifier("addCarView") as! AddCarViewController
     destViewController.carManagementFlag = true
     self.navigationController?.pushViewController(destViewController, animated: true)
     
@@ -69,15 +67,6 @@ class CarManagementView : UIViewController, UITableViewDataSource {
     selectedCarIndex = indexPath
     
     // TODO: enable deleting car
-  }
-  
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "car_segue" {
-      var next = segue.destinationViewController as! CarDetailsViewController
-      
-      // retrieve car from the array of car objects
-      next.selectedCar = cars[selectedCarIndex.row]
-    }
   }
   
 }

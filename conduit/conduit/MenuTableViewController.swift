@@ -10,7 +10,7 @@ import UIKit
 
 class MenuTableViewController: UITableViewController {
 
-  var menuOptions = ["Scanner", "Conversations", "Settings", "Invite Friends", "Log Out"]
+  var menuOptions = ["New Request", "Conversations", "Settings", "Invite Friends", "Log Out"]
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("MenuItem",
@@ -27,8 +27,8 @@ class MenuTableViewController: UITableViewController {
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       // TODO: This is where we go to a new view.
       
-    if menuOptions[indexPath.row] == "Scanner" {
-      performSegueWithIdentifier("scanner_segue", sender: self)
+    if menuOptions[indexPath.row] == "New Request" {
+      performSegueWithIdentifier("request_segue", sender: self)
     } else if menuOptions[indexPath.row] == "Conversations" {
       performSegueWithIdentifier("conversations_segue", sender: self)
     } else if menuOptions[indexPath.row] == "Settings" {
@@ -51,7 +51,7 @@ class MenuTableViewController: UITableViewController {
         NSLog("Deauthenticate with Layer failed with error: \(err)")
       }
       
-      self.performSegueWithIdentifier("scanner_segue", sender: self)
+      self.performSegueWithIdentifier("request_segue", sender: self)
       
     })
     
