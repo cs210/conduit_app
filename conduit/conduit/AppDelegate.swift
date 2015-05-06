@@ -80,6 +80,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
     UITableViewCell.appearance().layer.borderWidth = 2
     UITableViewCell.appearance().layer.borderColor = StyleColor.getColor(.Grey, brightness: .Light).CGColor
     
+//    UITextField.appearance().autocorrectionType = UITextAutocorrectionType.No
+    
   }
 
   func registerApplicationForPushNotifications(application: UIApplication) {

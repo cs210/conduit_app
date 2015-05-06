@@ -848,9 +848,15 @@
                                     <action selector="goToInviteFriends:" destination="GQ2-4K-RNT" eventType="touchUpInside" id="nlv-3w-kbF"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to Conduit! To get started, let's set up your car." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IfY-ya-BOq">
-                                <rect key="frame" x="46" y="222" width="228" height="124"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" To get started, let's set up your car." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1A-Io-ygX">
+                                <rect key="frame" x="23" y="282" width="275" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome to Conduit!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IfY-ya-BOq">
+                                <rect key="frame" x="46" y="189" width="228" height="70"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -858,11 +864,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7En-pL-Uhg" firstAttribute="top" secondItem="Rup-qh-aqC" secondAttribute="bottom" id="6VG-eN-1ir"/>
+                            <constraint firstItem="d1A-Io-ygX" firstAttribute="leading" secondItem="1sJ-Cb-gEW" secondAttribute="leadingMargin" id="7Il-sL-Sj9"/>
+                            <constraint firstItem="IfY-ya-BOq" firstAttribute="leading" secondItem="1sJ-Cb-gEW" secondAttribute="leadingMargin" id="CI9-8j-nmU"/>
                             <constraint firstItem="Rup-qh-aqC" firstAttribute="leading" secondItem="1sJ-Cb-gEW" secondAttribute="leading" id="KbQ-qm-NVc"/>
                             <constraint firstItem="TRP-KJ-eKH" firstAttribute="leading" secondItem="1sJ-Cb-gEW" secondAttribute="leading" id="Q8f-LN-Cgy"/>
                             <constraint firstItem="Rup-qh-aqC" firstAttribute="top" secondItem="TRP-KJ-eKH" secondAttribute="bottom" constant="1" id="TFe-jg-Xoh"/>
                             <constraint firstAttribute="trailing" secondItem="TRP-KJ-eKH" secondAttribute="trailing" id="VT7-Vm-0uq"/>
+                            <constraint firstItem="d1A-Io-ygX" firstAttribute="top" secondItem="IfY-ya-BOq" secondAttribute="bottom" constant="40" id="Wat-yT-b4q"/>
                             <constraint firstAttribute="trailing" secondItem="Rup-qh-aqC" secondAttribute="trailing" id="XIx-s6-k9I"/>
+                            <constraint firstItem="IfY-ya-BOq" firstAttribute="top" secondItem="4mK-MP-IuW" secondAttribute="bottom" constant="100" id="esM-ne-E3e"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="d1A-Io-ygX" secondAttribute="trailing" id="lL6-EK-Tmr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IfY-ya-BOq" secondAttribute="trailing" id="vZG-98-oEg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome!" id="Tc2-yW-ScC"/>
@@ -1054,10 +1066,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gr1-Ql-8zo">
                                 <rect key="frame" x="0.0" y="64" width="320" height="456"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GNJ-FT-oMd">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="phone number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GNJ-FT-oMd">
                                         <rect key="frame" x="86" y="149" width="148" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                        <connections>
+                                            <action selector="checkPhoneNumber:" destination="a0B-nx-dJn" eventType="editingDidEnd" id="BSj-8y-P2B"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1086,6 +1101,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Change Phone" id="GJt-M8-9N3"/>
                     <connections>
+                        <outlet property="bottomConstraint" destination="1GR-QU-5bh" id="KFy-HC-87H"/>
                         <outlet property="phoneField" destination="GNJ-FT-oMd" id="d5E-s0-ceJ"/>
                     </connections>
                 </viewController>
@@ -1281,6 +1297,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Confirm password" id="0LI-M3-a8g"/>
                     <connections>
+                        <outlet property="bottomConstraint" destination="S6b-Jy-YB6" id="brA-ZB-ouW"/>
                         <outlet property="passwordField" destination="CFz-Ar-eH5" id="mQd-nB-sCt"/>
                     </connections>
                 </viewController>
@@ -1371,13 +1388,17 @@
                                     <action selector="onSave:" destination="MOs-id-zPt" eventType="touchUpInside" id="ubF-p3-CX7"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="example@email.com" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WGI-cg-rXM">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="new email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WGI-cg-rXM">
                                 <rect key="frame" x="62" y="184" width="197" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="checkEmailAddress:" destination="MOs-id-zPt" eventType="editingDidEnd" id="s1u-JU-y3v"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="WGI-cg-rXM" firstAttribute="leading" secondItem="D2y-b7-pyn" secondAttribute="leadingMargin" constant="46" id="7CD-wK-EwJ"/>
                             <constraint firstItem="Y9T-LU-JIh" firstAttribute="leading" secondItem="D2y-b7-pyn" secondAttribute="leading" id="K4R-Xz-lzA"/>
@@ -1386,13 +1407,22 @@
                             <constraint firstItem="WGI-cg-rXM" firstAttribute="top" secondItem="bKA-pB-71J" secondAttribute="bottom" constant="120" id="deK-Gh-brv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WGI-cg-rXM" secondAttribute="trailing" constant="45" id="r86-nX-Tsf"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="BYs-dM-kwC" appends="YES" id="L2I-bZ-lZi"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Change Email" id="y5H-jY-xW8"/>
                     <connections>
+                        <outlet property="bottomConstraint" destination="cbN-sg-NUj" id="Z6q-es-reB"/>
                         <outlet property="emailTextField" destination="WGI-cg-rXM" id="Bdw-MY-ULF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnS-yk-STc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="BYs-dM-kwC">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="MOs-id-zPt" id="67Q-AZ-eiM"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1553" y="3197"/>
         </scene>
@@ -1524,7 +1554,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="psz-Zh-Tf1"/>
-        <segue reference="dob-8K-FQJ"/>
+        <segue reference="Rys-Qo-KaZ"/>
         <segue reference="a4X-s1-m85"/>
     </inferredMetricsTieBreakers>
 </document>

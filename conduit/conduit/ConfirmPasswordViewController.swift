@@ -12,14 +12,18 @@ protocol ConfirmPasswordDelegate {
   func nextSegueAfterConfirm(segueId: String)
 }
 class ConfirmPasswordViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet var passwordField: UITextField!
-    var nextSegueID: String!
-    var delegate: ConfirmPasswordDelegate?
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        passwordField.delegate = self
+  @IBOutlet var passwordField: UITextField!
+  var nextSegueID: String!
+  var delegate: ConfirmPasswordDelegate?
+  @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    passwordField.delegate = self
       
-    }
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+  }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -29,6 +33,27 @@ class ConfirmPasswordViewController: UIViewController, UITextFieldDelegate {
   
   @IBAction func dismissKeyboard(sender: AnyObject) {
     view.endEditing(true)
+  }
+  
+  
+  func keyboardWillShow(notification: NSNotification) {
+    var info = notification.userInfo as! [String: NSObject]
+    if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+      self.bottomConstraint.constant = keyboardSize.height
+    }
+  }
+  
+  func keyboardWillHide(notification: NSNotification) {
+    self.bottomConstraint.constant = 0
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+  }
+  
+  override func viewDidDisappear(animated: Bool) {
+    super.viewDidDisappear(animated)
+    NSNotificationCenter.defaultCenter().removeObserver(self)
   }
 
     /*
