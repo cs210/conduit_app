@@ -99,8 +99,10 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
   
   // Create account
   @IBAction func createAccount(sender: AnyObject) {
+    AnalyticsHelper.trackButtonPress("create_account")
     
     if (checkInputs() == false) {
+      AnalyticsHelper.trackEvent("user_error", label: "bad_create_account")
       let alertController = UIAlertController(title: "", message:
         "Please fill in all required inputs.", preferredStyle: UIAlertControllerStyle.Alert)
       alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))

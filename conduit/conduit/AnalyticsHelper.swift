@@ -26,10 +26,17 @@ class AnalyticsHelper {
   }
   
   class func trackButtonPress(label : String) {
-    var tracker : GAITrackerGAI.sharedInstance().trackerWithTrackingId(TRACKING_ID)
-    let build = GAIDictionaryBuilder.createEventWithCategory("ui_action", action: "button_press", label: label, value: nil).build() as NSDictionary
-    tracker.send(build as [NSObject : AnyObject])
+    trackEvent("button_press", label: label)
   }
   
+  class func trackTouchEvent(label: String) {
+    trackEvent("touch_event", label: label)
+  }
+  
+  class func trackEvent(action : String, label : String) {
+    var tracker : GAITracker = GAI.sharedInstance().trackerWithTrackingId(TRACKING_ID)
+    let build = GAIDictionaryBuilder.createEventWithCategory("ui_action", action: action, label: label, value: nil).build() as NSDictionary
+    tracker.send(build as [NSObject : AnyObject])
+  }
   
 }

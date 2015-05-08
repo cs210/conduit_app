@@ -70,6 +70,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    AnalyticsHelper.trackTouchEvent("send_preset_message")
     let cell = tableView.cellForRowAtIndexPath(indexPath) as! NewMessageTableViewCell
     selectedMessage = cell.label.text!
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -86,6 +87,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
   }
   
   func goToCustomMessage() {
+    AnalyticsHelper.trackButtonPress("custom_message")
     self.performSegueWithIdentifier("custom_message_segue", sender: self)
   }
   

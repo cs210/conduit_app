@@ -80,9 +80,12 @@ class InviteFriendsViewController : UIViewController, UITableViewDataSource {
   }
   
   @IBAction func inviteFriends(sender: AnyObject) {
+    AnalyticsHelper.trackButtonPress("invited_friends")
     if selectedFriends.count == 0 {
+      AnalyticsHelper.trackEvent("user_error", label: "invited_no_friends")
       return
     }
+    
     let alertController = UIAlertController(title: "", message:
       "Send an invitation to conduit to " + String(selectedFriends.count) + " friends?",
       preferredStyle: UIAlertControllerStyle.Alert)

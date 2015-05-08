@@ -56,6 +56,8 @@ class PhoneSettingsViewController: UIViewController {
   }
   
   @IBAction func onSave(sender: AnyObject) {
+    AnalyticsHelper.trackButtonPress("change_phone_number")
+    
     // Do nothing if invalid phone number
     if !Validator.isValidPhoneNumber(phoneField.text) {
       let alertController = UIAlertController(title: "", message:

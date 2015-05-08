@@ -51,6 +51,7 @@ class SettingsViewController : UITableViewController, ConfirmPasswordDelegate {
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    AnalyticsHelper.trackTouchEvent(segue.identifier!)
     if (segue.identifier == "confirm_password_segue") {
       var next = segue.destinationViewController as! ConfirmPasswordViewController
       next.delegate = self

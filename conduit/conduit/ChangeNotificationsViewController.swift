@@ -22,6 +22,7 @@ class ChangeNotificationsViewController: UIViewController {
   }
 
   @IBAction func onSave(sender: AnyObject) {
+    AnalyticsHelper.trackButtonPress("change_notifications")
     var user = User.getUserFromDefaults()
     if user == nil {
       return

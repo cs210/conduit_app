@@ -55,6 +55,7 @@ class ChangeNameViewController: UIViewController {
   }
     
   @IBAction func saveChanges(sender: AnyObject) {
+    AnalyticsHelper.trackButtonPress("change_name")
     var user = User.getUserFromDefaults()
     if user == nil {
       return

@@ -41,6 +41,7 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
   }
   
   @IBAction func loginPressed(sender: AnyObject) {
+    AnalyticsHelper.trackButtonPress("log_in")
     
     let params = ["password": passwordField.text, "email_address": emailField.text]
     
@@ -89,5 +90,10 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
     }
     
   }
+  
+  @IBAction func noAccountPressed(sender: AnyObject) {
+    AnalyticsHelper.trackButtonPress("newAccount")
+  }
+  
   
 }

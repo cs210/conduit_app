@@ -69,6 +69,7 @@ class CarManagementView : UIViewController, UITableViewDataSource {
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    AnalyticsHelper.trackTouchEvent("delete_car")
     tableView.deselectRowAtIndexPath(indexPath, animated: false)
     selectedCarIndex = indexPath
     

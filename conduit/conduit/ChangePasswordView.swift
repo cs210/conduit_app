@@ -27,6 +27,7 @@ class ChangePasswordView : UIViewController {
     view.endEditing(true)
   }
   @IBAction func savePassword(sender: AnyObject) {
+    AnalyticsHelper.trackButtonPress("change_password")
     var error = false
     if (newPasswordField.text != confirmPasswordField.text) {
       var alert = UIAlertController(title: "Error", message: "Passwords don't match!", preferredStyle: UIAlertControllerStyle.Alert)

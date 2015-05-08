@@ -57,6 +57,7 @@ class AddCarViewController : UIViewController {
 
   
   @IBAction func addCar(sender : AnyObject) {
+    AnalyticsHelper.trackButtonPress("add_car")
     if licensePlateField.text == "" {
       Validator.highlightError(licensePlateField)
       let alertController = UIAlertController(title: "", message:
