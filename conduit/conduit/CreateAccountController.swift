@@ -21,7 +21,9 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
   @IBOutlet weak var phoneNumberField: UITextField!
   @IBOutlet weak var phoneNumberErrorLabel: UILabel!
   
+  var textfields:[UITextField] = []
   var activeTextField : UITextField!
+  var scrollFlag: Bool = true
   
   @IBAction func dismissKeyboard(sender: AnyObject) {
     view.endEditing(true)
@@ -48,6 +50,17 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
     phoneNumberErrorLabel.text = ""
     phoneNumberErrorLabel.textColor = StyleColor.getColor(.Error, brightness: .Medium)
     
+    textfields.append(firstNameField)
+    textfields.append(lastNameField)
+    textfields.append(passwordField)
+    textfields.append(retypePasswordField)
+    textfields.append(emailField)
+    textfields.append(phoneNumberField)
+    
+    for tf in textfields {
+      tf.delegate = self
+    }
+    
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
 
@@ -56,7 +69,10 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
   func keyboardWillShow(notification: NSNotification) {
     var info = notification.userInfo as! [String: NSObject]
     if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-      self.scrollView.setContentOffset(CGPoint(x: 0, y: keyboardSize.height), animated: true)
+      println(scrollFlag)
+      if (scrollFlag) {
+        self.scrollView.setContentOffset(CGPoint(x: 0, y: keyboardSize.height), animated: true)
+      }
     }
     
   }
@@ -70,6 +86,15 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
     textField.delegate = self
   }
   
+  func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+    if (textField == textfields[4] || textField == textfields[5] || textField == textfields[3]) {
+      scrollFlag = true
+    } else {
+      scrollFlag = false
+    }
+    return true
+  }
+  
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
   }
@@ -80,7 +105,18 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
   }
 
   func textFieldShouldReturn(textField: UITextField) -> Bool {
-    return textField.resignFirstResponder()
+    var foundField = false
+    for (i, tf) in enumerate(textfields) {
+      if (textField == tf && i < textfields.count - 1) {
+        textfields[i+1].becomeFirstResponder()
+        foundField = true
+      }
+    }
+    if (!foundField) {
+      // submit form
+      createAccount(textField)
+    }
+    return false
   }
   
   @IBAction func cancel(sender: AnyObject) {
