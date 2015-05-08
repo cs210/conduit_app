@@ -13,9 +13,9 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
   // Init selected message to "" because  you can't send an empty message
   var selectedMessage = ""
   var presetMessages = [
-    "Could you please unlock your charging port? Thank you!",
-    "When will you be back to your car?",
-    "Move your car now or else."
+    "I'm low on charge. Could I please use the charging station?",
+    "Hi! When will you be back to your car?",
+    "Could you please come move your car?"
   ]
   
   var licensePlate: String!
