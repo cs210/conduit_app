@@ -16,6 +16,11 @@ class AddCarViewController : UIViewController {
   @IBOutlet weak var licensePlateField: UITextField!
   var carManagementFlag : Bool = false
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    AnalyticsHelper.trackScreen("AddCar")
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     if carManagementFlag {
@@ -52,6 +57,7 @@ class AddCarViewController : UIViewController {
 
   
   @IBAction func addCar(sender : AnyObject) {
+    AnalyticsHelper.trackButtonPress("add_car")
     if licensePlateField.text == "" {
       Validator.highlightError(licensePlateField)
       let alertController = UIAlertController(title: "", message:

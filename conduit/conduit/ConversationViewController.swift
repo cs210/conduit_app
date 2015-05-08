@@ -14,7 +14,7 @@ class ConversationViewController : ATLConversationViewController {
   
   var dateFormatter: NSDateFormatter!
   var participantIdentifiers: [String]?
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -33,6 +33,7 @@ class ConversationViewController : ATLConversationViewController {
     self.messageInputToolbar.displaysRightAccessoryImage = false
     self.messageInputToolbar.rightAccessoryButton.setTitleColor(StyleColor.getColor(.Primary, brightness: .Medium), forState:.Normal)
     self.messageInputToolbar.rightAccessoryButton.backgroundColor = nil
+    
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -41,6 +42,8 @@ class ConversationViewController : ATLConversationViewController {
     } else {
       self.navigationItem.title = "Unknown"
     }
+
+    AnalyticsHelper.trackScreen("Conversation")
   }
   
   func sendInitMessage(messageText: String, licensePlate: String) {

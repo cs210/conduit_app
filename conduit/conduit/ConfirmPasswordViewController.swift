@@ -17,12 +17,18 @@ class ConfirmPasswordViewController: UIViewController, UITextFieldDelegate {
   var delegate: ConfirmPasswordDelegate?
   @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    AnalyticsHelper.trackScreen("ConfirmPassword")
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     passwordField.delegate = self
       
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    
   }
 
     override func didReceiveMemoryWarning() {

@@ -11,10 +11,9 @@ import UIKit
 class ChangeNotificationsViewController: UIViewController {
   @IBOutlet var changeNotificationSwitch: UISwitch!
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-
-    // Do any additional setup after loading the view.
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    AnalyticsHelper.trackScreen("ChangeNotifications")
   }
 
   override func didReceiveMemoryWarning() {
@@ -23,6 +22,7 @@ class ChangeNotificationsViewController: UIViewController {
   }
 
   @IBAction func onSave(sender: AnyObject) {
+    AnalyticsHelper.trackButtonPress("change_notifications")
     var user = User.getUserFromDefaults()
     if user == nil {
       return

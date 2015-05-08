@@ -11,10 +11,18 @@ import UIKit
 
 class WelcomeViewController : UIViewController {
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    AnalyticsHelper.trackScreen("Welcome")
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+
   }
+  
   @IBAction func goToScanner(sender: AnyObject) {
+    AnalyticsHelper.trackButtonPress("new_user_add_car")
     let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
     var destViewController : AddCarViewController = mainStoryboard.instantiateViewControllerWithIdentifier("addCarView") as! AddCarViewController
     self.navigationController?.pushViewController(destViewController, animated: true)
@@ -22,6 +30,7 @@ class WelcomeViewController : UIViewController {
   
   
   @IBAction func goToInviteFriends(sender: AnyObject) {
+    AnalyticsHelper.trackButtonPress("new_user_invite_friends")
     let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
     let destViewController : InviteFriendsViewController = mainStoryboard.instantiateViewControllerWithIdentifier("inviteFriendsView") as! InviteFriendsViewController
     self.navigationController?.pushViewController(destViewController, animated: true)

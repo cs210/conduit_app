@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class CarManagementView : UIViewController, UITableViewDataSource {
+class CarManagementView : UIViewController, UITableViewDataSource, UITableViewDelegate {
   // we will download from server in the future
   var cars:[Car] = []
   var selectedCarIndex:NSIndexPath!
@@ -18,6 +18,12 @@ class CarManagementView : UIViewController, UITableViewDataSource {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.loadCars()
+    carsTableView.delegate = self
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    AnalyticsHelper.trackScreen("CarManagement")
   }
   
   func loadCars() {
@@ -42,6 +48,28 @@ class CarManagementView : UIViewController, UITableViewDataSource {
     }
   }
   
+  func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    return true
+  }
+  
+  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    if (editingStyle == UITableViewCellEditingStyle.Delete) {
+      println("DELETING \(carsTableView.cellForRowAtIndexPath(indexPath)?.textLabel!.text)")
+      var sessionToken = NSUserDefaults().stringForKey("session")
+      var carId = cars[indexPath.row].id
+      APIModel.delete("users/\(sessionToken!)/cars/\(carId!)", parameters: nil, delete_completion: { (result, error) -> () in
+        if (error == nil) {
+          self.cars.removeAtIndex(indexPath.row)
+          self.carsTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+          self.carsTableView.reloadData()
+        } else {
+          println(error)
+        }
+        
+      })
+    }
+  }
+  
   @IBAction func addCar(sender: AnyObject) {
     let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
     var destViewController : AddCarViewController = mainStoryboard.instantiateViewControllerWithIdentifier("addCarView") as! AddCarViewController
@@ -63,6 +91,7 @@ class CarManagementView : UIViewController, UITableViewDataSource {
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    AnalyticsHelper.trackTouchEvent("delete_car")
     tableView.deselectRowAtIndexPath(indexPath, animated: false)
     selectedCarIndex = indexPath
     

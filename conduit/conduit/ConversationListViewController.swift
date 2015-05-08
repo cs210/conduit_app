@@ -10,10 +10,17 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
+
 class ConversationListViewController : ATLConversationListViewController, ATLConversationListViewControllerDataSource, ATLConversationListViewControllerDelegate {
 
   var selectedIndex: NSIndexPath!
   var dateFormatter: NSDateFormatter!
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    AnalyticsHelper.trackScreen("ConversationsList")
+  }
+  
   // The conversation view controllers uses this to start new conversations
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -57,6 +64,7 @@ extension ConversationListViewController: ATLConversationListViewControllerDataS
 extension ConversationListViewController: ATLConversationListViewControllerDelegate {
   
   func conversationListViewController(conversationListViewController: ATLConversationListViewController!, didSelectConversation conversation: LYRConversation!) {
+    AnalyticsHelper.trackTouchEvent("view_conversation")
     var conversationTitle = self.conversationListViewController(conversationListViewController, titleForConversation: conversation)
     let vc = ConversationViewController(layerClient: self.layerClient)
     
@@ -66,6 +74,7 @@ extension ConversationListViewController: ATLConversationListViewControllerDeleg
   
   func conversationListViewController(conversationListViewController: ATLConversationListViewController!, didDeleteConversation conversation: LYRConversation!, deletionMode:LYRDeletionMode!)
   {
+    AnalyticsHelper.trackTouchEvent("deleted_conversation")
     println("Conversation deleted")
   }
   

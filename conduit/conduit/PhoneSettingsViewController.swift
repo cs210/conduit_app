@@ -12,6 +12,11 @@ class PhoneSettingsViewController: UIViewController {
   @IBOutlet var phoneField: UITextField!
   @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    AnalyticsHelper.trackScreen("ChangePhone")
+  }
+  
   override func viewDidLoad() {
       super.viewDidLoad()
 //      phoneField.placeholder = User.getUserFromDefaults()?.phoneNumber
@@ -22,6 +27,7 @@ class PhoneSettingsViewController: UIViewController {
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     
     phoneField.autocorrectionType = UITextAutocorrectionType.No
+    
   }
 
   override func didReceiveMemoryWarning() {
@@ -50,6 +56,8 @@ class PhoneSettingsViewController: UIViewController {
   }
   
   @IBAction func onSave(sender: AnyObject) {
+    AnalyticsHelper.trackButtonPress("change_phone_number")
+    
     // Do nothing if invalid phone number
     if !Validator.isValidPhoneNumber(phoneField.text) {
       let alertController = UIAlertController(title: "", message:

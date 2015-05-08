@@ -12,6 +12,11 @@ class ChangeEmailViewController: UIViewController {
   @IBOutlet var emailTextField: UITextField!
   @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    AnalyticsHelper.trackScreen("ChangeEmail")
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     emailTextField.becomeFirstResponder()
@@ -54,6 +59,8 @@ class ChangeEmailViewController: UIViewController {
   }
   
   @IBAction func onSave(sender: AnyObject) {
+    AnalyticsHelper.trackButtonPress("change_email")
+    
     // Do nothing if invalid email
     if !Validator.isValidEmail(emailTextField.text) {
       let alertController = UIAlertController(title: "", message:

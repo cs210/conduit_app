@@ -13,25 +13,25 @@
 		B54FF8F81ACDE90A00450107 /* CarManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54FF8F71ACDE90A00450107 /* CarManagementView.swift */; };
 		B55805F81AE6CF7300EB5512 /* ConfirmPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55805F71AE6CF7300EB5512 /* ConfirmPasswordViewController.swift */; };
 		B57334171AABDB8100363B5C /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57334161AABDB8100363B5C /* CreateAccountController.swift */; };
-		B582C45F1AABDE900083AD9A /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B582C45E1AABDE900083AD9A /* ScannerViewController.swift */; };
 		B58C3F491AF0CA4C002311EE /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C3F481AF0CA4C002311EE /* ChangeNameViewController.swift */; };
 		B58C3F4B1AF0CA5C002311EE /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C3F4A1AF0CA5C002311EE /* ChangeEmailViewController.swift */; };
 		B58C3F4D1AF0CA6E002311EE /* ChangeNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C3F4C1AF0CA6E002311EE /* ChangeNotificationsViewController.swift */; };
 		B58C3F4F1AF40ECE002311EE /* PhoneSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C3F4E1AF40ECE002311EE /* PhoneSettingsViewController.swift */; };
-		B58FD9B11ACE3191005B8648 /* AccountSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58FD9B01ACE3191005B8648 /* AccountSettingsView.swift */; };
 		B58FD9B31ACE67B5005B8648 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */; };
-		B5FD86701AECC0E900E4629E /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD866F1AECC0E900E4629E /* CarDetailsViewController.swift */; };
 		BD04036B1AFAA14C009F1437 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD04036A1AFAA14C009F1437 /* CoreData.framework */; };
 		BD04036D1AFAA15C009F1437 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD04036C1AFAA15C009F1437 /* libz.dylib */; };
 		BD0403711AFAA210009F1437 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD04036E1AFAA16F009F1437 /* libGoogleAnalyticsServices.a */; };
 		BD0403731AFAA25C009F1437 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD0403721AFAA25C009F1437 /* libsqlite3.dylib */; };
 		BD19A1BF1AFA065B00015E34 /* AddCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19A1BE1AFA065B00015E34 /* AddCarViewController.swift */; };
 		BD7039671AF9FC32009E87D8 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7039661AF9FC32009E87D8 /* Validator.swift */; };
+		BD8027A31AFC3A0100E280A9 /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8027A21AFC3A0100E280A9 /* AnalyticsHelper.swift */; };
 		BDB898411AEC3301007E8FE1 /* InviteFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */; };
 		BDD28DC31ACDDD4E001B031D /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD28DC21ACDDD4E001B031D /* ConversationViewController.swift */; };
 		BDE4EB5F1AAC2A8900588511 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */; };
 		BDE4EB651AAC44FB00588511 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */; };
 		BDEB2DE81AD4A41E008C91C2 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2DE71AD4A41E008C91C2 /* Style.swift */; };
+		BDEC8BC61AFC85DB00C4B261 /* FB-f-Logo__blue_50.png in Resources */ = {isa = PBXBuildFile; fileRef = BDEC8BC51AFC85DB00C4B261 /* FB-f-Logo__blue_50.png */; };
+		BDEC8BC81AFC862200C4B261 /* Twitter_logo_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = BDEC8BC71AFC862200C4B261 /* Twitter_logo_blue.png */; };
 		C53B9CEA1AD1F6BE00BEFA88 /* LayerHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = C53B9CE91AD1F6BE00BEFA88 /* LayerHelpers.m */; };
 		C53B9CF01AD2046A00BEFA88 /* LayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C53B9CED1AD2046A00BEFA88 /* LayerKit.framework */; };
 		C53B9CF11AD2046A00BEFA88 /* layer-client-messaging-schema.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C53B9CEF1AD2046A00BEFA88 /* layer-client-messaging-schema.bundle */; };
@@ -130,25 +130,25 @@
 		B54FF8F71ACDE90A00450107 /* CarManagementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarManagementView.swift; sourceTree = "<group>"; };
 		B55805F71AE6CF7300EB5512 /* ConfirmPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPasswordViewController.swift; sourceTree = "<group>"; };
 		B57334161AABDB8100363B5C /* CreateAccountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
-		B582C45E1AABDE900083AD9A /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		B58C3F481AF0CA4C002311EE /* ChangeNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
 		B58C3F4A1AF0CA5C002311EE /* ChangeEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewController.swift; sourceTree = "<group>"; };
 		B58C3F4C1AF0CA6E002311EE /* ChangeNotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeNotificationsViewController.swift; sourceTree = "<group>"; };
 		B58C3F4E1AF40ECE002311EE /* PhoneSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneSettingsViewController.swift; sourceTree = "<group>"; };
-		B58FD9B01ACE3191005B8648 /* AccountSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingsView.swift; sourceTree = "<group>"; };
 		B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
-		B5FD866F1AECC0E900E4629E /* CarDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
 		BD04036A1AFAA14C009F1437 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		BD04036C1AFAA15C009F1437 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BD04036E1AFAA16F009F1437 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = "Pods/GoogleAnalytics-iOS-SDK/libGoogleAnalyticsServices.a"; sourceTree = "<group>"; };
 		BD0403721AFAA25C009F1437 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		BD19A1BE1AFA065B00015E34 /* AddCarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCarViewController.swift; sourceTree = "<group>"; };
 		BD7039661AF9FC32009E87D8 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		BD8027A21AFC3A0100E280A9 /* AnalyticsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
 		BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendsViewController.swift; sourceTree = "<group>"; };
 		BDD28DC21ACDDD4E001B031D /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
 		BDEB2DE71AD4A41E008C91C2 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		BDEC8BC51AFC85DB00C4B261 /* FB-f-Logo__blue_50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FB-f-Logo__blue_50.png"; sourceTree = "<group>"; };
+		BDEC8BC71AFC862200C4B261 /* Twitter_logo_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter_logo_blue.png; sourceTree = "<group>"; };
 		C53B9CE71AD1E57500BEFA88 /* conduit-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "conduit-Bridging-Header.h"; sourceTree = "<group>"; };
 		C53B9CE81AD1F6BE00BEFA88 /* LayerHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LayerHelpers.h; path = conduit/LayerHelpers.h; sourceTree = "<group>"; };
 		C53B9CE91AD1F6BE00BEFA88 /* LayerHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LayerHelpers.m; path = conduit/LayerHelpers.m; sourceTree = "<group>"; };
@@ -341,6 +341,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BDEC8BC41AFC844B00C4B261 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BDEC8BC71AFC862200C4B261 /* Twitter_logo_blue.png */,
+				BDEC8BC51AFC85DB00C4B261 /* FB-f-Logo__blue_50.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		C5212BF21ABAA43C004171FD /* API Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,8 +403,8 @@
 		C5C70DBE1AA68EDE00BE0753 /* conduit */ = {
 			isa = PBXGroup;
 			children = (
+				BDEC8BC41AFC844B00C4B261 /* Images */,
 				C53B9CE71AD1E57500BEFA88 /* conduit-Bridging-Header.h */,
-				C5D02E711ADD9F2F00C201A5 /* CustomSegues.swift */,
 				C5212BF21ABAA43C004171FD /* API Models */,
 				C5C70DC11AA68EDE00BE0753 /* AppDelegate.swift */,
 				C53CE0D71AFC67A30071A4C4 /* Main.storyboard */,
@@ -407,24 +416,33 @@
 				B57334161AABDB8100363B5C /* CreateAccountController.swift */,
 				BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */,
 				C53CE0DB1AFC68620071A4C4 /* LicenseInputController.swift */,
+				C5EFBDDA1AABD4CD000029C3 /* MenuTableViewController.swift */,
+				C5C70DC51AA68EDE00BE0753 /* Main.storyboard */,
+				BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */,
+				BD4C1E191ACC6EDD00C10987 /* CustomMessageController.swift */,
 				BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */,
 				B54FF8F11AB04B3100450107 /* ConversationListViewController.swift */,
 				BDD28DC21ACDDD4E001B031D /* ConversationViewController.swift */,
-				B582C45E1AABDE900083AD9A /* ScannerViewController.swift */,
-				C5EFBDDA1AABD4CD000029C3 /* MenuTableViewController.swift */,
 				B54FF8F51ACD288200450107 /* SettingsViewController.swift */,
 				B54FF8F71ACDE90A00450107 /* CarManagementView.swift */,
 				BDEB2DE71AD4A41E008C91C2 /* Style.swift */,
 				C53CE0D91AFC67AF0071A4C4 /* LaunchScreen.xib */,
 				C5C70DC81AA68EDE00BE0753 /* Images.xcassets */,
 				C5C70DBF1AA68EDE00BE0753 /* Supporting Files */,
+				BD19A1BE1AFA065B00015E34 /* AddCarViewController.swift */,
 				B55805F71AE6CF7300EB5512 /* ConfirmPasswordViewController.swift */,
-				B5FD866F1AECC0E900E4629E /* CarDetailsViewController.swift */,
+				B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */,
 				B58C3F481AF0CA4C002311EE /* ChangeNameViewController.swift */,
 				B58C3F4A1AF0CA5C002311EE /* ChangeEmailViewController.swift */,
-				BD7039661AF9FC32009E87D8 /* Validator.swift */,
 				B58C3F4C1AF0CA6E002311EE /* ChangeNotificationsViewController.swift */,
 				B58C3F4E1AF40ECE002311EE /* PhoneSettingsViewController.swift */,
+				BD8027A21AFC3A0100E280A9 /* AnalyticsHelper.swift */,
+				C5D02E711ADD9F2F00C201A5 /* CustomSegues.swift */,
+				BD7039661AF9FC32009E87D8 /* Validator.swift */,
+				BDEB2DE71AD4A41E008C91C2 /* Style.swift */,
+				C5C70DC81AA68EDE00BE0753 /* Images.xcassets */,
+				C5C70DCA1AA68EDE00BE0753 /* LaunchScreen.xib */,
+				C5C70DBF1AA68EDE00BE0753 /* Supporting Files */,
 			);
 			path = conduit;
 			sourceTree = "<group>";
@@ -711,6 +729,7 @@
 				C53CE0D81AFC67A30071A4C4 /* Main.storyboard in Resources */,
 				C5D02F071AE085B000C201A5 /* layerbell.caf in Resources */,
 				C53CE0DA1AFC67AF0071A4C4 /* LaunchScreen.xib in Resources */,
+				BDEC8BC81AFC862200C4B261 /* Twitter_logo_blue.png in Resources */,
 				C5D02F021AE085B000C201A5 /* camera_dark@2x.png in Resources */,
 				C5D02F0E1AE085B000C201A5 /* plus.png in Resources */,
 				C5D02F0C1AE085B000C201A5 /* location_dark@2x.png in Resources */,
@@ -727,6 +746,7 @@
 				C5D02F0B1AE085B000C201A5 /* location_dark.png in Resources */,
 				C5D02F001AE085B000C201A5 /* block@3x.png in Resources */,
 				C5D02EFF1AE085B000C201A5 /* block@2x.png in Resources */,
+				BDEC8BC61AFC85DB00C4B261 /* FB-f-Logo__blue_50.png in Resources */,
 				C5D02F0F1AE085B000C201A5 /* plus@2x.png in Resources */,
 				C5D02F101AE085B000C201A5 /* plus@3x.png in Resources */,
 				C5D02EFE1AE085B000C201A5 /* block.png in Resources */,
@@ -800,6 +820,7 @@
 				C5D02EE41AE085A300C201A5 /* ATLMessageComposeTextView.m in Sources */,
 				C5D02ECC1AE085A300C201A5 /* ATLTypingIndicatorViewController.m in Sources */,
 				C5D02EDE1AE085A300C201A5 /* ATLConversationCollectionViewMoreMessagesHeader.m in Sources */,
+				BD8027A31AFC3A0100E280A9 /* AnalyticsHelper.swift in Sources */,
 				BDD28DC31ACDDD4E001B031D /* ConversationViewController.swift in Sources */,
 				B58C3F4F1AF40ECE002311EE /* PhoneSettingsViewController.swift in Sources */,
 				C5D02EE01AE085A300C201A5 /* ATLConversationView.m in Sources */,
@@ -820,7 +841,6 @@
 				B57334171AABDB8100363B5C /* CreateAccountController.swift in Sources */,
 				BDB898411AEC3301007E8FE1 /* InviteFriendsViewController.swift in Sources */,
 				C5D02ECF1AE085A300C201A5 /* ATLMediaAttachment.m in Sources */,
-				B58FD9B11ACE3191005B8648 /* AccountSettingsView.swift in Sources */,
 				B54FF8F81ACDE90A00450107 /* CarManagementView.swift in Sources */,
 				C5D02EDF1AE085A300C201A5 /* ATLConversationTableViewCell.m in Sources */,
 				C56BFC9C1ABA94F40074FCAA /* User.swift in Sources */,
@@ -842,7 +862,6 @@
 				C5D02EDC1AE085A300C201A5 /* ATLConversationCollectionViewFooter.m in Sources */,
 				C5D02ECE1AE085A300C201A5 /* ATLDataSourceChange.m in Sources */,
 				C5D02ECB1AE085A300C201A5 /* ATLParticipantTableViewController.m in Sources */,
-				B582C45F1AABDE900083AD9A /* ScannerViewController.swift in Sources */,
 				C5C70DC21AA68EDE00BE0753 /* AppDelegate.swift in Sources */,
 				B55805F81AE6CF7300EB5512 /* ConfirmPasswordViewController.swift in Sources */,
 				BDE4EB5F1AAC2A8900588511 /* LoginViewController.swift in Sources */,
@@ -859,7 +878,6 @@
 				C5D02EE11AE085A300C201A5 /* ATLIncomingMessageCollectionViewCell.m in Sources */,
 				C5D02ED01AE085A300C201A5 /* ATLParticipantTableDataSet.m in Sources */,
 				C5D02EC91AE085A300C201A5 /* ATLConversationListViewController.m in Sources */,
-				B5FD86701AECC0E900E4629E /* CarDetailsViewController.swift in Sources */,
 				C5D02EE91AE085A300C201A5 /* ATLProgressView.m in Sources */,
 				C56BFC9A1ABA92430074FCAA /* APIModel.swift in Sources */,
 				C53B9CEA1AD1F6BE00BEFA88 /* LayerHelpers.m in Sources */,

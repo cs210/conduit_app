@@ -14,10 +14,20 @@ class ChangePasswordView : UIViewController {
   @IBOutlet var newPasswordField: UITextField!
   @IBOutlet var confirmPasswordField: UITextField!
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    AnalyticsHelper.trackScreen("ChangePassword")
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
+  
   @IBAction func dismissKeyboard(sender: AnyObject) {
     view.endEditing(true)
   }
   @IBAction func savePassword(sender: AnyObject) {
+    AnalyticsHelper.trackButtonPress("change_password")
     var error = false
     if (newPasswordField.text != confirmPasswordField.text) {
       var alert = UIAlertController(title: "Error", message: "Passwords don't match!", preferredStyle: UIAlertControllerStyle.Alert)
@@ -29,15 +39,14 @@ class ChangePasswordView : UIViewController {
       if user == nil {
         return
       }
+      
+      user!.updatePassword(newPasswordField.text, completion: { (result, error) -> () in
+        let alertController = UIAlertController(title: "", message:
+          "Your password has been updated!", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
   
-//      user?.password = newPasswordField.text
-//      user!.update { (result, error) -> () in
-//        let alertController = UIAlertController(title: "", message:
-//          "Your password has been updated!", preferredStyle: UIAlertControllerStyle.Alert)
-//        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
-//  
-//        self.presentViewController(alertController, animated: true, completion: nil)
-//      }
+        self.presentViewController(alertController, animated: true, completion: nil)
+      })
     }
   }
  

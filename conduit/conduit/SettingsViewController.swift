@@ -20,7 +20,14 @@ class SettingsViewController : UITableViewController, ConfirmPasswordDelegate {
     println(defaults.stringForKey("session"))
     super.viewDidLoad()
     menuButton.addTarget(self.revealViewController(), action: "revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
+    
   }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    AnalyticsHelper.trackScreen("Settings")
+  }
+  
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("SettingsListItem",
       forIndexPath : indexPath) as! UITableViewCell
@@ -44,6 +51,7 @@ class SettingsViewController : UITableViewController, ConfirmPasswordDelegate {
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    AnalyticsHelper.trackTouchEvent(segue.identifier!)
     if (segue.identifier == "confirm_password_segue") {
       var next = segue.destinationViewController as! ConfirmPasswordViewController
       next.delegate = self

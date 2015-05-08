@@ -13,16 +13,21 @@ class ChangeNameViewController: UIViewController {
   @IBOutlet var firstNameField: UITextField!
   @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    AnalyticsHelper.trackScreen("ChangeName")
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
 
     // Do any additional setup after loading the view.
-    
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     
     firstNameField.autocorrectionType = UITextAutocorrectionType.No
     lastNameField.autocorrectionType = UITextAutocorrectionType.No
+  
   }
 
   @IBAction func dismissKeyboard(sender: AnyObject) {
@@ -50,6 +55,7 @@ class ChangeNameViewController: UIViewController {
   }
     
   @IBAction func saveChanges(sender: AnyObject) {
+    AnalyticsHelper.trackButtonPress("change_name")
     var user = User.getUserFromDefaults()
     if user == nil {
       return

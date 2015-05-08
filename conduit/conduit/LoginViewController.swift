@@ -18,11 +18,15 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
     view.endEditing(true)
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    AnalyticsHelper.trackScreen("Login")
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     emailField.delegate = self
     passwordField.delegate = self
-
   }
   
   func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -37,6 +41,7 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
   }
   
   @IBAction func loginPressed(sender: AnyObject) {
+    AnalyticsHelper.trackButtonPress("log_in")
     
     let params = ["password": passwordField.text, "email_address": emailField.text]
     
@@ -85,5 +90,10 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
     }
     
   }
+  
+  @IBAction func noAccountPressed(sender: AnyObject) {
+    AnalyticsHelper.trackButtonPress("newAccount")
+  }
+  
   
 }
