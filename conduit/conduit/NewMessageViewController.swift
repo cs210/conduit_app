@@ -20,7 +20,8 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
   
   var licensePlate: String!
   var participantIdentifiers : [String] = []
-
+  var customSelected: Bool = false
+  
   @IBOutlet weak var toFieldBackground: UIView!
   @IBOutlet weak var licensePlateLabel: UILabel!
   @IBOutlet weak var presetTable: UITableView!
@@ -61,14 +62,15 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
   func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
     var button = UIButton()
     button.setTitle("Custom", forState: .Normal)
-    button.addTarget(self, action: "sendMessageToLicensePlate", forControlEvents: UIControlEvents.TouchUpInside)
+    button.addTarget(self, action: "goToCustomMessage", forControlEvents: UIControlEvents.TouchUpInside)
     button.titleLabel!.font = UIFont.systemFontOfSize(14.0)
     return button
   }
   
   func goToCustomMessage() {
+    customSelected = true
     AnalyticsHelper.trackButtonPress("custom_message")
-    self.performSegueWithIdentifier("custom_message_segue", sender: self)
+    self.performSegueWithIdentifier("send_to_conversation", sender: self)
   }
   
   func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -76,7 +78,6 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
   }
   
   func sendMessageToLicensePlate(licensePlate : String) {
-    NSLog("Going to send_to_conversation segue")
     self.performSegueWithIdentifier("send_to_conversation", sender: self)
   }
 

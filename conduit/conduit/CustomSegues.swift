@@ -36,7 +36,7 @@ class SendToConversationSegue: UIStoryboardSegue {
     conversationListNavigationController.pushViewController(conversationViewController, animated: false)
 
     conversationViewController.sendInitMessage(sourceViewController.selectedMessage, licensePlate: sourceViewController.licensePlateLabel.text!)
-
+    
   }
   
 }

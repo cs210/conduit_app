@@ -36,7 +36,10 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
   func keyboardWillShow(notification: NSNotification) {
     var info = notification.userInfo as! [String: NSObject]
     if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+      var screenSize = UIScreen.mainScreen().bounds
+      if (screenSize.height < 500) {
         self.scrollView.setContentOffset(CGPoint(x: 0, y: keyboardSize.height/3), animated: true)
+      }
     }
     
   }
