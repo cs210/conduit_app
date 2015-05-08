@@ -38,19 +38,13 @@ class ConversationListViewController : ATLConversationListViewController, ATLCon
 
 extension ConversationListViewController: ATLConversationListViewControllerDataSource {
   func conversationListViewController(conversationListViewController: ATLConversationListViewController!, titleForConversation conversation: LYRConversation!) -> String! {
-    
-    var participants:Set<String> = conversation.participants as! Set<String>
-    var currentUser: String = User.getUserFromDefaults()!.participantIdentifier
 
-    participants = participants.subtract([currentUser])
-    
-    var conversationName: String = ""
-    for participant in participants {
-      conversationName += participant
+    // TODO: Return the name of the conversation
+    if let license_plate = conversation.metadata["license_plate"] as? String {
+      return license_plate
     }
     
-    // TODO: Return the name of the conversation
-    return conversationName
+    return "Unknown"
   }
   
   func conversationListViewController(conversationListViewController: ATLConversationListViewController!, avatarItemForConversation conversation: LYRConversation!) -> ATLAvatarItem! {
@@ -66,7 +60,6 @@ extension ConversationListViewController: ATLConversationListViewControllerDeleg
     var conversationTitle = self.conversationListViewController(conversationListViewController, titleForConversation: conversation)
     let vc = ConversationViewController(layerClient: self.layerClient)
     
-    vc.conversationTitle = conversationTitle
     vc.conversation = conversation
     self.navigationController?.pushViewController(vc, animated: true)
   }

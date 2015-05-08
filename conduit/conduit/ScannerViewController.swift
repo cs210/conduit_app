@@ -246,12 +246,9 @@ class ScannerViewController : UIViewController,
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "new_message_segue" {
       var next = segue.destinationViewController as! NewMessageViewController
-      next.licenseTextField.text = licensePlate
-      next.manualLicensePlate = false
+     // next.licenseTextField.text = licensePlate
     } else if segue.identifier == "manual_new_message_segue" {
       var next = segue.destinationViewController as! NewMessageViewController
-      next.licensePlate = ""
-      next.manualLicensePlate = true
     }
   }
 
