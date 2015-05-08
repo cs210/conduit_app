@@ -84,7 +84,6 @@ class User: APIModel, ATLParticipant, NSCoding {
     coder.encodeBool(self.pushEnabled, forKey: "pushEnabled")
   }
   
-  
   override func present() -> [String:AnyObject] {
     var present: [String:AnyObject] = [
       "first_name": self.firstName,
@@ -146,14 +145,6 @@ class User: APIModel, ATLParticipant, NSCoding {
     return nil
   }
   
-  // pragma mark - NSCoding http://nshipster.com/nscoding/
-  
-//  required convenience init(coder decoder: NSCoder) {
-//    self.init()
-//    self.id = decoder.decodeObjectForKey("id") as Int?
-//    self.
-//    
-//  }
 
 }
 

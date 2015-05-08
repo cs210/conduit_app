@@ -13,7 +13,6 @@ import UIKit
 class ConversationViewController : ATLConversationViewController {
   
   var dateFormatter: NSDateFormatter!
-  var conversationTitle: String!
   var participantIdentifiers: [String]?
 
   override func viewDidLoad() {
@@ -38,16 +37,23 @@ class ConversationViewController : ATLConversationViewController {
   }
   
   override func viewWillAppear(animated: Bool) {
-    self.navigationItem.title = self.conversationTitle
+    if let license_plate = conversation.metadata["license_plate"] as? String {
+      self.navigationItem.title = license_plate
+    } else {
+      self.navigationItem.title = "Unknown"
+    }
+
     AnalyticsHelper.trackScreen("Conversation")
   }
   
-  func sendInitMessage(messageText: String) {
+  func sendInitMessage(messageText: String, licensePlate: String) {
     // If no conversations exist, create a new conversation object with a single participant
     if (self.conversation == nil) {
       var error:NSError? = nil
       self.conversation = self.layerClient.newConversationWithParticipants(
-        NSSet(array: self.participantIdentifiers!) as Set<NSObject>, options: nil, error: &error)
+        NSSet(array: self.participantIdentifiers!) as Set<NSObject>, options: nil, error: &error
+      )
+      self.conversation.setValue(licensePlate, forMetadataAtKeyPath: "license_plate")
       
       if (self.conversation == nil) {
         NSLog("New Conversation creation failed: \(error)")
@@ -67,6 +73,7 @@ class ConversationViewController : ATLConversationViewController {
     } else {
       NSLog("Message send failed: \(error)");
     }
+    
   }
  
   func configureUIColors () {

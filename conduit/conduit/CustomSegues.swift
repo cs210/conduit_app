@@ -35,8 +35,7 @@ class SendToConversationSegue: UIStoryboardSegue {
     conversationViewController.participantIdentifiers = sourceViewController.participantIdentifiers
     conversationListNavigationController.pushViewController(conversationViewController, animated: false)
 
-    // TODO: broken here because layer is broken
-    conversationViewController.sendInitMessage(sourceViewController.selectedMessage)
+    conversationViewController.sendInitMessage(sourceViewController.selectedMessage, licensePlate: sourceViewController.licensePlateLabel.text!)
 
   }
   

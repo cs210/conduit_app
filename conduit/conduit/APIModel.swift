@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 #if arch(i386) || arch(x86_64)
-  let APIURL = "http://0.0.0.0:6969/"
+  let APIURL = "http://0.0.0.0:8080/"
 #else
   //let APIURL = "http://127.0.0.1:8080/"
   let APIURL = "http://172.20.10.2:8080/"
@@ -37,8 +37,7 @@ class APIModel: NSObject {
   
   // MARK - Class/Type Methods.
   
-  class func get(path: String, parameters: [String: AnyObject]? = nil,
-                 get_completion: (result: JSON?, error: NSError?) -> ()){
+  class func get(path: String, parameters: [String: AnyObject]? = nil, get_completion: (result: JSON?, error: NSError?) -> ()){
     
     var url = "\(APIURL)\(path)"
                   
@@ -55,7 +54,7 @@ class APIModel: NSObject {
         get_completion(result:json, error:nil)
       }
     }
-               
+    
   }
 
   class func post(path: String, parameters: [String: AnyObject]?,
