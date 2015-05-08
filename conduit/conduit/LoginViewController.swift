@@ -44,8 +44,8 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     
-    emailField.autocorrectionType = UITextAutocorrectionType.No
-    passwordField.autocorrectionType = UITextAutocorrectionType.No
+    StyleHelpers.disableAutocorrect(emailField)
+    StyleHelpers.disableAutocorrect(passwordField)
     
   }
   
@@ -118,8 +118,14 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
           
           navController.presentViewController(destNavController, animated: true, completion: nil)
           
+        } else {
+          var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+          var revealController : SWRevealViewController = appDelegate.window!.rootViewController as! SWRevealViewController
+          var navController : UINavigationController = revealController.frontViewController as! UINavigationController
+          
+          var licenseInputViewController = navController.topViewController as! LicenseInputController?
+          licenseInputViewController?.licenseField.becomeFirstResponder()
         }
-        
       })
       
     }

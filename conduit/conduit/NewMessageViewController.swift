@@ -29,6 +29,9 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("NewMessage")
+    presetTable.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+    presetTable.separatorInset = UIEdgeInsetsZero
+    
   }
   
   override func viewDidLoad() {
@@ -36,6 +39,11 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
     licensePlateLabel.text = licensePlate
   }
 
+  func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    cell.separatorInset = UIEdgeInsetsZero
+    cell.layoutMargins = UIEdgeInsetsZero
+    cell.preservesSuperviewLayoutMargins = false
+  }
   
   // These functions manage the preset message list.
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -88,4 +96,5 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
 // the look and positioning of table cells.
 class NewMessageTableViewCell : UITableViewCell {
   @IBOutlet weak var label: UILabel!
+  
 }

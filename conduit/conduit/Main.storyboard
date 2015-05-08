@@ -529,7 +529,7 @@
             </objects>
             <point key="canvasLocation" x="1005" y="1314"/>
         </scene>
-        <!--License Input Controller-->
+        <!--Make a Request-->
         <scene sceneID="48K-Rz-Tzq">
             <objects>
                 <viewController id="A5k-4W-Gp3" customClass="LicenseInputController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
@@ -541,8 +541,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please enter the license plate of a car who's owner you would like to message." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnc-fw-0Yy">
-                                <rect key="frame" x="32" y="72" width="256" height="122"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please enter the license plate of a car whose owner you would like to message." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnc-fw-0Yy">
+                                <rect key="frame" x="-144" y="72" width="608" height="122"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="256" id="o9G-ok-hmk"/>
                                 </constraints>
@@ -585,7 +585,7 @@
                             <constraint firstItem="UcA-j5-iKw" firstAttribute="top" secondItem="fnc-fw-0Yy" secondAttribute="bottom" constant="40" id="sSs-Z8-jfL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="d9X-y3-qbQ">
+                    <navigationItem key="navigationItem" title="Make a Request" id="d9X-y3-qbQ">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="yGs-tv-8Or">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aIh-Bi-lZV">
                                 <rect key="frame" x="-23" y="-15" width="71" height="30"/>
@@ -593,6 +593,9 @@
                                 <state key="normal" title="Menu">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="dismissKeyboard:" destination="A5k-4W-Gp3" eventType="touchUpInside" id="201-te-WUe"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -609,7 +612,7 @@
             </objects>
             <point key="canvasLocation" x="614" y="-68"/>
         </scene>
-        <!--New Message-->
+        <!--New Request-->
         <scene sceneID="Gtu-DX-KU1">
             <objects>
                 <viewController restorationIdentifier="NewMessage" id="Z91-TC-IGc" customClass="NewMessageViewController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
@@ -634,8 +637,8 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2Yq-yv-ccL"/>
-                                    <constraint firstAttribute="centerY" secondItem="aOa-Nh-NdK" secondAttribute="centerY" id="94o-Yi-cQV"/>
-                                    <constraint firstItem="aOa-Nh-NdK" firstAttribute="leading" secondItem="6fu-f9-rrO" secondAttribute="leading" constant="65" id="UD0-ea-lk9"/>
+                                    <constraint firstItem="aOa-Nh-NdK" firstAttribute="top" secondItem="6fu-f9-rrO" secondAttribute="top" constant="14" id="Vgz-kO-UlF"/>
+                                    <constraint firstItem="aOa-Nh-NdK" firstAttribute="leading" secondItem="6fu-f9-rrO" secondAttribute="leading" constant="40" id="asX-Hd-ZBs"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="To:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="De6-Lw-8ab" customClass="Label" customModule="conduit" customModuleProvider="target">
@@ -654,18 +657,30 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" tableViewCell="x78-bT-6AW" id="A2U-eo-p2n">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcg-0q-9Tb">
-                                                    <rect key="frame" x="20" y="10" width="280" height="50"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XHJ-Fz-D2h">
+                                                    <rect key="frame" x="80" y="12" width="160" height="25"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcg-0q-9Tb">
+                                                            <rect key="frame" x="-60" y="-12" width="280" height="40"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="wcg-0q-9Tb" firstAttribute="leading" secondItem="XHJ-Fz-D2h" secondAttribute="leading" constant="20" id="BCc-Sd-3H3"/>
+                                                        <constraint firstItem="wcg-0q-9Tb" firstAttribute="top" secondItem="XHJ-Fz-D2h" secondAttribute="top" constant="1" id="dGa-mj-Pis"/>
+                                                        <constraint firstAttribute="trailing" secondItem="wcg-0q-9Tb" secondAttribute="trailing" constant="20" id="l0E-m1-btt"/>
+                                                        <constraint firstAttribute="bottom" secondItem="wcg-0q-9Tb" secondAttribute="bottom" constant="1" id="qYc-6n-su6"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="wcg-0q-9Tb" firstAttribute="leading" secondItem="A2U-eo-p2n" secondAttribute="leadingMargin" constant="10" id="BfW-Dh-oUK"/>
-                                                <constraint firstItem="wcg-0q-9Tb" firstAttribute="top" secondItem="A2U-eo-p2n" secondAttribute="topMargin" constant="1" id="ItJ-ax-pu7"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="wcg-0q-9Tb" secondAttribute="bottom" constant="1" id="MeX-Us-Wxo"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="wcg-0q-9Tb" secondAttribute="trailing" constant="10" id="ok2-c7-au3"/>
+                                                <constraint firstItem="XHJ-Fz-D2h" firstAttribute="top" secondItem="A2U-eo-p2n" secondAttribute="top" id="57p-XB-ZRo"/>
+                                                <constraint firstAttribute="bottom" secondItem="XHJ-Fz-D2h" secondAttribute="bottom" id="5ny-3d-83N"/>
+                                                <constraint firstAttribute="trailing" secondItem="XHJ-Fz-D2h" secondAttribute="trailing" id="Trf-Kg-MV9"/>
+                                                <constraint firstItem="XHJ-Fz-D2h" firstAttribute="leading" secondItem="A2U-eo-p2n" secondAttribute="leading" id="jef-EK-lBJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
@@ -694,7 +709,7 @@
                             <constraint firstItem="BNe-n1-PuK" firstAttribute="leading" secondItem="eBW-b1-sgx" secondAttribute="leading" id="zrU-Z6-gob"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New Message" id="gLT-44-Ggt"/>
+                    <navigationItem key="navigationItem" title="New Request" id="gLT-44-Ggt"/>
                     <connections>
                         <outlet property="licensePlateLabel" destination="aOa-Nh-NdK" id="Sik-md-hXu"/>
                         <outlet property="presetTable" destination="BNe-n1-PuK" id="4N3-qu-pLN"/>
@@ -1496,6 +1511,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="Z91-qw-KfW" id="bDE-zV-ig3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lba-EI-swJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

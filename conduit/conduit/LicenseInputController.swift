@@ -48,7 +48,7 @@ class LicenseInputController : UIViewController {
       selector: "checkTimerFunction", userInfo: nil, repeats: true)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     
-    licenseField.autocorrectionType = UITextAutocorrectionType.No
+    StyleHelpers.disableAutocorrect(licenseField)
     licenseField.becomeFirstResponder()
     
   }
@@ -58,6 +58,11 @@ class LicenseInputController : UIViewController {
     if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
       self.bottomConstraint.constant = keyboardSize.height
     }
+  }
+  
+  
+  @IBAction func dismissKeyboard(sender: AnyObject) {
+    view.endEditing(true)
   }
   
   func presentErrorMessage () {

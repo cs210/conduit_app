@@ -121,7 +121,17 @@ class InviteFriendsViewController : UIViewController {
   @IBAction func goToScanner(sender: AnyObject) {
     var defaults = NSUserDefaults.standardUserDefaults()
     defaults.setBool(false, forKey: "isNewAccount")
-    self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+    self.navigationController?.dismissViewControllerAnimated(true, completion: {
+      
+      var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+      var revealController : SWRevealViewController = appDelegate.window!.rootViewController as! SWRevealViewController
+      var navController : UINavigationController = revealController.frontViewController as! UINavigationController
+      
+      var licenseInputViewController = navController.topViewController as! LicenseInputController?
+      licenseInputViewController?.licenseField.becomeFirstResponder()
+      
+    })
+    
   }
   
 }

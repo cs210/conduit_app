@@ -34,6 +34,8 @@ class ConversationViewController : ATLConversationViewController {
     self.messageInputToolbar.displaysRightAccessoryImage = false
     self.messageInputToolbar.rightAccessoryButton.setTitleColor(StyleColor.getColor(.Primary, brightness: .Medium), forState:.Normal)
     self.messageInputToolbar.rightAccessoryButton.backgroundColor = nil
+    self.messageInputToolbar.textInputView.font = UIFont(name: StyleHelpers.FONT_NAME, size: StyleHelpers.FONT_SIZE)
+    
     
   }
   
@@ -46,6 +48,7 @@ class ConversationViewController : ATLConversationViewController {
     }
     self.navigationItem.title = title
     AnalyticsHelper.trackScreen("Conversation")
+    StyleHelpers.setButtonFont(self.messageInputToolbar.rightAccessoryButton)
   }
   
   
@@ -99,6 +102,7 @@ class ConversationViewController : ATLConversationViewController {
     ATLOutgoingMessageCollectionViewCell.appearance().messageTextFont = UIFont(name: StyleHelpers.FONT_NAME, size: StyleHelpers.FONT_SIZE)
     
     ATLMessageInputToolbar.appearance().tintColor = TextColor.getTextColor(.Dark)
+    
 //    applyConversationAppearance()
   }
   
@@ -154,7 +158,7 @@ extension ConversationViewController: ATLConversationViewControllerDataSource {
   func conversationViewController(conversationViewController: ATLConversationViewController!, attributedStringForDisplayOfDate date: NSDate!) -> NSAttributedString! {
     return NSAttributedString(string:self.dateFormatter.stringFromDate(date), attributes:
       [NSForegroundColorAttributeName: UIColor.grayColor(),
-        NSFontAttributeName: UIFont.systemFontOfSize(14)])
+        NSFontAttributeName: UIFont(name: StyleHelpers.FONT_NAME, size:StyleHelpers.FONT_SIZE)!])
   }
   
   func conversationViewController(conversationViewController: ATLConversationViewController!, attributedStringForDisplayOfRecipientStatus recipientStatus: [NSObject : AnyObject]!) -> NSAttributedString! {

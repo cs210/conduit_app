@@ -40,7 +40,7 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
     self.navigationController?.navigationBar.shadowImage = UIImage()
     self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
     self.navigationController?.navigationBar.translucent = true
-    self.createAcctButton.backgroundColor = nil
+    self.createAcctButton.backgroundColor = UIColor.clearColor()
     StyleHelpers.setButtonFont(createAcctButton)
   }
   
@@ -73,6 +73,13 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
     
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    
+    StyleHelpers.disableAutocorrect(firstNameField)
+    StyleHelpers.disableAutocorrect(lastNameField)
+    StyleHelpers.disableAutocorrect(passwordField)
+    StyleHelpers.disableAutocorrect(retypePasswordField)
+    StyleHelpers.disableAutocorrect(emailField)
+    StyleHelpers.disableAutocorrect(phoneNumberField)
 
   }
   

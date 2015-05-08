@@ -88,9 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
     UILabel.appearance().font = UIFont(name: StyleHelpers.FONT_NAME, size: StyleHelpers.FONT_SIZE)
     
     UITextField.appearance().font = UIFont(name: StyleHelpers.FONT_NAME, size: StyleHelpers.FONT_SIZE)
-    
-    UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName : UIFont(name: StyleHelpers.FONT_NAME, size: StyleHelpers.FONT_SIZE)!, NSForegroundColorAttributeName : TextColor.getTextColor(.Light)], forState: .Normal)
-
+      
   }
 
   func registerApplicationForPushNotifications(application: UIApplication) {

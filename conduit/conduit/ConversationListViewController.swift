@@ -16,9 +16,12 @@ class ConversationListViewController : ATLConversationListViewController, ATLCon
   var selectedIndex: NSIndexPath!
   var dateFormatter: NSDateFormatter!
   
+  @IBOutlet weak var menuButton: UIBarButtonItem!
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("ConversationsList")
+    menuButton.setTitleTextAttributes([NSFontAttributeName : UIFont(name: StyleHelpers.FONT_NAME, size: StyleHelpers.FONT_SIZE)!, NSForegroundColorAttributeName : TextColor.getTextColor(.Light)], forState: .Normal)
+    
   }
   
   // The conversation view controllers uses this to start new conversations

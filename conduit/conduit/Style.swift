@@ -95,4 +95,8 @@ class StyleHelpers {
     button.titleLabel!.font = UIFont(name: StyleHelpers.FONT_NAME, size: StyleHelpers.FONT_SIZE)
   }
   
+  class func disableAutocorrect(textField : UITextField) {
+    textField.autocorrectionType = UITextAutocorrectionType.No
+  }
+  
 }

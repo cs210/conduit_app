@@ -19,6 +19,9 @@ class AddCarViewController : UIViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("AddCar")
+    
+    StyleHelpers.setButtonFont(cancelButton)
+    StyleHelpers.setButtonFont(doneButton)
   }
   
   override func viewDidLoad() {
@@ -32,7 +35,8 @@ class AddCarViewController : UIViewController {
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     
-    licensePlateField.autocorrectionType = UITextAutocorrectionType.No
+    StyleHelpers.disableAutocorrect(licensePlateField)
+    licensePlateField.becomeFirstResponder()
   }
   
   func keyboardWillShow(notification: NSNotification) {

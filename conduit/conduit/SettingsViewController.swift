@@ -26,6 +26,7 @@ class SettingsViewController : UITableViewController, ConfirmPasswordDelegate {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("Settings")
+    StyleHelpers.setButtonFont(menuButton)
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
