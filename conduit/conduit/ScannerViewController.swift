@@ -13,8 +13,9 @@
 import Foundation
 import UIKit
 import AVFoundation
+import GoogleAnalytics_iOS_SDK
 
-class ScannerViewController : UIViewController,
+class ScannerViewController : GAITrackedViewController,
                               UIImagePickerControllerDelegate,
                               UINavigationControllerDelegate {
     
@@ -31,6 +32,12 @@ class ScannerViewController : UIViewController,
   // we turn this flag on when we're adding a car from the car management view
   var addingCarFlag = false
   var carManagementFlag = false
+  
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.screenName = "Scanner"
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()

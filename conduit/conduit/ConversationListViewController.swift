@@ -9,11 +9,19 @@
 import Foundation
 import UIKit
 import SwiftyJSON
+import GoogleAnalytics_iOS_SDK
+
 
 class ConversationListViewController : ATLConversationListViewController, ATLConversationListViewControllerDataSource, ATLConversationListViewControllerDelegate {
 
   var selectedIndex: NSIndexPath!
   var dateFormatter: NSDateFormatter!
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    AnalyticsHelper.trackScreen("ConversationsList")
+  }
+  
   // The conversation view controllers uses this to start new conversations
   override func viewDidLoad() {
     super.viewDidLoad()

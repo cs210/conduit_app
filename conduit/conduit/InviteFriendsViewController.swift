@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import GoogleAnalytics_iOS_SDK
 
-class InviteFriendsViewController : UIViewController, UITableViewDataSource {
+class InviteFriendsViewController : GAITrackedViewController, UITableViewDataSource {
   
   @IBOutlet weak var infoLabel: UILabel!
   @IBOutlet weak var menuButton: UIButton!
@@ -24,6 +25,13 @@ class InviteFriendsViewController : UIViewController, UITableViewDataSource {
   let fakeFriends : [String] = ["Abby", "Bob", "Charlie", "Deidre", "Emma", "Frankie", "George", "Harry", "Iris"]
   var selectedFriends : [String] = []
   var sentFriends : [String] = []
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    // Google Analytics
+    self.screenName = "InviteFriends"
+  }
   
   override func viewDidLoad() {
     

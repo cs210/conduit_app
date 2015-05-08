@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import GoogleAnalytics_iOS_SDK
 
-class NewMessageViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
+class NewMessageViewController : GAITrackedViewController, UITableViewDataSource, UITableViewDelegate {
   // Init selected message to "" because  you can't send an empty message
   var selectedMessage = ""
   var presetMessages = [
@@ -30,6 +31,11 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
   // i.e. when you tap anywhere when keyboard is enabled, it is dismissed
   @IBOutlet var keyboardDismisser: UITapGestureRecognizer!
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.screenName = "NewMessage"
+  }
+  
   override func viewDidLoad() {
     
     var sessionKey = NSUserDefaults.standardUserDefaults().stringForKey("session")
@@ -44,7 +50,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
     licenseTextField.autocorrectionType = UITextAutocorrectionType.No
     
     menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
-    
+        
   }
   
   @IBAction func dismissKeyboard(sender: AnyObject) {

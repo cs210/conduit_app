@@ -7,10 +7,16 @@
 //
 
 import UIKit
+import GoogleAnalytics_iOS_SDK
 
-class ChangeEmailViewController: UIViewController {
+class ChangeEmailViewController: GAITrackedViewController {
   @IBOutlet var emailTextField: UITextField!
   @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.screenName = "ChangeEmail"
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()

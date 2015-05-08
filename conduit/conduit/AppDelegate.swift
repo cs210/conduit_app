@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
     GAI.sharedInstance().trackUncaughtExceptions = true
     GAI.sharedInstance().dispatchInterval = 20
     GAI.sharedInstance().logger.logLevel = GAILogLevel.Verbose
-    GAI.sharedInstance().trackerWithTrackingId("UA-62445439-1")
+    GAI.sharedInstance().trackerWithTrackingId("UA-62445439-2")
     
     return true
   }

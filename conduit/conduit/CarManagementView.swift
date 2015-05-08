@@ -8,8 +8,9 @@
 
 import UIKit
 import Foundation
+import GoogleAnalytics_iOS_SDK
 
-class CarManagementView : UIViewController, UITableViewDataSource {
+class CarManagementView : GAITrackedViewController, UITableViewDataSource {
   // we will download from server in the future
   var cars:[Car] = []
   var selectedCarIndex:NSIndexPath!
@@ -18,6 +19,12 @@ class CarManagementView : UIViewController, UITableViewDataSource {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.loadCars()
+    
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.screenName = "CarManagement"
   }
   
   func loadCars() {

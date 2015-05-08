@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import GoogleAnalytics_iOS_SDK
 
 
 class ConversationViewController : ATLConversationViewController {
@@ -15,7 +16,7 @@ class ConversationViewController : ATLConversationViewController {
   var dateFormatter: NSDateFormatter!
   var conversationTitle: String!
   var participantIdentifiers: [String]?
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -34,10 +35,12 @@ class ConversationViewController : ATLConversationViewController {
     self.messageInputToolbar.displaysRightAccessoryImage = false
     self.messageInputToolbar.rightAccessoryButton.setTitleColor(StyleColor.getColor(.Primary, brightness: .Medium), forState:.Normal)
     self.messageInputToolbar.rightAccessoryButton.backgroundColor = nil
+    
   }
   
   override func viewWillAppear(animated: Bool) {
     self.navigationItem.title = self.conversationTitle
+    AnalyticsHelper.trackScreen("Conversation")
   }
   
   func sendInitMessage(messageText: String) {

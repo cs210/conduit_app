@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import GoogleAnalytics_iOS_SDK
 
-class CustomMessageController : UIViewController {
+class CustomMessageController : GAITrackedViewController {
   
   @IBOutlet weak var licenseTextField: UITextField!
   @IBOutlet weak var messageTextField: UITextField!
@@ -17,6 +18,11 @@ class CustomMessageController : UIViewController {
   var licensePlate : String! // Only used to pass variables from previous VC
   
   @IBOutlet var keyboardDismisser: UITapGestureRecognizer!
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.screenName = "CustomMessage"
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()

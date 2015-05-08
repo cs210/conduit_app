@@ -18,9 +18,7 @@
 		B58C3F4B1AF0CA5C002311EE /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C3F4A1AF0CA5C002311EE /* ChangeEmailViewController.swift */; };
 		B58C3F4D1AF0CA6E002311EE /* ChangeNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C3F4C1AF0CA6E002311EE /* ChangeNotificationsViewController.swift */; };
 		B58C3F4F1AF40ECE002311EE /* PhoneSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C3F4E1AF40ECE002311EE /* PhoneSettingsViewController.swift */; };
-		B58FD9B11ACE3191005B8648 /* AccountSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58FD9B01ACE3191005B8648 /* AccountSettingsView.swift */; };
 		B58FD9B31ACE67B5005B8648 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */; };
-		B5FD86701AECC0E900E4629E /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD866F1AECC0E900E4629E /* CarDetailsViewController.swift */; };
 		BD04036B1AFAA14C009F1437 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD04036A1AFAA14C009F1437 /* CoreData.framework */; };
 		BD04036D1AFAA15C009F1437 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD04036C1AFAA15C009F1437 /* libz.dylib */; };
 		BD0403711AFAA210009F1437 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD04036E1AFAA16F009F1437 /* libGoogleAnalyticsServices.a */; };
@@ -28,6 +26,7 @@
 		BD19A1BF1AFA065B00015E34 /* AddCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19A1BE1AFA065B00015E34 /* AddCarViewController.swift */; };
 		BD4C1E1A1ACC6EDD00C10987 /* CustomMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C1E191ACC6EDD00C10987 /* CustomMessageController.swift */; };
 		BD7039671AF9FC32009E87D8 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7039661AF9FC32009E87D8 /* Validator.swift */; };
+		BD8027A31AFC3A0100E280A9 /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8027A21AFC3A0100E280A9 /* AnalyticsHelper.swift */; };
 		BDB898411AEC3301007E8FE1 /* InviteFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */; };
 		BDD28DC31ACDDD4E001B031D /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD28DC21ACDDD4E001B031D /* ConversationViewController.swift */; };
 		BDE4EB5F1AAC2A8900588511 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */; };
@@ -135,9 +134,7 @@
 		B58C3F4A1AF0CA5C002311EE /* ChangeEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewController.swift; sourceTree = "<group>"; };
 		B58C3F4C1AF0CA6E002311EE /* ChangeNotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeNotificationsViewController.swift; sourceTree = "<group>"; };
 		B58C3F4E1AF40ECE002311EE /* PhoneSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneSettingsViewController.swift; sourceTree = "<group>"; };
-		B58FD9B01ACE3191005B8648 /* AccountSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingsView.swift; sourceTree = "<group>"; };
 		B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
-		B5FD866F1AECC0E900E4629E /* CarDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
 		BD04036A1AFAA14C009F1437 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		BD04036C1AFAA15C009F1437 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BD04036E1AFAA16F009F1437 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = "Pods/GoogleAnalytics-iOS-SDK/libGoogleAnalyticsServices.a"; sourceTree = "<group>"; };
@@ -145,6 +142,7 @@
 		BD19A1BE1AFA065B00015E34 /* AddCarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCarViewController.swift; sourceTree = "<group>"; };
 		BD4C1E191ACC6EDD00C10987 /* CustomMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMessageController.swift; sourceTree = "<group>"; };
 		BD7039661AF9FC32009E87D8 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		BD8027A21AFC3A0100E280A9 /* AnalyticsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
 		BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendsViewController.swift; sourceTree = "<group>"; };
 		BDD28DC21ACDDD4E001B031D /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -403,7 +401,6 @@
 				C5762AC61AEF64FE00275E89 /* WelcomeViewController.swift */,
 				BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */,
 				B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */,
-				B58FD9B01ACE3191005B8648 /* AccountSettingsView.swift */,
 				BD4C1E191ACC6EDD00C10987 /* CustomMessageController.swift */,
 				B57334161AABDB8100363B5C /* CreateAccountController.swift */,
 				BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */,
@@ -419,10 +416,10 @@
 				C5C70DCA1AA68EDE00BE0753 /* LaunchScreen.xib */,
 				C5C70DBF1AA68EDE00BE0753 /* Supporting Files */,
 				B55805F71AE6CF7300EB5512 /* ConfirmPasswordViewController.swift */,
-				B5FD866F1AECC0E900E4629E /* CarDetailsViewController.swift */,
 				B58C3F481AF0CA4C002311EE /* ChangeNameViewController.swift */,
 				B58C3F4A1AF0CA5C002311EE /* ChangeEmailViewController.swift */,
 				BD7039661AF9FC32009E87D8 /* Validator.swift */,
+				BD8027A21AFC3A0100E280A9 /* AnalyticsHelper.swift */,
 				B58C3F4C1AF0CA6E002311EE /* ChangeNotificationsViewController.swift */,
 				B58C3F4E1AF40ECE002311EE /* PhoneSettingsViewController.swift */,
 			);
@@ -800,6 +797,7 @@
 				C5D02EE41AE085A300C201A5 /* ATLMessageComposeTextView.m in Sources */,
 				C5D02ECC1AE085A300C201A5 /* ATLTypingIndicatorViewController.m in Sources */,
 				C5D02EDE1AE085A300C201A5 /* ATLConversationCollectionViewMoreMessagesHeader.m in Sources */,
+				BD8027A31AFC3A0100E280A9 /* AnalyticsHelper.swift in Sources */,
 				BDD28DC31ACDDD4E001B031D /* ConversationViewController.swift in Sources */,
 				B58C3F4F1AF40ECE002311EE /* PhoneSettingsViewController.swift in Sources */,
 				C5D02EE01AE085A300C201A5 /* ATLConversationView.m in Sources */,
@@ -820,7 +818,6 @@
 				B57334171AABDB8100363B5C /* CreateAccountController.swift in Sources */,
 				BDB898411AEC3301007E8FE1 /* InviteFriendsViewController.swift in Sources */,
 				C5D02ECF1AE085A300C201A5 /* ATLMediaAttachment.m in Sources */,
-				B58FD9B11ACE3191005B8648 /* AccountSettingsView.swift in Sources */,
 				B54FF8F81ACDE90A00450107 /* CarManagementView.swift in Sources */,
 				BD4C1E1A1ACC6EDD00C10987 /* CustomMessageController.swift in Sources */,
 				C5D02EDF1AE085A300C201A5 /* ATLConversationTableViewCell.m in Sources */,
@@ -859,7 +856,6 @@
 				C5D02EE11AE085A300C201A5 /* ATLIncomingMessageCollectionViewCell.m in Sources */,
 				C5D02ED01AE085A300C201A5 /* ATLParticipantTableDataSet.m in Sources */,
 				C5D02EC91AE085A300C201A5 /* ATLConversationListViewController.m in Sources */,
-				B5FD86701AECC0E900E4629E /* CarDetailsViewController.swift in Sources */,
 				C5D02EE91AE085A300C201A5 /* ATLProgressView.m in Sources */,
 				C56BFC9A1ABA92430074FCAA /* APIModel.swift in Sources */,
 				C53B9CEA1AD1F6BE00BEFA88 /* LayerHelpers.m in Sources */,

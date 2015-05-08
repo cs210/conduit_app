@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import GoogleAnalytics_iOS_SDK
 
-class LoginViewController : UIViewController, UITextFieldDelegate {
+class LoginViewController : GAITrackedViewController, UITextFieldDelegate {
   
   @IBOutlet weak var emailField: UITextField!
   @IBOutlet weak var passwordField: UITextField!
@@ -18,11 +19,15 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
     view.endEditing(true)
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.screenName = "Login"
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     emailField.delegate = self
     passwordField.delegate = self
-
   }
   
   func textFieldShouldReturn(textField: UITextField) -> Bool {

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import GoogleAnalytics_iOS_SDK
 
 class SettingsViewController : UITableViewController, ConfirmPasswordDelegate {
   var menuOptions = ["Change Name", "Change Password", "Change Email", "Change Phone Number", "Change Push Notifications", "Car Management"]
@@ -20,7 +21,14 @@ class SettingsViewController : UITableViewController, ConfirmPasswordDelegate {
     println(defaults.stringForKey("session"))
     super.viewDidLoad()
     menuButton.addTarget(self.revealViewController(), action: "revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
+    
   }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    AnalyticsHelper.trackScreen("Settings")
+  }
+  
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("SettingsListItem",
       forIndexPath : indexPath) as! UITableViewCell

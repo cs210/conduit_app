@@ -8,13 +8,19 @@
 
 import Foundation
 import UIKit
+import GoogleAnalytics_iOS_SDK
 
-class AddCarViewController : UIViewController {
+class AddCarViewController : GAITrackedViewController {
   @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
   @IBOutlet weak var cancelButton: UIButton!
   @IBOutlet weak var doneButton: UIButton!
   @IBOutlet weak var licensePlateField: UITextField!
   var carManagementFlag : Bool = false
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.screenName = "AddCar"
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()

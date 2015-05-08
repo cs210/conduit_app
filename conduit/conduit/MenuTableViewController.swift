@@ -7,10 +7,16 @@
 //
 
 import UIKit
+import GoogleAnalytics_iOS_SDK
 
 class MenuTableViewController: UITableViewController {
 
   var menuOptions = ["New Request", "Conversations", "Settings", "Invite Friends", "Log Out"]
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    AnalyticsHelper.trackScreen("Menu")
+  }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("MenuItem",

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import GoogleAnalytics_iOS_SDK
 
-class CarDetailsViewController: UIViewController {
+class CarDetailsViewController: GAITrackedViewController {
 
     @IBOutlet var navBar: UINavigationItem!
     
@@ -16,6 +17,7 @@ class CarDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
       navBar.title = selectedCar.licensePlate
+      self.screenName = "CarDetails"
     }
 
     override func didReceiveMemoryWarning() {

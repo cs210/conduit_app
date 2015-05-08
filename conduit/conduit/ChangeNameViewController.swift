@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import GoogleAnalytics_iOS_SDK
 
-class ChangeNameViewController: UIViewController {
+class ChangeNameViewController: GAITrackedViewController {
   @IBOutlet var lastNameField: UITextField!
   @IBOutlet var firstNameField: UITextField!
   @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.screenName = "ChangeName"
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -23,6 +29,7 @@ class ChangeNameViewController: UIViewController {
     
     firstNameField.autocorrectionType = UITextAutocorrectionType.No
     lastNameField.autocorrectionType = UITextAutocorrectionType.No
+  
   }
 
   @IBAction func dismissKeyboard(sender: AnyObject) {

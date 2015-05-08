@@ -8,12 +8,20 @@
 
 import Foundation
 import UIKit
+import GoogleAnalytics_iOS_SDK
 
-class WelcomeViewController : UIViewController {
+class WelcomeViewController : GAITrackedViewController {
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.screenName = "Welcome"
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+
   }
+  
   @IBAction func goToScanner(sender: AnyObject) {
     let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
     var destViewController : AddCarViewController = mainStoryboard.instantiateViewControllerWithIdentifier("addCarView") as! AddCarViewController

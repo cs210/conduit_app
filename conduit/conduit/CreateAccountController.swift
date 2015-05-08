@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import GoogleAnalytics_iOS_SDK
 
-class CreateAccountController : UIViewController, UITextFieldDelegate {
+class CreateAccountController : GAITrackedViewController, UITextFieldDelegate {
   @IBOutlet var scrollView: UIScrollView!
   @IBOutlet weak var firstNameField: UITextField!
   @IBOutlet weak var lastNameField: UITextField!
@@ -26,6 +27,12 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
   @IBAction func dismissKeyboard(sender: AnyObject) {
     view.endEditing(true)
   }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.screenName = "CreateAccount"
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     Validator.highlightError(firstNameField)

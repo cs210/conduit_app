@@ -8,11 +8,21 @@
 
 import Foundation
 import UIKit
+import GoogleAnalytics_iOS_SDK
 
-class ChangePasswordView : UIViewController {
+class ChangePasswordView : GAITrackedViewController {
   
   @IBOutlet var newPasswordField: UITextField!
   @IBOutlet var confirmPasswordField: UITextField!
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.screenName = "ChangePassword"
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
   
   @IBAction func dismissKeyboard(sender: AnyObject) {
     view.endEditing(true)

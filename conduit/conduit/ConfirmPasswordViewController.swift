@@ -7,15 +7,21 @@
 //
 
 import UIKit
+import GoogleAnalytics_iOS_SDK
 
 protocol ConfirmPasswordDelegate {
   func nextSegueAfterConfirm(segueId: String)
 }
-class ConfirmPasswordViewController: UIViewController, UITextFieldDelegate {
+class ConfirmPasswordViewController: GAITrackedViewController, UITextFieldDelegate {
   @IBOutlet var passwordField: UITextField!
   var nextSegueID: String!
   var delegate: ConfirmPasswordDelegate?
   @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.screenName = "ConfirmPassword"
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -23,6 +29,7 @@ class ConfirmPasswordViewController: UIViewController, UITextFieldDelegate {
       
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    
   }
 
     override func didReceiveMemoryWarning() {

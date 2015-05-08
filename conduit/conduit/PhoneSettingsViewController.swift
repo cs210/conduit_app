@@ -7,10 +7,16 @@
 //
 
 import UIKit
+import GoogleAnalytics_iOS_SDK
 
-class PhoneSettingsViewController: UIViewController {
+class PhoneSettingsViewController: GAITrackedViewController {
   @IBOutlet var phoneField: UITextField!
   @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.screenName = "ChangePhone"
+  }
   
   override func viewDidLoad() {
       super.viewDidLoad()
@@ -22,6 +28,7 @@ class PhoneSettingsViewController: UIViewController {
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     
     phoneField.autocorrectionType = UITextAutocorrectionType.No
+    
   }
 
   override func didReceiveMemoryWarning() {
