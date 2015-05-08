@@ -14,6 +14,7 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
   @IBOutlet weak var emailField: UITextField!
   @IBOutlet weak var passwordField: UITextField!
   
+  @IBOutlet var scrollView: UIScrollView!
   @IBAction func dismissKeyboard(sender: AnyObject) {
     view.endEditing(true)
   }
@@ -27,6 +28,21 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
     super.viewDidLoad()
     emailField.delegate = self
     passwordField.delegate = self
+    
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+  }
+  
+  func keyboardWillShow(notification: NSNotification) {
+    var info = notification.userInfo as! [String: NSObject]
+    if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+        self.scrollView.setContentOffset(CGPoint(x: 0, y: keyboardSize.height/3), animated: true)
+    }
+    
+  }
+  
+  func keyboardWillHide(notification: NSNotification) {
+    self.scrollView.setContentOffset(CGPointZero, animated: true)
   }
   
   func textFieldShouldReturn(textField: UITextField) -> Bool {
