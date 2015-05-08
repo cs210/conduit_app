@@ -422,62 +422,38 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="APf-fb-N88">
-                                <rect key="frame" x="16" y="236" width="288" height="230"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="2x0-MY-RFQ"/>
-                                </constraints>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" id="MLu-qh-PoL" customClass="FriendsListCell" customModule="conduit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MLu-qh-PoL" id="Ohl-ZT-0vQ">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G6O-zz-QhM">
-                                                    <rect key="frame" x="17" y="11" width="263" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U9G-Oe-r7T">
+                                <rect key="frame" x="80" y="269" width="140" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kq2-6O-Vgz">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
-                                            <outlet property="friendName" destination="G6O-zz-QhM" id="1wc-1M-OQn"/>
+                                            <action selector="doFbShare:" destination="bG3-dy-Uj2" eventType="touchUpInside" id="Q8X-AN-Vh4"/>
                                         </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="bG3-dy-Uj2" id="DKI-sU-Y6L"/>
-                                    <outlet property="delegate" destination="bG3-dy-Uj2" id="kEX-Jd-4eS"/>
-                                </connections>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0v-Mz-Ax5">
-                                <rect key="frame" x="0.0" y="491" width="320" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="DHa-tD-QvF"/>
-                                </constraints>
-                                <state key="normal" title="Invite friends">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="inviteFriends:" destination="bG3-dy-Uj2" eventType="touchUpInside" id="qyw-Ra-dtI"/>
-                                </connections>
-                            </button>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Xa-dC-SfX">
+                                        <rect key="frame" x="90" y="0.0" width="50" height="50"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="doTwitterShare:" destination="bG3-dy-Uj2" eventType="touchUpInside" id="6Mp-qw-auS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="APf-fb-N88" firstAttribute="leading" secondItem="FKg-iY-hsy" secondAttribute="leading" constant="10" id="3Lp-hD-ewS"/>
-                            <constraint firstAttribute="trailing" secondItem="IiO-CA-THB" secondAttribute="trailing" constant="20" id="3nB-7m-ci0"/>
-                            <constraint firstItem="g0v-Mz-Ax5" firstAttribute="leading" secondItem="FKg-iY-hsy" secondAttribute="leading" id="5Kh-M0-IDs"/>
-                            <constraint firstItem="BcA-lo-eb0" firstAttribute="top" secondItem="g0v-Mz-Ax5" secondAttribute="bottom" id="98V-aw-YBn"/>
-                            <constraint firstItem="IiO-CA-THB" firstAttribute="leading" secondItem="FKg-iY-hsy" secondAttribute="leading" constant="20" id="S4C-aa-x8O"/>
-                            <constraint firstItem="IiO-CA-THB" firstAttribute="top" secondItem="dRn-as-H3I" secondAttribute="bottom" constant="20" id="Vh5-vS-zT4"/>
-                            <constraint firstItem="g0v-Mz-Ax5" firstAttribute="top" secondItem="APf-fb-N88" secondAttribute="bottom" constant="10" id="gHo-0f-6Gj"/>
-                            <constraint firstAttribute="trailing" secondItem="g0v-Mz-Ax5" secondAttribute="trailing" id="jAv-Pp-3ea"/>
-                            <constraint firstItem="APf-fb-N88" firstAttribute="top" secondItem="IiO-CA-THB" secondAttribute="bottom" constant="20" id="zEc-er-mst"/>
-                            <constraint firstAttribute="trailing" secondItem="APf-fb-N88" secondAttribute="trailing" constant="10" id="zlh-di-zLm"/>
+                            <constraint firstAttribute="trailing" secondItem="IiO-CA-THB" secondAttribute="trailing" constant="40" id="3nB-7m-ci0"/>
+                            <constraint firstItem="IiO-CA-THB" firstAttribute="leading" secondItem="FKg-iY-hsy" secondAttribute="leading" constant="40" id="S4C-aa-x8O"/>
+                            <constraint firstItem="IiO-CA-THB" firstAttribute="top" secondItem="dRn-as-H3I" secondAttribute="bottom" constant="40" id="Vh5-vS-zT4"/>
+                            <constraint firstAttribute="centerX" secondItem="U9G-Oe-r7T" secondAttribute="centerX" id="ldH-Nn-fNE"/>
+                            <constraint firstItem="U9G-Oe-r7T" firstAttribute="top" secondItem="IiO-CA-THB" secondAttribute="bottom" constant="40" id="vNB-o2-8uX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Invite Friends" id="XXV-2i-DxI">
@@ -505,12 +481,23 @@
                     </navigationItem>
                     <connections>
                         <outlet property="doneButton" destination="hMK-Ik-yvX" id="buU-gm-YPF"/>
-                        <outlet property="friendsTableView" destination="APf-fb-N88" id="hnn-ug-sMJ"/>
+                        <outlet property="facebookButton" destination="Kq2-6O-Vgz" id="jxz-js-ogM"/>
                         <outlet property="infoLabel" destination="IiO-CA-THB" id="JcI-CH-ZNy"/>
                         <outlet property="menuButton" destination="Yxn-jM-Ewo" id="GED-4v-AVj"/>
+                        <outlet property="twitterButton" destination="1Xa-dC-SfX" id="ds3-hB-Ruc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZ2-p2-9nk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="zJU-dl-WFW">
+                    <connections>
+                        <action selector="doFbShare:" destination="bG3-dy-Uj2" id="2D9-KH-Y1O"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="36q-ji-NaN">
+                    <connections>
+                        <action selector="doTwitterShare:" destination="bG3-dy-Uj2" id="Np5-Y9-iln"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1005" y="1314"/>
         </scene>

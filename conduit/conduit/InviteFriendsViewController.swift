@@ -8,28 +8,38 @@
 
 import Foundation
 import UIKit
+import Social
 
-class InviteFriendsViewController : UIViewController, UITableViewDataSource {
+class InviteFriendsViewController : UIViewController {
   
   @IBOutlet weak var infoLabel: UILabel!
   @IBOutlet weak var menuButton: UIButton!
-  @IBOutlet weak var friendsTableView: UITableView!
   @IBOutlet weak var doneButton: UIButton!
+  
+  @IBOutlet weak var facebookButton: UIButton!
+  @IBOutlet weak var twitterButton: UIButton!
+  
   
   let HEADER_MESSAGE : String = "The more people are on Conduit, the better " +
                  "experience everyone has, so invite your EV-owning friends!\n " +
-                 "We'll send them a text message containing a download link " +
-                 "to Conduit for you."
-  
-  let fakeFriends : [String] = ["Abby", "Bob", "Charlie", "Deidre", "Emma", "Frankie", "George", "Harry", "Iris"]
-  var selectedFriends : [String] = []
-  var sentFriends : [String] = []
+                 "Share Conduit on your social media accounts to improve the " +
+                 "Conduit experience for everyone."
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
     // Google Analytics
     AnalyticsHelper.trackScreen("InviteFriends")
+    
+    let facebookLogo = UIImage(named: "FB-f-Logo__blue_50.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal) as UIImage!
+    facebookButton.setImage(facebookLogo, forState: .Normal)
+    facebookButton.tintColor = nil
+    facebookButton.backgroundColor = nil
+    
+    let twitterLogo = UIImage(named: "Twitter_logo_blue.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal) as UIImage!
+    twitterButton.setImage(twitterLogo, forState: .Normal)
+    twitterButton.tintColor = nil
+    twitterButton.backgroundColor = nil
   }
   
   override func viewDidLoad() {
@@ -41,36 +51,68 @@ class InviteFriendsViewController : UIViewController, UITableViewDataSource {
       menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
       doneButton.hidden = true
     }
-    friendsTableView.layer.borderWidth = 1
-    friendsTableView.layer.borderColor = StyleColor.getColor(.Grey, brightness: .Light).CGColor
     infoLabel.text = HEADER_MESSAGE
+
+    
+    
   }
   
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("FriendCell") as! FriendsListCell
-    cell.friendName.text = fakeFriends[indexPath.row]
-    
-    var backgroundView : UIView = UIView()
-    backgroundView.backgroundColor = StyleColor.getColor(.Accent, brightness: .Light)
-    cell.selectedBackgroundView = backgroundView
-    return cell
-  }
-  
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return fakeFriends.count
-  }
-  
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    var cell = tableView.cellForRowAtIndexPath(indexPath)
-    
-    let friend = fakeFriends[indexPath.row]
-    let index = find(selectedFriends, friend)
-    
-    if (index != nil) {
-      selectedFriends.removeAtIndex(index!)
-    } else {
-      selectedFriends.append(friend)
+  // https://stackoverflow.com/questions/27717709/how-to-share-image-on-facebook-using-swift-in-ios
+  @IBAction func doFbShare(sender: AnyObject) {
+    let facebookPost = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+    facebookPost.completionHandler = {
+      result in
+      switch result {
+      case SLComposeViewControllerResult.Cancelled:
+        //Code to deal with it being cancelled
+        break
+        
+      case SLComposeViewControllerResult.Done:
+        //Code here to deal with it being completed
+        let alertController = UIAlertController(title: "", message:
+          "Thank you for sharing Conduit with your friends!", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        break
+      }
     }
+    
+    facebookPost.setInitialText("I'm on #Conduit, the best solution for charge rage. Check it out for yourself at") //The default text in the tweet
+    facebookPost.addURL(NSURL(string: "http://conduitapp.me")) //A url which takes you into safari if tapped on
+    
+    self.presentViewController(facebookPost, animated: false, completion: {
+      //Optional completion statement
+    })
+    
+  }
+  
+  @IBAction func doTwitterShare(sender: AnyObject) {
+    let twitterPost = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+    twitterPost.completionHandler = {
+      result in
+      switch result {
+      case SLComposeViewControllerResult.Cancelled:
+        //Code to deal with it being cancelled
+        break
+        
+      case SLComposeViewControllerResult.Done:
+        //Code here to deal with it being completed
+        let alertController = UIAlertController(title: "", message:
+          "Thank you for sharing Conduit with your friends!", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        break
+      }
+    }
+    
+    twitterPost.setInitialText("I'm on #Conduit, the best solution for charge rage. Check it out for yourself at") //The default text in the tweet
+    twitterPost.addURL(NSURL(string: "http://conduitapp.me")) //A url which takes you into safari if tapped on
+    
+    self.presentViewController(twitterPost, animated: false, completion: {
+      //Optional completion statement
+    })
   }
   
   @IBAction func goToScanner(sender: AnyObject) {
@@ -78,65 +120,5 @@ class InviteFriendsViewController : UIViewController, UITableViewDataSource {
     defaults.setBool(false, forKey: "isNewAccount")
     self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
   }
-  
-  @IBAction func inviteFriends(sender: AnyObject) {
-    AnalyticsHelper.trackButtonPress("invited_friends")
-    if selectedFriends.count == 0 {
-      AnalyticsHelper.trackEvent("user_error", label: "invited_no_friends")
-      return
-    }
-    
-    let alertController = UIAlertController(title: "", message:
-      "Send an invitation to conduit to " + String(selectedFriends.count) + " friends?",
-      preferredStyle: UIAlertControllerStyle.Alert)
-    
-    alertController.addAction(UIAlertAction(title: "Yes!", style: UIAlertActionStyle.Default,handler:{(action) in
-      
-      self.sendMessages()
-      
-      let sentAlertController = UIAlertController(title: "", message:
-        "Message Sent!",
-        preferredStyle: UIAlertControllerStyle.Alert)
-      
-      sentAlertController.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.Default,handler: nil))
-      
-      self.presentViewController(sentAlertController, animated: true, completion: nil)
-    }))
-    
-    alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel,handler: nil))
-    
-    self.presentViewController(alertController, animated: true, completion: nil)
-    
-  }
-  
-  func sendMessages() {
-    
-    // Do sending messages here
-    
-    
-    // Reset things
-    for friend in selectedFriends {
-      sentFriends.append(friend)
-    }
-    selectedFriends = []
-    
-    var i : Int = 0
-    while i < fakeFriends.count {
-      var cell = friendsTableView.cellForRowAtIndexPath(NSIndexPath(forRow: i, inSection: 0))
-      cell?.selected = false
-      var friend : String = fakeFriends[i]
-      if (contains(sentFriends, friend) == true) {
-        println(friend)
-        cell?.backgroundColor = StyleColor.getColor(.Grey, brightness: .Light)
-        cell?.selectionStyle = UITableViewCellSelectionStyle.None
-      }
-      i += 1
-    }
-    
-  }
-}
-
-class FriendsListCell : UITableViewCell {
-  @IBOutlet weak var friendName: UILabel!
   
 }

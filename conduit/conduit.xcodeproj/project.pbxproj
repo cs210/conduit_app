@@ -31,6 +31,8 @@
 		BDE4EB5F1AAC2A8900588511 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */; };
 		BDE4EB651AAC44FB00588511 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */; };
 		BDEB2DE81AD4A41E008C91C2 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2DE71AD4A41E008C91C2 /* Style.swift */; };
+		BDEC8BC61AFC85DB00C4B261 /* FB-f-Logo__blue_50.png in Resources */ = {isa = PBXBuildFile; fileRef = BDEC8BC51AFC85DB00C4B261 /* FB-f-Logo__blue_50.png */; };
+		BDEC8BC81AFC862200C4B261 /* Twitter_logo_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = BDEC8BC71AFC862200C4B261 /* Twitter_logo_blue.png */; };
 		C53B9CEA1AD1F6BE00BEFA88 /* LayerHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = C53B9CE91AD1F6BE00BEFA88 /* LayerHelpers.m */; };
 		C53B9CF01AD2046A00BEFA88 /* LayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C53B9CED1AD2046A00BEFA88 /* LayerKit.framework */; };
 		C53B9CF11AD2046A00BEFA88 /* layer-client-messaging-schema.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C53B9CEF1AD2046A00BEFA88 /* layer-client-messaging-schema.bundle */; };
@@ -146,6 +148,8 @@
 		BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
 		BDEB2DE71AD4A41E008C91C2 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		BDEC8BC51AFC85DB00C4B261 /* FB-f-Logo__blue_50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FB-f-Logo__blue_50.png"; sourceTree = "<group>"; };
+		BDEC8BC71AFC862200C4B261 /* Twitter_logo_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter_logo_blue.png; sourceTree = "<group>"; };
 		C53B9CE71AD1E57500BEFA88 /* conduit-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "conduit-Bridging-Header.h"; sourceTree = "<group>"; };
 		C53B9CE81AD1F6BE00BEFA88 /* LayerHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LayerHelpers.h; path = conduit/LayerHelpers.h; sourceTree = "<group>"; };
 		C53B9CE91AD1F6BE00BEFA88 /* LayerHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LayerHelpers.m; path = conduit/LayerHelpers.m; sourceTree = "<group>"; };
@@ -337,6 +341,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BDEC8BC41AFC844B00C4B261 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BDEC8BC71AFC862200C4B261 /* Twitter_logo_blue.png */,
+				BDEC8BC51AFC85DB00C4B261 /* FB-f-Logo__blue_50.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		C5212BF21ABAA43C004171FD /* API Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,6 +403,7 @@
 		C5C70DBE1AA68EDE00BE0753 /* conduit */ = {
 			isa = PBXGroup;
 			children = (
+				BDEC8BC41AFC844B00C4B261 /* Images */,
 				C53B9CE71AD1E57500BEFA88 /* conduit-Bridging-Header.h */,
 				C5212BF21ABAA43C004171FD /* API Models */,
 				C5C70DC11AA68EDE00BE0753 /* AppDelegate.swift */,
@@ -705,6 +719,7 @@
 				C5C70DCC1AA68EDE00BE0753 /* LaunchScreen.xib in Resources */,
 				C53B9CF11AD2046A00BEFA88 /* layer-client-messaging-schema.bundle in Resources */,
 				C5D02F071AE085B000C201A5 /* layerbell.caf in Resources */,
+				BDEC8BC81AFC862200C4B261 /* Twitter_logo_blue.png in Resources */,
 				C5D02F021AE085B000C201A5 /* camera_dark@2x.png in Resources */,
 				C5D02F0E1AE085B000C201A5 /* plus.png in Resources */,
 				C5D02F0C1AE085B000C201A5 /* location_dark@2x.png in Resources */,
@@ -721,6 +736,7 @@
 				C5D02F0B1AE085B000C201A5 /* location_dark.png in Resources */,
 				C5D02F001AE085B000C201A5 /* block@3x.png in Resources */,
 				C5D02EFF1AE085B000C201A5 /* block@2x.png in Resources */,
+				BDEC8BC61AFC85DB00C4B261 /* FB-f-Logo__blue_50.png in Resources */,
 				C5D02F0F1AE085B000C201A5 /* plus@2x.png in Resources */,
 				C5D02F101AE085B000C201A5 /* plus@3x.png in Resources */,
 				C5D02EFE1AE085B000C201A5 /* block.png in Resources */,
