@@ -13,9 +13,26 @@ class LicenseInputController : UIViewController {
   @IBOutlet weak var licenseField: UITextField!
   @IBOutlet weak var menuButton: UIButton!
   @IBOutlet weak var continueButton: UIButton!
+  @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
   var hasChanged = false
 
   var participantIdentifiers: [String] = []
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    StyleHelpers.setButtonFont(continueButton)
+    StyleHelpers.setButtonFont(menuButton)
+    
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+  }
+  
+  override func viewDidDisappear(animated: Bool) {
+    super.viewDidDisappear(animated)
+    NSNotificationCenter.defaultCenter().removeObserver(self)
+  }
   
   override func viewDidLoad() {
     
@@ -29,9 +46,18 @@ class LicenseInputController : UIViewController {
     
     var timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self,
       selector: "checkTimerFunction", userInfo: nil, repeats: true)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     
+    licenseField.autocorrectionType = UITextAutocorrectionType.No
     licenseField.becomeFirstResponder()
-
+    
+  }
+  
+  func keyboardWillShow(notification: NSNotification) {
+    var info = notification.userInfo as! [String: NSObject]
+    if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+      self.bottomConstraint.constant = keyboardSize.height
+    }
   }
   
   func presentErrorMessage () {

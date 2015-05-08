@@ -86,3 +86,13 @@ struct TextColor {
     }
   }
 }
+
+class StyleHelpers {
+  static let FONT_NAME = "SourceSansPro-Light"
+  static let FONT_SIZE : CGFloat = 15.0
+  
+  class func setButtonFont(button : UIButton) {
+    button.titleLabel!.font = UIFont(name: StyleHelpers.FONT_NAME, size: StyleHelpers.FONT_SIZE)
+  }
+  
+}

@@ -24,6 +24,8 @@
 		BD0403731AFAA25C009F1437 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD0403721AFAA25C009F1437 /* libsqlite3.dylib */; };
 		BD19A1BF1AFA065B00015E34 /* AddCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19A1BE1AFA065B00015E34 /* AddCarViewController.swift */; };
 		BD7039671AF9FC32009E87D8 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7039661AF9FC32009E87D8 /* Validator.swift */; };
+		BD73810F1AFCB16900B870AB /* background_image.png in Resources */ = {isa = PBXBuildFile; fileRef = BD73810E1AFCB16800B870AB /* background_image.png */; };
+		BD7381111AFCBAEE00B870AB /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD7381101AFCBAEE00B870AB /* SourceSansPro-Light.ttf */; };
 		BD8027A31AFC3A0100E280A9 /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8027A21AFC3A0100E280A9 /* AnalyticsHelper.swift */; };
 		BDB898411AEC3301007E8FE1 /* InviteFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */; };
 		BDD28DC31ACDDD4E001B031D /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD28DC21ACDDD4E001B031D /* ConversationViewController.swift */; };
@@ -141,6 +143,8 @@
 		BD0403721AFAA25C009F1437 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		BD19A1BE1AFA065B00015E34 /* AddCarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCarViewController.swift; sourceTree = "<group>"; };
 		BD7039661AF9FC32009E87D8 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		BD73810E1AFCB16800B870AB /* background_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_image.png; sourceTree = "<group>"; };
+		BD7381101AFCBAEE00B870AB /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.ttf"; sourceTree = "<group>"; };
 		BD8027A21AFC3A0100E280A9 /* AnalyticsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
 		BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendsViewController.swift; sourceTree = "<group>"; };
 		BDD28DC21ACDDD4E001B031D /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
@@ -344,6 +348,7 @@
 		BDEC8BC41AFC844B00C4B261 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BD73810E1AFCB16800B870AB /* background_image.png */,
 				BDEC8BC71AFC862200C4B261 /* Twitter_logo_blue.png */,
 				BDEC8BC51AFC85DB00C4B261 /* FB-f-Logo__blue_50.png */,
 			);
@@ -403,32 +408,24 @@
 		C5C70DBE1AA68EDE00BE0753 /* conduit */ = {
 			isa = PBXGroup;
 			children = (
+				BD7381101AFCBAEE00B870AB /* SourceSansPro-Light.ttf */,
 				BDEC8BC41AFC844B00C4B261 /* Images */,
 				C53B9CE71AD1E57500BEFA88 /* conduit-Bridging-Header.h */,
 				C5212BF21ABAA43C004171FD /* API Models */,
 				C5C70DC11AA68EDE00BE0753 /* AppDelegate.swift */,
 				C53CE0D71AFC67A30071A4C4 /* Main.storyboard */,
-				BD19A1BE1AFA065B00015E34 /* AddCarViewController.swift */,
 				C5762AC61AEF64FE00275E89 /* WelcomeViewController.swift */,
-				BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */,
-				B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */,
-				B58FD9B01ACE3191005B8648 /* AccountSettingsView.swift */,
 				B57334161AABDB8100363B5C /* CreateAccountController.swift */,
 				BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */,
 				C53CE0DB1AFC68620071A4C4 /* LicenseInputController.swift */,
 				C5EFBDDA1AABD4CD000029C3 /* MenuTableViewController.swift */,
-				C5C70DC51AA68EDE00BE0753 /* Main.storyboard */,
 				BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */,
-				BD4C1E191ACC6EDD00C10987 /* CustomMessageController.swift */,
 				BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */,
 				B54FF8F11AB04B3100450107 /* ConversationListViewController.swift */,
 				BDD28DC21ACDDD4E001B031D /* ConversationViewController.swift */,
 				B54FF8F51ACD288200450107 /* SettingsViewController.swift */,
 				B54FF8F71ACDE90A00450107 /* CarManagementView.swift */,
-				BDEB2DE71AD4A41E008C91C2 /* Style.swift */,
 				C53CE0D91AFC67AF0071A4C4 /* LaunchScreen.xib */,
-				C5C70DC81AA68EDE00BE0753 /* Images.xcassets */,
-				C5C70DBF1AA68EDE00BE0753 /* Supporting Files */,
 				BD19A1BE1AFA065B00015E34 /* AddCarViewController.swift */,
 				B55805F71AE6CF7300EB5512 /* ConfirmPasswordViewController.swift */,
 				B58FD9B21ACE67B5005B8648 /* ChangePasswordView.swift */,
@@ -441,7 +438,6 @@
 				BD7039661AF9FC32009E87D8 /* Validator.swift */,
 				BDEB2DE71AD4A41E008C91C2 /* Style.swift */,
 				C5C70DC81AA68EDE00BE0753 /* Images.xcassets */,
-				C5C70DCA1AA68EDE00BE0753 /* LaunchScreen.xib */,
 				C5C70DBF1AA68EDE00BE0753 /* Supporting Files */,
 			);
 			path = conduit;
@@ -728,6 +724,7 @@
 				C53B9CF11AD2046A00BEFA88 /* layer-client-messaging-schema.bundle in Resources */,
 				C53CE0D81AFC67A30071A4C4 /* Main.storyboard in Resources */,
 				C5D02F071AE085B000C201A5 /* layerbell.caf in Resources */,
+				BD7381111AFCBAEE00B870AB /* SourceSansPro-Light.ttf in Resources */,
 				C53CE0DA1AFC67AF0071A4C4 /* LaunchScreen.xib in Resources */,
 				BDEC8BC81AFC862200C4B261 /* Twitter_logo_blue.png in Resources */,
 				C5D02F021AE085B000C201A5 /* camera_dark@2x.png in Resources */,
@@ -746,6 +743,7 @@
 				C5D02F0B1AE085B000C201A5 /* location_dark.png in Resources */,
 				C5D02F001AE085B000C201A5 /* block@3x.png in Resources */,
 				C5D02EFF1AE085B000C201A5 /* block@2x.png in Resources */,
+				BD73810F1AFCB16900B870AB /* background_image.png in Resources */,
 				BDEC8BC61AFC85DB00C4B261 /* FB-f-Logo__blue_50.png in Resources */,
 				C5D02F0F1AE085B000C201A5 /* plus@2x.png in Resources */,
 				C5D02F101AE085B000C201A5 /* plus@3x.png in Resources */,

@@ -24,6 +24,7 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
   var textfields:[UITextField] = []
   var activeTextField : UITextField!
   var scrollFlag: Bool = true
+  @IBOutlet weak var createAcctButton: UIButton!
   
   @IBAction func dismissKeyboard(sender: AnyObject) {
     view.endEditing(true)
@@ -32,6 +33,15 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("CreateAccount")
+    self.navigationController?.setNavigationBarHidden(false, animated: false)
+    
+    
+    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+    self.navigationController?.navigationBar.shadowImage = UIImage()
+    self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
+    self.navigationController?.navigationBar.translucent = true
+    self.createAcctButton.backgroundColor = nil
+    StyleHelpers.setButtonFont(createAcctButton)
   }
   
   override func viewDidLoad() {

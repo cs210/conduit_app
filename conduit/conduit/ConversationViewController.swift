@@ -29,6 +29,7 @@ class ConversationViewController : ATLConversationViewController {
     
     self.configureUIColors()
     
+    
     self.messageInputToolbar.leftAccessoryButton = nil
     self.messageInputToolbar.displaysRightAccessoryImage = false
     self.messageInputToolbar.rightAccessoryButton.setTitleColor(StyleColor.getColor(.Primary, brightness: .Medium), forState:.Normal)
@@ -89,11 +90,13 @@ class ConversationViewController : ATLConversationViewController {
     ATLIncomingMessageCollectionViewCell.appearance().bubbleViewColor = ATLLightGrayColor()
     ATLIncomingMessageCollectionViewCell.appearance().messageTextColor = TextColor.getTextColor(.Dark)
     ATLIncomingMessageCollectionViewCell.appearance().messageLinkTextColor = StyleColor.getColor(.Secondary, brightness:.Dark)
+    ATLIncomingMessageCollectionViewCell.appearance().messageTextFont = UIFont(name: StyleHelpers.FONT_NAME, size: StyleHelpers.FONT_SIZE)
     
     ATLOutgoingMessageCollectionViewCell.appearance().bubbleViewCornerRadius = 10
     ATLOutgoingMessageCollectionViewCell.appearance().bubbleViewColor = StyleColor.getColor(.Primary, brightness: .Light)
     ATLOutgoingMessageCollectionViewCell.appearance().messageTextColor = UIColor.whiteColor()
     ATLOutgoingMessageCollectionViewCell.appearance().messageLinkTextColor = UIColor.whiteColor()
+    ATLOutgoingMessageCollectionViewCell.appearance().messageTextFont = UIFont(name: StyleHelpers.FONT_NAME, size: StyleHelpers.FONT_SIZE)
     
     ATLMessageInputToolbar.appearance().tintColor = TextColor.getTextColor(.Dark)
 //    applyConversationAppearance()

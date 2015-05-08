@@ -16,6 +16,7 @@ class AnalyticsHelper {
     GAI.sharedInstance().trackUncaughtExceptions = true
     GAI.sharedInstance().dispatchInterval = 20
     GAI.sharedInstance().trackerWithTrackingId(TRACKING_ID)
+    GAI.sharedInstance().logger.logLevel = GAILogLevel.Info
   }
   
   class func trackScreen(name : String) {

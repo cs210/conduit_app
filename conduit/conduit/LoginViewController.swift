@@ -13,6 +13,9 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
   
   @IBOutlet weak var emailField: UITextField!
   @IBOutlet weak var passwordField: UITextField!
+  @IBOutlet weak var newAcctButton: UIButton!
+  @IBOutlet weak var loginButton: UIButton!
+  @IBOutlet weak var conduitLabel: UILabel!
   
   @IBOutlet var scrollView: UIScrollView!
   @IBAction func dismissKeyboard(sender: AnyObject) {
@@ -22,6 +25,15 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("Login")
+
+    self.navigationController?.setNavigationBarHidden(true, animated: false)
+    self.newAcctButton.backgroundColor = nil
+    self.loginButton.backgroundColor = nil
+    self.conduitLabel.font = UIFont(name: StyleHelpers.FONT_NAME, size: 70.0)
+    self.conduitLabel.textColor = TextColor.getTextColor(.Light)
+    
+    StyleHelpers.setButtonFont(loginButton)
+    StyleHelpers.setButtonFont(newAcctButton)
   }
   
   override func viewDidLoad() {
@@ -31,6 +43,10 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
     
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    
+    emailField.autocorrectionType = UITextAutocorrectionType.No
+    passwordField.autocorrectionType = UITextAutocorrectionType.No
+    
   }
   
   func keyboardWillShow(notification: NSNotification) {

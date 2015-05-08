@@ -73,8 +73,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
     UINavigationBar.appearance().translucent = false
     
     UINavigationBar.appearance().tintColor = TextColor.getTextColor(.Light)
-    UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : TextColor.getTextColor(.Light)]
     
+    UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName : UIFont(name: StyleHelpers.FONT_NAME, size: 18.0)!, NSForegroundColorAttributeName : TextColor.getTextColor(.Light)]
+      
     UIButton.appearance().backgroundColor = StyleColor.getColor(.Primary, brightness: .Medium)
     UIButton.appearance().tintColor = TextColor.getTextColor(.Light)
     
@@ -83,6 +84,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
     
     UITableViewCell.appearance().layer.borderWidth = 2
     UITableViewCell.appearance().layer.borderColor = StyleColor.getColor(.Grey, brightness: .Light).CGColor
+    
+    UILabel.appearance().font = UIFont(name: StyleHelpers.FONT_NAME, size: StyleHelpers.FONT_SIZE)
+    
+    UITextField.appearance().font = UIFont(name: StyleHelpers.FONT_NAME, size: StyleHelpers.FONT_SIZE)
+    
+    UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName : UIFont(name: StyleHelpers.FONT_NAME, size: StyleHelpers.FONT_SIZE)!, NSForegroundColorAttributeName : TextColor.getTextColor(.Light)], forState: .Normal)
+
   }
 
   func registerApplicationForPushNotifications(application: UIApplication) {

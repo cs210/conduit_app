@@ -40,6 +40,9 @@ class InviteFriendsViewController : UIViewController {
     twitterButton.setImage(twitterLogo, forState: .Normal)
     twitterButton.tintColor = nil
     twitterButton.backgroundColor = nil
+    
+    StyleHelpers.setButtonFont(menuButton)
+    StyleHelpers.setButtonFont(doneButton)
   }
   
   override func viewDidLoad() {
