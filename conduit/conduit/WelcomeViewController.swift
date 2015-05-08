@@ -8,13 +8,12 @@
 
 import Foundation
 import UIKit
-import GoogleAnalytics_iOS_SDK
 
-class WelcomeViewController : GAITrackedViewController {
+class WelcomeViewController : UIViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    self.screenName = "Welcome"
+    AnalyticsHelper.trackScreen("Welcome")
   }
   
   override func viewDidLoad() {

@@ -43,12 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
     
     UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
     
-    
-    // Google Analytics
-    GAI.sharedInstance().trackUncaughtExceptions = true
-    GAI.sharedInstance().dispatchInterval = 20
-    GAI.sharedInstance().logger.logLevel = GAILogLevel.Verbose
-    GAI.sharedInstance().trackerWithTrackingId("UA-62445439-2")
+    AnalyticsHelper.initAnalytics()
     
     return true
   }

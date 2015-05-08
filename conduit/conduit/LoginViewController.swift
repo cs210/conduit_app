@@ -8,9 +8,8 @@
 
 import Foundation
 import UIKit
-import GoogleAnalytics_iOS_SDK
 
-class LoginViewController : GAITrackedViewController, UITextFieldDelegate {
+class LoginViewController : UIViewController, UITextFieldDelegate {
   
   @IBOutlet weak var emailField: UITextField!
   @IBOutlet weak var passwordField: UITextField!
@@ -21,7 +20,7 @@ class LoginViewController : GAITrackedViewController, UITextFieldDelegate {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    self.screenName = "Login"
+    AnalyticsHelper.trackScreen("Login")
   }
   
   override func viewDidLoad() {

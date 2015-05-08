@@ -8,9 +8,8 @@
 
 import Foundation
 import UIKit
-import GoogleAnalytics_iOS_SDK
 
-class CreateAccountController : GAITrackedViewController, UITextFieldDelegate {
+class CreateAccountController : UIViewController, UITextFieldDelegate {
   @IBOutlet var scrollView: UIScrollView!
   @IBOutlet weak var firstNameField: UITextField!
   @IBOutlet weak var lastNameField: UITextField!
@@ -30,7 +29,7 @@ class CreateAccountController : GAITrackedViewController, UITextFieldDelegate {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    self.screenName = "CreateAccount"
+    AnalyticsHelper.trackScreen("CreateAccount")
   }
   
   override func viewDidLoad() {

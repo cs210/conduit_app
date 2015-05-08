@@ -7,14 +7,13 @@
 //
 
 import UIKit
-import GoogleAnalytics_iOS_SDK
 
-class ChangeNotificationsViewController: GAITrackedViewController {
+class ChangeNotificationsViewController: UIViewController {
   @IBOutlet var changeNotificationSwitch: UISwitch!
 
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    self.screenName = "ChangeNotifications"
+    AnalyticsHelper.trackScreen("ChangeNotifications")
   }
 
   override func didReceiveMemoryWarning() {

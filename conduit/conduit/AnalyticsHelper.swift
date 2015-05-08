@@ -10,9 +10,26 @@ import Foundation
 import GoogleAnalytics_iOS_SDK
 
 class AnalyticsHelper {
+  static let TRACKING_ID : String = "UA-62445439-2"
+  
+  class func initAnalytics() {
+    GAI.sharedInstance().trackUncaughtExceptions = true
+    GAI.sharedInstance().dispatchInterval = 20
+    GAI.sharedInstance().logger.logLevel = GAILogLevel.Verbose
+    GAI.sharedInstance().trackerWithTrackingId(TRACKING_ID)
+  }
+  
   class func trackScreen(name : String) {
-    var tracker : GAITracker = GAI.sharedInstance().trackerWithTrackingId("UA-62445439-2")
+    var tracker : GAITracker = GAI.sharedInstance().trackerWithTrackingId(TRACKING_ID)
     let build = GAIDictionaryBuilder.createScreenView().set(name, forKey: kGAIScreenName).build() as NSDictionary
     tracker.send(build as [NSObject : AnyObject])
   }
+  
+  class func trackButtonPress(label : String) {
+    var tracker : GAITrackerGAI.sharedInstance().trackerWithTrackingId(TRACKING_ID)
+    let build = GAIDictionaryBuilder.createEventWithCategory("ui_action", action: "button_press", label: label, value: nil).build() as NSDictionary
+    tracker.send(build as [NSObject : AnyObject])
+  }
+  
+  
 }

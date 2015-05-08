@@ -8,9 +8,8 @@
 
 import Foundation
 import UIKit
-import GoogleAnalytics_iOS_SDK
 
-class InviteFriendsViewController : GAITrackedViewController, UITableViewDataSource {
+class InviteFriendsViewController : UIViewController, UITableViewDataSource {
   
   @IBOutlet weak var infoLabel: UILabel!
   @IBOutlet weak var menuButton: UIButton!
@@ -30,7 +29,7 @@ class InviteFriendsViewController : GAITrackedViewController, UITableViewDataSou
     super.viewWillAppear(animated)
     
     // Google Analytics
-    self.screenName = "InviteFriends"
+    AnalyticsHelper.trackScreen("InviteFriends")
   }
   
   override func viewDidLoad() {

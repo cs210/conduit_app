@@ -7,23 +7,21 @@
 //
 
 import UIKit
-import GoogleAnalytics_iOS_SDK
 
-class ChangeNameViewController: GAITrackedViewController {
+class ChangeNameViewController: UIViewController {
   @IBOutlet var lastNameField: UITextField!
   @IBOutlet var firstNameField: UITextField!
   @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    self.screenName = "ChangeName"
+    AnalyticsHelper.trackScreen("ChangeName")
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
 
     // Do any additional setup after loading the view.
-    
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     

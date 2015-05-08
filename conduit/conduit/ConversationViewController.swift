@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import GoogleAnalytics_iOS_SDK
 
 
 class ConversationViewController : ATLConversationViewController {

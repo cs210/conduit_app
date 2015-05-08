@@ -8,9 +8,8 @@
 
 import Foundation
 import UIKit
-import GoogleAnalytics_iOS_SDK
 
-class AddCarViewController : GAITrackedViewController {
+class AddCarViewController : UIViewController {
   @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
   @IBOutlet weak var cancelButton: UIButton!
   @IBOutlet weak var doneButton: UIButton!
@@ -19,7 +18,7 @@ class AddCarViewController : GAITrackedViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    self.screenName = "AddCar"
+    AnalyticsHelper.trackScreen("AddCar")
   }
   
   override func viewDidLoad() {

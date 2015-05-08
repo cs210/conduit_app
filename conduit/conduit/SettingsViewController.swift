@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import GoogleAnalytics_iOS_SDK
 
 class SettingsViewController : UITableViewController, ConfirmPasswordDelegate {
   var menuOptions = ["Change Name", "Change Password", "Change Email", "Change Phone Number", "Change Push Notifications", "Car Management"]

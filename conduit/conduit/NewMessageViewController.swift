@@ -8,9 +8,8 @@
 
 import Foundation
 import UIKit
-import GoogleAnalytics_iOS_SDK
 
-class NewMessageViewController : GAITrackedViewController, UITableViewDataSource, UITableViewDelegate {
+class NewMessageViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
   // Init selected message to "" because  you can't send an empty message
   var selectedMessage = ""
   var presetMessages = [
@@ -33,7 +32,7 @@ class NewMessageViewController : GAITrackedViewController, UITableViewDataSource
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    self.screenName = "NewMessage"
+    AnalyticsHelper.trackScreen("NewMessage")
   }
   
   override func viewDidLoad() {

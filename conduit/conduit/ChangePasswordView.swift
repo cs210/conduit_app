@@ -8,16 +8,15 @@
 
 import Foundation
 import UIKit
-import GoogleAnalytics_iOS_SDK
 
-class ChangePasswordView : GAITrackedViewController {
+class ChangePasswordView : UIViewController {
   
   @IBOutlet var newPasswordField: UITextField!
   @IBOutlet var confirmPasswordField: UITextField!
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    self.screenName = "ChangePassword"
+    AnalyticsHelper.trackScreen("ChangePassword")
   }
   
   override func viewDidLoad() {

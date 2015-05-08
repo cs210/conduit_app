@@ -7,15 +7,14 @@
 //
 
 import UIKit
-import GoogleAnalytics_iOS_SDK
 
-class PhoneSettingsViewController: GAITrackedViewController {
+class PhoneSettingsViewController: UIViewController {
   @IBOutlet var phoneField: UITextField!
   @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    self.screenName = "ChangePhone"
+    AnalyticsHelper.trackScreen("ChangePhone")
   }
   
   override func viewDidLoad() {

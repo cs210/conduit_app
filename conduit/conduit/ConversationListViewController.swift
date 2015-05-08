@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import SwiftyJSON
-import GoogleAnalytics_iOS_SDK
 
 
 class ConversationListViewController : ATLConversationListViewController, ATLConversationListViewControllerDataSource, ATLConversationListViewControllerDelegate {

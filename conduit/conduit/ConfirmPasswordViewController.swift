@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import GoogleAnalytics_iOS_SDK
 
 protocol ConfirmPasswordDelegate {
   func nextSegueAfterConfirm(segueId: String)
 }
-class ConfirmPasswordViewController: GAITrackedViewController, UITextFieldDelegate {
+class ConfirmPasswordViewController: UIViewController, UITextFieldDelegate {
   @IBOutlet var passwordField: UITextField!
   var nextSegueID: String!
   var delegate: ConfirmPasswordDelegate?
@@ -20,7 +19,7 @@ class ConfirmPasswordViewController: GAITrackedViewController, UITextFieldDelega
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    self.screenName = "ConfirmPassword"
+    AnalyticsHelper.trackScreen("ConfirmPassword")
   }
   
   override func viewDidLoad() {

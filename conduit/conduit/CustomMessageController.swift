@@ -8,9 +8,8 @@
 
 import Foundation
 import UIKit
-import GoogleAnalytics_iOS_SDK
 
-class CustomMessageController : GAITrackedViewController {
+class CustomMessageController : UIViewController {
   
   @IBOutlet weak var licenseTextField: UITextField!
   @IBOutlet weak var messageTextField: UITextField!
@@ -21,7 +20,7 @@ class CustomMessageController : GAITrackedViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    self.screenName = "CustomMessage"
+    AnalyticsHelper.trackScreen("CustomMessage")
   }
   
   override func viewDidLoad() {
