@@ -117,6 +117,20 @@ class User: APIModel, ATLParticipant, NSCoding {
     }
   }
   
+  func updatePassword(pwd : String, completion: (result: JSON?, error: NSError?) -> ()){
+    var sessionToken = NSUserDefaults().stringForKey("session")
+    var path = "users/\(sessionToken!)"
+    var params = self.present()
+    params["password"] = pwd
+    APIModel.put(path, parameters: params) { (result, error) -> () in
+      if (error != nil) {
+        completion(result: nil, error: error!)
+      } else {
+        completion(result: result, error: nil)
+      }
+    }
+  }
+  
   var avatarImage:UIImage! {
     get {
       return UIImage(named: "DefaultFriendThumbnail")

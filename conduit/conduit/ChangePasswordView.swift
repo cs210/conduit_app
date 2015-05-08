@@ -39,15 +39,14 @@ class ChangePasswordView : UIViewController {
       if user == nil {
         return
       }
+      
+      user!.updatePassword(newPasswordField.text, completion: { (result, error) -> () in
+        let alertController = UIAlertController(title: "", message:
+          "Your password has been updated!", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
   
-//      user?.password = newPasswordField.text
-//      user!.update { (result, error) -> () in
-//        let alertController = UIAlertController(title: "", message:
-//          "Your password has been updated!", preferredStyle: UIAlertControllerStyle.Alert)
-//        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
-//  
-//        self.presentViewController(alertController, animated: true, completion: nil)
-//      }
+        self.presentViewController(alertController, animated: true, completion: nil)
+      })
     }
   }
  
