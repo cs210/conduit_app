@@ -14,13 +14,13 @@ class ConversationViewController : ATLConversationViewController {
   
   var dateFormatter: NSDateFormatter!
   var participantIdentifiers: [String]?
+  var licensePlate: String?
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     self.dataSource = self
     self.delegate   = self
-    
     
     // Setup the dateformatter used by the dataSource.
     self.dateFormatter = NSDateFormatter()
@@ -37,14 +37,16 @@ class ConversationViewController : ATLConversationViewController {
   }
   
   override func viewWillAppear(animated: Bool) {
-    if let license_plate = conversation.metadata["license_plate"] as? String {
-      self.navigationItem.title = license_plate
-    } else {
-      self.navigationItem.title = "Unknown"
+    var title: String = ""
+    if conversation != nil {
+      if let license_plate = conversation.metadata["license_plate"] as? String {
+        title = license_plate
+      }
     }
-
+    self.navigationItem.title = title
     AnalyticsHelper.trackScreen("Conversation")
   }
+  
   
   func sendInitMessage(messageText: String, licensePlate: String) {
     // If no conversations exist, create a new conversation object with a single participant
@@ -58,6 +60,11 @@ class ConversationViewController : ATLConversationViewController {
       if (self.conversation == nil) {
         NSLog("New Conversation creation failed: \(error)")
       }
+    }
+    
+    if messageText == "" {
+      NSLog("Empty conversation created")
+      return
     }
     
     var messagePart: LYRMessagePart = LYRMessagePart(text: messageText)
