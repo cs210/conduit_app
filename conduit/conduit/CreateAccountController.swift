@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftyJSON
 
 class CreateAccountController : UIViewController, UITextFieldDelegate {
   @IBOutlet var scrollView: UIScrollView!
@@ -177,8 +178,10 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
     
     APIModel.post("users", parameters: params) { (result, error) -> () in
       
-      if (error != nil) {
-        let alertController = UIAlertController(title: "", message: "There was an error creating your account. Check to see if your email address or phone number is associated with another account and please try again.",
+      if (result!["error"] != nil) {
+        var errorMessage = self.checkError(result!["error"])
+        
+        let alertController = UIAlertController(title: "", message: errorMessage,
           preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
       
@@ -195,6 +198,36 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
     
     }
   
+  }
+  
+  func checkError(error : JSON) -> String {
+    // Check the different error messages, 
+    // return a string that can be printed to an alert
+    
+    let message = error["message"].stringValue
+    if message.rangeOfString("Must provide") != nil {
+      return "Please fill out all required inputs."
+    } else if message.rangeOfString("Invalid") != nil {
+      if message.rangeOfString("first_name") != nil {
+        return "Invalid first name."
+      } else if message.rangeOfString("last_name") != nil {
+        return "Invalid last name."
+      } else if message.rangeOfString("password") != nil {
+        return "Invalid password."
+      } else if message.rangeOfString("email_address") != nil {
+        return "Invalid email address."
+      } else { // if message.rangeOfString("phone_number") != nil
+        return "Invalid phone number."
+      }
+    } else if message.rangeOfString("Provided") != nil {
+      if message.rangeOfString("email_address") != nil {
+        return "An account already exists with that email address.\n Please try another email address."
+      } else { // if message.rangeOfString("phone_number") != nil
+        return "An account already exists with that phone number.\n Please try another phone number."
+      }
+    } else { // if message.rangeOfString("Failed to create user") != nil
+      return "The server encountered an error while creating your account. Please try again."
+    }
   }
   
   // Checks that all req'd fields are filled in and valid. Returns false for 
