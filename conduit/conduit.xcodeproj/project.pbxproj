@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9C5DB7A458806B50D7333057 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFCCECC06C9C564191EED71E /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		B535E4021AFDED0E0048E891 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B535E4011AFDED0E0048E891 /* images.xcassets */; };
 		B54FF8F21AB04B3100450107 /* ConversationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54FF8F11AB04B3100450107 /* ConversationListViewController.swift */; };
 		B54FF8F61ACD288200450107 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54FF8F51ACD288200450107 /* SettingsViewController.swift */; };
 		B54FF8F81ACDE90A00450107 /* CarManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54FF8F71ACDE90A00450107 /* CarManagementView.swift */; };
@@ -52,7 +53,6 @@
 		C5762AC71AEF64FE00275E89 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5762AC61AEF64FE00275E89 /* WelcomeViewController.swift */; };
 		C5B7FC971AE7008A001F6E9C /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B7FC961AE7008A001F6E9C /* DataStore.swift */; };
 		C5C70DC21AA68EDE00BE0753 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C70DC11AA68EDE00BE0753 /* AppDelegate.swift */; };
-		C5C70DC91AA68EDE00BE0753 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5C70DC81AA68EDE00BE0753 /* Images.xcassets */; };
 		C5C70DD81AA68EDE00BE0753 /* conduitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C70DD71AA68EDE00BE0753 /* conduitTests.swift */; };
 		C5D02E721ADD9F2F00C201A5 /* CustomSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D02E711ADD9F2F00C201A5 /* CustomSegues.swift */; };
 		C5D02EC61AE085A300C201A5 /* Atlas.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D02E751AE085A300C201A5 /* Atlas.m */; };
@@ -127,6 +127,7 @@
 
 /* Begin PBXFileReference section */
 		029CF3145B10E87BC18DAB8A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B535E4011AFDED0E0048E891 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		B54FF8F11AB04B3100450107 /* ConversationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationListViewController.swift; sourceTree = "<group>"; };
 		B54FF8F51ACD288200450107 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B54FF8F71ACDE90A00450107 /* CarManagementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarManagementView.swift; sourceTree = "<group>"; };
@@ -176,7 +177,6 @@
 		C5C70DBC1AA68EDE00BE0753 /* conduit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = conduit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5C70DC01AA68EDE00BE0753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5C70DC11AA68EDE00BE0753 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C5C70DC81AA68EDE00BE0753 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C5C70DD11AA68EDE00BE0753 /* conduitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = conduitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5C70DD61AA68EDE00BE0753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5C70DD71AA68EDE00BE0753 /* conduitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = conduitTests.swift; sourceTree = "<group>"; };
@@ -437,7 +437,7 @@
 				C5D02E711ADD9F2F00C201A5 /* CustomSegues.swift */,
 				BD7039661AF9FC32009E87D8 /* Validator.swift */,
 				BDEB2DE71AD4A41E008C91C2 /* Style.swift */,
-				C5C70DC81AA68EDE00BE0753 /* Images.xcassets */,
+				B535E4011AFDED0E0048E891 /* images.xcassets */,
 				C5C70DBF1AA68EDE00BE0753 /* Supporting Files */,
 			);
 			path = conduit;
@@ -690,6 +690,7 @@
 				TargetAttributes = {
 					C5C70DBB1AA68EDE00BE0753 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 9ZRFBX2E69;
 					};
 					C5C70DD01AA68EDE00BE0753 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -733,8 +734,8 @@
 				C5D02F051AE085B000C201A5 /* chevron@2x.png in Resources */,
 				C5D02F031AE085B000C201A5 /* camera_dark@3x.png in Resources */,
 				C5D02F0D1AE085B000C201A5 /* location_dark@3x.png in Resources */,
+				B535E4021AFDED0E0048E891 /* images.xcassets in Resources */,
 				C5D02F061AE085B000C201A5 /* chevron@3x.png in Resources */,
-				C5C70DC91AA68EDE00BE0753 /* Images.xcassets in Resources */,
 				C5D02F011AE085B000C201A5 /* camera_dark.png in Resources */,
 				C5D02F041AE085B000C201A5 /* chevron.png in Resources */,
 				C5D02F0A1AE085B000C201A5 /* layerLogo@3x.png in Resources */,
@@ -985,7 +986,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.conduit.conduit";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LayerKit.embeddedframework",
@@ -1006,7 +1008,7 @@
 					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "487623dd-73a5-4319-b278-8a471d843257";
+				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "conduit/conduit-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1020,7 +1022,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.conduit.conduit";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LayerKit.embeddedframework",
@@ -1041,7 +1044,7 @@
 					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "487623dd-73a5-4319-b278-8a471d843257";
+				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "conduit/conduit-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
