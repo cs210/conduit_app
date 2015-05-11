@@ -59,11 +59,14 @@ class ConversationViewController : ATLConversationViewController {
       self.conversation = self.layerClient.newConversationWithParticipants(
         NSSet(array: self.participantIdentifiers!) as Set<NSObject>, options: nil, error: &error
       )
-      self.conversation.setValue(licensePlate, forMetadataAtKeyPath: "license_plate")
-      
       if (self.conversation == nil) {
         NSLog("New Conversation creation failed: \(error)")
+        return
       }
+      
+      self.conversation.setValue(licensePlate, forMetadataAtKeyPath: "license_plate")
+      
+      
     }
     
     if messageText == "" {

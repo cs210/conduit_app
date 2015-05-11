@@ -114,6 +114,7 @@ class LicenseInputController : UIViewController {
         }
         return
       }
+      self.participantIdentifiers = []
       
       var userList = result!["users"]
     

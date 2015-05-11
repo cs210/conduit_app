@@ -31,7 +31,7 @@ class InviteFriendsViewController : UIViewController {
     // Google Analytics
     AnalyticsHelper.trackScreen("InviteFriends")
     
-    let facebookLogo = UIImage(named: "FB-f-Logo__blue_50.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal) as UIImage!
+    let facebookLogo = UIImage(named: "FB-f-Logo__blue_144.png")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal) as UIImage!
     facebookButton.setImage(facebookLogo, forState: .Normal)
     facebookButton.tintColor = nil
     facebookButton.backgroundColor = nil
