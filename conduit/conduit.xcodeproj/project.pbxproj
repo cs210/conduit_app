@@ -24,8 +24,8 @@
 		BD0403731AFAA25C009F1437 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD0403721AFAA25C009F1437 /* libsqlite3.dylib */; };
 		BD19A1BF1AFA065B00015E34 /* AddCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19A1BE1AFA065B00015E34 /* AddCarViewController.swift */; };
 		BD7039671AF9FC32009E87D8 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7039661AF9FC32009E87D8 /* Validator.swift */; };
-		BD73810F1AFCB16900B870AB /* background_image.png in Resources */ = {isa = PBXBuildFile; fileRef = BD73810E1AFCB16800B870AB /* background_image.png */; };
 		BD7381111AFCBAEE00B870AB /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD7381101AFCBAEE00B870AB /* SourceSansPro-Light.ttf */; };
+		BD7620AE1B012A4B00F1AF84 /* background_image.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7620AD1B012A4B00F1AF84 /* background_image.png */; };
 		BD8027A31AFC3A0100E280A9 /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8027A21AFC3A0100E280A9 /* AnalyticsHelper.swift */; };
 		BDB898411AEC3301007E8FE1 /* InviteFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */; };
 		BDD28DC31ACDDD4E001B031D /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD28DC21ACDDD4E001B031D /* ConversationViewController.swift */; };
@@ -143,8 +143,8 @@
 		BD0403721AFAA25C009F1437 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		BD19A1BE1AFA065B00015E34 /* AddCarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCarViewController.swift; sourceTree = "<group>"; };
 		BD7039661AF9FC32009E87D8 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
-		BD73810E1AFCB16800B870AB /* background_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_image.png; sourceTree = "<group>"; };
 		BD7381101AFCBAEE00B870AB /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.ttf"; sourceTree = "<group>"; };
+		BD7620AD1B012A4B00F1AF84 /* background_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_image.png; sourceTree = "<group>"; };
 		BD8027A21AFC3A0100E280A9 /* AnalyticsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
 		BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendsViewController.swift; sourceTree = "<group>"; };
 		BDD28DC21ACDDD4E001B031D /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
@@ -348,8 +348,8 @@
 		BDEC8BC41AFC844B00C4B261 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				BD73810E1AFCB16800B870AB /* background_image.png */,
 				BDEC8BC71AFC862200C4B261 /* Twitter_logo_blue.png */,
+				BD7620AD1B012A4B00F1AF84 /* background_image.png */,
 				BDEC8BC51AFC85DB00C4B261 /* FB-f-Logo__blue_50.png */,
 			);
 			name = Images;
@@ -740,10 +740,10 @@
 				C5D02F0A1AE085B000C201A5 /* layerLogo@3x.png in Resources */,
 				C5D02F091AE085B000C201A5 /* layerLogo@2x.png in Resources */,
 				C5D02F081AE085B000C201A5 /* layerLogo.png in Resources */,
+				BD7620AE1B012A4B00F1AF84 /* background_image.png in Resources */,
 				C5D02F0B1AE085B000C201A5 /* location_dark.png in Resources */,
 				C5D02F001AE085B000C201A5 /* block@3x.png in Resources */,
 				C5D02EFF1AE085B000C201A5 /* block@2x.png in Resources */,
-				BD73810F1AFCB16900B870AB /* background_image.png in Resources */,
 				BDEC8BC61AFC85DB00C4B261 /* FB-f-Logo__blue_50.png in Resources */,
 				C5D02F0F1AE085B000C201A5 /* plus@2x.png in Resources */,
 				C5D02F101AE085B000C201A5 /* plus@3x.png in Resources */,
