@@ -20,7 +20,7 @@ class SettingsViewController : UITableViewController, ConfirmPasswordDelegate {
     println(defaults.stringForKey("session"))
     super.viewDidLoad()
     menuButton.addTarget(self.revealViewController(), action: "revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
-    StyleHelpers.setBackButton(self.navigationItem, label: "Settings")
+    StyleHelpers.setBackButton(self.navigationItem, label: "Back")
   }
   
   override func viewWillAppear(animated: Bool) {

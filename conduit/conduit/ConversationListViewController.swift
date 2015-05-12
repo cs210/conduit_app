@@ -37,7 +37,7 @@ class ConversationListViewController : ATLConversationListViewController, ATLCon
     self.dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
     
     self.navigationController?.navigationBar.topItem?.title = "Conversations"
-    
+    StyleHelpers.setBackButton(self.navigationItem, label: "Back")
 
   }
   

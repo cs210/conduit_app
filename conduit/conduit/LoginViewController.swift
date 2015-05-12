@@ -47,6 +47,9 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
     StyleHelpers.disableAutocorrect(emailField)
     StyleHelpers.disableAutocorrect(passwordField)
     
+//    Nisha is testing crash reporting
+//    NSException(name: "SomeName", reason: "SomeReason", userInfo: nil).raise()
+
   }
   
   func keyboardWillShow(notification: NSNotification) {
