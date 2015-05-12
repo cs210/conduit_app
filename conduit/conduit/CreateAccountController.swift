@@ -47,17 +47,11 @@ class CreateAccountController : UIViewController, UITextFieldDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    Validator.highlightError(firstNameField)
-    Validator.highlightError(lastNameField)
-    Validator.highlightError(passwordField)
-    Validator.highlightError(retypePasswordField)
     retypePasswordErrorLabel.text = ""
     retypePasswordErrorLabel.textColor = StyleColor.getColor(.Error, brightness: .Medium)
-    Validator.highlightError(emailField)
     emailField.autocorrectionType = UITextAutocorrectionType.No
     emailErrorLabel.text = ""
     emailErrorLabel.textColor = StyleColor.getColor(.Error, brightness: .Medium)
-    Validator.highlightError(phoneNumberField)
     phoneNumberErrorLabel.text = ""
     phoneNumberErrorLabel.textColor = StyleColor.getColor(.Error, brightness: .Medium)
     

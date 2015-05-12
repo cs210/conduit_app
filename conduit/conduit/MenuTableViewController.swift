@@ -11,17 +11,15 @@ import UIKit
 class MenuTableViewController: UITableViewController {
 
   var menuOptions = ["Make A Request", "Conversations", "Settings", "Invite Friends", "Log Out"]
-  
-  @IBOutlet var menuDismisser: UITapGestureRecognizer!
-  
+
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("Menu")
   }
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    self.menuDismisser.addTarget(self.revealViewController(), action:"revealToggle:")
+  
+  @IBAction func dismissMenu(sender: AnyObject) {
+    NSLog("HEREHEREHERE")
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -53,18 +51,23 @@ class MenuTableViewController: UITableViewController {
   }
   
   func doLogOut() {
-    var defaults = NSUserDefaults.standardUserDefaults()
-    defaults.removeObjectForKey("session")
-    defaults.removeObjectForKey("user")
-    defaults.removeObjectForKey("participantIdentifier")
+
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     appDelegate.layerClient?.deauthenticateWithCompletion({ (success, err) -> Void in
       if err != nil {
         NSLog("Deauthenticate with Layer failed with error: \(err)")
+        var alert = UIAlertController(title: "Error", message: "There was an error logging you out. Please try again.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+      } else {
+      
+        var defaults = NSUserDefaults.standardUserDefaults()
+        defaults.removeObjectForKey("session")
+        defaults.removeObjectForKey("user")
+        defaults.removeObjectForKey("participantIdentifier")
+        self.performSegueWithIdentifier("request_segue", sender: self)
       }
-      
-      self.performSegueWithIdentifier("request_segue", sender: self)
-      
+
     })
     
   }

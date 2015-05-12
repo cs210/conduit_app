@@ -25,10 +25,11 @@ import GoogleAnalytics_iOS_SDK
 class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
   
   // Prod
-//  let LQSLayerAppIDString = "7b2af17c-db1b-11e4-b5b6-52bb02000413"
+  let LQSLayerAppIDString = "7b2af17c-db1b-11e4-b5b6-52bb02000413"
   
   // Dev
-  let LQSLayerAppIDString = "7b2aed30-db1b-11e4-a21a-52bb02000413"
+  
+//  let LQSLayerAppIDString = "7b2aed30-db1b-11e4-a21a-52bb02000413"
   
   var window: UIWindow?
   var layerClient: LYRClient!
@@ -51,17 +52,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
     return true
   }
   
-  func authenticateWithLayer() {
+  func authenticateWithLayer(completion :(success:Bool,error:NSError?) -> Void) {
     
     self.layerClient.connectWithCompletion({ (success:Bool, error:NSError!) -> Void in
       if (!success) {
         NSLog("Failed to connect to Layer: \(error)");
+        completion(success:false, error:error)
       } else {
         
         var currentUser: User = User.getUserFromDefaults()!
         self.authenticateLayerWithUserID(currentUser.emailAddress, completion: { (success, error) -> Void in
           if (!success) {
             NSLog("Failed Authenticating Layer Client with error:\(error)");
+            self.layerClient.disconnect()
+            completion(success:false, error:error)
+          } else {
+            completion(success:true, error:nil)
           }
         })
         
@@ -221,7 +227,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
                   NSLog("7")
                   completion(success:false, error:error);
                 }
-                completion(success:true, error:nil);
               })
             } else {
               NSLog("8")
@@ -242,6 +247,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
     completion :(identityToken:String?,error:NSError?) -> Void) {
     
     let params = ["email_address":userID, "nonce":nonce]
+    NSLog("\(params)")
     APIModel.post("users/identity", parameters: params) { (result, error) -> () in
       if error != nil {
         NSLog("Conduit identity token generation error")

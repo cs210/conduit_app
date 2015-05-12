@@ -104,33 +104,40 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
 
       var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
       
-      appDelegate.authenticateWithLayer()
-      
-      self.dismissViewControllerAnimated(false, completion: {
-        if defaults.boolForKey("isNewAccount") {
-          // Go to welcome view
-          let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-          let destViewController : WelcomeViewController = mainStoryboard.instantiateViewControllerWithIdentifier("welcomeView") as! WelcomeViewController
-          
-          // This is eventually what we want to do. Right now it gives a blank screen.
-          var destNavController = UINavigationController(rootViewController: destViewController)
-          
-          var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-          var revealController : SWRevealViewController = appDelegate.window!.rootViewController as! SWRevealViewController
-          var navController : UINavigationController = revealController.frontViewController as! UINavigationController
-          
-          navController.presentViewController(destNavController, animated: true, completion: nil)
-          
-        } else {
-          var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-          var revealController : SWRevealViewController = appDelegate.window!.rootViewController as! SWRevealViewController
-          var navController : UINavigationController = revealController.frontViewController as! UINavigationController
-          
-          var licenseInputViewController = navController.topViewController as! LicenseInputController?
-          licenseInputViewController?.licenseField.becomeFirstResponder()
+      appDelegate.authenticateWithLayer({(success, error) in
+        if !success {
+          let alertController = UIAlertController(title: "", message: "There was an error logging into your account. Please try again.",
+            preferredStyle: UIAlertControllerStyle.Alert)
+          alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+          return
         }
+        
+        self.dismissViewControllerAnimated(false, completion: {
+          if defaults.boolForKey("isNewAccount") {
+            // Go to welcome view
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+            let destViewController : WelcomeViewController = mainStoryboard.instantiateViewControllerWithIdentifier("welcomeView") as! WelcomeViewController
+            
+            // This is eventually what we want to do. Right now it gives a blank screen.
+            var destNavController = UINavigationController(rootViewController: destViewController)
+            
+            var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            var revealController : SWRevealViewController = appDelegate.window!.rootViewController as! SWRevealViewController
+            var navController : UINavigationController = revealController.frontViewController as! UINavigationController
+            
+            navController.presentViewController(destNavController, animated: true, completion: nil)
+            
+          } else {
+            var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            var revealController : SWRevealViewController = appDelegate.window!.rootViewController as! SWRevealViewController
+            var navController : UINavigationController = revealController.frontViewController as! UINavigationController
+            
+            var licenseInputViewController = navController.topViewController as! LicenseInputController?
+            licenseInputViewController?.licenseField.becomeFirstResponder()
+          }
+        })
       })
-      
+ 
     }
     
   }

@@ -11,10 +11,10 @@ import Alamofire
 import SwiftyJSON
 
 #if arch(i386) || arch(x86_64)
-//  let APIURL = "http://0.0.0.0:6969/"
+//  let APIURL = "http://localhost:1337/"
   let APIURL = "http://104.236.149.170/"
 #else
-//  let APIURL = "http://127.0.0.1:6969/"
+//  let APIURL = "http://localhost:1337/"
   let APIURL = "http://104.236.149.170/"
 #endif
 
