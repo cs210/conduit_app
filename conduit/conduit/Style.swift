@@ -99,4 +99,10 @@ class StyleHelpers {
     textField.autocorrectionType = UITextAutocorrectionType.No
   }
   
+  class func setBackButton(navigationItem : UINavigationItem, label : String) {
+    let backButton = UIBarButtonItem(title: label, style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+    backButton.setTitleTextAttributes([NSFontAttributeName: UIFont(name: StyleHelpers.FONT_NAME, size: StyleHelpers.FONT_SIZE)!], forState: UIControlState.Normal)
+    navigationItem.backBarButtonItem = backButton
+  }
+  
 }

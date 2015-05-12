@@ -31,10 +31,11 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
     AnalyticsHelper.trackScreen("NewMessage")
     presetTable.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
     presetTable.separatorInset = UIEdgeInsetsZero
-    
+  
   }
   
   override func viewDidLoad() {
+    super.viewDidLoad()
     toFieldBackground.backgroundColor = StyleColor.getColor(.Grey, brightness: .Light)
     licensePlateLabel.text = licensePlate
   }

@@ -184,40 +184,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
   func authenticateLayerWithUserID(userID:String, completion :(success:Bool,error:NSError?) -> Void)
   {
     if let authenticatedUserID = layerClient.authenticatedUserID {
+      NSLog("1")
       println("1Layer Authenticated as User \(authenticatedUserID)");
       completion(success:true, error:nil);
     } else {
+      NSLog("2")
       /*
       * 1. Request an authentication Nonce from Layer
       */
       layerClient.requestAuthenticationNonceWithCompletion({(nonce, error) in
         if let nonce = nonce {
           println("nonce \(nonce)");
+          NSLog("3")
           
           /*
           * 2. Acquire identity Token from Layer Identity Service
           */
           self.requestIdentityTokenForUserID(userID, appID: self.layerClient.appID.UUIDString,
             nonce: nonce, completion: { (identityToken, error) in
-            
+            NSLog("4")
+              
             if let identityToken = identityToken {
+              NSLog("5")
               /*
               * 3. Submit identity token to Layer for validation
               */
               self.layerClient.authenticateWithIdentityToken(identityToken, completion: {(authenticatedUserID, error) in
                 if let authenticatedUserID = authenticatedUserID {
+                  NSLog("6")
                   println("2Layer Authenticated as User: \(authenticatedUserID)");
                   completion(success:true, error:nil);
                 } else {
+                  NSLog("7")
                   completion(success:false, error:error);
                 }
                 completion(success:true, error:nil);
               })
             } else {
+              NSLog("8")
               completion(success:false, error:error);
             }
           })
         } else {
+          NSLog("9")
           completion(success:false, error:error);
         }
       })

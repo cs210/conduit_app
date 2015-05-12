@@ -50,7 +50,7 @@ class LicenseInputController : UIViewController {
     
     StyleHelpers.disableAutocorrect(licenseField)
     licenseField.becomeFirstResponder()
-    
+    StyleHelpers.setBackButton(self.navigationItem, label: "Back")
   }
   
   func keyboardWillShow(notification: NSNotification) {
