@@ -12,9 +12,16 @@ class MenuTableViewController: UITableViewController {
 
   var menuOptions = ["Make A Request", "Conversations", "Settings", "Invite Friends", "Log Out"]
   
+  @IBOutlet var menuDismisser: UITapGestureRecognizer!
+  
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("Menu")
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.menuDismisser.addTarget(self.revealViewController(), action:"revealToggle:")
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

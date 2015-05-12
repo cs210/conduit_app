@@ -24,8 +24,11 @@ import GoogleAnalytics_iOS_SDK
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
   
-  // Set to production
-  let LQSLayerAppIDString = "7b2af17c-db1b-11e4-b5b6-52bb02000413"
+  // Prod
+//  let LQSLayerAppIDString = "7b2af17c-db1b-11e4-b5b6-52bb02000413"
+  
+  // Dev
+  let LQSLayerAppIDString = "7b2aed30-db1b-11e4-a21a-52bb02000413"
   
   var window: UIWindow?
   var layerClient: LYRClient!
