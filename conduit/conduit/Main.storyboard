@@ -1533,7 +1533,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Menu" id="534-go-27a"/>
                     <connections>
-                        <outlet property="menuDismisser" destination="MN3-ZW-19k" id="jS9-Vj-L0P"/>
                         <segue destination="g2N-zI-cJa" kind="custom" identifier="request_segue" customClass="SWRevealViewControllerSeguePushController" id="psz-Zh-Tf1"/>
                         <segue destination="PZB-AE-slK" kind="custom" identifier="settings_segue" customClass="SWRevealViewControllerSeguePushController" id="zE0-FL-iH5"/>
                         <segue destination="0Yr-RS-Ulj" kind="custom" identifier="invite_friends_segue" customClass="SWRevealViewControllerSeguePushController" id="DhA-g4-u7t"/>
@@ -1541,7 +1540,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ist-HN-p6f" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="MN3-ZW-19k"/>
+                <tapGestureRecognizer id="MN3-ZW-19k">
+                    <connections>
+                        <action selector="dismissMenu:" destination="Xmb-fj-rHA" id="FDe-DF-lLT"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-100" y="645"/>
         </scene>
