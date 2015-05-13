@@ -80,7 +80,7 @@ class InviteFriendsViewController : UIViewController {
         break
       }
     }
-    
+  
     facebookPost.setInitialText("I'm on #Conduit, the best solution for charge rage. Check it out for yourself at") //The default text in the tweet
     facebookPost.addURL(NSURL(string: "http://conduitapp.me")) //A url which takes you into safari if tapped on
     

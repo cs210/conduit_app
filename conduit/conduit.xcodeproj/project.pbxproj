@@ -690,7 +690,7 @@
 				TargetAttributes = {
 					C5C70DBB1AA68EDE00BE0753 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 9ZRFBX2E69;
+						DevelopmentTeam = 7A54D534F5;
 					};
 					C5C70DD01AA68EDE00BE0753 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -986,8 +986,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nathan Eidelson (7A54D534F5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nathan Eidelson (7A54D534F5)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LayerKit.embeddedframework",
@@ -1008,7 +1008,7 @@
 					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ea23ba76-7ad6-40c3-abf3-717135fcd556";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "conduit/conduit-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1022,8 +1022,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nathan Eidelson (7A54D534F5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nathan Eidelson (7A54D534F5)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LayerKit.embeddedframework",
@@ -1044,7 +1044,7 @@
 					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ea23ba76-7ad6-40c3-abf3-717135fcd556";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "conduit/conduit-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;

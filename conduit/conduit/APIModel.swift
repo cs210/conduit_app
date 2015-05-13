@@ -12,7 +12,7 @@ import SwiftyJSON
 
 #if arch(i386) || arch(x86_64)
   let APIURL = "http://localhost:1337/"
-//  let APIURL = "http://104.236.149.170/"
+ // let APIURL = "http://104.236.149.170/"
 #else
   let APIURL = "http://localhost:1337/"
 //  let APIURL = "http://104.236.149.170/"
