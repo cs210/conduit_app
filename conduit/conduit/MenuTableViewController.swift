@@ -18,12 +18,9 @@ class MenuTableViewController: UITableViewController {
   }
 
   override func viewDidLoad() {
-//    var swipeLeft = UISwipeGestureRecognizer(target: self.revealViewController(), action: "revealToggle:")
-//    swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
-//    self.view.addGestureRecognizer(swipeLeft)
-    
-//    var tap = UITapGestureRecognizer(target: self.revealViewController(), action: "revealToggle:")
-//    self.view.addGestureRecognizer(tap)
+    var swipeLeft = UISwipeGestureRecognizer(target: self.revealViewController(), action: "revealToggle:")
+    swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
+    self.view.addGestureRecognizer(swipeLeft)
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -86,4 +83,5 @@ class MenuTableViewController: UITableViewController {
     }
   }
 }
+
 

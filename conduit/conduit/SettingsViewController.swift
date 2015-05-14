@@ -9,28 +9,47 @@
 import Foundation
 import UIKit
 
-class SettingsViewController : UITableViewController, ConfirmPasswordDelegate {
+class SettingsViewController : UITableViewController, ConfirmPasswordDelegate, SWRevealViewControllerDelegate {
   var menuOptions = ["Change Name", "Change Password", "Change Email", "Change Phone Number", "Change Push Notifications", "Car Management"]
   var segueOptions = ["change_name_segue", "change_password_segue", "change_email_segue", "change_phone_segue", "change_push_notifs_segue", "car_management_segue"]
 
   @IBOutlet weak var menuButton: UIButton!
   
   override func viewDidLoad() {
-    var defaults = NSUserDefaults.standardUserDefaults()
-    println(defaults.stringForKey("session"))
-    super.viewDidLoad()
-    menuButton.addTarget(self.revealViewController(), action: "revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
-    StyleHelpers.setBackButton(self.navigationItem, label: "Back")
-    
+    // Setup reveal view controller
+    self.revealViewController().delegate = self
     var swipeRight = UISwipeGestureRecognizer(target: self.revealViewController(), action: "revealToggle:")
     swipeRight.direction = UISwipeGestureRecognizerDirection.Right
     self.view.addGestureRecognizer(swipeRight)
+    menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
+    
+    var defaults = NSUserDefaults.standardUserDefaults()
+    println(defaults.stringForKey("session"))
+    super.viewDidLoad()
+
+    StyleHelpers.setBackButton(self.navigationItem, label: "Back")
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("Settings")
     StyleHelpers.setButtonFont(menuButton)
+  }
+  
+  func revealController(revealController: SWRevealViewController!,  willMoveToPosition position: FrontViewPosition){
+    if(position == FrontViewPosition.Left) {
+      self.view.userInteractionEnabled = true
+    } else {
+      self.view.userInteractionEnabled = false
+    }
+  }
+  
+  func revealController(revealController: SWRevealViewController!,  didMoveToPosition position: FrontViewPosition){
+    if(position == FrontViewPosition.Left) {
+      self.view.userInteractionEnabled = true
+    } else {
+      self.view.userInteractionEnabled = false
+    }
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

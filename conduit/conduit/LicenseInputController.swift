@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LicenseInputController : UIViewController {
+class LicenseInputController : UIViewController, SWRevealViewControllerDelegate {
 
   @IBOutlet weak var licenseField: UITextField!
   @IBOutlet weak var menuButton: UIButton!
@@ -16,7 +16,6 @@ class LicenseInputController : UIViewController {
   @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
 
   var hasChanged = false
-
   var participantIdentifiers: [String] = []
   
   override func viewWillAppear(animated: Bool) {
@@ -36,13 +35,19 @@ class LicenseInputController : UIViewController {
   }
   
   override func viewDidLoad() {
+    // Setup reveal view controller
+    self.revealViewController().delegate = self
+    var swipeRight = UISwipeGestureRecognizer(target: self.revealViewController(), action: "revealToggle:")
+    swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+    self.view.addGestureRecognizer(swipeRight)
+    menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
     
+    // Go to login if not logged in
     var sessionKey = NSUserDefaults.standardUserDefaults().stringForKey("session")
     if (sessionKey == nil) {
       performSegueWithIdentifier("to_login", sender: self)
     }
-  
-    menuButton.addTarget(self, action:"toggleMenu:", forControlEvents:UIControlEvents.TouchUpInside)
+    
     continueButton.backgroundColor = StyleColor.getColor(.Grey, brightness: .Medium)
     
     var timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self,
@@ -53,17 +58,22 @@ class LicenseInputController : UIViewController {
     licenseField.becomeFirstResponder()
     StyleHelpers.setBackButton(self.navigationItem, label: "Back")
     
-    
-    var swipeRight = UISwipeGestureRecognizer(target: self, action: "toggleMenu:")
-    swipeRight.direction = UISwipeGestureRecognizerDirection.Right
-    self.view.addGestureRecognizer(swipeRight)
-    
-
   }
   
-  @IBAction func toggleMenu(sender : AnyObject) {
-    self.revealViewController().revealToggle(sender)
-    self.view.userInteractionEnabled = !self.view.userInteractionEnabled
+  func revealController(revealController: SWRevealViewController!,  willMoveToPosition position: FrontViewPosition){
+    if(position == FrontViewPosition.Left) {
+       self.view.userInteractionEnabled = true
+    } else {
+       self.view.userInteractionEnabled = false
+    }
+  }
+  
+  func revealController(revealController: SWRevealViewController!,  didMoveToPosition position: FrontViewPosition){
+    if(position == FrontViewPosition.Left) {
+       self.view.userInteractionEnabled = true
+    } else {
+       self.view.userInteractionEnabled = false
+    }
   }
   
   func keyboardWillShow(notification: NSNotification) {

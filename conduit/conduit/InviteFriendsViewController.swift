@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Social
 
-class InviteFriendsViewController : UIViewController {
+class InviteFriendsViewController : UIViewController, SWRevealViewControllerDelegate {
   
   @IBOutlet weak var infoLabel: UILabel!
   @IBOutlet weak var menuButton: UIButton!
@@ -46,20 +46,35 @@ class InviteFriendsViewController : UIViewController {
   }
   
   override func viewDidLoad() {
-    
     var defaults = NSUserDefaults.standardUserDefaults()
     if defaults.boolForKey("isNewAccount") {
       menuButton.hidden = true
     } else {
+      // Setup reveal view controller
+      self.revealViewController().delegate = self
+      var swipeRight = UISwipeGestureRecognizer(target: self.revealViewController(), action: "revealToggle:")
+      swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+      self.view.addGestureRecognizer(swipeRight)
       menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
       doneButton.hidden = true
     }
     infoLabel.text = HEADER_MESSAGE
-
-    var swipeRight = UISwipeGestureRecognizer(target: self.revealViewController(), action: "revealToggle:")
-    swipeRight.direction = UISwipeGestureRecognizerDirection.Right
-    self.view.addGestureRecognizer(swipeRight)
-    
+  }
+  
+  func revealController(revealController: SWRevealViewController!,  willMoveToPosition position: FrontViewPosition){
+    if(position == FrontViewPosition.Left) {
+      self.view.userInteractionEnabled = true
+    } else {
+      self.view.userInteractionEnabled = false
+    }
+  }
+  
+  func revealController(revealController: SWRevealViewController!,  didMoveToPosition position: FrontViewPosition){
+    if(position == FrontViewPosition.Left) {
+      self.view.userInteractionEnabled = true
+    } else {
+      self.view.userInteractionEnabled = false
+    }
   }
   
   // https://stackoverflow.com/questions/27717709/how-to-share-image-on-facebook-using-swift-in-ios

@@ -11,7 +11,7 @@ import UIKit
 import SwiftyJSON
 
 
-class ConversationListViewController : ATLConversationListViewController, ATLConversationListViewControllerDataSource, ATLConversationListViewControllerDelegate {
+class ConversationListViewController : ATLConversationListViewController, ATLConversationListViewControllerDataSource, ATLConversationListViewControllerDelegate, SWRevealViewControllerDelegate {
 
   var selectedIndex: NSIndexPath!
   var dateFormatter: NSDateFormatter!
@@ -39,6 +39,8 @@ class ConversationListViewController : ATLConversationListViewController, ATLCon
     self.navigationController?.navigationBar.topItem?.title = "Conversations"
     StyleHelpers.setBackButton(self.navigationItem, label: "Back")
     
+    // Setup reveal view controller
+    self.revealViewController().delegate = self
     var swipeRight = UISwipeGestureRecognizer(target: self.revealViewController(), action: "revealToggle:")
     swipeRight.direction = UISwipeGestureRecognizerDirection.Right
     self.view.addGestureRecognizer(swipeRight)
@@ -47,6 +49,22 @@ class ConversationListViewController : ATLConversationListViewController, ATLCon
   
   @IBAction func menuPressed(sender: AnyObject) {
     self.revealViewController().revealToggle(self)
+  }
+  
+  func revealController(revealController: SWRevealViewController!,  willMoveToPosition position: FrontViewPosition){
+    if(position == FrontViewPosition.Left) {
+      self.view.userInteractionEnabled = true
+    } else {
+      self.view.userInteractionEnabled = false
+    }
+  }
+  
+  func revealController(revealController: SWRevealViewController!,  didMoveToPosition position: FrontViewPosition){
+    if(position == FrontViewPosition.Left) {
+      self.view.userInteractionEnabled = true
+    } else {
+      self.view.userInteractionEnabled = false
+    }
   }
 
 }
