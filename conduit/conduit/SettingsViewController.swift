@@ -21,6 +21,10 @@ class SettingsViewController : UITableViewController, ConfirmPasswordDelegate {
     super.viewDidLoad()
     menuButton.addTarget(self.revealViewController(), action: "revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
     StyleHelpers.setBackButton(self.navigationItem, label: "Back")
+    
+    var swipeRight = UISwipeGestureRecognizer(target: self.revealViewController(), action: "revealToggle:")
+    swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+    self.view.addGestureRecognizer(swipeRight)
   }
   
   override func viewWillAppear(animated: Bool) {

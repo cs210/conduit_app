@@ -14,6 +14,7 @@ class LicenseInputController : UIViewController {
   @IBOutlet weak var menuButton: UIButton!
   @IBOutlet weak var continueButton: UIButton!
   @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+
   var hasChanged = false
 
   var participantIdentifiers: [String] = []
@@ -41,7 +42,7 @@ class LicenseInputController : UIViewController {
       performSegueWithIdentifier("to_login", sender: self)
     }
   
-    menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
+    menuButton.addTarget(self, action:"toggleMenu:", forControlEvents:UIControlEvents.TouchUpInside)
     continueButton.backgroundColor = StyleColor.getColor(.Grey, brightness: .Medium)
     
     var timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self,
@@ -51,6 +52,18 @@ class LicenseInputController : UIViewController {
     StyleHelpers.disableAutocorrect(licenseField)
     licenseField.becomeFirstResponder()
     StyleHelpers.setBackButton(self.navigationItem, label: "Back")
+    
+    
+    var swipeRight = UISwipeGestureRecognizer(target: self, action: "toggleMenu:")
+    swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+    self.view.addGestureRecognizer(swipeRight)
+    
+
+  }
+  
+  @IBAction func toggleMenu(sender : AnyObject) {
+    self.revealViewController().revealToggle(sender)
+    self.view.userInteractionEnabled = !self.view.userInteractionEnabled
   }
   
   func keyboardWillShow(notification: NSNotification) {

@@ -38,6 +38,10 @@ class ConversationListViewController : ATLConversationListViewController, ATLCon
     
     self.navigationController?.navigationBar.topItem?.title = "Conversations"
     StyleHelpers.setBackButton(self.navigationItem, label: "Back")
+    
+    var swipeRight = UISwipeGestureRecognizer(target: self.revealViewController(), action: "revealToggle:")
+    swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+    self.view.addGestureRecognizer(swipeRight)
 
   }
   

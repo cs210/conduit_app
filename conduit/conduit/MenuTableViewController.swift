@@ -16,10 +16,14 @@ class MenuTableViewController: UITableViewController {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("Menu")
   }
-  
-  
-  @IBAction func dismissMenu(sender: AnyObject) {
-    NSLog("HEREHEREHERE")
+
+  override func viewDidLoad() {
+//    var swipeLeft = UISwipeGestureRecognizer(target: self.revealViewController(), action: "revealToggle:")
+//    swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
+//    self.view.addGestureRecognizer(swipeLeft)
+    
+//    var tap = UITapGestureRecognizer(target: self.revealViewController(), action: "revealToggle:")
+//    self.view.addGestureRecognizer(tap)
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -82,3 +86,4 @@ class MenuTableViewController: UITableViewController {
     }
   }
 }
+

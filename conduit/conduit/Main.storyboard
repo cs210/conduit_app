@@ -1510,6 +1510,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuItem" textLabel="9Ru-Hi-Oyg" style="IBUITableViewCellStyleDefault" id="GS5-dd-dNR">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -1540,11 +1541,6 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ist-HN-p6f" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="MN3-ZW-19k">
-                    <connections>
-                        <action selector="dismissMenu:" destination="Xmb-fj-rHA" id="FDe-DF-lLT"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-100" y="645"/>
         </scene>
@@ -1659,7 +1655,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="psz-Zh-Tf1"/>
+        <segue reference="YKv-ZP-RES"/>
         <segue reference="a4X-s1-m85"/>
     </inferredMetricsTieBreakers>
 </document>

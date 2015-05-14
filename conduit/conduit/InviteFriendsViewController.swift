@@ -56,7 +56,9 @@ class InviteFriendsViewController : UIViewController {
     }
     infoLabel.text = HEADER_MESSAGE
 
-    
+    var swipeRight = UISwipeGestureRecognizer(target: self.revealViewController(), action: "revealToggle:")
+    swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+    self.view.addGestureRecognizer(swipeRight)
     
   }
   
