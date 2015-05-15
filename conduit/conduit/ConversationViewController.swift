@@ -36,7 +36,6 @@ class ConversationViewController : ATLConversationViewController {
     self.messageInputToolbar.rightAccessoryButton.backgroundColor = nil
     self.messageInputToolbar.textInputView.font = UIFont(name: StyleHelpers.FONT_NAME, size: StyleHelpers.FONT_SIZE)
     
-    
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -49,6 +48,8 @@ class ConversationViewController : ATLConversationViewController {
     self.navigationItem.title = title
     AnalyticsHelper.trackScreen("Conversation")
     StyleHelpers.setButtonFont(self.messageInputToolbar.rightAccessoryButton)
+    
+    self.messageInputToolbar.textInputView.becomeFirstResponder()
   }
   
   
