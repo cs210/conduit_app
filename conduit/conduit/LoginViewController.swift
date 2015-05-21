@@ -122,7 +122,7 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
   func proceeedFromLogin() {
     self.dismissViewControllerAnimated(false, completion: {
       self.stopLogin(false)
-      if defaults.boolForKey("isNewAccount") {
+      if NSUserDefaults.standardUserDefaults().boolForKey("isNewAccount") {
         // Go to welcome view
         let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         let destViewController : WelcomeViewController = mainStoryboard.instantiateViewControllerWithIdentifier("welcomeView") as! WelcomeViewController
