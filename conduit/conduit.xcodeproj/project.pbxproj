@@ -27,7 +27,7 @@
 		BD5140F21B0139F600C5F311 /* Twitter_logo_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = BD5140F11B0139F600C5F311 /* Twitter_logo_blue.png */; };
 		BD5140F41B013A0600C5F311 /* FB-f-Logo__blue_144.png in Resources */ = {isa = PBXBuildFile; fileRef = BD5140F31B013A0600C5F311 /* FB-f-Logo__blue_144.png */; };
 		BD5140F61B013A0F00C5F311 /* background_image.png in Resources */ = {isa = PBXBuildFile; fileRef = BD5140F51B013A0F00C5F311 /* background_image.png */; };
-		BD7039671AF9FC32009E87D8 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7039661AF9FC32009E87D8 /* Validator.swift */; };
+		BD7039671AF9FC32009E87D8 /* ErrorHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7039661AF9FC32009E87D8 /* ErrorHelpers.swift */; };
 		BD7381111AFCBAEE00B870AB /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD7381101AFCBAEE00B870AB /* SourceSansPro-Light.ttf */; };
 		BD8027A31AFC3A0100E280A9 /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8027A21AFC3A0100E280A9 /* AnalyticsHelper.swift */; };
 		BDB898411AEC3301007E8FE1 /* InviteFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */; };
@@ -147,7 +147,7 @@
 		BD5140F11B0139F600C5F311 /* Twitter_logo_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter_logo_blue.png; sourceTree = "<group>"; };
 		BD5140F31B013A0600C5F311 /* FB-f-Logo__blue_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FB-f-Logo__blue_144.png"; sourceTree = "<group>"; };
 		BD5140F51B013A0F00C5F311 /* background_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_image.png; sourceTree = "<group>"; };
-		BD7039661AF9FC32009E87D8 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		BD7039661AF9FC32009E87D8 /* ErrorHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHelpers.swift; sourceTree = "<group>"; };
 		BD7381101AFCBAEE00B870AB /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.ttf"; sourceTree = "<group>"; };
 		BD8027A21AFC3A0100E280A9 /* AnalyticsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
 		BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendsViewController.swift; sourceTree = "<group>"; };
@@ -438,7 +438,7 @@
 				B58C3F4E1AF40ECE002311EE /* PhoneSettingsViewController.swift */,
 				BD8027A21AFC3A0100E280A9 /* AnalyticsHelper.swift */,
 				C5D02E711ADD9F2F00C201A5 /* CustomSegues.swift */,
-				BD7039661AF9FC32009E87D8 /* Validator.swift */,
+				BD7039661AF9FC32009E87D8 /* ErrorHelpers.swift */,
 				BDEB2DE71AD4A41E008C91C2 /* Style.swift */,
 				B535E4011AFDED0E0048E891 /* images.xcassets */,
 				C5C70DBF1AA68EDE00BE0753 /* Supporting Files */,
@@ -849,7 +849,7 @@
 				C5D02EDB1AE085A300C201A5 /* ATLConversationCollectionView.m in Sources */,
 				C5EFBDDB1AABD4CD000029C3 /* MenuTableViewController.swift in Sources */,
 				B58C3F4B1AF0CA5C002311EE /* ChangeEmailViewController.swift in Sources */,
-				BD7039671AF9FC32009E87D8 /* Validator.swift in Sources */,
+				BD7039671AF9FC32009E87D8 /* ErrorHelpers.swift in Sources */,
 				C5D02ED91AE085A300C201A5 /* ATLAddressBarView.m in Sources */,
 				C5D02EE61AE085A300C201A5 /* ATLOutgoingMessageCollectionViewCell.m in Sources */,
 				C5B7FC971AE7008A001F6E9C /* DataStore.swift in Sources */,

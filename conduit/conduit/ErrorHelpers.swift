@@ -38,3 +38,7 @@ class Validator {
     field.layer.borderColor = UIColor.clearColor().CGColor
   }
 }
+
+class AlertHelper {
+
+}

@@ -16,6 +16,7 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
   @IBOutlet weak var newAcctButton: UIButton!
   @IBOutlet weak var loginButton: UIButton!
   @IBOutlet weak var conduitLabel: UILabel!
+  @IBOutlet weak var waitingIndicator: UIActivityIndicatorView!
   
   @IBOutlet var scrollView: UIScrollView!
   @IBAction func dismissKeyboard(sender: AnyObject) {
@@ -79,7 +80,7 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
   }
   
   @IBAction func loginPressed(sender: AnyObject) {
-    AnalyticsHelper.trackButtonPress("log_in")
+    self.startLogin()
     
     let params = ["password": passwordField.text, "email_address": emailField.text]
     
@@ -91,6 +92,7 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
+        self.stopLogin(true)
         return
       }
       
@@ -108,22 +110,19 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
         
         appDelegate.authenticateWithLayer({(success, error) in
           if !success {
-            let alertController = UIAlertController(title: "", message: "There was an error logging into your account. Please try again.",
-              preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            self.stopLogin(true)
             return
           }
           self.proceeedFromLogin()
         })
-
       })
     }
-    
   }
   
   func proceeedFromLogin() {
     self.dismissViewControllerAnimated(false, completion: {
-      if NSUserDefaults.standardUserDefaults().boolForKey("isNewAccount") {
+      self.stopLogin(false)
+      if defaults.boolForKey("isNewAccount") {
         // Go to welcome view
         let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         let destViewController : WelcomeViewController = mainStoryboard.instantiateViewControllerWithIdentifier("welcomeView") as! WelcomeViewController
@@ -146,7 +145,27 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
         licenseInputViewController?.licenseField.becomeFirstResponder()
       }
     })
-
+  }
+  
+  func startLogin() {
+    AnalyticsHelper.trackButtonPress("log_in")
+    self.waitingIndicator.startAnimating()
+    self.loginButton.enabled = false
+    self.newAcctButton.enabled = false
+  }
+  
+  func stopLogin(err : Bool) {
+    if err {
+      let alertController = UIAlertController(title: "", message: "There was an error logging into your account. Please try again.",
+        preferredStyle: UIAlertControllerStyle.Alert)
+      alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+      
+      self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    self.waitingIndicator.stopAnimating()
+    self.loginButton.enabled = true
+    self.newAcctButton.enabled = true
   }
   
   @IBAction func noAccountPressed(sender: AnyObject) {

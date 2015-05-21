@@ -15,6 +15,7 @@ class ConversationViewController : ATLConversationViewController {
   var dateFormatter: NSDateFormatter!
   var participantIdentifiers: [String]?
   var licensePlate: String?
+  var isEmptyConversation : Bool?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -35,11 +36,18 @@ class ConversationViewController : ATLConversationViewController {
     self.messageInputToolbar.rightAccessoryButton.setTitleColor(StyleColor.getColor(.Primary, brightness: .Medium), forState:.Normal)
     self.messageInputToolbar.rightAccessoryButton.backgroundColor = nil
     self.messageInputToolbar.textInputView.font = UIFont(name: StyleHelpers.FONT_NAME, size: StyleHelpers.FONT_SIZE)
-    
-    
+   
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+    if self.isEmptyConversation != nil && self.isEmptyConversation == true {
+      self.messageInputToolbar.textInputView.becomeFirstResponder()
+    }
   }
   
   override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
     var title: String = ""
     if conversation != nil {
       if let license_plate = conversation.metadata["license_plate"] as? String {
@@ -49,9 +57,10 @@ class ConversationViewController : ATLConversationViewController {
     self.navigationItem.title = title
     AnalyticsHelper.trackScreen("Conversation")
     StyleHelpers.setButtonFont(self.messageInputToolbar.rightAccessoryButton)
+
+
   }
-  
-  
+
   func sendInitMessage(messageText: String, licensePlate: String) {
     // If no conversations exist, create a new conversation object with a single participant
     if (self.conversation == nil) {
@@ -71,6 +80,8 @@ class ConversationViewController : ATLConversationViewController {
     
     if messageText == "" {
       NSLog("Empty conversation created")
+      self.isEmptyConversation = true
+
       return
     }
     
@@ -87,6 +98,7 @@ class ConversationViewController : ATLConversationViewController {
     } else {
       NSLog("Message send failed: \(error)");
     }
+    
     
   }
  
@@ -125,6 +137,7 @@ extension ConversationViewController: ATLConversationViewControllerDelegate {
 
   func conversationViewController(viewController: ATLConversationViewController!, didSendMessage message: LYRMessage!) {
     println("Message Sent!")
+    self.isEmptyConversation = false
   }
   
   func conversationViewController(viewController: ATLConversationViewController!, didFailSendingMessage message: LYRMessage!, error: NSError!) {

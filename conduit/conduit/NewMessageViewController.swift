@@ -31,7 +31,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
     AnalyticsHelper.trackScreen("NewMessage")
     presetTable.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
     presetTable.separatorInset = UIEdgeInsetsZero
-  
+
   }
   
   override func viewDidLoad() {
@@ -72,7 +72,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
     var button = UIButton()
     button.setTitle("Custom", forState: .Normal)
     button.addTarget(self, action: "goToCustomMessage", forControlEvents: UIControlEvents.TouchUpInside)
-    button.titleLabel!.font = UIFont.systemFontOfSize(14.0)
+    StyleHelpers.setButtonFont(button)
     return button
   }
   
