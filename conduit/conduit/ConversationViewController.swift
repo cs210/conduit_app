@@ -15,6 +15,7 @@ class ConversationViewController : ATLConversationViewController {
   var dateFormatter: NSDateFormatter!
   var participantIdentifiers: [String]?
   var licensePlate: String?
+  var isEmptyConversation : Bool?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -40,7 +41,9 @@ class ConversationViewController : ATLConversationViewController {
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
-    self.messageInputToolbar.textInputView.becomeFirstResponder()
+    if self.isEmptyConversation != nil && self.isEmptyConversation == true {
+      self.messageInputToolbar.textInputView.becomeFirstResponder()
+    }
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -77,7 +80,7 @@ class ConversationViewController : ATLConversationViewController {
     
     if messageText == "" {
       NSLog("Empty conversation created")
-      
+      self.isEmptyConversation = true
 
       return
     }
@@ -134,6 +137,7 @@ extension ConversationViewController: ATLConversationViewControllerDelegate {
 
   func conversationViewController(viewController: ATLConversationViewController!, didSendMessage message: LYRMessage!) {
     println("Message Sent!")
+    self.isEmptyConversation = false
   }
   
   func conversationViewController(viewController: ATLConversationViewController!, didFailSendingMessage message: LYRMessage!, error: NSError!) {
