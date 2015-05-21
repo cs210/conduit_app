@@ -8,7 +8,8 @@
 
 import UIKit
 import GoogleAnalytics_iOS_SDK
-
+import Fabric
+import Crashlytics
 
 //#if arch(i386) || arch(x86_64)
 //  let LQSCurrentUserID = "Simulator"
@@ -28,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
   let LQSLayerAppIDString = "7b2af17c-db1b-11e4-b5b6-52bb02000413"
   
   // Dev
-  
 //  let LQSLayerAppIDString = "7b2aed30-db1b-11e4-a21a-52bb02000413"
   
   var window: UIWindow?
@@ -48,7 +48,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
     UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
     
     AnalyticsHelper.initAnalytics()
-    
+    // Fabric.with([Crashlytics()])
+
+
     return true
   }
   
@@ -126,13 +128,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
   
   func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject],
     fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-    println("didReceiveRemoteNotification")
-    
-    println(userInfo)
-    
-    var error: NSError?
-    var success:Bool =  self.layerClient.synchronizeWithRemoteNotification(userInfo, completion: {(changes,error) in
       
+    var error: NSError?      
+    var success:Bool =  self.layerClient.synchronizeWithRemoteNotification(userInfo, completion: {(changes,error) in
       if changes != nil {
         if changes.count > 0 {
           var message:LYRMessage = self.messageFromRemoteNotification(userInfo)!
@@ -145,8 +143,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
       }
     })
     
-    if success
-    {
+    if success {
       println("Application did complete remote notification sync");
     } else {
       println("Failed processing push notification with error: \(error)");
@@ -155,8 +152,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
     
   }
   
-  func messageFromRemoteNotification(remoteNotification:NSDictionary) -> LYRMessage?
-  {
+  func setBadgeCountFromRemoteNotification(remoteNotification:NSDictionary) {
+    var notification:NSDictionary = remoteNotification.objectForKey("aps") as! NSDictionary
+    var currentBadgeCount = notification.objectForKey("badge") as! Int
+    UIApplication.sharedApplication().applicationIconBadgeNumber = currentBadgeCount
+  }
+  
+  func messageFromRemoteNotification(remoteNotification:NSDictionary) -> LYRMessage? {
+    
     var notification:NSDictionary = remoteNotification.objectForKey("layer") as! NSDictionary
     var message:LYRMessage?
     

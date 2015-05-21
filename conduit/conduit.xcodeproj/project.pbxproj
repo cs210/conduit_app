@@ -35,7 +35,8 @@
 		BDE4EB5F1AAC2A8900588511 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */; };
 		BDE4EB651AAC44FB00588511 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */; };
 		BDEB2DE81AD4A41E008C91C2 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB2DE71AD4A41E008C91C2 /* Style.swift */; };
-		C53B9CEA1AD1F6BE00BEFA88 /* LayerHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = C53B9CE91AD1F6BE00BEFA88 /* LayerHelpers.m */; };
+		C531B2101B04115F009453D4 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C531B20E1B04115F009453D4 /* Fabric.framework */; };
+		C531B2111B04115F009453D4 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C531B20F1B04115F009453D4 /* Crashlytics.framework */; };
 		C53B9CF01AD2046A00BEFA88 /* LayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C53B9CED1AD2046A00BEFA88 /* LayerKit.framework */; };
 		C53B9CF11AD2046A00BEFA88 /* layer-client-messaging-schema.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C53B9CEF1AD2046A00BEFA88 /* layer-client-messaging-schema.bundle */; };
 		C53B9CF31AD2048D00BEFA88 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C53B9CF21AD2048D00BEFA88 /* SystemConfiguration.framework */; };
@@ -154,9 +155,9 @@
 		BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BDE4EB641AAC44FB00588511 /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
 		BDEB2DE71AD4A41E008C91C2 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		C531B20E1B04115F009453D4 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		C531B20F1B04115F009453D4 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		C53B9CE71AD1E57500BEFA88 /* conduit-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "conduit-Bridging-Header.h"; sourceTree = "<group>"; };
-		C53B9CE81AD1F6BE00BEFA88 /* LayerHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LayerHelpers.h; path = conduit/LayerHelpers.h; sourceTree = "<group>"; };
-		C53B9CE91AD1F6BE00BEFA88 /* LayerHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LayerHelpers.m; path = conduit/LayerHelpers.m; sourceTree = "<group>"; };
 		C53B9CED1AD2046A00BEFA88 /* LayerKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LayerKit.framework; sourceTree = "<group>"; };
 		C53B9CEF1AD2046A00BEFA88 /* layer-client-messaging-schema.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "layer-client-messaging-schema.bundle"; sourceTree = "<group>"; };
 		C53B9CF21AD2048D00BEFA88 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -292,6 +293,7 @@
 			files = (
 				BD0403731AFAA25C009F1437 /* libsqlite3.dylib in Frameworks */,
 				BD0403711AFAA210009F1437 /* libGoogleAnalyticsServices.a in Frameworks */,
+				C531B2111B04115F009453D4 /* Crashlytics.framework in Frameworks */,
 				BD04036D1AFAA15C009F1437 /* libz.dylib in Frameworks */,
 				BD04036B1AFAA14C009F1437 /* CoreData.framework in Frameworks */,
 				C5D02F131AE085E800C201A5 /* CoreLocation.framework in Frameworks */,
@@ -301,6 +303,7 @@
 				C53B9CF31AD2048D00BEFA88 /* SystemConfiguration.framework in Frameworks */,
 				9C5DB7A458806B50D7333057 /* Pods.framework in Frameworks */,
 				C53B9CF01AD2046A00BEFA88 /* LayerKit.framework in Frameworks */,
+				C531B2101B04115F009453D4 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +329,8 @@
 		24BB40C57C7DF6D7C1B3FE43 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C531B20E1B04115F009453D4 /* Fabric.framework */,
+				C531B20F1B04115F009453D4 /* Crashlytics.framework */,
 				BD0403721AFAA25C009F1437 /* libsqlite3.dylib */,
 				BD04036E1AFAA16F009F1437 /* libGoogleAnalyticsServices.a */,
 				BD04036C1AFAA15C009F1437 /* libz.dylib */,
@@ -338,8 +343,6 @@
 				C53B9CF21AD2048D00BEFA88 /* SystemConfiguration.framework */,
 				C53B9CEC1AD2046A00BEFA88 /* LayerKit.embeddedframework */,
 				C5EFBDD51AABCCC3000029C3 /* SWRevealViewController */,
-				C53B9CE81AD1F6BE00BEFA88 /* LayerHelpers.h */,
-				C53B9CE91AD1F6BE00BEFA88 /* LayerHelpers.m */,
 				EFCCECC06C9C564191EED71E /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -651,6 +654,7 @@
 				C5C70DBA1AA68EDE00BE0753 /* Resources */,
 				826B60B4B60DBCEC6B793F3A /* Embed Pods Frameworks */,
 				FA77AC0BEA485D539A8ADB93 /* Copy Pods Resources */,
+				C531B20D1B041111009453D4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -691,6 +695,11 @@
 					C5C70DBB1AA68EDE00BE0753 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 7A54D534F5;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					C5C70DD01AA68EDE00BE0753 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -792,6 +801,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C531B20D1B041111009453D4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 0af6da10ae5d2e2cf51936ae3f36ced5659ee5b8 d9fba83184897a4d76d0c727e84534566d7625669957200864d4f92a007a00ca";
+		};
 		FA77AC0BEA485D539A8ADB93 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -879,7 +901,6 @@
 				C5D02EC91AE085A300C201A5 /* ATLConversationListViewController.m in Sources */,
 				C5D02EE91AE085A300C201A5 /* ATLProgressView.m in Sources */,
 				C56BFC9A1ABA92430074FCAA /* APIModel.swift in Sources */,
-				C53B9CEA1AD1F6BE00BEFA88 /* LayerHelpers.m in Sources */,
 				B58C3F491AF0CA4C002311EE /* ChangeNameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -986,11 +1007,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Nathan Eidelson (7A54D534F5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nathan Eidelson (7A54D534F5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nathan Eidelson (8SXS89ZNHG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nathan Eidelson (8SXS89ZNHG)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LayerKit.embeddedframework",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = conduit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1008,7 +1030,7 @@
 					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ea23ba76-7ad6-40c3-abf3-717135fcd556";
+				PROVISIONING_PROFILE = "487623dd-73a5-4319-b278-8a471d843257";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "conduit/conduit-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1027,6 +1049,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LayerKit.embeddedframework",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = conduit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

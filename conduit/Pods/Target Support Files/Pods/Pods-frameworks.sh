@@ -49,11 +49,13 @@ code_sign() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Alamofire.framework'
+  install_framework 'CrashlyticsFramework.framework'
   install_framework 'GoogleAnalytics_iOS_SDK.framework'
   install_framework 'SwiftyJSON.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Alamofire.framework'
+  install_framework 'CrashlyticsFramework.framework'
   install_framework 'GoogleAnalytics_iOS_SDK.framework'
   install_framework 'SwiftyJSON.framework'
 fi

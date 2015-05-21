@@ -26,26 +26,13 @@ class CarManagementView : UIViewController, UITableViewDataSource, UITableViewDe
     AnalyticsHelper.trackScreen("CarManagement")
   }
   
+  
   func loadCars() {
-    self.cars = []
-    var defaults = NSUserDefaults.standardUserDefaults()
-    var sessionToken : String = defaults.valueForKey("session") as! String
-    APIModel.get("users/\(sessionToken)/cars", parameters: nil) {(result, error) in
-      if error != nil {
-        NSLog("Error getting cars list")
-        return
-      }
-      var carlist = result!["cars"]
-      if carlist != nil {
-        for (var i=0; i<carlist.count; i++){
-          var carJSON = carlist[i]
-          var car = Car(json: carJSON)
-          self.cars.append(car)
-        }
-      }
-      NSLog("Done getting cars")
+    Car.loadCars { (result, error) -> () in
+      self.cars = Car.getCarsFromDefaults()!
       self.carsTableView.reloadData()
     }
+    
   }
   
   func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

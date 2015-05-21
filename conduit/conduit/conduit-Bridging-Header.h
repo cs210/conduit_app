@@ -4,6 +4,5 @@
 
 
 #import "SWRevealViewController.h"
-#import "LayerHelpers.h"
 #import <LayerKit/LayerKit.h>
 #import "Atlas.h"

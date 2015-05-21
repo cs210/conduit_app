@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import SwiftyJSON
+//import SwiftyJSON
 
 
 class ConversationListViewController : ATLConversationListViewController, ATLConversationListViewControllerDataSource, ATLConversationListViewControllerDelegate {
@@ -50,12 +50,19 @@ class ConversationListViewController : ATLConversationListViewController, ATLCon
 extension ConversationListViewController: ATLConversationListViewControllerDataSource {
   func conversationListViewController(conversationListViewController: ATLConversationListViewController!, titleForConversation conversation: LYRConversation!) -> String! {
 
-    // TODO: Return the name of the conversation
-    if let license_plate = conversation.metadata["license_plate"] as? String {
-      return license_plate
+    var cars: [Car] = Car.getCarsFromDefaults()!
+  
+    if let licensePlate = conversation.metadata["license_plate"] as? String {
+      if let requesterName = conversation.metadata["requester_name"] as? String {
+        for car in cars {
+          if car.licensePlate == licensePlate {
+            return "From: " + requesterName
+          }
+        }
+        return "To: " + licensePlate
+      }
     }
-    
-    return "Unknown"
+    return "Request"
   }
   
   func conversationListViewController(conversationListViewController: ATLConversationListViewController!, avatarItemForConversation conversation: LYRConversation!) -> ATLAvatarItem! {

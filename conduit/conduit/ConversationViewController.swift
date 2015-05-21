@@ -65,8 +65,8 @@ class ConversationViewController : ATLConversationViewController {
       }
       
       self.conversation.setValue(licensePlate, forMetadataAtKeyPath: "license_plate")
-      
-      
+      NSLog("Creating conversation for license_plate: \(licensePlate) and requester_name: \(User.getUserFromDefaults()?.firstName)")
+      self.conversation.setValue(User.getUserFromDefaults()?.firstName, forMetadataAtKeyPath: "requester_name")
     }
     
     if messageText == "" {
@@ -75,7 +75,7 @@ class ConversationViewController : ATLConversationViewController {
     }
     
     var messagePart: LYRMessagePart = LYRMessagePart(text: messageText)
-    var pushMessage: String = "\(self.layerClient.authenticatedUserID) says \(messageText)"
+    var pushMessage: String = "A user says: \"\(messageText)\""
     var message: LYRMessage = self.layerClient.newMessageWithParts([messagePart], options: [LYRMessageOptionsPushNotificationAlertKey: pushMessage], error: nil)
     
     // Send message
