@@ -85,10 +85,19 @@ class ConversationViewController : ATLConversationViewController {
     var success:Bool = self.conversation.sendMessage(message, error:&error)
     if (success) {
       NSLog("Message queued to be sent: \(messageText)");
+      resetViewControllers()
     } else {
       NSLog("Message send failed: \(error)");
     }
     
+  }
+  func resetViewControllers() {
+      if (self.navigationController!.viewControllers[1].isKindOfClass(LicenseInputController)) {
+        var navArray = self.navigationController!.viewControllers
+        navArray.removeAtIndex(1)
+        navArray.removeAtIndex(1)
+        self.navigationController!.viewControllers = navArray
+      }
   }
  
   func configureUIColors () {
@@ -122,10 +131,15 @@ class ConversationViewController : ATLConversationViewController {
 //  
 }
 
+
+
 extension ConversationViewController: ATLConversationViewControllerDelegate {
 
   func conversationViewController(viewController: ATLConversationViewController!, didSendMessage message: LYRMessage!) {
+    
+    println(self.navigationController?.viewControllers)
     println("Message Sent!")
+    resetViewControllers()
   }
   
   func conversationViewController(viewController: ATLConversationViewController!, didFailSendingMessage message: LYRMessage!, error: NSError!) {

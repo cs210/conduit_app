@@ -31,13 +31,14 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
     AnalyticsHelper.trackScreen("NewMessage")
     presetTable.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
     presetTable.separatorInset = UIEdgeInsetsZero
-
+    presetTable.reloadData()
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     toFieldBackground.backgroundColor = StyleColor.getColor(.Grey, brightness: .Light)
     licensePlateLabel.text = licensePlate
+    presetTable.reloadData()
   }
 
   func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -55,7 +56,6 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
     let cell = tableView.dequeueReusableCellWithIdentifier("PresetListItem", forIndexPath: indexPath) as! NewMessageTableViewCell
       
     cell.label.text = presetMessages[indexPath.row]
-    
     return cell
   }
   
