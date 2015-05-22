@@ -10,10 +10,11 @@ import Foundation
 import UIKit
 
 class AddCarViewController : UIViewController {
-  @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
   @IBOutlet weak var cancelButton: UIButton!
   @IBOutlet weak var doneButton: UIButton!
   @IBOutlet weak var licensePlateField: UITextField!
+  @IBOutlet weak var scrollView: UIScrollView!
+  @IBOutlet weak var addCarButton: UIButton!
   var carManagementFlag : Bool = false
   
   override func viewWillAppear(animated: Bool) {
@@ -22,6 +23,7 @@ class AddCarViewController : UIViewController {
     
     StyleHelpers.setButtonFont(cancelButton)
     StyleHelpers.setButtonFont(doneButton)
+
   }
   
   override func viewDidLoad() {
@@ -36,22 +38,48 @@ class AddCarViewController : UIViewController {
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     
     StyleHelpers.disableAutocorrect(licensePlateField)
-    licensePlateField.becomeFirstResponder()
+    
+
+    
   }
   
   func keyboardWillShow(notification: NSNotification) {
     var info = notification.userInfo as! [String: NSObject]
     if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-      self.bottomConstraint.constant = keyboardSize.height
+      
+      let animationDuration : NSTimeInterval = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! NSTimeInterval
+      
+      var contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0,0.0,keyboardSize.height, 0.0)
+      scrollView.contentInset = contentInsets
+      scrollView.scrollIndicatorInsets = contentInsets
+      
+      var aRect : CGRect = self.view.frame
+      aRect.size.height -= keyboardSize.height
+      
+      UIView.animateWithDuration(animationDuration, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+        self.scrollView.scrollRectToVisible(self.addCarButton.frame, animated: false)
+      }, completion: nil)
+
+      self.scrollView.scrollRectToVisible(addCarButton.frame, animated: true)
+      
     }
+
   }
   
   func keyboardWillHide(notification: NSNotification) {
-    self.bottomConstraint.constant = 0
+    var contentInsets : UIEdgeInsets  = UIEdgeInsetsZero
+    scrollView.contentInset = contentInsets
+    scrollView.scrollIndicatorInsets = contentInsets
+
   }
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
+    
+    if !licensePlateField.becomeFirstResponder() {
+      NSLog("crying")
+    }
+    
   }
   
   override func viewDidDisappear(animated: Bool) {

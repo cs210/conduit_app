@@ -902,6 +902,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Xi-tl-Zvs">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mip-Hv-Won">
+                                        <rect key="frame" x="132" y="466" width="57" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="5PL-J7-9gb"/>
+                                        </constraints>
+                                        <state key="normal" title="Add Car">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addCar:" destination="Zz9-JO-XaK" eventType="touchUpInside" id="QQ7-b8-CWk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Mip-Hv-Won" firstAttribute="leading" secondItem="6Xi-tl-Zvs" secondAttribute="leading" id="0hy-tX-hEM"/>
+                                    <constraint firstAttribute="centerX" secondItem="Mip-Hv-Won" secondAttribute="centerX" id="ayt-jo-m97"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mip-Hv-Won" secondAttribute="trailing" id="bFv-g8-zDs"/>
+                                    <constraint firstAttribute="bottom" secondItem="Mip-Hv-Won" secondAttribute="bottom" id="vKc-zw-17u"/>
+                                </constraints>
+                            </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please enter the car's license plate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUS-ww-IdO">
                                 <rect key="frame" x="27" y="134" width="267" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -910,34 +933,24 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="license plate" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E4r-6a-0oN">
                                 <rect key="frame" x="112" y="207" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="IVZ-dD-SEG"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mip-Hv-Won">
-                                <rect key="frame" x="137" y="530" width="57" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="6gF-6x-uaD"/>
-                                </constraints>
-                                <state key="normal" title="Add Car">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addCar:" destination="Zz9-JO-XaK" eventType="touchUpInside" id="QQ7-b8-CWk"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="E4r-6a-0oN" secondAttribute="trailing" constant="100" id="8C6-1l-ePe"/>
-                            <constraint firstItem="E4r-6a-0oN" firstAttribute="leading" secondItem="P3b-M3-occ" secondAttribute="leadingMargin" constant="100" id="97Z-jw-Sbv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jUS-ww-IdO" secondAttribute="trailing" id="Fv4-NU-ui8"/>
-                            <constraint firstItem="jUS-ww-IdO" firstAttribute="top" secondItem="aHq-H5-8sz" secondAttribute="bottom" constant="100" id="RyD-5d-9N0"/>
-                            <constraint firstAttribute="trailing" secondItem="Mip-Hv-Won" secondAttribute="trailing" id="TzJ-Sl-uFq"/>
-                            <constraint firstItem="jUS-ww-IdO" firstAttribute="leading" secondItem="P3b-M3-occ" secondAttribute="leadingMargin" id="hFC-12-syQ"/>
-                            <constraint firstItem="E4r-6a-0oN" firstAttribute="top" secondItem="jUS-ww-IdO" secondAttribute="bottom" constant="40" id="koa-Wa-rI0"/>
-                            <constraint firstItem="hX8-lg-qUe" firstAttribute="top" secondItem="Mip-Hv-Won" secondAttribute="bottom" id="pab-DE-e1H"/>
-                            <constraint firstItem="Mip-Hv-Won" firstAttribute="leading" secondItem="P3b-M3-occ" secondAttribute="leading" id="ysY-RC-fif"/>
+                            <constraint firstItem="6Xi-tl-Zvs" firstAttribute="leading" secondItem="P3b-M3-occ" secondAttribute="leading" id="MHd-be-U45"/>
+                            <constraint firstItem="hX8-lg-qUe" firstAttribute="bottom" secondItem="6Xi-tl-Zvs" secondAttribute="bottom" id="PlI-wZ-Mjh"/>
+                            <constraint firstItem="jUS-ww-IdO" firstAttribute="top" secondItem="aHq-H5-8sz" secondAttribute="bottom" constant="40" id="R9d-NL-fVR"/>
+                            <constraint firstAttribute="centerX" secondItem="jUS-ww-IdO" secondAttribute="centerX" id="SGD-GB-PIL"/>
+                            <constraint firstAttribute="trailing" secondItem="6Xi-tl-Zvs" secondAttribute="trailing" id="TBN-f0-EcW"/>
+                            <constraint firstItem="E4r-6a-0oN" firstAttribute="top" secondItem="jUS-ww-IdO" secondAttribute="bottom" constant="40" id="c56-yw-xXK"/>
+                            <constraint firstAttribute="centerX" secondItem="E4r-6a-0oN" secondAttribute="centerX" id="lSY-uc-b7g"/>
+                            <constraint firstItem="6Xi-tl-Zvs" firstAttribute="top" secondItem="aHq-H5-8sz" secondAttribute="bottom" id="yjt-rz-RJf"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="gmr-PA-DXn" appends="YES" id="1Ym-dq-hXS"/>
@@ -970,10 +983,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="bottomConstraint" destination="pab-DE-e1H" id="pLT-3f-hKf"/>
+                        <outlet property="addCarButton" destination="Mip-Hv-Won" id="qR5-Kj-OZu"/>
                         <outlet property="cancelButton" destination="04j-Ew-lpz" id="BrO-lK-TNo"/>
                         <outlet property="doneButton" destination="rKb-L2-wow" id="Fvh-J1-Tlg"/>
                         <outlet property="licensePlateField" destination="E4r-6a-0oN" id="hKi-Zh-ezN"/>
+                        <outlet property="scrollView" destination="6Xi-tl-Zvs" id="zRY-vd-hhz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qYC-Ne-Psw" userLabel="First Responder" sceneMemberID="firstResponder"/>
