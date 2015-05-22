@@ -13,8 +13,8 @@ class LicenseInputController : UIViewController, SWRevealViewControllerDelegate 
   @IBOutlet weak var licenseField: UITextField!
   @IBOutlet weak var menuButton: UIButton!
   @IBOutlet weak var continueButton: UIButton!
-  @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-
+  @IBOutlet weak var scrollView: UIScrollView!
+  
   var hasChanged = false
   var participantIdentifiers: [String] = []
   
@@ -27,6 +27,7 @@ class LicenseInputController : UIViewController, SWRevealViewControllerDelegate 
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
+    licenseField.becomeFirstResponder()
   }
   
   override func viewDidDisappear(animated: Bool) {
@@ -53,9 +54,9 @@ class LicenseInputController : UIViewController, SWRevealViewControllerDelegate 
     var timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self,
       selector: "checkTimerFunction", userInfo: nil, repeats: true)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     
     StyleHelpers.disableAutocorrect(licenseField)
-    licenseField.becomeFirstResponder()
     StyleHelpers.setBackButton(self.navigationItem, label: "Back")
     
   }
@@ -79,10 +80,32 @@ class LicenseInputController : UIViewController, SWRevealViewControllerDelegate 
   func keyboardWillShow(notification: NSNotification) {
     var info = notification.userInfo as! [String: NSObject]
     if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-      self.bottomConstraint.constant = keyboardSize.height
+      
+      let animationDuration : NSTimeInterval = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! NSTimeInterval
+      
+      var contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0,0.0,keyboardSize.height, 0.0)
+      scrollView.contentInset = contentInsets
+      scrollView.scrollIndicatorInsets = contentInsets
+      
+      var aRect : CGRect = self.view.frame
+      aRect.size.height -= keyboardSize.height
+      
+      UIView.animateWithDuration(animationDuration, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+        self.scrollView.scrollRectToVisible(self.continueButton.frame, animated: false)
+        }, completion: nil)
+      
+      self.scrollView.scrollRectToVisible(self.continueButton.frame, animated: true)
+      
     }
+    
   }
   
+  func keyboardWillHide(notification: NSNotification) {
+    var contentInsets : UIEdgeInsets  = UIEdgeInsetsZero
+    scrollView.contentInset = contentInsets
+    scrollView.scrollIndicatorInsets = contentInsets
+    
+  }
   
   @IBAction func dismissKeyboard(sender: AnyObject) {
     view.endEditing(true)

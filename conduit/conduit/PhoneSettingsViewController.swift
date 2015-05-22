@@ -16,6 +16,7 @@ class PhoneSettingsViewController: UIViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("ChangePhone")
+    StyleHelpers.setButtonFont(saveButton)
   }
   
   override func viewDidLoad() {

@@ -20,6 +20,7 @@ class ChangePasswordView : UIViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("ChangePassword")
+    StyleHelpers.setButtonFont(saveButton)
   }
   
   override func viewDidAppear(animated: Bool) {

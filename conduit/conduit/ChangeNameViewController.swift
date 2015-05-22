@@ -17,6 +17,7 @@ class ChangeNameViewController: UIViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("ChangeName")
+    StyleHelpers.setButtonFont(saveButton)
   }
   
   override func viewDidLoad() {

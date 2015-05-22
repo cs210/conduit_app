@@ -10,10 +10,12 @@ import UIKit
 
 class ChangeNotificationsViewController: UIViewController {
   @IBOutlet var changeNotificationSwitch: UISwitch!
-
+  @IBOutlet weak var saveButton: UIButton!
+  
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("ChangeNotifications")
+    StyleHelpers.setButtonFont(saveButton)
   }
 
   override func didReceiveMemoryWarning() {

@@ -39,23 +39,6 @@ class CarManagementView : UIViewController, UITableViewDataSource, UITableViewDe
     return true
   }
   
-//  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//    if (editingStyle == UITableViewCellEditingStyle.Delete) {
-//      println("DELETING \(carsTableView.cellForRowAtIndexPath(indexPath)?.textLabel!.text)")
-//      var sessionToken = NSUserDefaults().stringForKey("session")
-//      var carId = cars[indexPath.row].id
-//      APIModel.delete("users/\(sessionToken!)/cars/\(carId!)", parameters: nil, delete_completion: { (result, error) -> () in
-//        if (error == nil) {
-//          self.cars.removeAtIndex(indexPath.row)
-//          self.carsTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-//          self.carsTableView.reloadData()
-//        } else {
-//          println(error)
-//        }
-//        
-//      })
-//    }
-//  }
   
   @IBAction func addCar(sender: AnyObject) {
     let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
@@ -70,6 +53,7 @@ class CarManagementView : UIViewController, UITableViewDataSource, UITableViewDe
       forIndexPath : indexPath) as! UITableViewCell
     
     cell.textLabel?.text = cars[indexPath.row].licensePlate
+    cell.textLabel?.font = UIFont(name: StyleHelpers.FONT_NAME, size: StyleHelpers.FONT_SIZE)
     return cell
   }
   

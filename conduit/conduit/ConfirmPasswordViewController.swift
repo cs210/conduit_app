@@ -21,6 +21,7 @@ class ConfirmPasswordViewController: UIViewController, UITextFieldDelegate {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("ConfirmPassword")
+    StyleHelpers.setButtonFont(continueButton)
   }
   
   override func viewDidLoad() {
