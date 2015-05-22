@@ -10,7 +10,8 @@ import UIKit
 
 class PhoneSettingsViewController: UIViewController {
   @IBOutlet var phoneField: UITextField!
-  @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+  @IBOutlet weak var scrollView: UIScrollView!
+  @IBOutlet weak var saveButton: UIButton!
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
@@ -19,9 +20,6 @@ class PhoneSettingsViewController: UIViewController {
   
   override func viewDidLoad() {
       super.viewDidLoad()
-//      phoneField.placeholder = User.getUserFromDefaults()?.phoneNumber
-      // Do any additional setup after loading the view.
-    Validator.highlightError(phoneField)
     
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
@@ -38,12 +36,31 @@ class PhoneSettingsViewController: UIViewController {
   func keyboardWillShow(notification: NSNotification) {
     var info = notification.userInfo as! [String: NSObject]
     if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-      self.bottomConstraint.constant = keyboardSize.height
+      
+      let animationDuration : NSTimeInterval = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! NSTimeInterval
+      
+      var contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0,0.0,keyboardSize.height, 0.0)
+      scrollView.contentInset = contentInsets
+      scrollView.scrollIndicatorInsets = contentInsets
+      
+      var aRect : CGRect = self.view.frame
+      aRect.size.height -= keyboardSize.height
+      
+      UIView.animateWithDuration(animationDuration, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+        self.scrollView.scrollRectToVisible(self.saveButton.frame, animated: false)
+        }, completion: nil)
+      
+      self.scrollView.scrollRectToVisible(self.saveButton.frame, animated: true)
+      
     }
+    
   }
   
   func keyboardWillHide(notification: NSNotification) {
-    self.bottomConstraint.constant = 0
+    var contentInsets : UIEdgeInsets  = UIEdgeInsetsZero
+    scrollView.contentInset = contentInsets
+    scrollView.scrollIndicatorInsets = contentInsets
+    
   }
   
   override func viewDidAppear(animated: Bool) {
@@ -77,7 +94,9 @@ class PhoneSettingsViewController: UIViewController {
     user!.update { (result, error) -> () in
       let alertController = UIAlertController(title: "", message:
         "Your phone number has been updated!", preferredStyle: UIAlertControllerStyle.Alert)
-      alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+      alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: {(action) in
+        self.navigationController?.popViewControllerAnimated(true)
+      }))
       
       self.presentViewController(alertController, animated: true, completion: nil)
     }

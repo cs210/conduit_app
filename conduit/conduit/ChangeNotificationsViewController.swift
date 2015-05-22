@@ -31,7 +31,9 @@ class ChangeNotificationsViewController: UIViewController {
     user!.update { (result, error) -> () in
       let alertController = UIAlertController(title: "", message:
         "Your settings have been updated!", preferredStyle: UIAlertControllerStyle.Alert)
-      alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+      alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: {(action) in
+        self.navigationController?.popViewControllerAnimated(true)
+      }))
       
       self.presentViewController(alertController, animated: true, completion: nil)
     }

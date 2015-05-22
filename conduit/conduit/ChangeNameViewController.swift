@@ -11,7 +11,8 @@ import UIKit
 class ChangeNameViewController: UIViewController {
   @IBOutlet var lastNameField: UITextField!
   @IBOutlet var firstNameField: UITextField!
-  @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+  @IBOutlet weak var scrollView: UIScrollView!
+  @IBOutlet weak var saveButton: UIButton!
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
@@ -37,12 +38,31 @@ class ChangeNameViewController: UIViewController {
   func keyboardWillShow(notification: NSNotification) {
     var info = notification.userInfo as! [String: NSObject]
     if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-      self.bottomConstraint.constant = keyboardSize.height
+      
+      let animationDuration : NSTimeInterval = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! NSTimeInterval
+      
+      var contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0,0.0,keyboardSize.height, 0.0)
+      scrollView.contentInset = contentInsets
+      scrollView.scrollIndicatorInsets = contentInsets
+      
+      var aRect : CGRect = self.view.frame
+      aRect.size.height -= keyboardSize.height
+      
+      UIView.animateWithDuration(animationDuration, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+        self.scrollView.scrollRectToVisible(self.saveButton.frame, animated: false)
+        }, completion: nil)
+      
+      self.scrollView.scrollRectToVisible(self.saveButton.frame, animated: true)
+      
     }
+    
   }
   
   func keyboardWillHide(notification: NSNotification) {
-    self.bottomConstraint.constant = 0
+    var contentInsets : UIEdgeInsets  = UIEdgeInsetsZero
+    scrollView.contentInset = contentInsets
+    scrollView.scrollIndicatorInsets = contentInsets
+    
   }
   
   override func viewDidAppear(animated: Bool) {
@@ -66,7 +86,9 @@ class ChangeNameViewController: UIViewController {
     user!.update { (result, error) -> () in
       let alertController = UIAlertController(title: "", message:
         "Your name has been updated!", preferredStyle: UIAlertControllerStyle.Alert)
-      alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+      alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: {(action) in
+        self.navigationController?.popViewControllerAnimated(true)
+      }))
       
       self.presentViewController(alertController, animated: true, completion: nil)
     }

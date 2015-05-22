@@ -15,7 +15,8 @@ class ConfirmPasswordViewController: UIViewController, UITextFieldDelegate {
   @IBOutlet var passwordField: UITextField!
   var nextSegueID: String!
   var delegate: ConfirmPasswordDelegate?
-  @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+  @IBOutlet weak var continueButton: UIButton!
+  @IBOutlet weak var scrollView: UIScrollView!
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
@@ -30,6 +31,7 @@ class ConfirmPasswordViewController: UIViewController, UITextFieldDelegate {
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     
   }
+  
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -45,16 +47,36 @@ class ConfirmPasswordViewController: UIViewController, UITextFieldDelegate {
   func keyboardWillShow(notification: NSNotification) {
     var info = notification.userInfo as! [String: NSObject]
     if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-      self.bottomConstraint.constant = keyboardSize.height
+      
+      let animationDuration : NSTimeInterval = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! NSTimeInterval
+      
+      var contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0,0.0,keyboardSize.height, 0.0)
+      scrollView.contentInset = contentInsets
+      scrollView.scrollIndicatorInsets = contentInsets
+      
+      var aRect : CGRect = self.view.frame
+      aRect.size.height -= keyboardSize.height
+      
+      UIView.animateWithDuration(animationDuration, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+        self.scrollView.scrollRectToVisible(self.continueButton.frame, animated: false)
+        }, completion: nil)
+      
+      self.scrollView.scrollRectToVisible(self.continueButton.frame, animated: true)
+      
     }
+    
   }
   
   func keyboardWillHide(notification: NSNotification) {
-    self.bottomConstraint.constant = 0
+    var contentInsets : UIEdgeInsets  = UIEdgeInsetsZero
+    scrollView.contentInset = contentInsets
+    scrollView.scrollIndicatorInsets = contentInsets
+    
   }
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
+    self.passwordField.becomeFirstResponder()
   }
   
   override func viewDidDisappear(animated: Bool) {

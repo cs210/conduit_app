@@ -10,7 +10,8 @@ import UIKit
 
 class ChangeEmailViewController: UIViewController {
   @IBOutlet var emailTextField: UITextField!
-  @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+  @IBOutlet weak var saveButton: UIButton!
+  @IBOutlet weak var scrollView: UIScrollView!
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
@@ -19,8 +20,6 @@ class ChangeEmailViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    emailTextField.becomeFirstResponder()
-    Validator.highlightError(emailTextField)
     // Do any additional setup after loading the view.
     
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
@@ -36,16 +35,36 @@ class ChangeEmailViewController: UIViewController {
   func keyboardWillShow(notification: NSNotification) {
     var info = notification.userInfo as! [String: NSObject]
     if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-      self.bottomConstraint.constant = keyboardSize.height
+      
+      let animationDuration : NSTimeInterval = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! NSTimeInterval
+      
+      var contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0,0.0,keyboardSize.height, 0.0)
+      scrollView.contentInset = contentInsets
+      scrollView.scrollIndicatorInsets = contentInsets
+      
+      var aRect : CGRect = self.view.frame
+      aRect.size.height -= keyboardSize.height
+      
+      UIView.animateWithDuration(animationDuration, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+        self.scrollView.scrollRectToVisible(self.saveButton.frame, animated: false)
+        }, completion: nil)
+      
+      self.scrollView.scrollRectToVisible(self.saveButton.frame, animated: true)
+      
     }
+    
   }
   
   func keyboardWillHide(notification: NSNotification) {
-    self.bottomConstraint.constant = 0
+    var contentInsets : UIEdgeInsets  = UIEdgeInsetsZero
+    scrollView.contentInset = contentInsets
+    scrollView.scrollIndicatorInsets = contentInsets
+    
   }
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
+    emailTextField.becomeFirstResponder()
   }
   
   override func viewDidDisappear(animated: Bool) {
@@ -65,7 +84,9 @@ class ChangeEmailViewController: UIViewController {
     if !Validator.isValidEmail(emailTextField.text) {
       let alertController = UIAlertController(title: "", message:
         "Please enter a valid email address.", preferredStyle: UIAlertControllerStyle.Alert)
-      alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+      alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: {(action) in
+        self.navigationController?.popViewControllerAnimated(true)
+      }))
       
       self.presentViewController(alertController, animated: true, completion: nil)
       return
