@@ -90,7 +90,7 @@ class ChangeNameViewController: UIViewController {
     user?.lastName = lastNameField.text
     user!.update { (result, error) -> () in
       
-      var message = error == nil ? "Your name has been updated!" : "There was an error, please try again later"
+      var message = error == nil ? "Your name has been updated!" : "There was an error, please try again later."
       
       if error == nil {
         User.updateUserInDefaults(result!)

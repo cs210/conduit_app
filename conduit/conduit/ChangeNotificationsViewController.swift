@@ -31,8 +31,14 @@ class ChangeNotificationsViewController: UIViewController {
     }
     user?.pushEnabled = changeNotificationSwitch.on
     user!.update { (result, error) -> () in
-      let alertController = UIAlertController(title: "", message:
-        "Your settings have been updated!", preferredStyle: UIAlertControllerStyle.Alert)
+      
+      var message = error == nil ? "Your push notification settings have been updated!" : "There was an error, please try again later."
+      
+      if error == nil {
+        User.updateUserInDefaults(result!)
+      }
+      
+      let alertController = UIAlertController(title: "", message: message, preferredStyle: UIAlertControllerStyle.Alert)
       alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: {(action) in
         self.navigationController?.popViewControllerAnimated(true)
       }))

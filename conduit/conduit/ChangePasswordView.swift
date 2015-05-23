@@ -86,8 +86,14 @@ class ChangePasswordView : UIViewController {
       }
       
       user!.updatePassword(newPasswordField.text, completion: { (result, error) -> () in
-        let alertController = UIAlertController(title: "", message:
-          "Your password has been updated!", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        var message = error == nil ? "Your password has been updated!" : "There was an error, please try again later."
+        
+        if error == nil {
+          User.updateUserInDefaults(result!)
+        }
+        
+        let alertController = UIAlertController(title: "", message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: {(action) in
           self.navigationController?.popViewControllerAnimated(true)
         }))

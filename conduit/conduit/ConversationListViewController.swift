@@ -44,7 +44,16 @@ class ConversationListViewController : ATLConversationListViewController, ATLCon
     var swipeRight = UISwipeGestureRecognizer(target: self.revealViewController(), action: "revealToggle:")
     swipeRight.direction = UISwipeGestureRecognizerDirection.Right
     self.view.addGestureRecognizer(swipeRight)
+    
+    self.configureAppearance()
 
+  }
+  
+  func configureAppearance() {
+    ATLConversationTableViewCell.appearance().conversationTitleLabelFont = UIFont(name:StyleHelpers.FONT_NAME, size:17.0)
+    ATLConversationTableViewCell.appearance().lastMessageLabelFont = UIFont(name:StyleHelpers.FONT_NAME, size:15.0)
+    ATLConversationTableViewCell.appearance().dateLabelFont = UIFont(name:StyleHelpers.FONT_NAME, size:15.0)
+    ATLConversationTableViewCell.appearance().unreadMessageIndicatorBackgroundColor = StyleColor.getColor(.Primary, brightness: .Light)
   }
   
   @IBAction func menuPressed(sender: AnyObject) {
@@ -66,6 +75,7 @@ class ConversationListViewController : ATLConversationListViewController, ATLCon
       self.view.userInteractionEnabled = false
     }
   }
+
 
 }
 

@@ -97,10 +97,17 @@ class ChangeEmailViewController: UIViewController {
     if user == nil {
       return
     }
+    
     user!.emailAddress = emailTextField.text
     user!.update { (result, error) -> () in
-      let alertController = UIAlertController(title: "", message:
-        "Your email has been updated!", preferredStyle: UIAlertControllerStyle.Alert)
+      
+      var message = error == nil ? "Your email address has been updated!" : "There was an error, please try again later."
+      
+      if error == nil {
+        User.updateUserInDefaults(result!)
+      }
+      
+      let alertController = UIAlertController(title: "", message: message, preferredStyle: UIAlertControllerStyle.Alert)
       alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
       
       self.presentViewController(alertController, animated: true, completion: nil)
