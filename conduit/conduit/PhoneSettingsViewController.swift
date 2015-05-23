@@ -111,7 +111,7 @@ class PhoneSettingsViewController: UIViewController {
     }
   }
   
-  @IBAction func onTap(sender: AnyObject) {
+  @IBAction func dismissKeyboard(sender: AnyObject) {
     view.endEditing(true)
   }
 }
