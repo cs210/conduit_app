@@ -43,7 +43,7 @@ class User: APIModel, ATLParticipant, NSCoding {
   }
   
   // init/present are the ONLY two functions where JSON => attribute mapping occurs
-  convenience init(json:JSON) {
+  convenience init(json: JSON) {
     self.init(
       id:           json["id"].intValue,
       firstName:    json["first_name"].stringValue,
@@ -143,6 +143,12 @@ class User: APIModel, ATLParticipant, NSCoding {
       return NSKeyedUnarchiver.unarchiveObjectWithData(data) as! User
     }
     return nil
+  }
+  
+  class func updateUserInDefaults(json: JSON) {
+    var user = User(json: json)
+    let encodedUser = NSKeyedArchiver.archivedDataWithRootObject(user)
+    NSUserDefaults().setObject(encodedUser, forKey: "user")
   }
   
 
