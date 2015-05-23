@@ -100,9 +100,7 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
       var sessionKey = result!["session_token"].string!
       defaults.setValue(sessionKey, forKey: "session")
 
-      var user = User(json: result!["user"])
-      let encodedUser = NSKeyedArchiver.archivedDataWithRootObject(user)
-      defaults.setObject(encodedUser, forKey: "user")
+      User.updateUserInDefaults(result!["user"])
 
       Car.loadCars({ (result, error) -> () in
         

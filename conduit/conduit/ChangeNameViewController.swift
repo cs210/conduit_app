@@ -14,6 +14,7 @@ class ChangeNameViewController: UIViewController {
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var saveButton: UIButton!
   
+  
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("ChangeName")
@@ -68,6 +69,9 @@ class ChangeNameViewController: UIViewController {
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
+    var user = User.getUserFromDefaults()
+    firstNameField.text = user?.firstName
+    lastNameField.text = user?.lastName
   }
   
   override func viewDidDisappear(animated: Bool) {
@@ -85,8 +89,14 @@ class ChangeNameViewController: UIViewController {
     user?.firstName = firstNameField.text
     user?.lastName = lastNameField.text
     user!.update { (result, error) -> () in
-      let alertController = UIAlertController(title: "", message:
-        "Your name has been updated!", preferredStyle: UIAlertControllerStyle.Alert)
+      
+      var message = error == nil ? "Your name has been updated!" : "There was an error, please try again later"
+      
+      if error == nil {
+        User.updateUserInDefaults(result!)
+      }
+      
+      let alertController = UIAlertController(title: "", message: message, preferredStyle: UIAlertControllerStyle.Alert)
       alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: {(action) in
         self.navigationController?.popViewControllerAnimated(true)
       }))
