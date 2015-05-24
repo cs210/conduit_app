@@ -76,6 +76,13 @@ class ConversationListViewController : ATLConversationListViewController, ATLCon
     }
   }
 
+  
+  override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+//    super.tableView(tableView, willDisplayCell: cell, forRowAtIndexPath: indexPath)
+    cell.separatorInset = UIEdgeInsetsZero
+    cell.layoutMargins = UIEdgeInsetsZero
+    cell.preservesSuperviewLayoutMargins = false
+  }
 
 }
 
