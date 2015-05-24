@@ -19,6 +19,10 @@ class ChangeNameViewController: UIViewController {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("ChangeName")
     StyleHelpers.setButtonFont(saveButton)
+    
+    var user = User.getUserFromDefaults()
+    firstNameField.text = user?.firstName
+    lastNameField.text = user?.lastName
   }
   
   override func viewDidLoad() {
@@ -57,7 +61,6 @@ class ChangeNameViewController: UIViewController {
       self.scrollView.scrollRectToVisible(self.saveButton.frame, animated: true)
       
     }
-    
   }
   
   func keyboardWillHide(notification: NSNotification) {
@@ -69,9 +72,6 @@ class ChangeNameViewController: UIViewController {
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
-    var user = User.getUserFromDefaults()
-    firstNameField.text = user?.firstName
-    lastNameField.text = user?.lastName
   }
   
   override func viewDidDisappear(animated: Bool) {

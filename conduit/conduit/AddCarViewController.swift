@@ -38,9 +38,6 @@ class AddCarViewController : UIViewController {
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     
     StyleHelpers.disableAutocorrect(licensePlateField)
-    
-
-    
   }
   
   func keyboardWillShow(notification: NSNotification) {
@@ -63,7 +60,6 @@ class AddCarViewController : UIViewController {
       self.scrollView.scrollRectToVisible(addCarButton.frame, animated: true)
       
     }
-
   }
   
   func keyboardWillHide(notification: NSNotification) {
@@ -71,15 +67,6 @@ class AddCarViewController : UIViewController {
     scrollView.contentInset = contentInsets
     scrollView.scrollIndicatorInsets = contentInsets
 
-  }
-  
-  override func viewDidAppear(animated: Bool) {
-    super.viewDidAppear(animated)
-    
-    if !licensePlateField.becomeFirstResponder() {
-      NSLog("crying")
-    }
-    
   }
   
   override func viewDidDisappear(animated: Bool) {
@@ -120,7 +107,10 @@ class AddCarViewController : UIViewController {
       let alertController = UIAlertController(title: "Car created!", message: "",
         preferredStyle: UIAlertControllerStyle.Alert)
 
-      alertController.addAction(UIAlertAction(title: "Add another car", style: UIAlertActionStyle.Default,handler: nil))
+      alertController.addAction(UIAlertAction(title: "Add another car", style: UIAlertActionStyle.Default, handler: {(action) in
+        self.licensePlateField.text = ""
+      }))
+
 
       alertController.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default,handler: {(action) in
         self.doDoneTransition()
@@ -134,7 +124,6 @@ class AddCarViewController : UIViewController {
     doDoneTransition()
   }
   
-  
   func doDoneTransition() {
     if self.carManagementFlag {
       let prevVC : CarManagementView = self.getPreviousViewController() as! CarManagementView
@@ -146,7 +135,6 @@ class AddCarViewController : UIViewController {
     let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
     let destViewController : InviteFriendsViewController = mainStoryboard.instantiateViewControllerWithIdentifier("inviteFriendsView") as! InviteFriendsViewController
     self.navigationController?.pushViewController(destViewController, animated: true)
-    
   }
   
   func getPreviousViewController() -> UIViewController? {

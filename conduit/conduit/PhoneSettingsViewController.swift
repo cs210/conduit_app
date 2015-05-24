@@ -17,6 +17,9 @@ class PhoneSettingsViewController: UIViewController {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("ChangePhone")
     StyleHelpers.setButtonFont(saveButton)
+    
+    var user = User.getUserFromDefaults()
+    phoneField.text = user?.phoneNumber
   }
   
   override func viewDidLoad() {
