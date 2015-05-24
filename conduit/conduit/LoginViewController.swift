@@ -48,9 +48,6 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
     StyleHelpers.disableAutocorrect(emailField)
     StyleHelpers.disableAutocorrect(passwordField)
     
-//    Nisha is testing crash reporting
-//    NSException(name: "SomeName", reason: "SomeReason", userInfo: nil).raise()
-
   }
   
   func keyboardWillShow(notification: NSNotification) {
@@ -111,38 +108,11 @@ class LoginViewController : UIViewController, UITextFieldDelegate {
             self.stopLogin(true)
             return
           }
-          self.proceeedFromLogin()
+          self.stopLogin(false)
+          appDelegate.proceedFromLogin()
         })
       })
     }
-  }
-  
-  func proceeedFromLogin() {
-    self.dismissViewControllerAnimated(false, completion: {
-      self.stopLogin(false)
-      if NSUserDefaults.standardUserDefaults().boolForKey("isNewAccount") {
-        // Go to welcome view
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let destViewController : WelcomeViewController = mainStoryboard.instantiateViewControllerWithIdentifier("welcomeView") as! WelcomeViewController
-        
-        // This is eventually what we want to do. Right now it gives a blank screen.
-        var destNavController = UINavigationController(rootViewController: destViewController)
-        
-        var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        var revealController : SWRevealViewController = appDelegate.window!.rootViewController as! SWRevealViewController
-        var navController : UINavigationController = revealController.frontViewController as! UINavigationController
-        
-        navController.presentViewController(destNavController, animated: true, completion: nil)
-        
-      } else {
-        var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        var revealController : SWRevealViewController = appDelegate.window!.rootViewController as! SWRevealViewController
-        var navController : UINavigationController = revealController.frontViewController as! UINavigationController
-        
-        var licenseInputViewController = navController.topViewController as! LicenseInputController?
-        licenseInputViewController?.licenseField.becomeFirstResponder()
-      }
-    })
   }
   
   func startLogin() {

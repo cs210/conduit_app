@@ -38,10 +38,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
     
     AnalyticsHelper.initAnalytics()
     // Fabric.with([Crashlytics()])
-
+    self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+    self.goToLogin()
 
     return true
   }
+  
+  func goToLogin() {
+    
+    // Go to login if not logged in
+    var sessionKey = NSUserDefaults.standardUserDefaults().stringForKey("session")
+    let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+    
+    if (sessionKey == nil) {
+      let loginVC : LoginViewController = mainStoryboard.instantiateViewControllerWithIdentifier("loginView") as! LoginViewController
+      let rootVC : UINavigationController = UINavigationController(rootViewController: loginVC)
+      self.window!.rootViewController = rootVC
+      
+    } else {
+      let rootVC : SWRevealViewController = mainStoryboard.instantiateViewControllerWithIdentifier("revealView") as! SWRevealViewController
+      self.window!.rootViewController = rootVC
+    }
+  }
+  
+  func proceedFromLogin() {
+    let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+    let rootVC : SWRevealViewController = mainStoryboard.instantiateViewControllerWithIdentifier("revealView") as! SWRevealViewController
+    self.window!.rootViewController = rootVC
+    
+    if NSUserDefaults.standardUserDefaults().boolForKey("isNewAccount") {
+      // Go to welcome view
+      let destViewController : WelcomeViewController = mainStoryboard.instantiateViewControllerWithIdentifier("welcomeView") as! WelcomeViewController
+      
+      // This is eventually what we want to do. Right now it gives a blank screen.
+      var destNavController = UINavigationController(rootViewController: destViewController)
+      
+      var navController : UINavigationController = rootVC.frontViewController as! UINavigationController
+      
+      navController.presentViewController(destNavController, animated: true, completion: nil)
+      
+    } else {
+      var navController : UINavigationController = rootVC.frontViewController as! UINavigationController
+      
+      var licenseInputViewController = navController.topViewController as! LicenseInputController?
+      licenseInputViewController?.licenseField?.becomeFirstResponder()
+    }
+  }
+  
   
   func authenticateWithLayer(completion :(success:Bool,error:NSError?) -> Void) {
     

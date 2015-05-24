@@ -66,7 +66,7 @@ class MenuTableViewController: UITableViewController {
         defaults.removeObjectForKey("session")
         defaults.removeObjectForKey("user")
         defaults.removeObjectForKey("participantIdentifier")
-        self.performSegueWithIdentifier("request_segue", sender: self)
+        appDelegate.goToLogin()
       }
 
     })
