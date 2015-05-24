@@ -43,12 +43,6 @@ class LicenseInputController : UIViewController, SWRevealViewControllerDelegate 
     self.view.addGestureRecognizer(swipeRight)
     menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
     
-    // Go to login if not logged in
-    var sessionKey = NSUserDefaults.standardUserDefaults().stringForKey("session")
-    if (sessionKey == nil) {
-      performSegueWithIdentifier("to_login", sender: self)
-    }
-    
     continueButton.backgroundColor = StyleColor.getColor(.Grey, brightness: .Medium)
     
     var timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self,

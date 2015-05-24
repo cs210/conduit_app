@@ -8,7 +8,7 @@
         <!--Reveal View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController restorationIdentifier="RevealViewController" id="vXZ-lx-hvc" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="RevealViewController" storyboardIdentifier="revealView" id="vXZ-lx-hvc" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -109,7 +109,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Hca-fe-TKc">
             <objects>
-                <navigationController restorationIdentifier="LoginNavController" id="HgJ-U3-ESl" customClass="NavigationController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="LoginNavController" storyboardIdentifier="loginNavController" id="HgJ-U3-ESl" customClass="NavigationController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FsT-Fg-NB4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -125,7 +125,7 @@
         <!--Login View Controller-->
         <scene sceneID="b1K-jK-HJx">
             <objects>
-                <viewController id="AMY-Fj-ScN" customClass="LoginViewController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginView" id="AMY-Fj-ScN" customClass="LoginViewController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3eT-w5-oh1"/>
                         <viewControllerLayoutGuide type="bottom" id="gUk-ip-T7C"/>
@@ -614,7 +614,7 @@
         <!--Make a Request-->
         <scene sceneID="48K-Rz-Tzq">
             <objects>
-                <viewController id="A5k-4W-Gp3" customClass="LicenseInputController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="createRequestView" id="A5k-4W-Gp3" customClass="LicenseInputController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WaO-og-BdM"/>
                         <viewControllerLayoutGuide type="bottom" id="6rQ-Ug-ZEq"/>
