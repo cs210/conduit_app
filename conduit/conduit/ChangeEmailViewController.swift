@@ -17,6 +17,9 @@ class ChangeEmailViewController: UIViewController {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("ChangeEmail")
     StyleHelpers.setButtonFont(saveButton)
+    
+    var user = User.getUserFromDefaults()
+    emailTextField.text = user?.emailAddress
   }
   
   override func viewDidLoad() {
@@ -85,9 +88,7 @@ class ChangeEmailViewController: UIViewController {
     if !Validator.isValidEmail(emailTextField.text) {
       let alertController = UIAlertController(title: "", message:
         "Please enter a valid email address.", preferredStyle: UIAlertControllerStyle.Alert)
-      alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: {(action) in
-        self.navigationController?.popViewControllerAnimated(true)
-      }))
+      alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
       
       self.presentViewController(alertController, animated: true, completion: nil)
       return
@@ -108,7 +109,9 @@ class ChangeEmailViewController: UIViewController {
       }
       
       let alertController = UIAlertController(title: "", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-      alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+      alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(action) in
+        self.navigationController?.popViewControllerAnimated(true)
+      }))
       
       self.presentViewController(alertController, animated: true, completion: nil)
     }
@@ -121,6 +124,5 @@ class ChangeEmailViewController: UIViewController {
       Validator.unhighlightError(sender)
     }
   }
-  
 
 }

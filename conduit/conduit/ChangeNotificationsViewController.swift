@@ -16,11 +16,24 @@ class ChangeNotificationsViewController: UIViewController {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("ChangeNotifications")
     StyleHelpers.setButtonFont(saveButton)
+    
+    var user = User.getUserFromDefaults()
+    if let pushEnabled = user?.pushEnabled {
+      if pushEnabled {
+        changeNotificationSwitch.setOn(true, animated: false)
+      } else {
+        changeNotificationSwitch.setOn(false, animated: false)
+      }
+    }
   }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(false)
   }
 
   @IBAction func onSave(sender: AnyObject) {
@@ -29,7 +42,8 @@ class ChangeNotificationsViewController: UIViewController {
     if user == nil {
       return
     }
-    user?.pushEnabled = changeNotificationSwitch.on
+    
+    user!.pushEnabled = changeNotificationSwitch.on
     user!.update { (result, error) -> () in
       
       var message = error == nil ? "Your push notification settings have been updated!" : "There was an error, please try again later."
@@ -46,7 +60,6 @@ class ChangeNotificationsViewController: UIViewController {
       self.presentViewController(alertController, animated: true, completion: nil)
     }
   }
-  
   
   /*
   // MARK: - Navigation
