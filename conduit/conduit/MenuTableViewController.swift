@@ -62,10 +62,7 @@ class MenuTableViewController: UITableViewController {
         self.presentViewController(alert, animated: true, completion: nil)
       } else {
       
-        var defaults = NSUserDefaults.standardUserDefaults()
-        defaults.removeObjectForKey("session")
-        defaults.removeObjectForKey("user")
-        defaults.removeObjectForKey("participantIdentifier")
+        appDelegate.logout()
         appDelegate.goToLogin()
       }
 

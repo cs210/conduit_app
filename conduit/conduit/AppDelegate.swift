@@ -56,9 +56,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
       self.window!.rootViewController = rootVC
       
     } else {
-      let rootVC : SWRevealViewController = mainStoryboard.instantiateViewControllerWithIdentifier("revealView") as! SWRevealViewController
-      self.window!.rootViewController = rootVC
+      
+      self.authenticateWithLayer({(success, error) in
+        if !success {
+          
+          self.logout()
+          
+          let loginVC : LoginViewController = mainStoryboard.instantiateViewControllerWithIdentifier("loginView") as! LoginViewController
+          let rootVC : UINavigationController = UINavigationController(rootViewController: loginVC)
+          self.window!.rootViewController = rootVC
+          
+        } else {
+          let rootVC : SWRevealViewController = mainStoryboard.instantiateViewControllerWithIdentifier("revealView") as! SWRevealViewController
+          self.window!.rootViewController = rootVC
+        }
+      })
     }
+  }
+  
+  func logout() {
+    var defaults = NSUserDefaults.standardUserDefaults()
+    defaults.removeObjectForKey("session")
+    defaults.removeObjectForKey("user")
+    defaults.removeObjectForKey("participantIdentifier")
   }
   
   func proceedFromLogin() {
