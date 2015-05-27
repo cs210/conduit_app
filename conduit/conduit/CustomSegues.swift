@@ -11,8 +11,9 @@ import Foundation
 class SendToConversationSegue: UIStoryboardSegue {
   
   override func perform() {
-    var sourceViewController: NewMessageViewController = self.sourceViewController as! NewMessageViewController
+    var sourceViewController: ConversationViewController = self.sourceViewController as! ConversationViewController
     var navigationController: UINavigationController = sourceViewController.navigationController!
+    
     // Go back to the basics
     navigationController.popToRootViewControllerAnimated(false)
     
@@ -26,35 +27,21 @@ class SendToConversationSegue: UIStoryboardSegue {
     
     var conversationListNavigationController: UINavigationController = revealController.frontViewController as! UINavigationController
     var conversationListController: ConversationListViewController = conversationListNavigationController.visibleViewController as! ConversationListViewController
-    // Create messages view
-    
-    var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    var conversationViewController: ConversationViewController = ConversationViewController(layerClient: appDelegate.layerClient)
-    
-    var storyboard =  UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-    // initialize the license plate VC
-    var licensePlateVC = storyboard.instantiateViewControllerWithIdentifier("createRequestView") as! LicenseInputController
-    licensePlateVC.participantIdentifiers = sourceViewController.participantIdentifiers
-    //licensePlateVC.licenseField.text = sourceViewController.licensePlateLabel.text
-    
-    // initialize the new message VC
-    var newMessageViewController = storyboard.instantiateViewControllerWithIdentifier("newMessageView") as! NewMessageViewController
-    newMessageViewController.participantIdentifiers = sourceViewController.participantIdentifiers
-    newMessageViewController.licensePlate = sourceViewController.licensePlateLabel.text
-    
-    conversationViewController.conversation = nil
-    conversationViewController.participantIdentifiers = sourceViewController.participantIdentifiers
-    
-    conversationListNavigationController.pushViewController(licensePlateVC, animated: false)
-    conversationListNavigationController.pushViewController(newMessageViewController, animated: false)
-    
-    conversationListNavigationController.pushViewController(conversationViewController, animated: false)
-    conversationViewController.sendInitMessage(sourceViewController.selectedMessage, licensePlate: sourceViewController.licensePlateLabel.text!)
-    
-    conversationViewController.navigationItem.backBarButtonItem?.title = "Back"
-    
+
+    conversationListNavigationController.pushViewController(sourceViewController, animated: false)
   }
   
 }
 
+class CreateConversationSegue: UIStoryboardSegue {
+  
+  override func perform() {
+    var sourceViewController: NewMessageViewController = self.sourceViewController as! NewMessageViewController
+    var destinationViewController: ConversationViewController = self.destinationViewController as! ConversationViewController
+  
+    sourceViewController.navigationController?.pushViewController(destinationViewController, animated: true)
+    destinationViewController.sendInitMessage()
+  }
+  
+}
 

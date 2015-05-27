@@ -20,7 +20,6 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
   
   var licensePlate: String!
   var participantIdentifiers : [String] = []
-  var customSelected: Bool = false
   
   @IBOutlet weak var toFieldBackground: UIView!
   @IBOutlet weak var licensePlateLabel: UILabel!
@@ -40,7 +39,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
     licensePlateLabel.text = licensePlate
     presetTable.reloadData()
     
- //   StyleHelpers.setBackButton(self.navigationItem, label: "Back")
+    StyleHelpers.setBackButton(self.navigationItem, label: "Back")
 
   }
 
@@ -57,19 +56,17 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("PresetListItem", forIndexPath: indexPath) as! NewMessageTableViewCell
-      
     cell.label.text = presetMessages[indexPath.row]
-    
     return cell
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     AnalyticsHelper.trackTouchEvent("send_preset_message")
     let cell = tableView.cellForRowAtIndexPath(indexPath) as! NewMessageTableViewCell
-    selectedMessage = cell.label.text!
+    self.selectedMessage = cell.label.text!
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
     
-    sendMessageToLicensePlate(licensePlateLabel.text!)
+    performSegueWithIdentifier("create_conversation", sender: self)
   }
   
   func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -80,20 +77,28 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
     return button
   }
   
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    var conversationViewController: ConversationViewController = segue.destinationViewController as! ConversationViewController
+    
+    if segue.identifier == "create_conversation" {
+      var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+      conversationViewController.layerClient = appDelegate.layerClient
+      conversationViewController.conversation = nil
+      conversationViewController.participantIdentifiers = self.participantIdentifiers
+      conversationViewController.messageText = self.selectedMessage
+      conversationViewController.licensePlate = self.licensePlate
+    }
+  
+  }
+  
   func goToCustomMessage() {
-    customSelected = true
     AnalyticsHelper.trackButtonPress("custom_message")
-    self.performSegueWithIdentifier("send_to_conversation", sender: self)
+    performSegueWithIdentifier("create_conversation", sender: self)
   }
   
   func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
     return 50.0
   }
-  
-  func sendMessageToLicensePlate(licensePlate : String) {
-    self.performSegueWithIdentifier("send_to_conversation", sender: self)
-  }
-
 
 }
 

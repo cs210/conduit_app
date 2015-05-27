@@ -830,12 +830,34 @@
                         <outlet property="licensePlateLabel" destination="aOa-Nh-NdK" id="Sik-md-hXu"/>
                         <outlet property="presetTable" destination="BNe-n1-PuK" id="4N3-qu-pLN"/>
                         <outlet property="toFieldBackground" destination="6fu-f9-rrO" id="1dL-JY-Sa6"/>
-                        <segue destination="E6s-kG-WmU" kind="custom" identifier="send_to_conversation" customClass="SendToConversationSegue" customModule="conduit" customModuleProvider="target" id="a4X-s1-m85"/>
+                        <segue destination="XmP-SH-JCD" kind="custom" identifier="create_conversation" customClass="CreateConversationSegue" customModule="conduit" id="ff5-t4-3HV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fCp-iu-GQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015" y="-68"/>
+            <point key="canvasLocation" x="1039" y="-68"/>
+        </scene>
+        <!--Conversation View Controller-->
+        <scene sceneID="7U4-U9-YzP">
+            <objects>
+                <viewController id="XmP-SH-JCD" customClass="ConversationViewController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ew1-02-6zv"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vxo-Of-fV6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qbp-7Y-wEq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jia-9D-evQ"/>
+                    <connections>
+                        <segue destination="E6s-kG-WmU" kind="custom" identifier="send_to_conversation" customClass="SendToConversationSegue" customModule="conduit" customModuleProvider="target" id="lCh-wj-Tvp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sx0-ej-GF4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1458" y="-68"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="f0g-ky-uAo">
@@ -1844,6 +1866,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="YKv-ZP-RES"/>
-        <segue reference="a4X-s1-m85"/>
+        <segue reference="lCh-wj-Tvp"/>
     </inferredMetricsTieBreakers>
 </document>
