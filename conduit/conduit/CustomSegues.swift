@@ -31,11 +31,27 @@ class SendToConversationSegue: UIStoryboardSegue {
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var conversationViewController: ConversationViewController = ConversationViewController(layerClient: appDelegate.layerClient)
     
+    var storyboard =  UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+    // initialize the license plate VC
+    var licensePlateVC = storyboard.instantiateViewControllerWithIdentifier("createRequestView") as! LicenseInputController
+    licensePlateVC.participantIdentifiers = sourceViewController.participantIdentifiers
+    //licensePlateVC.licenseField.text = sourceViewController.licensePlateLabel.text
+    
+    // initialize the new message VC
+    var newMessageViewController = storyboard.instantiateViewControllerWithIdentifier("newMessageView") as! NewMessageViewController
+    newMessageViewController.participantIdentifiers = sourceViewController.participantIdentifiers
+    newMessageViewController.licensePlate = sourceViewController.licensePlateLabel.text
+    
     conversationViewController.conversation = nil
     conversationViewController.participantIdentifiers = sourceViewController.participantIdentifiers
+    
+    conversationListNavigationController.pushViewController(licensePlateVC, animated: false)
+    conversationListNavigationController.pushViewController(newMessageViewController, animated: false)
+    
     conversationListNavigationController.pushViewController(conversationViewController, animated: false)
-
     conversationViewController.sendInitMessage(sourceViewController.selectedMessage, licensePlate: sourceViewController.licensePlateLabel.text!)
+    
+    conversationViewController.navigationItem.backBarButtonItem?.title = "Back"
     
   }
   

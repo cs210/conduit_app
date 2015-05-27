@@ -36,11 +36,17 @@ class ConversationViewController : ATLConversationViewController {
     self.messageInputToolbar.rightAccessoryButton.setTitleColor(StyleColor.getColor(.Primary, brightness: .Medium), forState:.Normal)
     self.messageInputToolbar.rightAccessoryButton.backgroundColor = nil
     self.messageInputToolbar.textInputView.font = UIFont(name: StyleHelpers.FONT_NAME, size: StyleHelpers.FONT_SIZE)
-   
+    
+
+//    StyleHelpers.setBackButton(self.navigationItem, label: "Back")
+//    self.navigationController?.navigationBar.backItem!.title = ""
+//    self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: StyleHelpers.FONT_NAME, size: StyleHelpers.FONT_SIZE)!]
+//    
   }
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
+    
     if self.isEmptyConversation != nil && self.isEmptyConversation == true {
       self.messageInputToolbar.textInputView.becomeFirstResponder()
     }
@@ -95,11 +101,20 @@ class ConversationViewController : ATLConversationViewController {
     var success:Bool = self.conversation.sendMessage(message, error:&error)
     if (success) {
       NSLog("Message queued to be sent: \(messageText)");
+      resetViewControllers()
     } else {
       NSLog("Message send failed: \(error)");
     }
     
-    
+  }
+  
+  func resetViewControllers() {
+    if (self.navigationController!.viewControllers[1].isKindOfClass(LicenseInputController)) {
+      var navArray = self.navigationController!.viewControllers
+      navArray.removeAtIndex(1)
+      navArray.removeAtIndex(1)
+      self.navigationController!.viewControllers = navArray
+    }
   }
  
   func configureUIColors () {
@@ -117,20 +132,8 @@ class ConversationViewController : ATLConversationViewController {
     ATLOutgoingMessageCollectionViewCell.appearance().messageTextFont = UIFont(name: StyleHelpers.FONT_NAME, size: StyleHelpers.FONT_SIZE)
     
     ATLMessageInputToolbar.appearance().tintColor = TextColor.getTextColor(.Dark)
-    
-//    applyConversationAppearance()
   }
-  
-//  func applyConversationAppearance() {
-//    UIButton.appearance().tintColor = TextColor.getTextColor(.Dark)
-//    UIButton.appearance().backgroundColor = UIColor.whiteColor()
-//  }
-//  
-//  func resetGlobalAppearance() {
-//    UIButton.appearance().tintColor = TextColor.getTextColor(.Light)
-//    UIButton.appearance().backgroundColor = StyleColor.getColor(.Primary, brightness: .Medium)
-//  }
-//  
+ 
 }
 
 extension ConversationViewController: ATLConversationViewControllerDelegate {
@@ -138,6 +141,7 @@ extension ConversationViewController: ATLConversationViewControllerDelegate {
   func conversationViewController(viewController: ATLConversationViewController!, didSendMessage message: LYRMessage!) {
     println("Message Sent!")
     self.isEmptyConversation = false
+    resetViewControllers()
   }
   
   func conversationViewController(viewController: ATLConversationViewController!, didFailSendingMessage message: LYRMessage!, error: NSError!) {

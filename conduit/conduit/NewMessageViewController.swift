@@ -31,13 +31,17 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
     AnalyticsHelper.trackScreen("NewMessage")
     presetTable.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
     presetTable.separatorInset = UIEdgeInsetsZero
-
+    presetTable.reloadData()
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     toFieldBackground.backgroundColor = StyleColor.getColor(.Grey, brightness: .Light)
     licensePlateLabel.text = licensePlate
+    presetTable.reloadData()
+    
+ //   StyleHelpers.setBackButton(self.navigationItem, label: "Back")
+
   }
 
   func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
