@@ -162,6 +162,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
     } else {
       application.registerForRemoteNotificationTypes(UIRemoteNotificationType.Badge | UIRemoteNotificationType.Alert | UIRemoteNotificationType.Sound)
     }
+
   }
   
   func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
