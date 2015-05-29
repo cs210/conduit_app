@@ -31,7 +31,7 @@
         <scene sceneID="o8t-GF-nsS">
             <objects>
                 <tableViewController id="xQ5-7M-shh" customClass="SettingsViewController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="SpR-eW-3jv">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="SpR-eW-3jv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,19 +48,8 @@
                             <outlet property="delegate" destination="xQ5-7M-shh" id="P2K-eD-Pr5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="Kv0-wd-ty8">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="Bak-nc-0ME">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="96g-Jg-mCk">
-                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Menu">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Settings" id="Kv0-wd-ty8"/>
                     <connections>
-                        <outlet property="menuButton" destination="96g-Jg-mCk" id="MmZ-M7-VXp"/>
                         <segue destination="OAf-hD-Gcj" kind="push" identifier="car_management_segue" id="C4V-tI-Unt"/>
                         <segue destination="4ag-mv-46A" kind="push" identifier="confirm_password_segue" id="cdh-wq-0HR"/>
                         <segue destination="YNa-1T-O9y" kind="push" identifier="change_password_segue" id="fWR-fM-WyT"/>
@@ -567,15 +556,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Invite Friends" id="XXV-2i-DxI">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="THP-kP-i1g">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Yxn-jM-Ewo">
-                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Menu">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="FE7-Dk-P0G">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hMK-Ik-yvX">
                                 <rect key="frame" x="-23" y="-15" width="71" height="30"/>
@@ -593,7 +573,6 @@
                         <outlet property="doneButton" destination="hMK-Ik-yvX" id="buU-gm-YPF"/>
                         <outlet property="facebookButton" destination="Kq2-6O-Vgz" id="jxz-js-ogM"/>
                         <outlet property="infoLabel" destination="IiO-CA-THB" id="JcI-CH-ZNy"/>
-                        <outlet property="menuButton" destination="Yxn-jM-Ewo" id="GED-4v-AVj"/>
                         <outlet property="twitterButton" destination="1Xa-dC-SfX" id="ds3-hB-Ruc"/>
                     </connections>
                 </viewController>
@@ -696,24 +675,10 @@
                             <outletCollection property="gestureRecognizers" destination="d2l-Ag-1zH" appends="YES" id="gQo-YN-w6c"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Make a Request" id="d9X-y3-qbQ">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="yGs-tv-8Or">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aIh-Bi-lZV">
-                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Menu">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="dismissKeyboard:" destination="A5k-4W-Gp3" eventType="touchUpInside" id="201-te-WUe"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Make a Request" id="d9X-y3-qbQ"/>
                     <connections>
                         <outlet property="continueButton" destination="JaX-Ms-ofI" id="OBd-Xg-1Gi"/>
                         <outlet property="licenseField" destination="UcA-j5-iKw" id="3j1-t0-Ld8"/>
-                        <outlet property="menuButton" destination="aIh-Bi-lZV" id="aE6-hS-O6E"/>
                         <outlet property="scrollView" destination="nLo-nW-HDs" id="ZQM-v8-Vc6"/>
                         <segue destination="HgJ-U3-ESl" kind="modal" identifier="to_login" id="edj-QH-H9A"/>
                         <segue destination="Z91-TC-IGc" kind="push" identifier="to_new_message" id="cIu-jd-hhn"/>
@@ -1694,7 +1659,7 @@
         <scene sceneID="tWh-7E-McM">
             <objects>
                 <tableViewController restorationIdentifier="MenuViewController" id="Xmb-fj-rHA" customClass="MenuTableViewController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="AJb-8H-a3c">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="AJb-8H-a3c">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1763,16 +1728,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="MPZ-Wq-fgr">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="Z91-qw-KfW">
-                            <connections>
-                                <action selector="menuPressed:" destination="E6s-kG-WmU" id="Dl8-S5-c0c"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="menuButton" destination="Z91-qw-KfW" id="bDE-zV-ig3"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="MPZ-Wq-fgr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lba-EI-swJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1843,7 +1799,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="YKv-ZP-RES"/>
+        <segue reference="psz-Zh-Tf1"/>
         <segue reference="a4X-s1-m85"/>
     </inferredMetricsTieBreakers>
 </document>

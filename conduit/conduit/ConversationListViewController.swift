@@ -16,12 +16,9 @@ class ConversationListViewController : ATLConversationListViewController, ATLCon
   var selectedIndex: NSIndexPath!
   var dateFormatter: NSDateFormatter!
   
-  @IBOutlet weak var menuButton: UIBarButtonItem!
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("ConversationsList")
-    menuButton.setTitleTextAttributes([NSFontAttributeName : UIFont(name: StyleHelpers.FONT_NAME, size: StyleHelpers.FONT_SIZE)!, NSForegroundColorAttributeName : TextColor.getTextColor(.Light)], forState: .Normal)
-    
   }
   
   // The conversation view controllers uses this to start new conversations
@@ -46,6 +43,11 @@ class ConversationListViewController : ATLConversationListViewController, ATLCon
     self.view.addGestureRecognizer(swipeRight)
     
     self.configureAppearance()
+    
+    var menuIcon = UIImage(named: "menu.png") as UIImage!
+    
+    var barButton = UIBarButtonItem(image: menuIcon, style: UIBarButtonItemStyle.Plain, target: self.revealViewController(), action: "revealToggle:")
+    self.navigationItem.leftBarButtonItem = barButton
 
   }
   
@@ -78,7 +80,6 @@ class ConversationListViewController : ATLConversationListViewController, ATLCon
 
   
   override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-//    super.tableView(tableView, willDisplayCell: cell, forRowAtIndexPath: indexPath)
     cell.separatorInset = UIEdgeInsetsZero
     cell.layoutMargins = UIEdgeInsetsZero
     cell.preservesSuperviewLayoutMargins = false
