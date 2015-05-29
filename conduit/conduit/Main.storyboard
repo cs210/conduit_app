@@ -884,6 +884,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome!" id="Tc2-yW-ScC"/>
+                    <connections>
+                        <outlet property="addCarButton" destination="TRP-KJ-eKH" id="qRU-0k-MhA"/>
+                        <outlet property="notNowButton" destination="Rup-qh-aqC" id="AeO-1y-eRm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7XY-Ad-Klu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
