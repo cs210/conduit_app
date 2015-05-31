@@ -44,6 +44,7 @@ class ChangeNotificationsViewController: UIViewController {
     }
     
     let setPush = changeNotificationSwitch.on
+
     var defaults = NSUserDefaults.standardUserDefaults()
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var deviceToken : NSData? = defaults.valueForKey("deviceToken")?.data
@@ -56,7 +57,6 @@ class ChangeNotificationsViewController: UIViewController {
         // if there's no device token already, we have to go through the entire process of registering
         if deviceToken == nil {
           appDelegate.registerApplicationForPushNotifications(UIApplication.sharedApplication())
-          return
         }
         
         // if there is a device token, we can just set it below as per usual

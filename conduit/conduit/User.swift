@@ -90,7 +90,7 @@ class User: APIModel, ATLParticipant, NSCoding {
       "last_name": self.lastName,
       "phone_number": self.phoneNumber,
       "email_address": self.emailAddress,
-      "push_enabled": self.pushEnabled
+      "push_enabled": self.pushEnabled ? "1" : "0"
     ]
     
     if let id = self.id {
@@ -107,7 +107,8 @@ class User: APIModel, ATLParticipant, NSCoding {
   override func update(completion: (result: JSON?, error: NSError?) -> ()){
     var sessionToken = NSUserDefaults().stringForKey("session")
     var path = "users/\(sessionToken!)"
-    APIModel.put(path, parameters: self.present()) { (result, error) -> () in
+    var params = self.present()
+    APIModel.put(path, parameters: params) { (result, error) -> () in
       if (error != nil) {
         completion(result: nil, error: error!)
       } else {
