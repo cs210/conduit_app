@@ -33,17 +33,9 @@ class ConfirmPasswordViewController: UIViewController, UITextFieldDelegate {
     
   }
   
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-     
-    }
-  
   @IBAction func dismissKeyboard(sender: AnyObject) {
     view.endEditing(true)
   }
-  
   
   func keyboardWillShow(notification: NSNotification) {
     var info = notification.userInfo as! [String: NSObject]
