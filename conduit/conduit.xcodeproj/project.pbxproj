@@ -29,7 +29,6 @@
 		BD7039671AF9FC32009E87D8 /* ErrorHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7039661AF9FC32009E87D8 /* ErrorHelpers.swift */; };
 		BD7381111AFCBAEE00B870AB /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD7381101AFCBAEE00B870AB /* SourceSansPro-Light.ttf */; };
 		BD8027A31AFC3A0100E280A9 /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8027A21AFC3A0100E280A9 /* AnalyticsHelper.swift */; };
-		BDAAC56B1B17E7010028FBDE /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = BDAAC56A1B17E7010028FBDE /* menu.png */; };
 		BDB898411AEC3301007E8FE1 /* InviteFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */; };
 		BDD28DC31ACDDD4E001B031D /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD28DC21ACDDD4E001B031D /* ConversationViewController.swift */; };
 		BDE4EB5F1AAC2A8900588511 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */; };
@@ -51,6 +50,7 @@
 		C56BFC9E1ABAA1FF0074FCAA /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BFC9D1ABAA1FF0074FCAA /* Car.swift */; };
 		C56BFCA01ABAA2330074FCAA /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BFC9F1ABAA2330074FCAA /* Conversation.swift */; };
 		C56BFCA21ABAA2400074FCAA /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56BFCA11ABAA2400074FCAA /* Message.swift */; };
+		C571FA9E1B1EB55D0021D0EF /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = C571FA9D1B1EB55D0021D0EF /* menu.png */; };
 		C5762AC71AEF64FE00275E89 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5762AC61AEF64FE00275E89 /* WelcomeViewController.swift */; };
 		C5B7FC971AE7008A001F6E9C /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B7FC961AE7008A001F6E9C /* DataStore.swift */; };
 		C5C70DC21AA68EDE00BE0753 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C70DC11AA68EDE00BE0753 /* AppDelegate.swift */; };
@@ -149,7 +149,6 @@
 		BD7039661AF9FC32009E87D8 /* ErrorHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHelpers.swift; sourceTree = "<group>"; };
 		BD7381101AFCBAEE00B870AB /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.ttf"; sourceTree = "<group>"; };
 		BD8027A21AFC3A0100E280A9 /* AnalyticsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
-		BDAAC56A1B17E7010028FBDE /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		BDB898401AEC3301007E8FE1 /* InviteFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendsViewController.swift; sourceTree = "<group>"; };
 		BDD28DC21ACDDD4E001B031D /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		BDE4EB5E1AAC2A8900588511 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +171,7 @@
 		C56BFC9D1ABAA1FF0074FCAA /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		C56BFC9F1ABAA2330074FCAA /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		C56BFCA11ABAA2400074FCAA /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		C571FA9D1B1EB55D0021D0EF /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		C5762AC61AEF64FE00275E89 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		C5AA6A791ACC658F00FE9586 /* ConduitPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ConduitPlayground.playground; sourceTree = "<group>"; };
 		C5B7FC961AE7008A001F6E9C /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
@@ -353,7 +353,7 @@
 			children = (
 				BD5140F11B0139F600C5F311 /* Twitter_logo_blue.png */,
 				BD5140F51B013A0F00C5F311 /* background_image.png */,
-				BDAAC56A1B17E7010028FBDE /* menu.png */,
+				C571FA9D1B1EB55D0021D0EF /* menu.png */,
 				BD5140F31B013A0600C5F311 /* FB-f-Logo__blue_144.png */,
 			);
 			name = Images;
@@ -735,7 +735,7 @@
 				C53CE0D81AFC67A30071A4C4 /* Main.storyboard in Resources */,
 				C5D02F071AE085B000C201A5 /* layerbell.caf in Resources */,
 				BD7381111AFCBAEE00B870AB /* SourceSansPro-Light.ttf in Resources */,
-				BDAAC56B1B17E7010028FBDE /* menu.png in Resources */,
+				C571FA9E1B1EB55D0021D0EF /* menu.png in Resources */,
 				BD5140F21B0139F600C5F311 /* Twitter_logo_blue.png in Resources */,
 				C53CE0DA1AFC67AF0071A4C4 /* LaunchScreen.xib in Resources */,
 				C5D02F021AE085B000C201A5 /* camera_dark@2x.png in Resources */,
