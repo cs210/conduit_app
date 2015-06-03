@@ -30,7 +30,7 @@ class SendToConversationSegue: UIStoryboardSegue {
 
     conversationListNavigationController.pushViewController(sourceViewController, animated: false)
     
-    sourceViewController.promptSaveToPresets()
+    NSTimer.scheduledTimerWithTimeInterval(1.0, target: sourceViewController, selector: Selector("promptSaveToPresets"), userInfo: nil, repeats: false)
   }
   
 }

@@ -23,6 +23,8 @@ class AddCarViewController : UIViewController {
     
     StyleHelpers.setButtonFont(cancelButton)
     StyleHelpers.setButtonFont(doneButton)
+    StyleHelpers.setButtonFont(addCarButton)
+    StyleHelpers.setBackButton(self.navigationItem, label: "")
 
   }
   

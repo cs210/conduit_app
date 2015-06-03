@@ -11,9 +11,14 @@ import UIKit
 
 class WelcomeViewController : UIViewController {
   
+  @IBOutlet weak var addCarButton: UIButton!
+  @IBOutlet weak var notNowButton: UIButton!
+  
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("Welcome")
+    StyleHelpers.setButtonFont(addCarButton)
+    StyleHelpers.setButtonFont(notNowButton)
   }
   
   override func viewDidLoad() {

@@ -11,7 +11,6 @@ import Foundation
 class LicenseInputController : UIViewController, SWRevealViewControllerDelegate {
 
   @IBOutlet weak var licenseField: UITextField!
-  @IBOutlet weak var menuButton: UIButton!
   @IBOutlet weak var continueButton: UIButton!
   @IBOutlet weak var scrollView: UIScrollView!
   
@@ -21,7 +20,6 @@ class LicenseInputController : UIViewController, SWRevealViewControllerDelegate 
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     StyleHelpers.setButtonFont(continueButton)
-    StyleHelpers.setButtonFont(menuButton)
     
   }
   
@@ -41,7 +39,11 @@ class LicenseInputController : UIViewController, SWRevealViewControllerDelegate 
     var swipeRight = UISwipeGestureRecognizer(target: self.revealViewController(), action: "revealToggle:")
     swipeRight.direction = UISwipeGestureRecognizerDirection.Right
     self.view.addGestureRecognizer(swipeRight)
-    menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
+    
+    var menuIcon = UIImage(named: "menu.png") as UIImage!
+    
+    var barButton = UIBarButtonItem(image: menuIcon, style: UIBarButtonItemStyle.Plain, target: self.revealViewController(), action: "revealToggle:")
+    self.navigationItem.leftBarButtonItem = barButton
     
     continueButton.backgroundColor = StyleColor.getColor(.Grey, brightness: .Medium)
     

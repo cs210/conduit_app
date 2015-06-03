@@ -63,8 +63,16 @@ class APIModel: NSObject {
         post_completion(result:nil, error:error!)
       } else {
         var json = JSON(json!)
+        
+        var error : NSError?
+        if json["error"] != nil {
+          error = NSError()
+        } else {
+          error = nil
+        }
+        
         NSLog("POST Result: \(json)")
-        post_completion(result:json, error:nil)
+        post_completion(result:json, error:error)
       }
     }
   }

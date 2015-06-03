@@ -35,6 +35,7 @@ class MenuTableViewController: UITableViewController {
       return menuOptions.count
   }
   
+  
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       // TODO: This is where we go to a new view.
       

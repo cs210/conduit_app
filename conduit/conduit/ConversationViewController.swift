@@ -86,7 +86,7 @@ class ConversationViewController : ATLConversationViewController {
     }
     
     var messagePart: LYRMessagePart = LYRMessagePart(text: self.messageText)
-    var pushMessage: String = "New Message: \"\(self.messageText!)\""
+    var pushMessage: String = "New Message: \(self.messageText!)"
     var message: LYRMessage = self.layerClient.newMessageWithParts([messagePart], options: [LYRMessageOptionsPushNotificationAlertKey: pushMessage], error: nil)
     
     // Send message
@@ -136,14 +136,14 @@ class ConversationViewController : ATLConversationViewController {
     
     alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
       DataStore.sharedInstance.addPresetMessage(messageText)
+      self.view.becomeFirstResponder()
     }))
     
-    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
-    
-    dispatch_after(1, dispatch_get_main_queue()) { () -> Void in
-      self.presentViewController(alert, animated: true, completion: nil)
-    }
-    
+    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { (action) -> Void in
+      self.view.becomeFirstResponder()
+    }))
+
+    self.presentViewController(alert, animated: true, completion: nil)
     self.isEmptyConversation = false
   }
  

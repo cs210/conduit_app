@@ -13,7 +13,7 @@ import Social
 class InviteFriendsViewController : UIViewController, SWRevealViewControllerDelegate {
   
   @IBOutlet weak var infoLabel: UILabel!
-  @IBOutlet weak var menuButton: UIButton!
+  var menuButton: UIButton?
   @IBOutlet weak var doneButton: UIButton!
   
   @IBOutlet weak var facebookButton: UIButton!
@@ -41,21 +41,24 @@ class InviteFriendsViewController : UIViewController, SWRevealViewControllerDele
     twitterButton.tintColor = nil
     twitterButton.backgroundColor = nil
     
-    StyleHelpers.setButtonFont(menuButton)
     StyleHelpers.setButtonFont(doneButton)
   }
   
   override func viewDidLoad() {
     var defaults = NSUserDefaults.standardUserDefaults()
     if defaults.boolForKey("isNewAccount") {
-      menuButton.hidden = true
     } else {
       // Setup reveal view controller
       self.revealViewController().delegate = self
       var swipeRight = UISwipeGestureRecognizer(target: self.revealViewController(), action: "revealToggle:")
       swipeRight.direction = UISwipeGestureRecognizerDirection.Right
       self.view.addGestureRecognizer(swipeRight)
-      menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
+      
+      var menuIcon = UIImage(named: "menu.png") as UIImage!
+
+      var barButton = UIBarButtonItem(image: menuIcon, style: UIBarButtonItemStyle.Plain, target: self.revealViewController(), action: "revealToggle:")
+      self.navigationItem.leftBarButtonItem = barButton
+
       doneButton.hidden = true
     }
     infoLabel.text = HEADER_MESSAGE

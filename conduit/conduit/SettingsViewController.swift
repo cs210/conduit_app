@@ -12,8 +12,6 @@ import UIKit
 class SettingsViewController : UITableViewController, ConfirmPasswordDelegate, SWRevealViewControllerDelegate {
   var menuOptions = ["Change Name", "Change Password", "Change Email", "Change Phone Number", "Change Push Notifications", "Car Management"]
   var segueOptions = ["change_name_segue", "change_password_segue", "change_email_segue", "change_phone_segue", "change_push_notifs_segue", "car_management_segue"]
-
-  @IBOutlet weak var menuButton: UIButton!
   
   override func viewDidLoad() {
     // Setup reveal view controller
@@ -21,7 +19,11 @@ class SettingsViewController : UITableViewController, ConfirmPasswordDelegate, S
     var swipeRight = UISwipeGestureRecognizer(target: self.revealViewController(), action: "revealToggle:")
     swipeRight.direction = UISwipeGestureRecognizerDirection.Right
     self.view.addGestureRecognizer(swipeRight)
-    menuButton.addTarget(self.revealViewController(), action:"revealToggle:", forControlEvents:UIControlEvents.TouchUpInside)
+    
+    var menuIcon = UIImage(named: "menu.png") as UIImage!
+    
+    var barButton = UIBarButtonItem(image: menuIcon, style: UIBarButtonItemStyle.Plain, target: self.revealViewController(), action: "revealToggle:")
+    self.navigationItem.leftBarButtonItem = barButton
     
     var defaults = NSUserDefaults.standardUserDefaults()
     println(defaults.stringForKey("session"))
@@ -33,7 +35,6 @@ class SettingsViewController : UITableViewController, ConfirmPasswordDelegate, S
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     AnalyticsHelper.trackScreen("Settings")
-    StyleHelpers.setButtonFont(menuButton)
   }
   
   func revealController(revealController: SWRevealViewController!,  willMoveToPosition position: FrontViewPosition){
@@ -73,6 +74,7 @@ class SettingsViewController : UITableViewController, ConfirmPasswordDelegate, S
       performSegueWithIdentifier(segueOptions[indexPath.row], sender: cell)
     }
   }
+
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     AnalyticsHelper.trackTouchEvent(segue.identifier!)
