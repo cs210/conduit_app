@@ -112,6 +112,26 @@ extension ConversationListViewController: ATLConversationListViewControllerDataS
 
 extension ConversationListViewController: ATLConversationListViewControllerDelegate {
   
+  func conversationListViewController(conversationListViewController: ATLConversationListViewController!, textForButtonWithDeletionMode deletionMode: LYRDeletionMode) -> String! {
+    
+    switch deletionMode {
+    case LYRDeletionMode.AllParticipants:
+      return "Delete"
+    case LYRDeletionMode.Local:
+      return "Hide"
+    }
+  }
+  
+  func conversationListViewController(conversationListViewController: ATLConversationListViewController!, colorForButtonWithDeletionMode deletionMode: LYRDeletionMode) -> UIColor! {
+    
+    switch deletionMode {
+    case LYRDeletionMode.AllParticipants:
+      return StyleColor.getColor(StyleColor.Color.Error, brightness: StyleColor.Brightness.Light)
+    case LYRDeletionMode.Local:
+      return StyleColor.getColor(StyleColor.Color.Grey, brightness: StyleColor.Brightness.Medium)
+    }
+  }
+  
   func conversationListViewController(conversationListViewController: ATLConversationListViewController!, didSelectConversation conversation: LYRConversation!) {
     AnalyticsHelper.trackTouchEvent("view_conversation")
     var conversationTitle = self.conversationListViewController(conversationListViewController, titleForConversation: conversation)

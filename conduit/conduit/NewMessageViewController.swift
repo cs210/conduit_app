@@ -12,12 +12,8 @@ import UIKit
 class NewMessageViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
   // Init selected message to "" because  you can't send an empty message
   var selectedMessage = ""
-  var presetMessages = [
-    "I'm low on charge. Could I please use the charging station?",
-    "Hi! When will you be back to your car?",
-    "Could you please come move your car?"
-  ]
-  
+
+  var presetMessages: [String] = []
   var licensePlate: String!
   var participantIdentifiers : [String] = []
   
@@ -35,6 +31,9 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    self.presetMessages = DataStore.sharedInstance.readPresetMessages()!
+    
     toFieldBackground.backgroundColor = StyleColor.getColor(.Grey, brightness: .Light)
     licensePlateLabel.text = licensePlate
     presetTable.reloadData()

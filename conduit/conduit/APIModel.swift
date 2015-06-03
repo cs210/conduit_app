@@ -10,16 +10,8 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-#if arch(i386) || arch(x86_64)
 //  let APIURL = "http://localhost:1337/"
-  let APIURL = "http://104.236.149.170/"
-#else
-//  let APIURL = "http://localhost:1337/"
-  let APIURL = "http://104.236.149.170/"
-#endif
-
-// default base url
-
+let APIURL = "http://104.236.149.170/"
 
 /* Defines a base API model class, which implements basic REST functionality on any subclass.
    PATH is optional since introspection can determine the model name. If provided, it is always 

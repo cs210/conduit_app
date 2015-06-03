@@ -15,7 +15,7 @@ class ConversationViewController : ATLConversationViewController {
   var dateFormatter: NSDateFormatter!
   var participantIdentifiers: [String]?
   var licensePlate: String?
-  var isEmptyConversation : Bool?
+  var isEmptyConversation : Bool = false
   var messageText: String?
 
   override func viewDidLoad() {
@@ -42,10 +42,8 @@ class ConversationViewController : ATLConversationViewController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
-    if let isEmpty = self.isEmptyConversation {
-      if isEmpty {
-        self.messageInputToolbar.textInputView.becomeFirstResponder()
-      }
+    if self.isEmptyConversation {
+      self.messageInputToolbar.textInputView.becomeFirstResponder()
     }
     
   }
@@ -88,7 +86,7 @@ class ConversationViewController : ATLConversationViewController {
     }
     
     var messagePart: LYRMessagePart = LYRMessagePart(text: self.messageText)
-    var pushMessage: String = "A user says: \"\(self.messageText)\""
+    var pushMessage: String = "New Message: \"\(self.messageText!)\""
     var message: LYRMessage = self.layerClient.newMessageWithParts([messagePart], options: [LYRMessageOptionsPushNotificationAlertKey: pushMessage], error: nil)
     
     // Send message
@@ -124,19 +122,40 @@ class ConversationViewController : ATLConversationViewController {
     
     ATLMessageInputToolbar.appearance().tintColor = TextColor.getTextColor(.Dark)
   }
+  
+  func promptSaveToPresets() {
+    
+    if !self.isEmptyConversation {
+      return
+    }
+    
+    var messagePart:LYRMessagePart = self.conversation.lastMessage.parts[0] as! LYRMessagePart
+    let messageText = NSString(data: messagePart.data, encoding: NSUTF8StringEncoding) as! String
+
+    var alert = UIAlertController(title: "Save as a preset message?", message: messageText, preferredStyle: UIAlertControllerStyle.Alert)
+    
+    alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+      DataStore.sharedInstance.addPresetMessage(messageText)
+    }))
+    
+    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+    
+    dispatch_after(1, dispatch_get_main_queue()) { () -> Void in
+      self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    self.isEmptyConversation = false
+  }
  
 }
 
 extension ConversationViewController: ATLConversationViewControllerDelegate {
 
   func conversationViewController(viewController: ATLConversationViewController!, didSendMessage message: LYRMessage!) {
-    println("Message Sent!")
-  
-    if let isEmpty = self.isEmptyConversation {
-      if isEmpty {
-        self.resetViewControllers()
-        self.isEmptyConversation = false
-      }
+    println("Message Sent! \(message)")
+    
+    if self.isEmptyConversation {
+      self.resetViewControllers()
     }
     
   }
@@ -166,10 +185,9 @@ extension ConversationViewController: ATLParticipantTableViewControllerDelegate 
 extension ConversationViewController: ATLConversationViewControllerDataSource {
   
   func conversationViewController(conversationViewController: ATLConversationViewController!, participantForIdentifier participantIdentifier: String!) -> ATLParticipant! {
-    if (participantIdentifier != nil) {
-      return DataStore.sharedInstance.userForIdentifier(participantIdentifier)
-    }
-    return nil
+
+    var currentUser: User = User.getUserFromDefaults()!
+    return currentUser
   }
   
   func conversationViewController(conversationViewController: ATLConversationViewController!, attributedStringForDisplayOfDate date: NSDate!) -> NSAttributedString! {

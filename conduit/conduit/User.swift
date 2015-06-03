@@ -33,7 +33,9 @@ class User: APIModel, ATLParticipant, NSCoding {
 
     self.firstName = firstName
     self.lastName = lastName
-    self.fullName = "\(firstName) \(lastName)"
+    // fullName is used by layer to generate p…ush notification messages... 
+    // we purposefully ommit the last name.
+    self.fullName = "New Message"
     self.phoneNumber = phoneNumber
     self.emailAddress = emailAddress
     self.deviceToken = deviceToken

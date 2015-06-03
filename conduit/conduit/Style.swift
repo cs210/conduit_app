@@ -65,7 +65,8 @@ struct StyleColor {
             return UIColor(hue: 0.0,   saturation: 0.0,  brightness: 85.0/100.0, alpha: 1.0)
         }
       case .Error:
-        return UIColor(hue:9.0, saturation: 95.0, brightness:82.0/100.0, alpha:1.0)
+        return UIColor(red: 232.0/255.0, green: 58.0/255.0, blue: 48.0/255.0, alpha: 1.0)
+
     }
   }
 };

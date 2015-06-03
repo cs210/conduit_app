@@ -47,12 +47,25 @@ class MenuTableViewController: UITableViewController {
     } else if menuOptions[indexPath.row] == "Invite Friends" {
       performSegueWithIdentifier("invite_friends_segue", sender: self)
     } else if menuOptions[indexPath.row] == "Log Out" {
-      doLogOut()
+      confirmLogout()
+      tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
   }
   
-  func doLogOut() {
+  func confirmLogout() {
+    var alert = UIAlertController(title: "Are you sure?", message: "This will delete your preset messages.", preferredStyle: UIAlertControllerStyle.Alert)
+    
+    alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+      self.performLogOut()
+    }))
+    
+    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
 
+    self.presentViewController(alert, animated: true, completion: nil)
+  }
+  
+  func performLogOut() {
+    
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     appDelegate.layerClient?.deauthenticateWithCompletion({ (success, err) -> Void in
       if err != nil {
@@ -69,6 +82,7 @@ class MenuTableViewController: UITableViewController {
     })
     
   }
+  
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "conversations_segue" {

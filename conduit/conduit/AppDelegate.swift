@@ -82,6 +82,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LYRClientDelegate {
   }
   
   func proceedFromLogin() {
+    DataStore.sharedInstance.seed()
+    
     let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
     let rootVC : SWRevealViewController = mainStoryboard.instantiateViewControllerWithIdentifier("revealView") as! SWRevealViewController
     self.window!.rootViewController = rootVC

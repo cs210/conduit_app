@@ -29,6 +29,8 @@ class SendToConversationSegue: UIStoryboardSegue {
     var conversationListController: ConversationListViewController = conversationListNavigationController.visibleViewController as! ConversationListViewController
 
     conversationListNavigationController.pushViewController(sourceViewController, animated: false)
+    
+    sourceViewController.promptSaveToPresets()
   }
   
 }
