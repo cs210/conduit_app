@@ -32,7 +32,7 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.presetMessages = DataStore.sharedInstance.readPresetMessages()!
+    self.presetMessages = DataStore.sharedInstance.readPresetMessages()
     
     toFieldBackground.backgroundColor = StyleColor.getColor(.Grey, brightness: .Light)
     licensePlateLabel.text = licensePlate
@@ -74,6 +74,15 @@ class NewMessageViewController : UIViewController, UITableViewDataSource, UITabl
     button.addTarget(self, action: "goToCustomMessage", forControlEvents: UIControlEvents.TouchUpInside)
     StyleHelpers.setButtonFont(button)
     return button
+  }
+  
+  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    if (editingStyle == UITableViewCellEditingStyle.Delete) {
+      var message = presetMessages[indexPath.row]
+      presetMessages.removeAtIndex(indexPath.row)
+      DataStore.sharedInstance.removePresetMessage(message)
+      tableView.reloadData()
+    }
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

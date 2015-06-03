@@ -132,7 +132,7 @@ class ConversationViewController : ATLConversationViewController {
     var messagePart:LYRMessagePart = self.conversation.lastMessage.parts[0] as! LYRMessagePart
     let messageText = NSString(data: messagePart.data, encoding: NSUTF8StringEncoding) as! String
 
-    var alert = UIAlertController(title: "Save as a preset message?", message: messageText, preferredStyle: UIAlertControllerStyle.Alert)
+    var alert = UIAlertController(title: "Save as a preset message?", message: "\"\(messageText)\"", preferredStyle: UIAlertControllerStyle.Alert)
     
     alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
       DataStore.sharedInstance.addPresetMessage(messageText)

@@ -54,7 +54,7 @@ class MenuTableViewController: UITableViewController {
   }
   
   func confirmLogout() {
-    var alert = UIAlertController(title: "Are you sure?", message: "This will delete your preset messages.", preferredStyle: UIAlertControllerStyle.Alert)
+    var alert = UIAlertController(title: "Are you sure you want to logout?", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
     
     alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
       self.performLogOut()

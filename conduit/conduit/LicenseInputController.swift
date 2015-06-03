@@ -47,7 +47,7 @@ class LicenseInputController : UIViewController, SWRevealViewControllerDelegate 
     
     continueButton.backgroundColor = StyleColor.getColor(.Grey, brightness: .Medium)
     
-    var timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self,
+    var timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self,
       selector: "checkTimerFunction", userInfo: nil, repeats: true)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
