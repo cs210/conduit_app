@@ -54,7 +54,6 @@
                         <segue destination="4ag-mv-46A" kind="push" identifier="confirm_password_segue" id="cdh-wq-0HR"/>
                         <segue destination="YNa-1T-O9y" kind="push" identifier="change_password_segue" id="fWR-fM-WyT"/>
                         <segue destination="aSn-GQ-NWE" kind="push" identifier="change_name_segue" id="YV2-Ys-4be"/>
-                        <segue destination="dFx-Ra-K3t" kind="push" identifier="change_push_notifs_segue" id="cWQ-0O-zGZ"/>
                         <segue destination="MOs-id-zPt" kind="push" identifier="change_email_segue" id="DnT-I3-rIe"/>
                         <segue destination="a0B-nx-dJn" kind="push" identifier="change_phone_segue" id="nH1-FI-Wxm"/>
                     </connections>
@@ -1531,63 +1530,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="686" y="2884"/>
-        </scene>
-        <!--Notifications-->
-        <scene sceneID="MZw-p1-27E">
-            <objects>
-                <viewController id="dFx-Ra-K3t" customClass="ChangeNotificationsViewController" customModule="conduit" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1mw-Qp-BjR"/>
-                        <viewControllerLayoutGuide type="bottom" id="HxE-E5-Xcf"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="AZW-ty-XCI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Enable Push Notifications" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LT0-Mb-LQt">
-                                <rect key="frame" x="62" y="162" width="197" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uqk-vV-f1B">
-                                <rect key="frame" x="210" y="238" width="51" height="31"/>
-                            </switch>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8AM-Sv-QPd">
-                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="NQ9-c0-UHs"/>
-                                </constraints>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onSave:" destination="dFx-Ra-K3t" eventType="touchUpInside" id="sAs-Ij-ZwW"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="8AM-Sv-QPd" secondAttribute="trailing" id="42E-K2-sXA"/>
-                            <constraint firstItem="Uqk-vV-f1B" firstAttribute="top" secondItem="LT0-Mb-LQt" secondAttribute="bottom" constant="40" id="FQd-LC-sEt"/>
-                            <constraint firstItem="HxE-E5-Xcf" firstAttribute="top" secondItem="8AM-Sv-QPd" secondAttribute="bottom" id="Hbo-eK-3EM"/>
-                            <constraint firstAttribute="centerX" secondItem="LT0-Mb-LQt" secondAttribute="centerX" id="JQG-hA-Sc8"/>
-                            <constraint firstItem="LT0-Mb-LQt" firstAttribute="top" secondItem="1mw-Qp-BjR" secondAttribute="bottom" constant="100" id="Q1X-Os-S9Y"/>
-                            <constraint firstItem="8AM-Sv-QPd" firstAttribute="leading" secondItem="AZW-ty-XCI" secondAttribute="leading" id="Y5h-JK-qUy"/>
-                            <constraint firstAttribute="centerX" secondItem="Uqk-vV-f1B" secondAttribute="centerX" id="bhp-J6-73n"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Notifications" id="bAh-Uw-2Zb"/>
-                    <connections>
-                        <outlet property="changeNotificationSwitch" destination="Uqk-vV-f1B" id="55Q-CT-Mm5"/>
-                        <outlet property="saveButton" destination="8AM-Sv-QPd" id="VtX-Ys-7PI"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0DF-nT-juQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1022" y="2884"/>
         </scene>
         <!--Change Email-->
         <scene sceneID="Gw8-hP-YRx">
