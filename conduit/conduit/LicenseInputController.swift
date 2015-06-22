@@ -145,8 +145,8 @@ class LicenseInputController : UIViewController, SWRevealViewControllerDelegate 
     NSLog("checkCurrentLicense")
     self.hasChanged = false
     var session = NSUserDefaults().stringForKey("session")!
-    
-    APIModel.get("cars/\(licenseField.text)/users?session_token=\(session)", parameters: nil) {(result, error) in
+    var escapedLicense = licenseField.text.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!
+    APIModel.get("cars/\(escapedLicense)/users?session_token=\(session)", parameters: nil) {(result, error) in
     
       if error != nil {
         NSLog("No car found.")
